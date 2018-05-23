@@ -67,7 +67,8 @@ extension SQLite {
         var image: String = "alarm-clock"
         
         /** 颜色 */
-        var color: Int = Color.red.light.number()
+        //var color: Int = Color.red.light.number()
+        var color: Int = 0
         
     }
     

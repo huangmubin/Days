@@ -13,9 +13,10 @@ protocol KeyboardDelegate: class {
     func keyboard(_ board: Keyboard)
 }
 
+/** 初始化后，必须调用 push() */
 class Keyboard: View, UITextViewDelegate {
     
-    // MARK: - Init
+    // MARK: - View Deploy
     
     //deinit {
     //    print("Keyboard is deinit")
@@ -56,31 +57,40 @@ class Keyboard: View, UITextViewDelegate {
         )
     }
     
-    // MARK: - Push
+    // MARK: - Interface
     
+    /** 数据 */
+    var value: Any { return text.text }
+    
+    /** 弹出窗口 */
     func push() {
-        self.key_window.makeKeyAndVisible()
-        self.text.becomeFirstResponder()
+        key_window.makeKeyAndVisible()
+        text.becomeFirstResponder()
     }
     
-    func update(title: String) {
-        self.title.text = title
-        self.view_bounds()
+    /** 更新 title label */
+    func update(title value: String) {
+        title.text = value
+        view_bounds()
     }
     
-    func update(text: String) {
-        self.text.text = text
-        frame.size.height = frame.height + max(self.text.sizeThatFits(CGSize(width: container.frame.width - 20, height: 1000)).height, 44) - self.text.frame.height
+    /** 更新 text view */
+    func update(text value: String) {
+        text.text = value
+        frame.size.height = frame.height + max(text.sizeThatFits(CGSize(width: container.frame.width - 20, height: 1000)).height, 44) - text.frame.height
     }
     
     // MARK: - Data
     
+    /** 识别 id */
     var id: String = ""
     
+    /** 代理对象 */
     weak var delegate: KeyboardDelegate?
     
     // MARK: - Window
     
+    /** 背景视窗 */
     var key_window: UIWindow = UIWindow(frame: UIScreen.main.bounds)
     
     // MARK: - Title
@@ -151,6 +161,7 @@ class Keyboard: View, UITextViewDelegate {
         return button
     }()
     
+    /** Sure */
     let sure: UIButton = {
         let button = UIButton(type: UIButtonType.system)
         button.tintColor = Color.gray.dark

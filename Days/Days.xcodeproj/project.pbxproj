@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C77E1C820B5A752002CAA25 /* KeyboardDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C77E1C720B5A752002CAA25 /* KeyboardDate.swift */; };
 		9CC89F3020B423130095625C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC89F2F20B423130095625C /* AppDelegate.swift */; };
 		9CC89F3520B423130095625C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC89F3320B423130095625C /* Main.storyboard */; };
 		9CC89F3720B423140095625C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CC89F3620B423140095625C /* Assets.xcassets */; };
@@ -85,6 +86,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C77E1C720B5A752002CAA25 /* KeyboardDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDate.swift; sourceTree = "<group>"; };
 		9CC89F2C20B423130095625C /* Days.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Days.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC89F2F20B423130095625C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CC89F3420B423130095625C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -488,6 +490,7 @@
 			isa = PBXGroup;
 			children = (
 				9CFA482420B579A6004AFD67 /* Keyboard.swift */,
+				9C77E1C720B5A752002CAA25 /* KeyboardDate.swift */,
 			);
 			path = Keyboard;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				9CFA47F420B54975004AFD67 /* Operator.swift in Sources */,
 				9CFA480020B55C84004AFD67 /* Habit_SQlite.swift in Sources */,
 				9CFA47D420B54975004AFD67 /* Ex_Calendar.swift in Sources */,
+				9C77E1C820B5A752002CAA25 /* KeyboardDate.swift in Sources */,
 				9CFA47DA20B54975004AFD67 /* Ex_UIColor.swift in Sources */,
 				9CFA47E620B54975004AFD67 /* InputTextView.swift in Sources */,
 				9CFA47D120B54975004AFD67 /* SQLite.swift in Sources */,
