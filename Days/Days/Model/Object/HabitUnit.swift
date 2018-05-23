@@ -7,3 +7,33 @@
 //
 
 import Foundation
+
+class HabitUnit {
+    
+    // MARK: - Init
+    
+    let obj: SQLite.HabitUnit
+    
+    weak var habit: Habit!
+    
+    init(_ habit: Habit) {
+        self.habit = habit
+        self.obj   = SQLite.HabitUnit()
+        
+        self.obj.belong = habit.obj.id
+        self.obj.start  = Date()
+        self.obj.length = habit.obj.frequency
+    }
+    
+    init(_ habit: Habit, _ obj: SQLite.HabitUnit) {
+        self.habit = habit
+        self.obj = obj
+    }
+    
+    // MARK: - Type
+    
+    /** is time or count */
+    var is_time: Bool { return habit.obj.is_time }
+    
+    
+}

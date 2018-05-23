@@ -64,6 +64,23 @@
 		9CFA47F620B54FD9004AFD67 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA47F520B54FD9004AFD67 /* Font.swift */; };
 		9CFA47F820B55093004AFD67 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA47F720B55093004AFD67 /* MainController.swift */; };
 		9CFA47FA20B557C7004AFD67 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA47F920B557C7004AFD67 /* Format.swift */; };
+		9CFA480020B55C84004AFD67 /* Habit_SQlite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA47FF20B55C84004AFD67 /* Habit_SQlite.swift */; };
+		9CFA480220B55C8A004AFD67 /* HabitUnit_SQlite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA480120B55C8A004AFD67 /* HabitUnit_SQlite.swift */; };
+		9CFA480420B55C90004AFD67 /* Event_SQlite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA480320B55C90004AFD67 /* Event_SQlite.swift */; };
+		9CFA480620B55C97004AFD67 /* EventUnit_SQlite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA480520B55C97004AFD67 /* EventUnit_SQlite.swift */; };
+		9CFA480820B55C9C004AFD67 /* Chart_SQlite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA480720B55C9C004AFD67 /* Chart_SQlite.swift */; };
+		9CFA480A20B55CD5004AFD67 /* ChartUnit_SQlite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA480920B55CD5004AFD67 /* ChartUnit_SQlite.swift */; };
+		9CFA480C20B55CDB004AFD67 /* Diary_SQlite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA480B20B55CDB004AFD67 /* Diary_SQlite.swift */; };
+		9CFA480E20B55CE3004AFD67 /* DiaryUnit_SQlite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA480D20B55CE3004AFD67 /* DiaryUnit_SQlite.swift */; };
+		9CFA481020B55CED004AFD67 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA480F20B55CED004AFD67 /* Habit.swift */; };
+		9CFA481220B55CF4004AFD67 /* HabitUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA481120B55CF4004AFD67 /* HabitUnit.swift */; };
+		9CFA481420B55CF9004AFD67 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA481320B55CF9004AFD67 /* Event.swift */; };
+		9CFA481620B55D00004AFD67 /* EventUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA481520B55D00004AFD67 /* EventUnit.swift */; };
+		9CFA481820B55D04004AFD67 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA481720B55D04004AFD67 /* Chart.swift */; };
+		9CFA481A20B55D0A004AFD67 /* ChartUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA481920B55D0A004AFD67 /* ChartUnit.swift */; };
+		9CFA481C20B55D0F004AFD67 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA481B20B55D0F004AFD67 /* Diary.swift */; };
+		9CFA481E20B55D16004AFD67 /* DiaryUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA481D20B55D16004AFD67 /* DiaryUnit.swift */; };
+		9CFA482020B57477004AFD67 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA481F20B57477004AFD67 /* Resource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +143,23 @@
 		9CFA47F520B54FD9004AFD67 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		9CFA47F720B55093004AFD67 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		9CFA47F920B557C7004AFD67 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
+		9CFA47FF20B55C84004AFD67 /* Habit_SQlite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit_SQlite.swift; sourceTree = "<group>"; };
+		9CFA480120B55C8A004AFD67 /* HabitUnit_SQlite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitUnit_SQlite.swift; sourceTree = "<group>"; };
+		9CFA480320B55C90004AFD67 /* Event_SQlite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event_SQlite.swift; sourceTree = "<group>"; };
+		9CFA480520B55C97004AFD67 /* EventUnit_SQlite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventUnit_SQlite.swift; sourceTree = "<group>"; };
+		9CFA480720B55C9C004AFD67 /* Chart_SQlite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart_SQlite.swift; sourceTree = "<group>"; };
+		9CFA480920B55CD5004AFD67 /* ChartUnit_SQlite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartUnit_SQlite.swift; sourceTree = "<group>"; };
+		9CFA480B20B55CDB004AFD67 /* Diary_SQlite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary_SQlite.swift; sourceTree = "<group>"; };
+		9CFA480D20B55CE3004AFD67 /* DiaryUnit_SQlite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryUnit_SQlite.swift; sourceTree = "<group>"; };
+		9CFA480F20B55CED004AFD67 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
+		9CFA481120B55CF4004AFD67 /* HabitUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitUnit.swift; sourceTree = "<group>"; };
+		9CFA481320B55CF9004AFD67 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		9CFA481520B55D00004AFD67 /* EventUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventUnit.swift; sourceTree = "<group>"; };
+		9CFA481720B55D04004AFD67 /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
+		9CFA481920B55D0A004AFD67 /* ChartUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartUnit.swift; sourceTree = "<group>"; };
+		9CFA481B20B55D0F004AFD67 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
+		9CFA481D20B55D16004AFD67 /* DiaryUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryUnit.swift; sourceTree = "<group>"; };
+		9CFA481F20B57477004AFD67 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				9CFA478120B5494B004AFD67 /* Profile */,
+				9CFA47FB20B55BCC004AFD67 /* Model */,
 			);
 			path = Days;
 			sourceTree = "<group>";
@@ -202,6 +237,7 @@
 				9CFA478220B5495C004AFD67 /* Color.swift */,
 				9CFA47F520B54FD9004AFD67 /* Font.swift */,
 				9CFA47F920B557C7004AFD67 /* Format.swift */,
+				9CFA481F20B57477004AFD67 /* Resource.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -390,6 +426,45 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		9CFA47FB20B55BCC004AFD67 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9CFA47FE20B55C62004AFD67 /* Object */,
+				9CFA47FC20B55BDB004AFD67 /* SQlite */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9CFA47FC20B55BDB004AFD67 /* SQlite */ = {
+			isa = PBXGroup;
+			children = (
+				9CFA47FF20B55C84004AFD67 /* Habit_SQlite.swift */,
+				9CFA480120B55C8A004AFD67 /* HabitUnit_SQlite.swift */,
+				9CFA480320B55C90004AFD67 /* Event_SQlite.swift */,
+				9CFA480520B55C97004AFD67 /* EventUnit_SQlite.swift */,
+				9CFA480720B55C9C004AFD67 /* Chart_SQlite.swift */,
+				9CFA480920B55CD5004AFD67 /* ChartUnit_SQlite.swift */,
+				9CFA480B20B55CDB004AFD67 /* Diary_SQlite.swift */,
+				9CFA480D20B55CE3004AFD67 /* DiaryUnit_SQlite.swift */,
+			);
+			path = SQlite;
+			sourceTree = "<group>";
+		};
+		9CFA47FE20B55C62004AFD67 /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				9CFA480F20B55CED004AFD67 /* Habit.swift */,
+				9CFA481120B55CF4004AFD67 /* HabitUnit.swift */,
+				9CFA481320B55CF9004AFD67 /* Event.swift */,
+				9CFA481520B55D00004AFD67 /* EventUnit.swift */,
+				9CFA481720B55D04004AFD67 /* Chart.swift */,
+				9CFA481920B55D0A004AFD67 /* ChartUnit.swift */,
+				9CFA481B20B55D0F004AFD67 /* Diary.swift */,
+				9CFA481D20B55D16004AFD67 /* DiaryUnit.swift */,
+			);
+			path = Object;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -470,9 +545,12 @@
 				9CFA47D320B54975004AFD67 /* Ex_Array.swift in Sources */,
 				9CFA47CF20B54975004AFD67 /* View.swift in Sources */,
 				9CFA47EA20B54975004AFD67 /* VarlenaInput.swift in Sources */,
+				9CFA480A20B55CD5004AFD67 /* ChartUnit_SQlite.swift in Sources */,
 				9CFA47DE20B54975004AFD67 /* Ex_UIScreen.swift in Sources */,
+				9CFA481C20B55D0F004AFD67 /* Diary.swift in Sources */,
 				9CFA47D820B54975004AFD67 /* Ex_Int.swift in Sources */,
 				9CFA47F420B54975004AFD67 /* Operator.swift in Sources */,
+				9CFA480020B55C84004AFD67 /* Habit_SQlite.swift in Sources */,
 				9CFA47D420B54975004AFD67 /* Ex_Calendar.swift in Sources */,
 				9CFA47DA20B54975004AFD67 /* Ex_UIColor.swift in Sources */,
 				9CFA47E620B54975004AFD67 /* InputTextView.swift in Sources */,
@@ -485,12 +563,19 @@
 				9CFA47F120B54975004AFD67 /* KeyValue.swift in Sources */,
 				9CFA47E020B54975004AFD67 /* Ex_UITextField.swift in Sources */,
 				9CFA47D220B54975004AFD67 /* SQLiteProtocol.swift in Sources */,
+				9CFA481820B55D04004AFD67 /* Chart.swift in Sources */,
 				9CFA47DC20B54975004AFD67 /* Ex_UIImage.swift in Sources */,
+				9CFA480820B55C9C004AFD67 /* Chart_SQlite.swift in Sources */,
 				9CFA47EC20B54975004AFD67 /* ProgressView.swift in Sources */,
+				9CFA480C20B55CDB004AFD67 /* Diary_SQlite.swift in Sources */,
+				9CFA480220B55C8A004AFD67 /* HabitUnit_SQlite.swift in Sources */,
 				9CFA47D920B54975004AFD67 /* Ex_String.swift in Sources */,
 				9CFA47DD20B54975004AFD67 /* Ex_UILabel.swift in Sources */,
+				9CFA481A20B55D0A004AFD67 /* ChartUnit.swift in Sources */,
 				9CFA47F820B55093004AFD67 /* MainController.swift in Sources */,
+				9CFA481E20B55D16004AFD67 /* DiaryUnit.swift in Sources */,
 				9CFA47E420B54975004AFD67 /* CalendarView.swift in Sources */,
+				9CFA480620B55C97004AFD67 /* EventUnit_SQlite.swift in Sources */,
 				9CFA47F320B54975004AFD67 /* Notifiable.swift in Sources */,
 				9CFA47FA20B557C7004AFD67 /* Format.swift in Sources */,
 				9CFA47C720B54975004AFD67 /* ImageView.swift in Sources */,
@@ -499,14 +584,21 @@
 				9CFA47E820B54975004AFD67 /* InputView.swift in Sources */,
 				9CFA47ED20B54975004AFD67 /* RoundProgress.swift in Sources */,
 				9CFA47C520B54975004AFD67 /* Animation.swift in Sources */,
+				9CFA481020B55CED004AFD67 /* Habit.swift in Sources */,
 				9CFA47CD20B54975004AFD67 /* TableViewHeaderFooter.swift in Sources */,
 				9CFA47EF20B54975004AFD67 /* iSelector.swift in Sources */,
+				9CFA481220B55CF4004AFD67 /* HabitUnit.swift in Sources */,
 				9CFA47F620B54FD9004AFD67 /* Font.swift in Sources */,
 				9CFA47F220B54975004AFD67 /* NibLoable.swift in Sources */,
+				9CFA480420B55C90004AFD67 /* Event_SQlite.swift in Sources */,
+				9CFA482020B57477004AFD67 /* Resource.swift in Sources */,
 				9CFA47CB20B54975004AFD67 /* TableView.swift in Sources */,
 				9CFA47CC20B54975004AFD67 /* TableViewCell.swift in Sources */,
 				9CFA47D520B54975004AFD67 /* Ex_Date.swift in Sources */,
+				9CFA481420B55CF9004AFD67 /* Event.swift in Sources */,
+				9CFA481620B55D00004AFD67 /* EventUnit.swift in Sources */,
 				9CFA47CE20B54975004AFD67 /* TableViewController.swift in Sources */,
+				9CFA480E20B55CE3004AFD67 /* DiaryUnit_SQlite.swift in Sources */,
 				9CFA47D620B54975004AFD67 /* Ex_DateFormatter.swift in Sources */,
 				9CFA47C820B54975004AFD67 /* CardSeparator.swift in Sources */,
 				9CFA47DF20B54975004AFD67 /* Ex_UIStoryboardSegue.swift in Sources */,
