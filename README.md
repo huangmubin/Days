@@ -26,6 +26,7 @@
             * Formatter.swift
     * Resources - 资源文件
 * Design - 项目设计文件夹
+* Mindnode 任务列表
 
 # 开发原则
 
@@ -35,7 +36,6 @@
 2. 代码规范
 3. 设计规范
 4. Git 原则
-
 
 # 开发日记
 
