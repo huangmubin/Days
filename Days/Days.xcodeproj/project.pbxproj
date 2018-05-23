@@ -63,6 +63,7 @@
 		9CFA47F420B54975004AFD67 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA47C420B54975004AFD67 /* Operator.swift */; };
 		9CFA47F620B54FD9004AFD67 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA47F520B54FD9004AFD67 /* Font.swift */; };
 		9CFA47F820B55093004AFD67 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA47F720B55093004AFD67 /* MainController.swift */; };
+		9CFA47FA20B557C7004AFD67 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA47F920B557C7004AFD67 /* Format.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +125,7 @@
 		9CFA47C420B54975004AFD67 /* Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
 		9CFA47F520B54FD9004AFD67 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		9CFA47F720B55093004AFD67 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		9CFA47F920B557C7004AFD67 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 			children = (
 				9CFA478220B5495C004AFD67 /* Color.swift */,
 				9CFA47F520B54FD9004AFD67 /* Font.swift */,
+				9CFA47F920B557C7004AFD67 /* Format.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				9CFA47F820B55093004AFD67 /* MainController.swift in Sources */,
 				9CFA47E420B54975004AFD67 /* CalendarView.swift in Sources */,
 				9CFA47F320B54975004AFD67 /* Notifiable.swift in Sources */,
+				9CFA47FA20B557C7004AFD67 /* Format.swift in Sources */,
 				9CFA47C720B54975004AFD67 /* ImageView.swift in Sources */,
 				9CC89F3020B423130095625C /* AppDelegate.swift in Sources */,
 				9CFA47D020B54975004AFD67 /* ViewController.swift in Sources */,
