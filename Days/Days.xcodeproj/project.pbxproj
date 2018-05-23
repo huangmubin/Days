@@ -81,6 +81,7 @@
 		9CFA481C20B55D0F004AFD67 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA481B20B55D0F004AFD67 /* Diary.swift */; };
 		9CFA481E20B55D16004AFD67 /* DiaryUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA481D20B55D16004AFD67 /* DiaryUnit.swift */; };
 		9CFA482020B57477004AFD67 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA481F20B57477004AFD67 /* Resource.swift */; };
+		9CFA482520B579A6004AFD67 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA482420B579A6004AFD67 /* Keyboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,6 +161,7 @@
 		9CFA481B20B55D0F004AFD67 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		9CFA481D20B55D16004AFD67 /* DiaryUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryUnit.swift; sourceTree = "<group>"; };
 		9CFA481F20B57477004AFD67 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		9CFA482420B579A6004AFD67 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 		9CC89F2E20B423130095625C /* Days */ = {
 			isa = PBXGroup;
 			children = (
+				9CFA482120B578C9004AFD67 /* Views */,
 				9CFA478120B5494B004AFD67 /* Profile */,
 				9CFA47FB20B55BCC004AFD67 /* Model */,
 			);
@@ -465,6 +468,30 @@
 			path = Object;
 			sourceTree = "<group>";
 		};
+		9CFA482120B578C9004AFD67 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9CFA482220B578D7004AFD67 /* Push */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9CFA482220B578D7004AFD67 /* Push */ = {
+			isa = PBXGroup;
+			children = (
+				9CFA482320B578DD004AFD67 /* Keyboard */,
+			);
+			path = Push;
+			sourceTree = "<group>";
+		};
+		9CFA482320B578DD004AFD67 /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				9CFA482420B579A6004AFD67 /* Keyboard.swift */,
+			);
+			path = Keyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -599,6 +626,7 @@
 				9CFA481620B55D00004AFD67 /* EventUnit.swift in Sources */,
 				9CFA47CE20B54975004AFD67 /* TableViewController.swift in Sources */,
 				9CFA480E20B55CE3004AFD67 /* DiaryUnit_SQlite.swift in Sources */,
+				9CFA482520B579A6004AFD67 /* Keyboard.swift in Sources */,
 				9CFA47D620B54975004AFD67 /* Ex_DateFormatter.swift in Sources */,
 				9CFA47C820B54975004AFD67 /* CardSeparator.swift in Sources */,
 				9CFA47DF20B54975004AFD67 /* Ex_UIStoryboardSegue.swift in Sources */,
