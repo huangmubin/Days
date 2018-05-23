@@ -61,6 +61,8 @@
 		9CFA47F220B54975004AFD67 /* NibLoable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA47C220B54975004AFD67 /* NibLoable.swift */; };
 		9CFA47F320B54975004AFD67 /* Notifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA47C320B54975004AFD67 /* Notifiable.swift */; };
 		9CFA47F420B54975004AFD67 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA47C420B54975004AFD67 /* Operator.swift */; };
+		9CFA47F620B54FD9004AFD67 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA47F520B54FD9004AFD67 /* Font.swift */; };
+		9CFA47F820B55093004AFD67 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA47F720B55093004AFD67 /* MainController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +122,8 @@
 		9CFA47C220B54975004AFD67 /* NibLoable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoable.swift; sourceTree = "<group>"; };
 		9CFA47C320B54975004AFD67 /* Notifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifiable.swift; sourceTree = "<group>"; };
 		9CFA47C420B54975004AFD67 /* Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
+		9CFA47F520B54FD9004AFD67 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		9CFA47F720B55093004AFD67 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				9CC89F3320B423130095625C /* Main.storyboard */,
+				9CFA47F720B55093004AFD67 /* MainController.swift */,
 				9CC89F3620B423140095625C /* Assets.xcassets */,
 				9CC89F3820B423140095625C /* LaunchScreen.storyboard */,
 				9CC89F3B20B423140095625C /* Info.plist */,
@@ -193,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				9CFA478220B5495C004AFD67 /* Color.swift */,
+				9CFA47F520B54FD9004AFD67 /* Font.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -480,6 +486,7 @@
 				9CFA47EC20B54975004AFD67 /* ProgressView.swift in Sources */,
 				9CFA47D920B54975004AFD67 /* Ex_String.swift in Sources */,
 				9CFA47DD20B54975004AFD67 /* Ex_UILabel.swift in Sources */,
+				9CFA47F820B55093004AFD67 /* MainController.swift in Sources */,
 				9CFA47E420B54975004AFD67 /* CalendarView.swift in Sources */,
 				9CFA47F320B54975004AFD67 /* Notifiable.swift in Sources */,
 				9CFA47C720B54975004AFD67 /* ImageView.swift in Sources */,
@@ -490,6 +497,7 @@
 				9CFA47C520B54975004AFD67 /* Animation.swift in Sources */,
 				9CFA47CD20B54975004AFD67 /* TableViewHeaderFooter.swift in Sources */,
 				9CFA47EF20B54975004AFD67 /* iSelector.swift in Sources */,
+				9CFA47F620B54FD9004AFD67 /* Font.swift in Sources */,
 				9CFA47F220B54975004AFD67 /* NibLoable.swift in Sources */,
 				9CFA47CB20B54975004AFD67 /* TableView.swift in Sources */,
 				9CFA47CC20B54975004AFD67 /* TableViewCell.swift in Sources */,
