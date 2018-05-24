@@ -22,6 +22,7 @@
 		9C25077B20B6C1C300EB2D13 /* HabitEditTopCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25077A20B6C1C300EB2D13 /* HabitEditTopCard.swift */; };
 		9C25077D20B6C61B00EB2D13 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25077C20B6C61B00EB2D13 /* Key.swift */; };
 		9C25077F20B6C7CD00EB2D13 /* CardCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25077E20B6C7CD00EB2D13 /* CardCalendarView.swift */; };
+		9C25078220B6C95C00EB2D13 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25078120B6C95C00EB2D13 /* CollectionViewCell.swift */; };
 		9C77E1C820B5A752002CAA25 /* KeyboardDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C77E1C720B5A752002CAA25 /* KeyboardDate.swift */; };
 		9CC89F3020B423130095625C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC89F2F20B423130095625C /* AppDelegate.swift */; };
 		9CC89F3520B423130095625C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC89F3320B423130095625C /* Main.storyboard */; };
@@ -116,6 +117,7 @@
 		9C25077A20B6C1C300EB2D13 /* HabitEditTopCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditTopCard.swift; sourceTree = "<group>"; };
 		9C25077C20B6C61B00EB2D13 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		9C25077E20B6C7CD00EB2D13 /* CardCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCalendarView.swift; sourceTree = "<group>"; };
+		9C25078120B6C95C00EB2D13 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		9C77E1C720B5A752002CAA25 /* KeyboardDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDate.swift; sourceTree = "<group>"; };
 		9CC89F2C20B423130095625C /* Days.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Days.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC89F2F20B423130095625C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -266,6 +268,14 @@
 			path = Card;
 			sourceTree = "<group>";
 		};
+		9C25078020B6C94B00EB2D13 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				9C25078120B6C95C00EB2D13 /* CollectionViewCell.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
 		9CC89F2320B423130095625C = {
 			isa = PBXGroup;
 			children = (
@@ -362,6 +372,7 @@
 		9CFA478720B54975004AFD67 /* BaseObjects */ = {
 			isa = PBXGroup;
 			children = (
+				9C25078020B6C94B00EB2D13 /* CollectionView */,
 				9CFA478F20B54975004AFD67 /* TableView */,
 				9CFA478A20B54975004AFD67 /* ScrollView */,
 				9CFA478820B54975004AFD67 /* Button.swift */,
@@ -669,6 +680,7 @@
 				9CFA480A20B55CD5004AFD67 /* ChartUnit_SQlite.swift in Sources */,
 				9CFA47DE20B54975004AFD67 /* Ex_UIScreen.swift in Sources */,
 				9CFA481C20B55D0F004AFD67 /* Diary.swift in Sources */,
+				9C25078220B6C95C00EB2D13 /* CollectionViewCell.swift in Sources */,
 				9CFA47D820B54975004AFD67 /* Ex_Int.swift in Sources */,
 				9CFA47F420B54975004AFD67 /* Operator.swift in Sources */,
 				9CFA480020B55C84004AFD67 /* Habit_SQlite.swift in Sources */,
