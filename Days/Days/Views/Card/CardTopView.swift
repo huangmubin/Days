@@ -14,7 +14,7 @@ class CardTopView: CardBaseView {
     
     override func view_deploy() {
         super.view_deploy()
-        print("CardTopView view deploy")
+        //print("CardTopView view deploy")
         addSubview(left)
         addSubview(right)
         addSubview(title)
@@ -24,17 +24,11 @@ class CardTopView: CardBaseView {
         right.addTarget(self, action: #selector(right_action(_:)), for: .touchUpInside)
     }
 
-    // MARK: - Reload
-    
-    override func reload() {
-        super.reload()
-    }
-    
     // MARK: - Frame
     
     override func view_bounds() {
         super.view_bounds()
-        print("update the top view bount = \(frame)")
+        //print("update the top view bount = \(frame)")
         left.frame = CGRect(
             x: 10, y: (bounds.height - 60) / 2,
             width: 60, height: 60
