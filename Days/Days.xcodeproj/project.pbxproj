@@ -24,6 +24,7 @@
 		9C25077F20B6C7CD00EB2D13 /* CardCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25077E20B6C7CD00EB2D13 /* CardCalendarView.swift */; };
 		9C25078220B6C95C00EB2D13 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25078120B6C95C00EB2D13 /* CollectionViewCell.swift */; };
 		9C77E1C820B5A752002CAA25 /* KeyboardDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C77E1C720B5A752002CAA25 /* KeyboardDate.swift */; };
+		9C77E1CA20B70589002CAA25 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C77E1C920B70589002CAA25 /* CollectionView.swift */; };
 		9CC89F3020B423130095625C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC89F2F20B423130095625C /* AppDelegate.swift */; };
 		9CC89F3520B423130095625C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC89F3320B423130095625C /* Main.storyboard */; };
 		9CC89F3720B423140095625C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CC89F3620B423140095625C /* Assets.xcassets */; };
@@ -119,6 +120,7 @@
 		9C25077E20B6C7CD00EB2D13 /* CardCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCalendarView.swift; sourceTree = "<group>"; };
 		9C25078120B6C95C00EB2D13 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		9C77E1C720B5A752002CAA25 /* KeyboardDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDate.swift; sourceTree = "<group>"; };
+		9C77E1C920B70589002CAA25 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		9CC89F2C20B423130095625C /* Days.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Days.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC89F2F20B423130095625C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CC89F3420B423130095625C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				9C25078120B6C95C00EB2D13 /* CollectionViewCell.swift */,
+				9C77E1C920B70589002CAA25 /* CollectionView.swift */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -715,6 +718,7 @@
 				9CFA481E20B55D16004AFD67 /* DiaryUnit.swift in Sources */,
 				9CFA47E420B54975004AFD67 /* CalendarView.swift in Sources */,
 				9CFA480620B55C97004AFD67 /* EventUnit_SQlite.swift in Sources */,
+				9C77E1CA20B70589002CAA25 /* CollectionView.swift in Sources */,
 				9CFA47F320B54975004AFD67 /* Notifiable.swift in Sources */,
 				9CFA47FA20B557C7004AFD67 /* Format.swift in Sources */,
 				9CFA47C720B54975004AFD67 /* ImageView.swift in Sources */,

@@ -14,8 +14,8 @@ class HabitEditTopCard: CardTopView {
         return (table.controller as! HabitEditController).habit
     }
     
-    override func view_deploy() {
-        super.view_deploy()
+    override func reload() {
+        super.reload()
         title.text = (habit.obj.id == 0 ? "新增习惯" : habit.obj.name)
     }
     

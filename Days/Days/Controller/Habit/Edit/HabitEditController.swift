@@ -24,10 +24,8 @@ class HabitEditController: ViewController {
     func load_cards() {
         table.controller = self
         
-        table.cards.append(HabitEditTopCard(frame: CGRect(
-            x: 0, y: 0, width: 300,
-            height: 90
-        )))
+        table.cards.append(HabitEditTopCard(height: 80))
+        table.cards.append(CardCalendarView(height: 80))
         
         table.reload()
     }
