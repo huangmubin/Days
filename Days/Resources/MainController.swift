@@ -24,7 +24,7 @@ class MainController: ViewController, KeyboardDelegate {
         key.delegate = self
         key.push()
         */
-        let key = KeyboardDate()
+        let key = KeyboardTime()
         
         key.delegate = self
         key.push()

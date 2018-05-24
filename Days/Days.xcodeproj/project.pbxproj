@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C210B1120B6630300C17D35 /* KeyboardTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C210B1020B6630300C17D35 /* KeyboardTime.swift */; };
 		9C77E1C820B5A752002CAA25 /* KeyboardDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C77E1C720B5A752002CAA25 /* KeyboardDate.swift */; };
 		9CC89F3020B423130095625C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC89F2F20B423130095625C /* AppDelegate.swift */; };
 		9CC89F3520B423130095625C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC89F3320B423130095625C /* Main.storyboard */; };
@@ -86,6 +87,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C210B1020B6630300C17D35 /* KeyboardTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardTime.swift; sourceTree = "<group>"; };
 		9C77E1C720B5A752002CAA25 /* KeyboardDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDate.swift; sourceTree = "<group>"; };
 		9CC89F2C20B423130095625C /* Days.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Days.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC89F2F20B423130095625C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -491,6 +493,7 @@
 			children = (
 				9CFA482420B579A6004AFD67 /* Keyboard.swift */,
 				9C77E1C720B5A752002CAA25 /* KeyboardDate.swift */,
+				9C210B1020B6630300C17D35 /* KeyboardTime.swift */,
 			);
 			path = Keyboard;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 				9CFA481220B55CF4004AFD67 /* HabitUnit.swift in Sources */,
 				9CFA47F620B54FD9004AFD67 /* Font.swift in Sources */,
 				9CFA47F220B54975004AFD67 /* NibLoable.swift in Sources */,
+				9C210B1120B6630300C17D35 /* KeyboardTime.swift in Sources */,
 				9CFA480420B55C90004AFD67 /* Event_SQlite.swift in Sources */,
 				9CFA482020B57477004AFD67 /* Resource.swift in Sources */,
 				9CFA47CB20B54975004AFD67 /* TableView.swift in Sources */,
