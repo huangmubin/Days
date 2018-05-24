@@ -29,9 +29,9 @@ class Font {
 
     /** 标题 */
     class title {
-        static let b: UIFont = UIFont(name: "PingFangSC-Semibold", size: 26)!
-        static let m: UIFont = UIFont(name: "PingFangSC-Semibold", size: 24)!
-        static let s: UIFont = UIFont(name: "PingFangSC-Semibold", size: 20)!
+        static let b: UIFont = UIFont(name: "PingFangSC-Semibold", size: 30)!
+        static let m: UIFont = UIFont(name: "PingFangSC-Semibold", size: 26)!
+        static let s: UIFont = UIFont(name: "PingFangSC-Semibold", size: 24)!
     }
     
     /** 文本 */
