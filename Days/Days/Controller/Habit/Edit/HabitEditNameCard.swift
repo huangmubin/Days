@@ -14,6 +14,7 @@ class HabitEditNameCard: CardMessageView {
         super.view_deploy()
         title.text = "习惯名称"
         placeholder = "新建习惯"
+        text.font = Font.title.m
     }
     
     override func reload() {

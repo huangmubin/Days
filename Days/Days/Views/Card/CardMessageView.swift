@@ -8,12 +8,13 @@
 
 import UIKit
 
-class CardMessageView: CardStandardView, KeyboardDelegate {
+class CardMessageView: CardStandardView {
     
     // MARK: - Values
     
     var message: String = ""
     var placeholder: String = ""
+    var text_edge: UIEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     
     func update(text value: String?) {
         if value?.isEmpty == false {
@@ -26,7 +27,7 @@ class CardMessageView: CardStandardView, KeyboardDelegate {
         }
         let height = max(
             160,
-            text.sizeThatFits(CGSize(width: bounds.width - edge.left - edge.right - 20, height: 10000)).height + title.frame.maxY + space + 20 + edge.bottom
+            text.sizeThatFits(CGSize(width: bounds.width - edge.left - edge.right - text_edge.left - text_edge.right, height: 10000)).height + title.frame.maxY + space + 20 + edge.bottom
         )
         if frame.height != height {
             UIView.animate(withDuration: 0.25, animations: {
@@ -50,8 +51,9 @@ class CardMessageView: CardStandardView, KeyboardDelegate {
     override func view_bounds() {
         super.view_bounds()
         text.frame = CGRect(
-            x: 10, y: 10, width: container.frame.width - 20,
-            height: container.frame.height - 20
+            x: text_edge.left, y: text_edge.top,
+            width: container.frame.width - text_edge.left - text_edge.right,
+            height: container.frame.height - text_edge.top - text_edge.bottom
         )
         input_button.frame = container.bounds
     }
@@ -82,7 +84,7 @@ class CardMessageView: CardStandardView, KeyboardDelegate {
         view.push()
     }
     
-    func keyboard(_ board: Keyboard) -> String? {
+    override func keyboard(_ board: Keyboard) -> String? {
         update(text: board.value as? String)
         return nil
     }

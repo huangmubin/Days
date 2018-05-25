@@ -12,10 +12,14 @@ protocol HabitObjectController {
     var habit: Habit! { get set }
 }
 
-class CardBaseView: CardView {
+class CardBaseView: CardView, KeyboardDelegate {
 
     var habit: Habit {
         return (table.controller as! HabitObjectController).habit
     }
 
+    func keyboard(_ board: Keyboard) -> String? {
+        return nil
+    }
+    
 }

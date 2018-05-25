@@ -28,6 +28,7 @@
 		9CBC806A20B7A0A500321675 /* CardMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC806920B7A0A500321675 /* CardMessageView.swift */; };
 		9CBC806C20B7BCEA00321675 /* CardStandardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC806B20B7BCEA00321675 /* CardStandardView.swift */; };
 		9CBC806E20B7FB6400321675 /* HabitEditNameCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC806D20B7FB6400321675 /* HabitEditNameCard.swift */; };
+		9CBC807020B801D300321675 /* HabitEditGoalCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC806F20B801D300321675 /* HabitEditGoalCard.swift */; };
 		9CC89F3020B423130095625C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC89F2F20B423130095625C /* AppDelegate.swift */; };
 		9CC89F3520B423130095625C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC89F3320B423130095625C /* Main.storyboard */; };
 		9CC89F3720B423140095625C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CC89F3620B423140095625C /* Assets.xcassets */; };
@@ -127,6 +128,7 @@
 		9CBC806920B7A0A500321675 /* CardMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMessageView.swift; sourceTree = "<group>"; };
 		9CBC806B20B7BCEA00321675 /* CardStandardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStandardView.swift; sourceTree = "<group>"; };
 		9CBC806D20B7FB6400321675 /* HabitEditNameCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditNameCard.swift; sourceTree = "<group>"; };
+		9CBC806F20B801D300321675 /* HabitEditGoalCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditGoalCard.swift; sourceTree = "<group>"; };
 		9CC89F2C20B423130095625C /* Days.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Days.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC89F2F20B423130095625C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CC89F3420B423130095625C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				9C25077320B6BBFB00EB2D13 /* HabitEditController.swift */,
 				9C25077A20B6C1C300EB2D13 /* HabitEditTopCard.swift */,
 				9CBC806D20B7FB6400321675 /* HabitEditNameCard.swift */,
+				9CBC806F20B801D300321675 /* HabitEditGoalCard.swift */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -718,6 +721,7 @@
 				9CFA481820B55D04004AFD67 /* Chart.swift in Sources */,
 				9C25077D20B6C61B00EB2D13 /* Key.swift in Sources */,
 				9CFA47DC20B54975004AFD67 /* Ex_UIImage.swift in Sources */,
+				9CBC807020B801D300321675 /* HabitEditGoalCard.swift in Sources */,
 				9CFA480820B55C9C004AFD67 /* Chart_SQlite.swift in Sources */,
 				9CFA47EC20B54975004AFD67 /* ProgressView.swift in Sources */,
 				9CFA480C20B55CDB004AFD67 /* Diary_SQlite.swift in Sources */,

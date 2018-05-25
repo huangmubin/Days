@@ -14,7 +14,7 @@ protocol CardCalendarViewDelegate: class {
     func cardCalendar(view: CardCalendarView, is_done date: Date) -> Bool
 }
 
-class CardCalendarView: CardBaseView, KeyboardDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class CardCalendarView: CardBaseView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     // MARK: - Values
     
@@ -119,7 +119,7 @@ class CardCalendarView: CardBaseView, KeyboardDelegate, UICollectionViewDataSour
         key.push()
     }
     
-    func keyboard(_ board: Keyboard) -> String? {
+    override func keyboard(_ board: Keyboard) -> String? {
         if let date = board.value as? Date {
             self.date = date
             return nil
