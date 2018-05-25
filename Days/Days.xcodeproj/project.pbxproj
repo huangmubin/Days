@@ -25,6 +25,8 @@
 		9C25078220B6C95C00EB2D13 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25078120B6C95C00EB2D13 /* CollectionViewCell.swift */; };
 		9C77E1C820B5A752002CAA25 /* KeyboardDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C77E1C720B5A752002CAA25 /* KeyboardDate.swift */; };
 		9C77E1CA20B70589002CAA25 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C77E1C920B70589002CAA25 /* CollectionView.swift */; };
+		9CBC806A20B7A0A500321675 /* CardMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC806920B7A0A500321675 /* CardMessageView.swift */; };
+		9CBC806C20B7BCEA00321675 /* CardStandardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC806B20B7BCEA00321675 /* CardStandardView.swift */; };
 		9CC89F3020B423130095625C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC89F2F20B423130095625C /* AppDelegate.swift */; };
 		9CC89F3520B423130095625C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC89F3320B423130095625C /* Main.storyboard */; };
 		9CC89F3720B423140095625C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CC89F3620B423140095625C /* Assets.xcassets */; };
@@ -121,6 +123,8 @@
 		9C25078120B6C95C00EB2D13 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		9C77E1C720B5A752002CAA25 /* KeyboardDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDate.swift; sourceTree = "<group>"; };
 		9C77E1C920B70589002CAA25 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		9CBC806920B7A0A500321675 /* CardMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMessageView.swift; sourceTree = "<group>"; };
+		9CBC806B20B7BCEA00321675 /* CardStandardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStandardView.swift; sourceTree = "<group>"; };
 		9CC89F2C20B423130095625C /* Days.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Days.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC89F2F20B423130095625C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CC89F3420B423130095625C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -264,8 +268,10 @@
 			isa = PBXGroup;
 			children = (
 				9C25077620B6BD1400EB2D13 /* CardBaseView.swift */,
+				9CBC806B20B7BCEA00321675 /* CardStandardView.swift */,
 				9C25077820B6BD3400EB2D13 /* CardTopView.swift */,
 				9C25077E20B6C7CD00EB2D13 /* CardCalendarView.swift */,
+				9CBC806920B7A0A500321675 /* CardMessageView.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -680,6 +686,7 @@
 				9C25076B20B6B4D600EB2D13 /* TopView.swift in Sources */,
 				9CFA47EA20B54975004AFD67 /* VarlenaInput.swift in Sources */,
 				9C25076820B6B48E00EB2D13 /* HabitListTop.swift in Sources */,
+				9CBC806C20B7BCEA00321675 /* CardStandardView.swift in Sources */,
 				9CFA480A20B55CD5004AFD67 /* ChartUnit_SQlite.swift in Sources */,
 				9CFA47DE20B54975004AFD67 /* Ex_UIScreen.swift in Sources */,
 				9CFA481C20B55D0F004AFD67 /* Diary.swift in Sources */,
@@ -701,6 +708,7 @@
 				9CFA47D720B54975004AFD67 /* Ex_IndexPath.swift in Sources */,
 				9CFA47C920B54975004AFD67 /* CardTable.swift in Sources */,
 				9CFA47F120B54975004AFD67 /* KeyValue.swift in Sources */,
+				9CBC806A20B7A0A500321675 /* CardMessageView.swift in Sources */,
 				9CFA47E020B54975004AFD67 /* Ex_UITextField.swift in Sources */,
 				9CFA47D220B54975004AFD67 /* SQLiteProtocol.swift in Sources */,
 				9CFA481820B55D04004AFD67 /* Chart.swift in Sources */,

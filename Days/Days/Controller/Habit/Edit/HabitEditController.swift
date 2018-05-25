@@ -26,6 +26,7 @@ class HabitEditController: ViewController {
         
         table.cards.append(HabitEditTopCard(height: 80))
         table.cards.append(CardCalendarView(height: 80))
+        table.cards.append(CardMessageView(height: 160))
         
         table.reload()
     }
