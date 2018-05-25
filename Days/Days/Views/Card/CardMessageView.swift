@@ -12,10 +12,18 @@ class CardMessageView: CardStandardView, KeyboardDelegate {
     
     // MARK: - Values
     
-    var message: String { return text.text ?? "" }
+    var message: String = ""
+    var placeholder: String = ""
     
-    func update(text value: String) {
-        text.text = value
+    func update(text value: String?) {
+        if value?.isEmpty == false {
+            message = value!
+            text.text = value
+            text.textColor = Color.dark
+        } else {
+            text.text = placeholder
+            text.textColor = Color.gray.halftone
+        }
         let height = max(
             160,
             text.sizeThatFits(CGSize(width: bounds.width - edge.left - edge.right - 20, height: 10000)).height + title.frame.maxY + space + 20 + edge.bottom
@@ -45,7 +53,6 @@ class CardMessageView: CardStandardView, KeyboardDelegate {
             x: 10, y: 10, width: container.frame.width - 20,
             height: container.frame.height - 20
         )
-        
         input_button.frame = container.bounds
     }
     
@@ -70,13 +77,14 @@ class CardMessageView: CardStandardView, KeyboardDelegate {
     @objc func input_action(_ sender: UIButton) {
         let view = Keyboard()
         view.update(title: title.text ?? "")
-        view.update(text: text.text ?? "")
+        view.update(text: message)
         view.delegate = self
         view.push()
     }
     
-    func keyboard(_ board: Keyboard) {
-        update(text: board.value as! String)
+    func keyboard(_ board: Keyboard) -> String? {
+        update(text: board.value as? String)
+        return nil
     }
     
 }

@@ -8,14 +8,14 @@
 
 import UIKit
 
+protocol HabitObjectController {
+    var habit: Habit! { get set }
+}
+
 class CardBaseView: CardView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    var habit: Habit {
+        return (table.controller as! HabitObjectController).habit
     }
-    */
 
 }

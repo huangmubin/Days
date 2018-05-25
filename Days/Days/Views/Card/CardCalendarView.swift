@@ -119,8 +119,13 @@ class CardCalendarView: CardBaseView, KeyboardDelegate, UICollectionViewDataSour
         key.push()
     }
     
-    func keyboard(_ board: Keyboard) {
-        date = board.value as! Date
+    func keyboard(_ board: Keyboard) -> String? {
+        if let date = board.value as? Date {
+            self.date = date
+            return nil
+        } else {
+            return "日期不合法"
+        }
     }
     
     // MARK: - Switch

@@ -10,10 +10,6 @@ import UIKit
 
 class HabitEditTopCard: CardTopView {
     
-    var habit: Habit {
-        return (table.controller as! HabitEditController).habit
-    }
-    
     override func reload() {
         super.reload()
         title.text = (habit.obj.id == 0 ? "新增习惯" : habit.obj.name)

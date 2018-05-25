@@ -9,8 +9,8 @@
 import UIKit
 
 protocol KeyboardDelegate: class {
-    /** call when save */
-    func keyboard(_ board: Keyboard)
+    /** call when save，if ok, return nil, if error return the error message. */
+    func keyboard(_ board: Keyboard) -> String?
 }
 
 /** 初始化后，必须调用 push() */
@@ -44,7 +44,7 @@ class Keyboard: View, UITextViewDelegate {
             height: 160
         )
         
-        key_window.backgroundColor = Color.white.withAlphaComponent(0.3)
+        key_window.backgroundColor = Color.white.withAlphaComponent(0.5)
         key_window.windowLevel = UIWindowLevelStatusBar
         key_window.alpha = 1
         key_window.addSubview(self)
@@ -174,8 +174,11 @@ class Keyboard: View, UITextViewDelegate {
     }
     
     @objc func sure_action() {
-        delegate?.keyboard(self)
-        text.resignFirstResponder()
+        if let error = delegate?.keyboard(self) {
+            update(error: error)
+        } else {
+            text.resignFirstResponder()
+        }
     }
     
     // MARK: - Frame
@@ -260,6 +263,7 @@ class Keyboard: View, UITextViewDelegate {
         } else {
             UIView.animate(withDuration: 0.25, animations: {
                 self.frame.origin.y = rect.minY
+                self.key_window.alpha = 0
             }, completion: { _ in
                 self.removeFromSuperview()
                 self.key_window.isHidden = true

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HabitEditController: ViewController {
+class HabitEditController: ViewController, HabitObjectController {
 
     var habit: Habit! = Habit()
     
@@ -24,9 +24,9 @@ class HabitEditController: ViewController {
     func load_cards() {
         table.controller = self
         
-        table.cards.append(HabitEditTopCard(height: 80))
-        table.cards.append(CardCalendarView(height: 80))
-        table.cards.append(CardMessageView(height: 160))
+        table.cards.append(HabitEditTopCard(height: nil))
+        table.cards.append(HabitEditNameCard(height: nil))
+        
         
         table.reload()
     }

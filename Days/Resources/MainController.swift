@@ -30,8 +30,9 @@ class MainController: ViewController, KeyboardDelegate {
         key.push()
     }
     
-    func keyboard(_ board: Keyboard) {
+    func keyboard(_ board: Keyboard) -> String? {
         print(board.value)
+        return nil
     }
     
 }
