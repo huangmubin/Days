@@ -30,7 +30,7 @@ class CardStandardView: CardBaseView {
     
     override func view_bounds() {
         super.view_bounds()
-        let w = bounds.width - edge.left - edge.top
+        let w = bounds.width - edge.left - edge.right
         
         title.frame = CGRect(
             x: edge.left, y: edge.top,

@@ -25,9 +25,16 @@ class CardMessageView: CardStandardView {
             text.text = placeholder
             text.textColor = Color.gray.halftone
         }
+        
+        let text_height = text.sizeThatFits(
+            CGSize(
+                width: bounds.width - edge.left - edge.right - text_edge.left - text_edge.right,
+                height: 10000
+            )
+        ).height
         let height = max(
             160,
-            text.sizeThatFits(CGSize(width: bounds.width - edge.left - edge.right - text_edge.left - text_edge.right, height: 10000)).height + title.frame.maxY + space + 20 + edge.bottom
+            title.frame.maxY + space + text_edge.top + text_height + text_edge.bottom + edge.bottom
         )
         if frame.height != height {
             UIView.animate(withDuration: 0.25, animations: {
