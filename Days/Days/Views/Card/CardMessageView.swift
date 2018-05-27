@@ -12,10 +12,18 @@ class CardMessageView: CardStandardView {
     
     // MARK: - Values
     
+    /** value */
     var message: String = ""
+    /** When message is empty, show the placeholder */
     var placeholder: String = ""
+    
+    /** text edge to the container */
     var text_edge: UIEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     
+    /** Override: Call when update message */
+    func update(message: String) { }
+    
+    /** Update the text and resize. */
     func update(text value: String?) {
         if value?.isEmpty == false {
             message = value!
@@ -55,6 +63,8 @@ class CardMessageView: CardStandardView {
     
     // MARK: - Frame
     
+    override var default_height: CGFloat { return 160 }
+    
     override func view_bounds() {
         super.view_bounds()
         text.frame = CGRect(
@@ -93,6 +103,7 @@ class CardMessageView: CardStandardView {
     
     override func keyboard(_ board: Keyboard) -> String? {
         update(text: board.value as? String)
+        update(message: message)
         return nil
     }
     

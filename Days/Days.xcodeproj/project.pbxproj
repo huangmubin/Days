@@ -34,6 +34,11 @@
 		9CC89F3720B423140095625C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CC89F3620B423140095625C /* Assets.xcassets */; };
 		9CC89F3A20B423140095625C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC89F3820B423140095625C /* LaunchScreen.storyboard */; };
 		9CC89F4520B428D80095625C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC89F4420B428D80095625C /* libsqlite3.tbd */; };
+		9CCE2D1F20B940DE0038457D /* HabitEditFrequencyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCE2D1E20B940DE0038457D /* HabitEditFrequencyCard.swift */; };
+		9CCE2D2120B94B3F0038457D /* HabitEditMessageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCE2D2020B94B3F0038457D /* HabitEditMessageCard.swift */; };
+		9CCE2D2320BA366A0038457D /* HabitEditMenuCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCE2D2220BA366A0038457D /* HabitEditMenuCard.swift */; };
+		9CCE2D2720BA40960038457D /* Confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCE2D2620BA40960038457D /* Confirm.swift */; };
+		9CCE2D2920BA40B00038457D /* PushView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCE2D2820BA40B00038457D /* PushView.swift */; };
 		9CFA478320B5495C004AFD67 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA478220B5495C004AFD67 /* Color.swift */; };
 		9CFA47C520B54975004AFD67 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA478620B54975004AFD67 /* Animation.swift */; };
 		9CFA47C620B54975004AFD67 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA478820B54975004AFD67 /* Button.swift */; };
@@ -136,6 +141,11 @@
 		9CC89F3920B423140095625C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CC89F3B20B423140095625C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CC89F4420B428D80095625C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		9CCE2D1E20B940DE0038457D /* HabitEditFrequencyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditFrequencyCard.swift; sourceTree = "<group>"; };
+		9CCE2D2020B94B3F0038457D /* HabitEditMessageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditMessageCard.swift; sourceTree = "<group>"; };
+		9CCE2D2220BA366A0038457D /* HabitEditMenuCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditMenuCard.swift; sourceTree = "<group>"; };
+		9CCE2D2620BA40960038457D /* Confirm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Confirm.swift; sourceTree = "<group>"; };
+		9CCE2D2820BA40B00038457D /* PushView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushView.swift; sourceTree = "<group>"; };
 		9CFA478220B5495C004AFD67 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		9CFA478620B54975004AFD67 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		9CFA478820B54975004AFD67 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -266,6 +276,9 @@
 				9C25077A20B6C1C300EB2D13 /* HabitEditTopCard.swift */,
 				9CBC806D20B7FB6400321675 /* HabitEditNameCard.swift */,
 				9CBC806F20B801D300321675 /* HabitEditGoalCard.swift */,
+				9CCE2D1E20B940DE0038457D /* HabitEditFrequencyCard.swift */,
+				9CCE2D2020B94B3F0038457D /* HabitEditMessageCard.swift */,
+				9CCE2D2220BA366A0038457D /* HabitEditMenuCard.swift */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -348,6 +361,22 @@
 				9CC89F4420B428D80095625C /* libsqlite3.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9CCE2D2420BA40060038457D /* Pop */ = {
+			isa = PBXGroup;
+			children = (
+				9CCE2D2520BA407F0038457D /* Confirm */,
+			);
+			path = Pop;
+			sourceTree = "<group>";
+		};
+		9CCE2D2520BA407F0038457D /* Confirm */ = {
+			isa = PBXGroup;
+			children = (
+				9CCE2D2620BA40960038457D /* Confirm.swift */,
+			);
+			path = Confirm;
 			sourceTree = "<group>";
 		};
 		9CFA478120B5494B004AFD67 /* Profile */ = {
@@ -591,6 +620,8 @@
 		9CFA482220B578D7004AFD67 /* Push */ = {
 			isa = PBXGroup;
 			children = (
+				9CCE2D2820BA40B00038457D /* PushView.swift */,
+				9CCE2D2420BA40060038457D /* Pop */,
 				9CFA482320B578DD004AFD67 /* Keyboard */,
 			);
 			path = Push;
@@ -698,6 +729,7 @@
 				9CFA47DE20B54975004AFD67 /* Ex_UIScreen.swift in Sources */,
 				9CFA481C20B55D0F004AFD67 /* Diary.swift in Sources */,
 				9C25078220B6C95C00EB2D13 /* CollectionViewCell.swift in Sources */,
+				9CCE2D2720BA40960038457D /* Confirm.swift in Sources */,
 				9CFA47D820B54975004AFD67 /* Ex_Int.swift in Sources */,
 				9CFA47F420B54975004AFD67 /* Operator.swift in Sources */,
 				9CFA480020B55C84004AFD67 /* Habit_SQlite.swift in Sources */,
@@ -709,6 +741,7 @@
 				9C25077F20B6C7CD00EB2D13 /* CardCalendarView.swift in Sources */,
 				9CFA47E620B54975004AFD67 /* InputTextView.swift in Sources */,
 				9CFA47D120B54975004AFD67 /* SQLite.swift in Sources */,
+				9CCE2D2120B94B3F0038457D /* HabitEditMessageCard.swift in Sources */,
 				9CFA47E220B54975004AFD67 /* CalendarCell.swift in Sources */,
 				9CFA47E120B54975004AFD67 /* Ex_UITextView.swift in Sources */,
 				9CFA47DB20B54975004AFD67 /* Ex_UIDevice.swift in Sources */,
@@ -745,8 +778,10 @@
 				9CFA47C520B54975004AFD67 /* Animation.swift in Sources */,
 				9CFA481020B55CED004AFD67 /* Habit.swift in Sources */,
 				9CFA47CD20B54975004AFD67 /* TableViewHeaderFooter.swift in Sources */,
+				9CCE2D2920BA40B00038457D /* PushView.swift in Sources */,
 				9CFA47EF20B54975004AFD67 /* iSelector.swift in Sources */,
 				9CFA481220B55CF4004AFD67 /* HabitUnit.swift in Sources */,
+				9CCE2D2320BA366A0038457D /* HabitEditMenuCard.swift in Sources */,
 				9CFA47F620B54FD9004AFD67 /* Font.swift in Sources */,
 				9CFA47F220B54975004AFD67 /* NibLoable.swift in Sources */,
 				9C210B1120B6630300C17D35 /* KeyboardTime.swift in Sources */,
@@ -770,6 +805,7 @@
 				9C25076D20B6B87E00EB2D13 /* HabitListEntry.swift in Sources */,
 				9CFA47EE20B54975004AFD67 /* iDateSelector.swift in Sources */,
 				9CFA47C620B54975004AFD67 /* Button.swift in Sources */,
+				9CCE2D1F20B940DE0038457D /* HabitEditFrequencyCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

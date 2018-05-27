@@ -27,6 +27,8 @@ class HabitEditController: ViewController, HabitObjectController {
         table.cards.append(HabitEditTopCard(height: nil))
         table.cards.append(HabitEditNameCard(height: nil))
         table.cards.append(HabitEditGoalCard(height: nil))
+        table.cards.append(HabitEditFrequencyCard(height: nil))
+        table.cards.append(HabitEditMessageCard(height: nil))
         
         table.reload()
     }

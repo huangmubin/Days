@@ -30,4 +30,29 @@ class Format {
     
     // MARK: - Timer
     
+    /** Timer */
+    class func time(second: Int) -> String {
+        switch second {
+        case 0 ..< 3600:
+            if second % 60 == 0 {
+                return "\(second / 60) 分钟"
+            } else {
+                return String(format: "%.1f 分钟", Double(second) / 60)
+            }
+        case 3600 ..< 86400:
+            if second % 3600 == 0 {
+                return "\(second / 3600) 小时"
+            } else {
+                return String(format: "%.1f 小时", Double(second) / 3600)
+            }
+        default:
+            return "\(second / 86400) 天"
+        }
+    }
+    
+    /** Timer splict */
+    class func time_unit(second: Int) -> (time: String, unit: String) {
+        let text = time(second: second).components(separatedBy: [" "])
+        return (text[0], text[1])
+    }
 }

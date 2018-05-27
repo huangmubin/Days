@@ -12,8 +12,10 @@ class HabitEditGoalCard: CardStandardView {
     
     // MARK: - Value
     
-    /**  */
-    override var default_height: CGFloat { return 10 + 40 + 20 + 60 + 20 + 60 + 10 }
+    /** default height */
+    override var default_height: CGFloat {
+        return 10 + 40 + 20 + 60 + 20 + 60 + 10
+    }
     
     // MARK: - Init
     
