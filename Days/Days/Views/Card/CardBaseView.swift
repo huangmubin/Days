@@ -12,7 +12,7 @@ protocol HabitObjectController {
     var habit: Habit! { get set }
 }
 
-class CardBaseView: CardView, KeyboardDelegate {
+class CardBaseView: CardView, KeyboardDelegate, ConfirmDelegate {
 
     var habit: Habit {
         return (table.controller as! HabitObjectController).habit
@@ -20,6 +20,10 @@ class CardBaseView: CardView, KeyboardDelegate {
 
     func keyboard(_ board: Keyboard) -> String? {
         return nil
+    }
+    
+    func confirm(_ view: Confirm) {
+        
     }
     
 }

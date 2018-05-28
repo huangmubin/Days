@@ -15,7 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        SQLite.default.open()
+        SQLite.Habit.create()
+        SQLite.HabitUnit.create()
+        SQLite.Event.create()
+        SQLite.EventUnit.create()
+        SQLite.Chart.create()
+        SQLite.ChartUnit.create()
+        SQLite.Diary.create()
+        SQLite.DiaryUnit.create()
         return true
     }
 

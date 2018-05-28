@@ -10,7 +10,7 @@ import UIKit
 
 class HabitEditController: ViewController, HabitObjectController {
 
-    var habit: Habit! = Habit()
+    var habit: Habit!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +29,9 @@ class HabitEditController: ViewController, HabitObjectController {
         table.cards.append(HabitEditGoalCard(height: nil))
         table.cards.append(HabitEditFrequencyCard(height: nil))
         table.cards.append(HabitEditMessageCard(height: nil))
+        if habit.obj.id != 0 {
+            table.cards.append(HabitEditMenuCard(height: nil))
+        }
         
         table.reload()
     }

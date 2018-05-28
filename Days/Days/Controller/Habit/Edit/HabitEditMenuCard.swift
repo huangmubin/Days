@@ -10,6 +10,10 @@ import UIKit
 
 class HabitEditMenuCard: CardStandardView {
     
+    override var default_height: CGFloat {
+        return edge.top + 40 + space + 60 + edge.bottom
+    }
+    
     // MARK: - Deploy
     
     override func reload() {
@@ -17,9 +21,11 @@ class HabitEditMenuCard: CardStandardView {
         if habit.obj.is_runing {
             idle.normal_color = Color.gray.light
             idle.setTitleColor(Color.dark, for: .normal)
+            idle.setTitle("闲置", for: .normal)
         } else {
             idle.normal_color = Color.dark
             idle.setTitleColor(Color.white, for: .normal)
+            idle.setTitle("重启", for: .normal)
         }
     }
     
@@ -54,14 +60,21 @@ class HabitEditMenuCard: CardStandardView {
         let button = Button(type: .system)
         button.normal_color = Color.gray.light
         button.corner = 10
-        button.setTitle("闲置", for: .normal)
         button.titleLabel?.font = Font.title.b
         button.setTitleColor(Color.dark, for: .normal)
         return button
     }()
     
     @objc func idle_action() {
-        
+        let view = Confirm()
+        view.id = "Idle"
+        view.delegate = self
+        if habit.obj.is_runing {
+            view.update(title: "闲置 \(habit.obj.name)")
+        } else {
+            view.update(title: "重启 \(habit.obj.name)")
+        }
+        view.push()
     }
     
     let delete: Button = {
@@ -75,7 +88,15 @@ class HabitEditMenuCard: CardStandardView {
     }()
     
     @objc func delete_action() {
-        
+        let view = Confirm()
+        view.id = "Delete"
+        view.delegate = self
+        view.update(title: "删除 \(habit.obj.name)")
+        view.push()
+    }
+    
+    override func confirm(_ view: Confirm) {
+        print(view.id)
     }
     
 }

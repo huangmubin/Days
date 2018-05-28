@@ -10,6 +10,24 @@ import UIKit
 
 class HabitListController: ViewController {
 
+    var objs: [Habit] = []
+    
+    // MARK: - View Life
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        objs = SQLite.Habit.find().sorted(by: {
+            $0.sort < $1.sort
+        }).map({ Habit($0) })
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let obj = messages.removeValue(forKey: Key.Habit.append) as? Habit {
+            obj.obj.insert()
+        }
+    }
+    
     // MARK: - Top
     
     @IBOutlet weak var top: HabitListTop!
@@ -29,7 +47,19 @@ class HabitListController: ViewController {
     
     // MARK: - Table
     
-    @IBOutlet weak var table: HabitListTable!
+    @IBOutlet weak var table: HabitListTable! {
+        didSet {
+            table.dataSource = table
+            table.delegate = table
+        }
+    }
     
+    // MARK: - Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let edit = segue.controller as? HabitEditController {
+            edit.habit = Habit()
+        }
+    }
     
 }

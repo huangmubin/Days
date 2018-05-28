@@ -41,6 +41,11 @@ extension SQLite {
         /** 每日频率。时间：秒。次数：次。默认 10 分钟 */
         var frequency: Int = 600
         
+        // MARK: Sort
+        
+        /** Sort */
+        var sort: Int = 0
+        
         // MARK: Type
         
         /** 统计类型。0: 时间; 1: 次数 */

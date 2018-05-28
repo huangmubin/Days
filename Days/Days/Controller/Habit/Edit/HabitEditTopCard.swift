@@ -20,7 +20,11 @@ class HabitEditTopCard: CardTopView {
     }
     
     override func right_action(_ sender: UIButton) {
-        table.vc?.toSuperController(object: [Key.Habit.append: habit])
+        if habit.obj.id == 0 {
+            table.vc?.toSuperController(object: [Key.Habit.append: habit])
+        } else {
+            table.vc?.toSuperController(object: [Key.Habit.update: habit])
+        }
         table.controller?.dismiss(animated: true, completion: nil)
     }
     
