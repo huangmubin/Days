@@ -39,6 +39,10 @@
 		9CCE2D2320BA366A0038457D /* HabitEditMenuCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCE2D2220BA366A0038457D /* HabitEditMenuCard.swift */; };
 		9CCE2D2720BA40960038457D /* Confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCE2D2620BA40960038457D /* Confirm.swift */; };
 		9CCE2D2920BA40B00038457D /* PushView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCE2D2820BA40B00038457D /* PushView.swift */; };
+		9CF51F6920BCFA5300D48293 /* HabitEditUICard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF51F6820BCFA5300D48293 /* HabitEditUICard.swift */; };
+		9CF51F6C20BD33CD00D48293 /* HabitEditUIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF51F6B20BD33CD00D48293 /* HabitEditUIController.swift */; };
+		9CF51F6E20BD33F200D48293 /* HabitEditUICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF51F6D20BD33F200D48293 /* HabitEditUICell.swift */; };
+		9CF51F7020BD5BFE00D48293 /* HabitEditSpaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF51F6F20BD5BFE00D48293 /* HabitEditSpaceCard.swift */; };
 		9CFA478320B5495C004AFD67 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA478220B5495C004AFD67 /* Color.swift */; };
 		9CFA47C520B54975004AFD67 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA478620B54975004AFD67 /* Animation.swift */; };
 		9CFA47C620B54975004AFD67 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA478820B54975004AFD67 /* Button.swift */; };
@@ -146,6 +150,10 @@
 		9CCE2D2220BA366A0038457D /* HabitEditMenuCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditMenuCard.swift; sourceTree = "<group>"; };
 		9CCE2D2620BA40960038457D /* Confirm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Confirm.swift; sourceTree = "<group>"; };
 		9CCE2D2820BA40B00038457D /* PushView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushView.swift; sourceTree = "<group>"; };
+		9CF51F6820BCFA5300D48293 /* HabitEditUICard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditUICard.swift; sourceTree = "<group>"; };
+		9CF51F6B20BD33CD00D48293 /* HabitEditUIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditUIController.swift; sourceTree = "<group>"; };
+		9CF51F6D20BD33F200D48293 /* HabitEditUICell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditUICell.swift; sourceTree = "<group>"; };
+		9CF51F6F20BD5BFE00D48293 /* HabitEditSpaceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditSpaceCard.swift; sourceTree = "<group>"; };
 		9CFA478220B5495C004AFD67 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		9CFA478620B54975004AFD67 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		9CFA478820B54975004AFD67 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -277,8 +285,11 @@
 				9CBC806D20B7FB6400321675 /* HabitEditNameCard.swift */,
 				9CBC806F20B801D300321675 /* HabitEditGoalCard.swift */,
 				9CCE2D1E20B940DE0038457D /* HabitEditFrequencyCard.swift */,
+				9CF51F6F20BD5BFE00D48293 /* HabitEditSpaceCard.swift */,
 				9CCE2D2020B94B3F0038457D /* HabitEditMessageCard.swift */,
+				9CF51F6820BCFA5300D48293 /* HabitEditUICard.swift */,
 				9CCE2D2220BA366A0038457D /* HabitEditMenuCard.swift */,
+				9CF51F6A20BD33A400D48293 /* UI */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -377,6 +388,15 @@
 				9CCE2D2620BA40960038457D /* Confirm.swift */,
 			);
 			path = Confirm;
+			sourceTree = "<group>";
+		};
+		9CF51F6A20BD33A400D48293 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				9CF51F6B20BD33CD00D48293 /* HabitEditUIController.swift */,
+				9CF51F6D20BD33F200D48293 /* HabitEditUICell.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		9CFA478120B5494B004AFD67 /* Profile */ = {
@@ -727,6 +747,7 @@
 				9CBC806C20B7BCEA00321675 /* CardStandardView.swift in Sources */,
 				9CFA480A20B55CD5004AFD67 /* ChartUnit_SQlite.swift in Sources */,
 				9CFA47DE20B54975004AFD67 /* Ex_UIScreen.swift in Sources */,
+				9CF51F7020BD5BFE00D48293 /* HabitEditSpaceCard.swift in Sources */,
 				9CFA481C20B55D0F004AFD67 /* Diary.swift in Sources */,
 				9C25078220B6C95C00EB2D13 /* CollectionViewCell.swift in Sources */,
 				9CCE2D2720BA40960038457D /* Confirm.swift in Sources */,
@@ -753,6 +774,7 @@
 				9CFA47D220B54975004AFD67 /* SQLiteProtocol.swift in Sources */,
 				9CFA481820B55D04004AFD67 /* Chart.swift in Sources */,
 				9C25077D20B6C61B00EB2D13 /* Key.swift in Sources */,
+				9CF51F6920BCFA5300D48293 /* HabitEditUICard.swift in Sources */,
 				9CFA47DC20B54975004AFD67 /* Ex_UIImage.swift in Sources */,
 				9CBC807020B801D300321675 /* HabitEditGoalCard.swift in Sources */,
 				9CFA480820B55C9C004AFD67 /* Chart_SQlite.swift in Sources */,
@@ -793,8 +815,10 @@
 				9CFA481420B55CF9004AFD67 /* Event.swift in Sources */,
 				9CFA481620B55D00004AFD67 /* EventUnit.swift in Sources */,
 				9CFA47CE20B54975004AFD67 /* TableViewController.swift in Sources */,
+				9CF51F6C20BD33CD00D48293 /* HabitEditUIController.swift in Sources */,
 				9CFA480E20B55CE3004AFD67 /* DiaryUnit_SQlite.swift in Sources */,
 				9CFA482520B579A6004AFD67 /* Keyboard.swift in Sources */,
+				9CF51F6E20BD33F200D48293 /* HabitEditUICell.swift in Sources */,
 				9CFA47D620B54975004AFD67 /* Ex_DateFormatter.swift in Sources */,
 				9CFA47C820B54975004AFD67 /* CardSeparator.swift in Sources */,
 				9C25077920B6BD3400EB2D13 /* CardTopView.swift in Sources */,

@@ -10,20 +10,59 @@ import UIKit
 
 class HabitListCell: TableViewCell {
     
+    var habit: Habit { return (controller as? HabitListController)!.objs[index.row] }
+    var is_menu: Bool { return show.frame.width > progress.frame.width }
+    
+    // MARK: - Reload
+    
+    override func view_reload() {
+        super.view_reload()
+        let obj = habit
+        let length = obj.units(date: obj.date.time1970).count(value: { $0.obj.length })
+        let unit_progress = length * 100 / obj.obj.frequency
+        
+        menu.color = obj.color
+        
+        if length == 0 {
+            menu.decrease.isUserInteractionEnabled = false
+            menu.decrease.backgroundColor = obj.color.withAlphaComponent(0.5)
+        } else {
+            menu.decrease.isUserInteractionEnabled = true
+        }
+        
+        show.image.image = obj.image()
+        progress.image.image = obj.image(color: Color.white)
+        progress.value = CGFloat(unit_progress) / 100
+        
+        for view in [show, progress] {
+            view.name.text = obj.obj.name
+            if obj.obj.is_runing {
+                view.count.text = Format.time(second: length)
+            } else {
+                view.count.text = "\(length)次"
+            }
+            view.progress.text = "\(unit_progress)%"
+        }
+        view_bounds()
+    }
+    
     // MARK: - View Deploy
     
-    override func view_deploy() {
-        super.view_deploy()
+    override func view_load() {
+        super.view_load()
         addSubview(show)
         addSubview(progress)
+        addSubview(menu)
+        
+        menu.decrease.addTarget(self, action: #selector(decrease_action), for: .touchUpInside)
+        menu.increase.addTarget(self, action: #selector(increase_action), for: .touchUpInside)
+        menu.complete.addTarget(self, action: #selector(complete_action), for: .touchUpInside)
         
         progress.mask?.layer.cornerRadius = 0
         
         pan = UIPanGestureRecognizer(target: self, action: #selector(pan_action(_:)))
         pan.delegate = self
         addGestureRecognizer(pan)
-        
-        progress.value = 0.2
     }
     
     // MARK: - View Bounds
@@ -36,6 +75,12 @@ class HabitListCell: TableViewCell {
             height: bounds.height - 20
         )
         progress.frame = show.frame
+        menu.frame = CGRect(
+            x: progress.frame.maxX + 10,
+            y: show.frame.minY,
+            width: show.bounds.width - show.size - 30,
+            height: show.bounds.height
+        )
     }
     
     // MARK: - Views
@@ -52,7 +97,21 @@ class HabitListCell: TableViewCell {
         return view
     }()
     
-    // MARK: - Pan
+    let menu: Actions = {
+        let view = Actions()
+        return view
+    }()
+    
+    // MARK: - Actions
+    
+    @objc func decrease_action() {
+    }
+    @objc func increase_action() {
+        
+    }
+    @objc func complete_action() {
+        
+    }
     
     // MARK: - Gesture
     
@@ -67,17 +126,20 @@ class HabitListCell: TableViewCell {
                 UIView.animate(withDuration: 0.25, animations: {
                     self.show.value = (self.show.size + 20) / self.show.frame.width
                     self.progress.frame.size.width = self.show.mask!.bounds.width
+                    self.menu.frame.origin.x = self.progress.frame.maxX + 10
                 })
             } else {
                 UIView.animate(withDuration: 0.25, animations: {
                     self.show.value = 1
                     self.progress.frame.size.width = self.show.mask!.bounds.width
+                    self.menu.frame.origin.x = self.bounds.width
                 })
             }
         default:
             let x = sender.translation(in: self).x + pan_start - show.frame.minX
             show.value = x / show.frame.width
             progress.frame.size.width = show.mask!.bounds.width
+            menu.frame.origin.x = progress.frame.maxX + 10
         }
     }
     
@@ -87,6 +149,24 @@ class HabitListCell: TableViewCell {
             return abs(offset.x) > abs(offset.y)
         }
         return false
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        if !is_menu {
+            let old_rect = show.frame
+            let new_rect = CGRect(
+                x: old_rect.minX - 4, y: old_rect.minY - 4,
+                width: old_rect.width + 8, height: old_rect.height + 8
+            )
+            UIView.animate(withDuration: 0.25, animations: {
+                self.show.frame = new_rect
+            }, completion: { _ in
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.show.frame = old_rect
+                })
+            })
+        }
     }
     
 }
@@ -176,8 +256,8 @@ extension HabitListCell {
             )
             
             name.frame = CGRect(
-                x: image.frame.maxX + 8, y: 8,
-                width: count.frame.minX - image.frame.maxX - 16,
+                x: image.frame.maxX + 10, y: 8,
+                width: count.frame.minX - image.frame.maxX - 20,
                 height: bounds.height - 16
             )
         }
@@ -222,14 +302,22 @@ extension HabitListCell {
     class Actions: View {
         
         /** color */
-        var color: UIColor = Color.blue.light
+        var color: UIColor = Color.blue.light {
+            didSet {
+                for button in [decrease, increase, complete] {
+                    button.backgroundColor = color
+                }
+            }
+        }
         
         // MARK: - Deploy
         
         override func view_deploy() {
             super.view_deploy()
-            for button in buttons {
-                button.normal_color = color
+            for button in [decrease, increase, complete] {
+                button.backgroundColor = color
+                button.layer.cornerRadius = 10
+                addSubview(button)
             }
         }
         
@@ -237,20 +325,47 @@ extension HabitListCell {
         
         override func view_bounds() {
             super.view_bounds()
+            let w = (bounds.width - 20) / 3
+            decrease.frame = CGRect(
+                x: 0, y: 0,
+                width: w, height: bounds.height
+            )
+            increase.frame = CGRect(
+                x: decrease.frame.maxX + 10, y: 0,
+                width: w, height: bounds.height
+            )
+            complete.frame = CGRect(
+                x: increase.frame.maxX + 10, y: 0,
+                width: w, height: bounds.height
+            )
         }
         
         // MARK: - Buttons
         
-        let buttons: [Button] = {
-            var buttons = [Button]()
-            for image in [#imageLiteral(resourceName: "but_cut_w"), #imageLiteral(resourceName: "but_add_w"), #imageLiteral(resourceName: "but_sure_w")] {
-                let button = Button(type: .system)
-                button.setImage(image, for: .normal)
-                button.corner = 10
-                buttons.append(button)
-            }
-            return buttons
+        let decrease: UIButton = {
+            let button = Button(type: .custom)
+            button.setImage(#imageLiteral(resourceName: "but_cut_w"), for: .normal)
+            button.tintColor = Color.white
+            button.corner = 10
+            return button
         }()
+        
+        let increase: UIButton = {
+            let button = Button(type: .custom)
+            button.setImage(#imageLiteral(resourceName: "but_add_w"), for: .normal)
+            button.tintColor = Color.white
+            button.corner = 10
+            return button
+        }()
+        
+        let complete: UIButton = {
+            let button = Button(type: .custom)
+            button.setImage(#imageLiteral(resourceName: "but_sure_w"), for: .normal)
+            button.tintColor = Color.white
+            button.corner = 10
+            return button
+        }()
+        
     }
     
 }

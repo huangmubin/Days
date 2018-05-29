@@ -40,6 +40,8 @@ extension SQLite {
         var goal: Int = 3600000
         /** 每日频率。时间：秒。次数：次。默认 10 分钟 */
         var frequency: Int = 600
+        /** 每次打卡默认的时长 */
+        var space: Int = 60
         
         // MARK: Sort
         
@@ -72,8 +74,8 @@ extension SQLite {
         var image: String = "alarm-clock"
         
         /** 颜色 */
-        //var color: Int = Color.red.light.number()
-        var color: Int = 0
+        var color: Int = Color.red.light.number()
+        //var color: Int = 0
         
     }
     

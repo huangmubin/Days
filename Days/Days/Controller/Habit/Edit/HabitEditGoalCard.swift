@@ -132,6 +132,7 @@ class HabitEditGoalCard: CardStandardView {
         if !habit.obj.is_time {
             habit.obj.is_time = true
             habit.obj.goal *= 3600
+            habit.obj.frequency *= 60
             (table.controller as? HabitEditController)?.type_update()
             reload()
         }
@@ -141,6 +142,7 @@ class HabitEditGoalCard: CardStandardView {
         if habit.obj.is_time {
             habit.obj.is_time = false
             habit.obj.goal /= 3600
+            habit.obj.frequency /= 60
             (table.controller as? HabitEditController)?.type_update()
             reload()
         }

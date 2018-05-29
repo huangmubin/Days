@@ -14,7 +14,9 @@ class TopView: View {
     // MARK: - Left
     
     @IBOutlet weak var left_button: UIButton!
-    @IBAction func left_action(_ sender: UIButton) { }
+    @IBAction func left_action(_ sender: UIButton) {
+        self.controller()?.dismiss(animated: true, completion: nil)
+    }
     
     // MARK: - Right
     

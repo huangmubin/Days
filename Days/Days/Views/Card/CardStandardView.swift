@@ -18,10 +18,15 @@ class CardStandardView: CardBaseView {
     /** Space title to container */
     var space: CGFloat = 20
     
+    /** Title text */
+    var title_text: String { return "" }
+    
     // MARK: - Init
     
     override func view_deploy() {
         super.view_deploy()
+        title.text = title_text
+        
         addSubview(title)
         addSubview(container)
     }

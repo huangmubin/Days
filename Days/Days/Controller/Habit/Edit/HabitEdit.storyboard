@@ -33,11 +33,118 @@
                     </view>
                     <connections>
                         <outlet property="table" destination="vgb-kH-xVf" id="EX8-zW-SyG"/>
+                        <segue destination="wbP-ls-Uod" kind="show" identifier="UI" id="lsA-zl-QAW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8b6-LE-jhp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-12" y="143"/>
         </scene>
+        <!--Habit EditUI Controller-->
+        <scene sceneID="Fjq-cQ-Vwc">
+            <objects>
+                <viewController id="wbP-ls-Uod" customClass="HabitEditUIController" customModule="Days" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NRq-lV-vKc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cY6-pM-edj" userLabel="Top" customClass="TopView" customModule="Days" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="375" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ro6-0U-IUf">
+                                        <rect key="frame" x="10" y="10" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="HDs-f1-Y6v"/>
+                                            <constraint firstAttribute="width" constant="60" id="VSa-jH-3OA"/>
+                                        </constraints>
+                                        <state key="normal" image="but_back"/>
+                                        <connections>
+                                            <action selector="left_action:" destination="cY6-pM-edj" eventType="touchUpInside" id="eOz-eK-Lej"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DCA-M7-Ako">
+                                        <rect key="frame" x="157" y="13" width="60" height="54"/>
+                                        <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="30"/>
+                                        <state key="normal" title="图标">
+                                            <color key="titleColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="DCA-M7-Ako" firstAttribute="centerX" secondItem="cY6-pM-edj" secondAttribute="centerX" id="1au-23-8b8"/>
+                                    <constraint firstItem="Ro6-0U-IUf" firstAttribute="centerY" secondItem="cY6-pM-edj" secondAttribute="centerY" id="LIg-b1-DfI"/>
+                                    <constraint firstItem="DCA-M7-Ako" firstAttribute="centerY" secondItem="cY6-pM-edj" secondAttribute="centerY" id="aUy-Cg-kkp"/>
+                                    <constraint firstAttribute="height" constant="80" id="eLP-KB-nVS"/>
+                                    <constraint firstItem="Ro6-0U-IUf" firstAttribute="leading" secondItem="cY6-pM-edj" secondAttribute="leading" constant="10" id="rZY-IV-V56"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="left_button" destination="Ro6-0U-IUf" id="Pfb-vA-ljw"/>
+                                    <outlet property="title" destination="DCA-M7-Ako" id="I4m-rt-6rY"/>
+                                </connections>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TX3-EL-TbG">
+                                <rect key="frame" x="10" y="100" width="355" height="567"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="djN-1N-8cK">
+                                    <size key="itemSize" width="71" height="70"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="HabitEditUICell" reuseIdentifier="Cell" id="zKX-Gd-FPJ" userLabel="HabitEditUICell" customClass="HabitEditUICell" customModule="Days" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="71" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="71" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kwx-cT-1a4">
+                                                    <rect key="frame" x="0.0" y="0.0" width="71" height="70"/>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="kwx-cT-1a4" firstAttribute="leading" secondItem="zKX-Gd-FPJ" secondAttribute="leading" id="Bfp-ak-Fuh"/>
+                                            <constraint firstAttribute="trailing" secondItem="kwx-cT-1a4" secondAttribute="trailing" id="SJz-aX-TDX"/>
+                                            <constraint firstAttribute="bottom" secondItem="kwx-cT-1a4" secondAttribute="bottom" id="ecW-Yu-LCl"/>
+                                            <constraint firstItem="kwx-cT-1a4" firstAttribute="top" secondItem="zKX-Gd-FPJ" secondAttribute="top" id="t77-45-cCk"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="value" destination="kwx-cT-1a4" id="b3J-lu-b5D"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="wbP-ls-Uod" id="VHF-Wc-ngh"/>
+                                    <outlet property="delegate" destination="wbP-ls-Uod" id="pQu-Eo-Cz9"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dPF-Jf-VjJ" firstAttribute="bottom" secondItem="TX3-EL-TbG" secondAttribute="bottom" id="6cL-3q-jcI"/>
+                            <constraint firstItem="dPF-Jf-VjJ" firstAttribute="trailing" secondItem="TX3-EL-TbG" secondAttribute="trailing" constant="10" id="9FJ-qB-VzQ"/>
+                            <constraint firstItem="cY6-pM-edj" firstAttribute="top" secondItem="dPF-Jf-VjJ" secondAttribute="top" id="G6j-EJ-cah"/>
+                            <constraint firstItem="cY6-pM-edj" firstAttribute="trailing" secondItem="dPF-Jf-VjJ" secondAttribute="trailing" id="Wcr-j1-sX3"/>
+                            <constraint firstItem="TX3-EL-TbG" firstAttribute="leading" secondItem="dPF-Jf-VjJ" secondAttribute="leading" constant="10" id="a9d-7L-iOp"/>
+                            <constraint firstItem="cY6-pM-edj" firstAttribute="leading" secondItem="dPF-Jf-VjJ" secondAttribute="leading" id="cK3-sW-Epa"/>
+                            <constraint firstItem="TX3-EL-TbG" firstAttribute="top" secondItem="cY6-pM-edj" secondAttribute="bottom" id="fSN-PF-d7S"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dPF-Jf-VjJ"/>
+                    </view>
+                    <connections>
+                        <outlet property="collection" destination="TX3-EL-TbG" id="UhY-Vx-dvc"/>
+                        <outlet property="top" destination="cY6-pM-edj" id="Hpm-WP-ZHP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r1a-df-JyZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="872.79999999999995" y="142.57871064467767"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="but_back" width="60" height="60"/>
+    </resources>
 </document>

@@ -55,4 +55,5 @@ class Format {
         let text = time(second: second).components(separatedBy: [" "])
         return (text[0], text[1])
     }
+    
 }

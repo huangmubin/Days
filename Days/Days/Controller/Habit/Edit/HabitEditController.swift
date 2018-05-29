@@ -16,6 +16,11 @@ class HabitEditController: ViewController, HabitObjectController {
         super.viewDidLoad()
         load_cards()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        table.card(id: "UI")?.reload()
+    }
 
     // MARK: - Card Table
     
@@ -24,13 +29,15 @@ class HabitEditController: ViewController, HabitObjectController {
     func load_cards() {
         table.controller = self
         
-        table.cards.append(HabitEditTopCard(height: nil))
-        table.cards.append(HabitEditNameCard(height: nil))
-        table.cards.append(HabitEditGoalCard(height: nil))
-        table.cards.append(HabitEditFrequencyCard(height: nil))
-        table.cards.append(HabitEditMessageCard(height: nil))
+        table.cards.append(HabitEditTopCard(id: "Top", height: 80))
+        table.cards.append(HabitEditNameCard(id: "Name", height: 160))
+        table.cards.append(HabitEditGoalCard(id: "Goal", height: 220))
+        table.cards.append(HabitEditFrequencyCard(id: "Frequency", height: 140))
+        table.cards.append(HabitEditFrequencyCard(id: "Space", height: 140))
+        table.cards.append(HabitEditUICard(id: "UI", height: 140))
+        table.cards.append(HabitEditMessageCard(id: "Message", height: 160))
         if habit.obj.id != 0 {
-            table.cards.append(HabitEditMenuCard(height: nil))
+            table.cards.append(HabitEditMenuCard(id: "Menu", height: 160))
         }
         
         table.reload()
@@ -39,7 +46,16 @@ class HabitEditController: ViewController, HabitObjectController {
     // MARK: - Type Update
     
     func type_update() {
-        
+        table.card(id: "Frequency")?.reload()
+    }
+    
+    // MARK: - Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let ui = segue.controller as? HabitEditUIController {
+            ui.habit = habit
+            ui.is_image = sender as! Bool
+        }
     }
     
 }

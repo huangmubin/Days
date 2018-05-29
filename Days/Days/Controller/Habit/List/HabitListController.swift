@@ -19,12 +19,22 @@ class HabitListController: ViewController {
         objs = SQLite.Habit.find().sorted(by: {
             $0.sort < $1.sort
         }).map({ Habit($0) })
+        table.controller = self
+        table.dataSource = table
+        table.delegate = table
+        table.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if let obj = messages.removeValue(forKey: Key.Habit.append) as? Habit {
+            obj.obj.id = SQLite.Habit.new_id
+            obj.obj.sort = obj.obj.id
             obj.obj.insert()
+            objs.append(obj)
+            DispatchQueue.main.async {            
+                self.table.insertRows(at: [IndexPath(self.objs)], with: UITableViewRowAnimation.bottom)
+            }
         }
     }
     

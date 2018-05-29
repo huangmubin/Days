@@ -12,6 +12,7 @@ class HabitEditTopCard: CardTopView {
     
     override func reload() {
         super.reload()
+        right.isHidden = true
         title.text = (habit.obj.id == 0 ? "新增习惯" : habit.obj.name)
     }
     
@@ -26,6 +27,10 @@ class HabitEditTopCard: CardTopView {
             table.vc?.toSuperController(object: [Key.Habit.update: habit])
         }
         table.controller?.dismiss(animated: true, completion: nil)
+    }
+    
+    func update_button() {
+        right.isHidden = habit.obj.name.isEmpty
     }
     
 }

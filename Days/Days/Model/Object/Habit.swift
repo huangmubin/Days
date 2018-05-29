@@ -22,11 +22,21 @@ class Habit {
         self.obj = obj
     }
     
+    // MARK: - Date
+    
+    /** Date */
+    var date: Date = Date()
+    
     // MARK: - UI
     
     /** UIImage */
     func image() -> UIImage {
         return Resource.image(obj.image, obj.color)
+    }
+    
+    /** UIImage */
+    func image(color: UIColor) -> UIImage {
+        return Resource.image(obj.image, color.number())
     }
     
     /** Color */
@@ -60,6 +70,12 @@ class Habit {
             _units[date] = objs
             return objs
         }
+    }
+    
+    /** Remove the count in date */
+    func units(remove date: Int) {
+        var objs = units(date: date)
+        let time = obj.frequency
     }
     
 }

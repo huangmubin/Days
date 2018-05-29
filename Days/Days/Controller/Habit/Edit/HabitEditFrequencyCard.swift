@@ -12,17 +12,12 @@ class HabitEditFrequencyCard: CardStandardView {
     
     // MARK: - Value
     
-    /** default height */
-    override var default_height: CGFloat {
-        return edge.top + 40 + space + 60 + edge.bottom
-    }
+    override var title_text: String { return "每日计划" }
     
     // MARK: - Init
     
     override func view_deploy() {
         super.view_deploy()
-        title.text = "目标"
-        
         container.addSubview(frequency)
         container.addSubview(number)
         container.addSubview(unit)

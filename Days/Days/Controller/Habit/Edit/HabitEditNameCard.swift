@@ -23,10 +23,12 @@ class HabitEditNameCard: CardMessageView {
     }
     
     override func keyboard(_ board: Keyboard) -> String? {
-        if let value = board.value as? String {
-            if value.isEmpty {
-                return "名称不得为空"
-            }
+        if (board.value as? String)?.isEmpty == true {
+            return "名称不得为空"
+        }
+        habit.obj.name = (board.value as? String) ?? habit.obj.name
+        if let top = table.card(id: "Top") as? HabitEditTopCard {
+            top.update_button()
         }
         return super.keyboard(board)
     }
