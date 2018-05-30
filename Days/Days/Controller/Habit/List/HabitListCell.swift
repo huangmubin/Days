@@ -18,31 +18,45 @@ class HabitListCell: TableViewCell {
     override func view_reload() {
         super.view_reload()
         let obj = habit
-        let length = obj.units(date: obj.date.time1970).count(value: { $0.obj.length })
+        let length = obj.units(date: obj.date.date).count(value: { $0.obj.length })
         let unit_progress = length * 100 / obj.obj.frequency
         
+        // color
+        progress.color = obj.color
+        progress.update(type: false)
         menu.color = obj.color
         
+        // Length
         if length == 0 {
             menu.decrease.isUserInteractionEnabled = false
             menu.decrease.backgroundColor = obj.color.withAlphaComponent(0.5)
         } else {
             menu.decrease.isUserInteractionEnabled = true
         }
+        if length >= obj.obj.frequency {
+            menu.complete.isUserInteractionEnabled = false
+            menu.complete.backgroundColor = obj.color.withAlphaComponent(0.5)
+        } else {
+            menu.complete.isUserInteractionEnabled = true
+        }
         
+        // Image
         show.image.image = obj.image()
         progress.image.image = obj.image(color: Color.white)
         progress.value = CGFloat(unit_progress) / 100
         
+        // text
         for view in [show, progress] {
             view.name.text = obj.obj.name
             if obj.obj.is_runing {
-                view.count.text = Format.time(second: length)
+                view.count.text = Format.time_text(second: length)
             } else {
                 view.count.text = "\(length)次"
             }
             view.progress.text = "\(unit_progress)%"
         }
+        
+        // update
         view_bounds()
     }
     
@@ -74,7 +88,15 @@ class HabitListCell: TableViewCell {
             width: bounds.width - 20,
             height: bounds.height - 20
         )
-        progress.frame = show.frame
+        show.view_bounds()
+        
+        progress.frame = CGRect(
+            x: show.frame.minX, y: show.frame.minY,
+            width: show.mask!.bounds.width,
+            height: show.bounds.height
+        )
+        progress.view_bounds()
+        
         menu.frame = CGRect(
             x: progress.frame.maxX + 10,
             y: show.frame.minY,
@@ -105,12 +127,39 @@ class HabitListCell: TableViewCell {
     // MARK: - Actions
     
     @objc func decrease_action() {
+        Impact.light()
+        menu.animation(menu.decrease)
+        habit.units(remove: habit.date.date)
+        UIView.animate(withDuration: 0.25, animations: {
+            self.view_reload()
+        })
     }
     @objc func increase_action() {
-        
+        Impact.heavy()
+        menu.animation(menu.increase)
+        let unit = HabitUnit(habit)
+        unit.obj.id = SQLite.HabitUnit.new_id
+        unit.obj.insert()
+        habit.units(insert: habit.date.date, unit: unit)
+        UIView.animate(withDuration: 0.25, animations: {
+            self.view_reload()
+        })
     }
     @objc func complete_action() {
-        
+        Impact.heavy()
+        menu.animation(menu.complete)
+        let units = habit.units(date: habit.date.date)
+        let length = units.count(value: { $0.obj.length })
+        if length < habit.obj.frequency {
+            let unit = HabitUnit(habit)
+            unit.obj.id = SQLite.HabitUnit.new_id
+            unit.obj.length = habit.obj.frequency - length
+            unit.obj.insert()
+            habit.units(insert: habit.date.date, unit: unit)
+        }
+        UIView.animate(withDuration: 0.25, animations: {
+            self.view_reload()
+        })
     }
     
     // MARK: - Gesture
@@ -154,6 +203,7 @@ class HabitListCell: TableViewCell {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         if !is_menu {
+            Impact.medium()
             let old_rect = show.frame
             let new_rect = CGRect(
                 x: old_rect.minX - 4, y: old_rect.minY - 4,
@@ -161,9 +211,11 @@ class HabitListCell: TableViewCell {
             )
             UIView.animate(withDuration: 0.25, animations: {
                 self.show.frame = new_rect
+                self.progress.frame = new_rect
             }, completion: { _ in
                 UIView.animate(withDuration: 0.25, animations: {
                     self.show.frame = old_rect
+                    self.progress.frame = old_rect
                 })
             })
         }
@@ -365,6 +417,23 @@ extension HabitListCell {
             button.corner = 10
             return button
         }()
+        
+        // MARK: - Animation
+        
+        func animation(_ button: UIButton) {
+            let old = button.frame
+            let new = CGRect(
+                x: old.minX - 4, y: old.minY - 4,
+                width: old.width + 8, height: old.height + 8
+            )
+            UIView.animate(withDuration: 0.125, animations: {
+                button.frame = new
+            }, completion: { _ in
+                UIView.animate(withDuration: 0.125, animations: {
+                    button.frame = old
+                })
+            })
+        }
         
     }
     

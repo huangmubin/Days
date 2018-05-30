@@ -10,7 +10,10 @@ import UIKit
 
 class HabitEditSpaceCard: HabitEditFrequencyCard {
     
-    override var title_text: String { return "默认打卡步长" }
+    override var title_text: String {
+        print("默认打卡步长")
+        return "默认打卡步长"
+    }
     
     // MARK: - Init
     

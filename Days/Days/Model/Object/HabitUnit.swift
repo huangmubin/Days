@@ -22,7 +22,7 @@ class HabitUnit {
         
         self.obj.belong = habit.obj.id
         self.obj.start  = Date()
-        self.obj.length = habit.obj.frequency
+        self.obj.length = habit.obj.space
     }
     
     init(_ habit: Habit, _ obj: SQLite.HabitUnit) {
@@ -34,6 +34,5 @@ class HabitUnit {
     
     /** is time or count */
     var is_time: Bool { return habit.obj.is_time }
-    
     
 }

@@ -1,0 +1,334 @@
+//
+//  HabitBoothChartCard.swift
+//  Days
+//
+//  Created by Myron on 2018/5/30.
+//  Copyright © 2018年 Myron. All rights reserved.
+//
+
+import UIKit
+
+class HabitBoothChartCard: CardBaseView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    // MARK: - Value
+    
+    /** Edge */
+    var edge: UIEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+    
+    /** Space title to container */
+    var space: CGFloat = 10
+    
+    // MARK: - Deploy
+    
+    override func reload() {
+        super.reload()
+        if habit.obj.is_time {
+            count.text = Format.time_text(second: habit.units(date: habit.date.date).count(value: { $0.obj.length }))
+        } else {
+            count.text = "\(habit.units(date: habit.date.date).count(value: { $0.obj.length }))次"
+        }
+        day.text = Format.day(habit.date)
+    }
+    
+    override func view_deploy() {
+        super.view_deploy()
+        addSubview(container)
+        container.addSubview(name)
+        container.addSubview(detail)
+        container.addSubview(count)
+        container.addSubview(day)
+        container.addSubview(goal)
+        
+        container.addSubview(collection)
+        collection.dataSource = self
+        collection.delegate = self
+        
+        container.addSubview(last_button)
+        container.addSubview(next_button)
+        container.addSubview(date_button)
+    }
+    
+    override func view_bounds() {
+        super.view_bounds()
+        container.frame = CGRect(
+            x: edge.left, y: edge.top,
+            width: bounds.width - edge.left - edge.right,
+            height: bounds.height - edge.top - edge.bottom
+        )
+        
+        name.sizeToFit()
+        name.frame = CGRect(
+            x: 20, y: 16,
+            width: container.bounds.width - 30 - 60,
+            height: name.frame.height
+        )
+        detail.frame = CGRect(
+            x: name.frame.minX,
+            y: name.frame.maxY,
+            width: name.frame.width,
+            height: detail.sizeThatFits(CGSize(width: name.frame.width, height: 1000)).height
+        )
+        
+        let y = (name.frame.height + detail.frame.height) / 2 + name.frame.minY
+        
+        count.frame = CGRect(
+            x: name.frame.maxX,
+            y: y - 16, width: 60, height: 16
+        )
+        day.frame = CGRect(
+            x: count.frame.minX,
+            y: count.frame.maxY,
+            width: count.frame.width,
+            height: count.frame.height
+        )
+        
+        collection.frame = CGRect(
+            x: 10, y: max(detail.frame.maxY, day.frame.maxY) + space,
+            width: container.frame.width - 20,
+            height: container.frame.height - detail.frame.maxY - space - 60
+        )
+        
+        goal.frame = CGRect(
+            x: 0,
+            y: collection.frame.height  / 6 + collection.frame.minY,
+            width: container.bounds.width,
+            height: 1
+        )
+        
+        last_button.frame = CGRect(
+            x: 10,
+            y: collection.frame.maxY ,
+            width: 60,
+            height: 60
+        )
+        
+        date_button.frame = CGRect(
+            x: last_button.frame.maxX,
+            y: last_button.frame.minY,
+            width: container.bounds.width - 20 - 120,
+            height: last_button.frame.height
+        )
+        
+        next_button.frame = CGRect(
+            x: date_button.frame.maxX,
+            y: date_button.frame.minY,
+            width: 60,
+            height: date_button.frame.height
+        )
+    }
+    
+    // MARK: - Container
+    
+    let container: View = {
+        let view = View()
+        view.corner = 10
+        view.backgroundColor = Color.gray.light
+        return view
+    }()
+    
+    // MARK: - note
+    
+    let name: UILabel = {
+        let label = UILabel()
+        label.textColor = Color.dark
+        label.font = Font.text.m
+        label.text = "图表名字"
+        return label
+    }()
+    
+    let detail: UILabel = {
+        let label = UILabel()
+        label.textColor = Color.gray.dark
+        label.font = Font.hint.s
+        label.numberOfLines = 0
+        //label.text = "测试内容，详细内容，说上几句。"
+        return label
+    }()
+    
+    let count: UILabel = {
+        let label = UILabel()
+        label.textColor = Color.gray.dark
+        label.font = Font.hint.s
+        label.textAlignment = .center
+        label.text = "10分钟"
+        return label
+    }()
+    
+    let day: UILabel = {
+        let label = UILabel()
+        label.textColor = Color.gray.dark
+        label.font = Font.hint.s
+        label.textAlignment = .center
+        label.text = "今天"
+        return label
+    }()
+    
+    // MARK: - Line
+    
+    let goal: UIView = {
+        let view = UIView()
+        view.backgroundColor = Color.white
+        return view
+    }()
+    
+    // MARK: - Collection
+    
+    let collection: CollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.scrollDirection = .horizontal
+        let view = CollectionView(
+            frame: CGRect.zero,
+            collectionViewLayout: layout
+        )
+        view.layout = layout
+        view.register(
+            HabitBoothChartCard.HabitBoothChartCell.self,
+            forCellWithReuseIdentifier: "Cell"
+        )
+        view.backgroundColor = UIColor.clear
+        return view
+    }()
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return habit.date.days(.month)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! HabitBoothChartCell
+        let date = habit.date.first(.month)
+        let cell_date = date.advance(.day, indexPath.row)
+        let units = habit.units(date: cell_date.date)
+        
+        // Select
+        cell.select.isHidden = (cell_date.day != habit.date.day)
+        
+        // Value
+        cell.value = CGFloat(units.count(value: { $0.obj.length })) / CGFloat(habit.obj.frequency)
+        
+        // Days
+        let days = date.days(.month)
+        if days % 2 == 0 {
+            if indexPath.row < days - 6 {
+                cell.day.isHidden = indexPath.row % 2 == 1
+            } else if indexPath.row > days - 6 {
+                cell.day.isHidden = indexPath.row % 2 == 0
+            } else {
+                cell.day.isHidden = true
+            }
+        } else {
+            cell.day.isHidden = indexPath.row % 2 == 1
+        }
+        cell.view_update(index: indexPath, view: self)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let days = CGFloat(habit.date.days(.month))
+        return CGSize(
+            width: collectionView.bounds.width / days,
+            height: collectionView.bounds.height
+        )
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let first = habit.date.first(.month)
+        habit.date = first.advance(.day, indexPath.row)
+        collectionView.reloadData()
+    }
+    
+    // MARK: - Buttons
+    
+    let last_button: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(#imageLiteral(resourceName: "but_last"), for: .normal)
+        button.tintColor = Color.dark
+        return button
+    }()
+    
+    let next_button: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(#imageLiteral(resourceName: "but_next"), for: .normal)
+        button.tintColor = Color.dark
+        return button
+    }()
+    
+    let date_button: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("2018年10月", for: .normal)
+        button.titleLabel?.font = Font.hint.b
+        button.tintColor = Color.dark
+        return button
+    }()
+    
+}
+
+// MARK: - Cell
+
+extension HabitBoothChartCard {
+    
+    class HabitBoothChartCell: CollectionViewCell {
+        
+        var value: CGFloat = 0
+        
+        // MARK: - Load
+        
+        override func view_load() {
+            super.view_load()
+            addSubview(day)
+            addSubview(column)
+            addSubview(select)
+        }
+        
+        override func view_reload() {
+            super.view_reload()
+            day.text = (index.row + 1).description
+            day.sizeToFit()
+            day.center = CGPoint(
+                x: bounds.width / 2,
+                y: bounds.height - 10
+            )
+            
+            let h = (bounds.height - 20) / 1.2 * min(value, 1.2)
+            column.frame = CGRect(
+                x: bounds.width * 0.1,
+                y: bounds.height - 20 - h,
+                width: bounds.width * 0.8,
+                height: h
+            )
+            column.layer.cornerRadius = bounds.width * 0.4
+            
+            select.frame = CGRect(
+                x: bounds.width * 0.2,
+                y: column.frame.minY - bounds.width * 0.7,
+                width: bounds.width * 0.6,
+                height: bounds.width * 0.6
+            )
+            select.layer.cornerRadius = select.frame.width / 2
+        }
+        
+        // MARK: - Views
+        
+        let day: UILabel = {
+            let label = UILabel()
+            label.textAlignment = .center
+            label.font = Font.hint.s
+            label.textColor = Color.dark
+            return label
+        }()
+        
+        let column: UIView = {
+            let view = UIView()
+            view.backgroundColor = Color.gray.dark
+            return view
+        }()
+        
+        let select: UIView = {
+            let view = UIView()
+            view.backgroundColor = Color.red.light
+            return view
+        }()
+    }
+    
+}

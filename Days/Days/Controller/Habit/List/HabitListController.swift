@@ -70,6 +70,9 @@ class HabitListController: ViewController {
         if let edit = segue.controller as? HabitEditController {
             edit.habit = Habit()
         }
+        if let booth = segue.controller as? HabitBoothController {
+            booth.habit = sender as! Habit
+        }
     }
     
 }

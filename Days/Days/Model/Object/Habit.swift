@@ -75,7 +75,26 @@ class Habit {
     /** Remove the count in date */
     func units(remove date: Int) {
         var objs = units(date: date)
-        let time = obj.frequency
+        var time = obj.space
+        while time > 0 && objs.count > 0 {
+            let unit = objs.removeLast()
+            if unit.obj.length > time {
+                unit.obj.length -= time
+                unit.obj.update()
+                objs.append(unit)
+                time = 0
+            } else {
+                time -= unit.obj.length
+                unit.obj.delete()
+            }
+        }
+        _units[date] = objs
+    }
+    
+    /** Insert unit */
+    func units(insert date: Int, unit: HabitUnit) {
+        let objs = units(date: date)
+        _units[date] = objs + [unit]
     }
     
 }

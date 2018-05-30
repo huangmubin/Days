@@ -14,7 +14,11 @@ protocol CardCalendarViewDelegate: class {
     func cardCalendar(view: CardCalendarView, is_done date: Date) -> Bool
 }
 
-class CardCalendarView: CardBaseView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class CardCalendarView: CardBaseView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CardCalendarViewDelegate {
+    
+    func cardCalendar(view: CardCalendarView, update date: Date) {}
+    func cardCalendar(view: CardCalendarView, is_sick date: Date) -> Bool { return false }
+    func cardCalendar(view: CardCalendarView, is_done date: Date) -> Bool { return false }
     
     // MARK: - Values
     
@@ -59,6 +63,7 @@ class CardCalendarView: CardBaseView, UICollectionViewDataSource, UICollectionVi
         
         collect.dataSource = self
         collect.delegate = self
+        delegate = self
     }
     
     // MARK: - Frame

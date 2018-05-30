@@ -109,6 +109,7 @@
                         <outlet property="entry_height" destination="Wai-hE-FZp" id="aGi-De-nke"/>
                         <outlet property="table" destination="Sh0-BZ-uX0" id="IYN-8C-hHC"/>
                         <outlet property="top" destination="aeN-ec-bKc" id="xk9-Ac-gTZ"/>
+                        <segue destination="KgQ-qE-VUr" kind="show" identifier="OpenBooth" id="gdf-Ya-O2G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8CA-Yb-V0K" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -122,6 +123,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jyc-a2-jgB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="497" y="59"/>
+        </scene>
+        <!--HabitBooth-->
+        <scene sceneID="EJJ-Vj-qy1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HabitBooth" id="KgQ-qE-VUr" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ujt-j9-jZu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="506" y="146"/>
         </scene>
     </scenes>
     <resources>

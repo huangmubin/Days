@@ -33,7 +33,7 @@ class HabitEditController: ViewController, HabitObjectController {
         table.cards.append(HabitEditNameCard(id: "Name", height: 160))
         table.cards.append(HabitEditGoalCard(id: "Goal", height: 220))
         table.cards.append(HabitEditFrequencyCard(id: "Frequency", height: 140))
-        table.cards.append(HabitEditFrequencyCard(id: "Space", height: 140))
+        table.cards.append(HabitEditSpaceCard(id: "Space", height: 140))
         table.cards.append(HabitEditUICard(id: "UI", height: 140))
         table.cards.append(HabitEditMessageCard(id: "Message", height: 160))
         if habit.obj.id != 0 {
@@ -47,6 +47,7 @@ class HabitEditController: ViewController, HabitObjectController {
     
     func type_update() {
         table.card(id: "Frequency")?.reload()
+        table.card(id: "Space")?.reload()
     }
     
     // MARK: - Segue

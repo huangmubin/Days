@@ -35,6 +35,9 @@ class HabitListTable: TableView, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        controller.performSegue(
+            withIdentifier: "OpenBooth",
+            sender: controller.objs[indexPath.row]
+        )
     }
 }

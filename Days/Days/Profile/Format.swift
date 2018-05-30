@@ -28,6 +28,22 @@ class Format {
     /** ee hh:mm */
     static let ee_hh_mm: DateFormatter = DateFormatter("ee hh:mm")
     
+    // MARK: - Date
+    
+    /** Date */
+    class func day(_ date: Date, _ point: Date = Date()) -> String {
+        let today = point.first(.day)
+        let new = date.first(.day)
+        switch (today.time1970 - new.time1970) / 86400 {
+        case 0: return "今天"
+        case 1: return "明天"
+        case 2: return "后天"
+        case -1: return "昨天"
+        case -2: return "前天"
+        default: return "\(new.day)日"
+        }
+    }
+    
     // MARK: - Timer
     
     /** Timer */
@@ -55,5 +71,12 @@ class Format {
         let text = time(second: second).components(separatedBy: [" "])
         return (text[0], text[1])
     }
+    
+    /** Timer splict */
+    class func time_text(second: Int) -> String {
+        let text = time(second: second).components(separatedBy: [" "])
+        return "\(text[0])\(text[1])"
+    }
+    
     
 }
