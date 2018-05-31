@@ -15,6 +15,11 @@ class HabitBoothCalendarCard: CardCalendarView {
         space_edge.bottom = 0
     }
     
+    override func reload() {
+        super.reload()
+        collect.reloadData()
+    }
+    
     override func cardCalendar(view: CardCalendarView, update date: Date) {
         habit.date = date
     }

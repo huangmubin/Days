@@ -20,6 +20,7 @@ class HabitEditController: ViewController, HabitObjectController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         table.card(id: "UI")?.reload()
+        table.card(id: "Goal")?.reload()
     }
 
     // MARK: - Card Table

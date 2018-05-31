@@ -16,9 +16,13 @@ class HabitUnitEditTimerCard: CardStandardView {
     
     override func reload() {
         super.reload()
-        unit_obj.habit.date = Date().first(.day).addingTimeInterval(Double(Date().time))
+//        if unit_obj.obj.id == 0 {
+//            unit_obj.habit.date = Date().first(.day).addingTimeInterval(Double(Date().time))
+//        } else {
+//            unit_obj.habit.date = unit_obj.obj.start
+//        }
         value.start = unit_obj.obj.start
-        value.end   = value.start.addingTimeInterval(TimeInterval(unit_obj.habit.obj.space))
+        value.end   = unit_obj.obj.end
         update_buttons()
     }
     
@@ -35,9 +39,12 @@ class HabitUnitEditTimerCard: CardStandardView {
         duration.text = Format.time_text(
             second: space
         )
+        
+        let color = unit_obj.habit.color
+        
         switch space {
         case 600:
-            small.backgroundColor = Color.dark
+            small.backgroundColor = color
             medium.backgroundColor = Color.gray.light
             big.backgroundColor = Color.gray.light
             small.setTitleColor(Color.white, for: .normal)
@@ -45,7 +52,7 @@ class HabitUnitEditTimerCard: CardStandardView {
             big.setTitleColor(Color.dark, for: .normal)
         case 1800:
             small.backgroundColor = Color.gray.light
-            medium.backgroundColor = Color.dark
+            medium.backgroundColor = color
             big.backgroundColor = Color.gray.light
             small.setTitleColor(Color.dark, for: .normal)
             medium.setTitleColor(Color.white, for: .normal)
@@ -53,7 +60,7 @@ class HabitUnitEditTimerCard: CardStandardView {
         case 3600:
             small.backgroundColor = Color.gray.light
             medium.backgroundColor = Color.gray.light
-            big.backgroundColor = Color.dark
+            big.backgroundColor = color
             small.setTitleColor(Color.dark, for: .normal)
             medium.setTitleColor(Color.dark, for: .normal)
             big.setTitleColor(Color.white, for: .normal)

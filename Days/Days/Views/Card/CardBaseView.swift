@@ -18,6 +18,9 @@ protocol HabitUnitObjectController {
 class CardBaseView: CardView, KeyboardDelegate, ConfirmDelegate {
 
     var habit: Habit {
+        if let obj = table.controller as? HabitUnitObjectController {
+            return obj.unit.habit
+        }
         return (table.controller as! HabitObjectController).habit
     }
     var unit_obj: HabitUnit {

@@ -18,6 +18,9 @@ class HabitUnitEditTopCard: CardTopView {
     }
     
     override func right_action(_ sender: UIButton) {
+        if unit_obj.obj.is_sick {
+            unit_obj.obj.length = 0
+        }
         if unit_obj.obj.id == 0 {
             table.vc?.toSuperController(object: [Key.Habit.Unit.append: unit_obj])
         } else {

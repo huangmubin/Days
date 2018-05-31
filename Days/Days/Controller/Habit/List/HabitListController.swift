@@ -31,6 +31,7 @@ class HabitListController: ViewController {
             obj.obj.id = SQLite.Habit.new_id
             obj.obj.sort = obj.obj.id
             obj.obj.insert()
+            obj.chart_create()
             objs.append(obj)
             DispatchQueue.main.async {            
                 self.table.insertRows(at: [IndexPath(self.objs)], with: UITableViewRowAnimation.bottom)

@@ -20,6 +20,11 @@ class Habit {
     
     init(_ obj: SQLite.Habit) {
         self.obj = obj
+        //self.chart_create()
+        self.charts = SQLite.Chart.find(where: "belong = \(obj.id)").map({ Chart(self, $0) })
+        if let chart = self.charts.find(condition: { $0.obj.is_habit }) {
+            chart.obj.goal = obj.frequency
+        }
     }
     
     // MARK: - Date
@@ -95,6 +100,25 @@ class Habit {
     func units(insert date: Int, unit: HabitUnit) {
         let objs = units(date: date)
         _units[date] = objs + [unit]
+    }
+    
+    // MARK: - Chart
+    
+    /** Chart */
+    var chart: Chart { return charts.find(condition: { $0.obj.is_habit })! }
+    
+    /** 图表数据 */
+    var charts: [Chart] = []
+    
+    /**  */
+    func chart_create() {
+        let chart = Chart(self)
+        chart.obj.belong = obj.id
+        chart.obj.goal = obj.frequency
+        chart.obj.name = "图表"
+        chart.obj.note = "日常记录分析"
+        chart.obj.insert()
+        charts.insert(chart, at: 0)
     }
     
 }

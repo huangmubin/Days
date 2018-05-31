@@ -30,10 +30,10 @@ class HabitUnitEditTypeCard: CardStandardView {
             normal.setTitleColor(Color.dark, for: .normal)
             normal.backgroundColor = Color.gray.light
             sick.setTitleColor(Color.white, for: .normal)
-            sick.backgroundColor = Color.dark
+            sick.backgroundColor = unit_obj.habit.color
         } else {
             normal.setTitleColor(Color.white, for: .normal)
-            normal.backgroundColor = Color.dark
+            normal.backgroundColor = unit_obj.habit.color
             sick.setTitleColor(Color.dark, for: .normal)
             sick.backgroundColor = Color.gray.light
         }

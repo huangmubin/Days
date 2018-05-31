@@ -33,7 +33,7 @@ class HabitEditGoalCard: CardStandardView {
         super.reload()
         if habit.obj.is_time {
             timer.setTitleColor(Color.white, for: .normal)
-            timer.normal_color = Color.dark
+            timer.normal_color = habit.color
             count.setTitleColor(Color.dark, for: .normal)
             count.normal_color = Color.gray.light
             
@@ -47,7 +47,7 @@ class HabitEditGoalCard: CardStandardView {
             timer.setTitleColor(Color.dark, for: .normal)
             timer.normal_color = Color.gray.light
             count.setTitleColor(Color.white, for: .normal)
-            count.normal_color = Color.dark
+            count.normal_color = habit.color
             
             goal.text = habit.obj.goal.description
             unit.text = "次"

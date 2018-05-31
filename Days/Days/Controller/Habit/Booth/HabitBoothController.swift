@@ -24,6 +24,7 @@ class HabitBoothController: ViewController, HabitObjectController {
             unit.obj.id = SQLite.HabitUnit.new_id
             unit.obj.insert()
             habit.units(insert: habit.date.date, unit: unit)
+            habit.chart.units(update: habit.date.date)
         }
         
         if is_loaded {
@@ -43,7 +44,13 @@ class HabitBoothController: ViewController, HabitObjectController {
         table.cards.append(HabitBoothTopCard(id: "Top", height: 80))
         table.cards.append(HabitBoothCalendarCard(id: "Calendar", height: 80))
         table.cards.append(HabitBoothUnitCard(id: "Unit", height: 60))
-        table.cards.append(HabitBoothChartCard(id: "Chart", height: 320))
+        
+        for chart in habit.charts {
+            chart.date = habit.date
+            let card = HabitBoothChartCard(id: "Chart", height: 320)
+            card.chart = chart
+            table.cards.append(card)
+        }
         
         table.reload()
     }

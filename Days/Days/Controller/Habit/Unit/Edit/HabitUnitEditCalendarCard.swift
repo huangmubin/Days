@@ -10,6 +10,11 @@ import UIKit
 
 class HabitUnitEditCalendarCard: CardCalendarView {
     
+    override func reload() {
+        super.reload()
+        update(date: unit_obj.obj.start)
+    }
+    
     override func view_deploy() {
         super.view_deploy()
         space_edge.bottom = 0

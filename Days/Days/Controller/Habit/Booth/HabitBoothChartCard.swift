@@ -12,6 +12,9 @@ class HabitBoothChartCard: CardBaseView, UICollectionViewDataSource, UICollectio
     
     // MARK: - Value
     
+    /** Date */
+    var chart: Chart!
+    
     /** Edge */
     var edge: UIEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
     
@@ -22,14 +25,18 @@ class HabitBoothChartCard: CardBaseView, UICollectionViewDataSource, UICollectio
     
     override func reload() {
         super.reload()
-        if habit.obj.is_time {
-            count.text = Format.time_text(second: habit.units(date: habit.date.date).count(value: { $0.obj.length }))
-        } else {
-            count.text = "\(habit.units(date: habit.date.date).count(value: { $0.obj.length }))次"
+        if chart.obj.is_habit {
+            if chart.habit.obj.is_time {
+                count.text = Format.time_text(
+                    second: chart.units(date: chart.date.date).obj.length
+                )
+            } else {
+                count.text = chart.units(date: chart.date.date).obj.length.description + "次"
+            }
         }
-        day.text = Format.day(habit.date)
+        day.text = Format.day(chart.date)
         date_button.setTitle(
-            Format.yyyy年MM月.string(from: habit.date),
+            Format.yyyy年MM月.string(from: chart.date),
             for: .normal
         )
         collection.reloadData()
@@ -192,7 +199,7 @@ class HabitBoothChartCard: CardBaseView, UICollectionViewDataSource, UICollectio
         )
         view.layout = layout
         view.register(
-            HabitBoothChartCard.HabitBoothChartCell.self,
+            HabitBoothChartCard.Cell.self,
             forCellWithReuseIdentifier: "Cell"
         )
         view.backgroundColor = UIColor.clear
@@ -200,20 +207,23 @@ class HabitBoothChartCard: CardBaseView, UICollectionViewDataSource, UICollectio
     }()
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return habit.date.days(.month)
+        return chart.date.days(.month)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! HabitBoothChartCell
-        let date = habit.date.first(.month)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! HabitBoothChartCard.Cell
+        let date = chart.date.first(.month)
         let cell_date = date.advance(.day, indexPath.row)
-        let units = habit.units(date: cell_date.date)
+        let units = chart.units(date: cell_date.date)
+        
+        // UI
+        cell.column.backgroundColor = chart.habit.color
         
         // Select
-        cell.select.isHidden = (cell_date.day != habit.date.day)
+        cell.select.isHidden = (cell_date.day != chart.date.day)
         
         // Value
-        cell.value = CGFloat(units.count(value: { $0.obj.length })) / CGFloat(habit.obj.frequency)
+        cell.value = CGFloat(units.obj.length) / CGFloat(chart.obj.goal)
         
         // Days
         let days = date.days(.month)
@@ -233,7 +243,7 @@ class HabitBoothChartCard: CardBaseView, UICollectionViewDataSource, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let days = CGFloat(habit.date.days(.month))
+        let days = CGFloat(chart.date.days(.month))
         return CGSize(
             width: collectionView.bounds.width / days,
             height: collectionView.bounds.height
@@ -241,8 +251,8 @@ class HabitBoothChartCard: CardBaseView, UICollectionViewDataSource, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let first = habit.date.first(.month)
-        habit.date = first.advance(.day, indexPath.row)
+        let first = chart.date.first(.month)
+        chart.date = first.advance(.day, indexPath.row)
         reload()
     }
     
@@ -251,14 +261,14 @@ class HabitBoothChartCard: CardBaseView, UICollectionViewDataSource, UICollectio
     let last_button: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "but_last"), for: .normal)
-        button.tintColor = Color.dark
+        button.tintColor = Color.gray.halftone
         return button
     }()
     
     let next_button: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "but_next"), for: .normal)
-        button.tintColor = Color.dark
+        button.tintColor = Color.gray.halftone
         return button
     }()
     
@@ -271,11 +281,11 @@ class HabitBoothChartCard: CardBaseView, UICollectionViewDataSource, UICollectio
     }()
     
     @objc func last_action() {
-        habit.date = habit.date.advance(.month, -1)
+        chart.date = chart.date.advance(.month, -1)
         reload()
     }
     @objc func next_action() {
-        habit.date = habit.date.advance(.month, 1)
+        chart.date = chart.date.advance(.month, 1)
         reload()
     }
     @objc func date_action() {
@@ -288,7 +298,7 @@ class HabitBoothChartCard: CardBaseView, UICollectionViewDataSource, UICollectio
     
     override func keyboard(_ board: Keyboard) -> String? {
         if let date = board.value as? Date {
-            habit.date = date
+            chart.date = date
             return nil
         } else {
             return "日期不合法"
@@ -300,7 +310,7 @@ class HabitBoothChartCard: CardBaseView, UICollectionViewDataSource, UICollectio
 
 extension HabitBoothChartCard {
     
-    class HabitBoothChartCell: CollectionViewCell {
+    class Cell: CollectionViewCell {
         
         var value: CGFloat = 0
         

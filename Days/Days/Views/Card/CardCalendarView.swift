@@ -207,39 +207,44 @@ class CardCalendarView: CardBaseView, UICollectionViewDataSource, UICollectionVi
         
         let sick = delegate?.cardCalendar(view: self, is_sick: date) == true
         let done = delegate?.cardCalendar(view: self, is_done: date) == true
+        
+        let sick_color = habit.color.withAlphaComponent(0.5)
+        let normal_color = Color.white
+        let done_color = habit.color
+        
         switch (date.month == self.date.month, date.day == self.date.day) {
         case (true, true):
             cell_selected = cell
             if sick {
-                cell.back.backgroundColor   = Color.red.light
-                cell.select.backgroundColor = Color.white
-                cell.day.textColor          = Color.white
+                cell.back.backgroundColor   = sick_color
+                cell.select.backgroundColor = normal_color
+                cell.day.textColor          = normal_color
             } else if done {
-                cell.back.backgroundColor   = Color.green.light
-                cell.select.backgroundColor = Color.white
-                cell.day.textColor          = Color.white
+                cell.back.backgroundColor   = done_color
+                cell.select.backgroundColor = normal_color
+                cell.day.textColor          = normal_color
             } else {
-                cell.back.backgroundColor   = Color.white
+                cell.back.backgroundColor   = normal_color
                 cell.select.backgroundColor = Color.dark
                 cell.day.textColor          = Color.dark
             }
         case (true, false):
             if sick {
-                cell.back.backgroundColor   = Color.red.light
-                cell.select.backgroundColor = Color.red.light
-                cell.day.textColor          = Color.white
+                cell.back.backgroundColor   = sick_color
+                cell.select.backgroundColor = UIColor.clear
+                cell.day.textColor          = normal_color
             } else if done {
-                cell.back.backgroundColor   = Color.green.light
-                cell.select.backgroundColor = Color.green.light
+                cell.back.backgroundColor   = done_color
+                cell.select.backgroundColor = done_color
                 cell.day.textColor          = Color.white
             } else {
-                cell.back.backgroundColor   = Color.white
-                cell.select.backgroundColor = Color.white
+                cell.back.backgroundColor   = normal_color
+                cell.select.backgroundColor = normal_color
                 cell.day.textColor          = Color.dark
             }
         case (false, _):
-            cell.back.backgroundColor   = Color.white
-            cell.select.backgroundColor = Color.white
+            cell.back.backgroundColor   = normal_color
+            cell.select.backgroundColor = normal_color
             cell.day.textColor          = Color.gray.light
         }
     }
@@ -279,6 +284,8 @@ extension CardCalendarView {
                 width: bounds.width - 2,
                 height: bounds.height - 2
             )
+            
+            back.corner = back.bounds.width * 0.2
             
             select.frame = CGRect(
                 x: 8,
