@@ -28,6 +28,7 @@ class HabitBoothChartCard: CardBaseView, UICollectionViewDataSource, UICollectio
             count.text = "\(habit.units(date: habit.date.date).count(value: { $0.obj.length }))次"
         }
         day.text = Format.day(habit.date)
+        collection.reloadData()
     }
     
     override func view_deploy() {
@@ -46,6 +47,9 @@ class HabitBoothChartCard: CardBaseView, UICollectionViewDataSource, UICollectio
         container.addSubview(last_button)
         container.addSubview(next_button)
         container.addSubview(date_button)
+        last_button.addTarget(self, action: #selector(last_action), for: .touchUpInside)
+        next_button.addTarget(self, action: #selector(next_action), for: .touchUpInside)
+        date_button.addTarget(self, action: #selector(date_action), for: .touchUpInside)
     }
     
     override func view_bounds() {
@@ -85,7 +89,7 @@ class HabitBoothChartCard: CardBaseView, UICollectionViewDataSource, UICollectio
         collection.frame = CGRect(
             x: 10, y: max(detail.frame.maxY, day.frame.maxY) + space,
             width: container.frame.width - 20,
-            height: container.frame.height - detail.frame.maxY - space - 60
+            height: container.frame.height - detail.frame.maxY - space - 40
         )
         
         goal.frame = CGRect(
@@ -99,7 +103,7 @@ class HabitBoothChartCard: CardBaseView, UICollectionViewDataSource, UICollectio
             x: 10,
             y: collection.frame.maxY ,
             width: 60,
-            height: 60
+            height: 40
         )
         
         date_button.frame = CGRect(
@@ -235,7 +239,7 @@ class HabitBoothChartCard: CardBaseView, UICollectionViewDataSource, UICollectio
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let first = habit.date.first(.month)
         habit.date = first.advance(.day, indexPath.row)
-        collectionView.reloadData()
+        reload()
     }
     
     // MARK: - Buttons
@@ -257,11 +261,35 @@ class HabitBoothChartCard: CardBaseView, UICollectionViewDataSource, UICollectio
     let date_button: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("2018年10月", for: .normal)
-        button.titleLabel?.font = Font.hint.b
+        button.titleLabel?.font = Font.hint.m
         button.tintColor = Color.dark
         return button
     }()
     
+    @objc func last_action() {
+        habit.date = habit.date.advance(.month, -1)
+        reload()
+    }
+    @objc func next_action() {
+        habit.date = habit.date.advance(.month, 1)
+        reload()
+    }
+    @objc func date_action() {
+        let key = KeyboardDate()
+        key.delegate = self
+        key.update(date: habit.date)
+        key.update(title: "输入日期")
+        key.push()
+    }
+    
+    override func keyboard(_ board: Keyboard) -> String? {
+        if let date = board.value as? Date {
+            habit.date = date
+            return nil
+        } else {
+            return "日期不合法"
+        }
+    }
 }
 
 // MARK: - Cell
