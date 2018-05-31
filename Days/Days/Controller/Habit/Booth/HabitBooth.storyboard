@@ -33,11 +33,29 @@
                     </view>
                     <connections>
                         <outlet property="table" destination="TXK-8d-0lF" id="6aK-LQ-KxZ"/>
+                        <segue destination="eQW-dT-rZx" kind="show" identifier="UnitEdit" id="WAe-WK-liu"/>
+                        <segue destination="GCV-vF-BPa" kind="show" identifier="UnitList" id="gm7-c6-vpY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sw6-oL-zcF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="252" y="125"/>
+        </scene>
+        <!--HabitUnitEdit-->
+        <scene sceneID="p0J-q3-Okm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HabitUnitEdit" id="eQW-dT-rZx" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vPx-9k-ek4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="890" y="78"/>
+        </scene>
+        <!--HabitUnitList-->
+        <scene sceneID="TKR-fB-MwW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HabitUnitList" id="GCV-vF-BPa" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rIV-Z6-av6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="889" y="177"/>
         </scene>
     </scenes>
 </document>

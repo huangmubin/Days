@@ -52,7 +52,7 @@ class CardStandardView: CardBaseView {
     
     let title: UILabel = {
         let label = UILabel()
-        label.font = Font.title.b
+        label.font = Font.title.m
         label.text = "标题"
         label.textColor = Color.dark
         label.textAlignment = .left

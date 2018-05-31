@@ -60,7 +60,7 @@ class HabitBoothUnitCard: CardStandardView {
         button.normal_color = Color.gray.light
         button.corner = 10
         button.setTitle("打卡", for: .normal)
-        button.titleLabel?.font = Font.title.s
+        button.titleLabel?.font = Font.text.b
         button.setTitleColor(Color.dark, for: .normal)
         return button
     }()
@@ -70,7 +70,7 @@ class HabitBoothUnitCard: CardStandardView {
         button.normal_color = Color.gray.light
         button.corner = 10
         button.setTitle("请假", for: .normal)
-        button.titleLabel?.font = Font.title.s
+        button.titleLabel?.font = Font.text.b
         button.setTitleColor(Color.dark, for: .normal)
         return button
     }()
@@ -80,18 +80,21 @@ class HabitBoothUnitCard: CardStandardView {
         button.normal_color = Color.gray.light
         button.corner = 10
         button.setTitle("详细记录", for: .normal)
-        button.titleLabel?.font = Font.title.s
+        button.titleLabel?.font = Font.text.b
         button.setTitleColor(Color.dark, for: .normal)
         return button
     }()
     
     @objc func done_action() {
-        
+        let unit = HabitUnit(habit)
+        table.controller?.performSegue(withIdentifier: "UnitEdit", sender: unit)
     }
     @objc func sock_action() {
-        
+        let unit = HabitUnit(habit)
+        unit.obj.is_sick = true
+        table.controller?.performSegue(withIdentifier: "UnitEdit", sender: unit)
     }
     @objc func list_action() {
-        
+        table.controller?.performSegue(withIdentifier: "UnitList", sender: habit.date)
     }
 }

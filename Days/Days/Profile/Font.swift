@@ -36,15 +36,15 @@ class Font {
     
     /** 文本 */
     class text {
-        static let b: UIFont = UIFont(name: "PingFangSC-Semibold", size: 20)!
-        static let m: UIFont = UIFont(name: "PingFangSC-Regular", size: 20)!
-        static let s: UIFont = UIFont(name: "PingFangSC-Regular", size: 18)!
+        static let b: UIFont = UIFont(name: "PingFangSC-Regular", size: 20)!
+        static let m: UIFont = UIFont(name: "PingFangSC-Regular", size: 18)!
+        static let s: UIFont = UIFont(name: "PingFangSC-Regular", size: 16)!
     }
     
     /** 提示 */
     class hint {
-        static let b: UIFont = UIFont(name: "PingFangSC-Regular", size: 18)!
-        static let m: UIFont = UIFont(name: "PingFangSC-Light", size: 16)!
+        static let b: UIFont = UIFont(name: "PingFangSC-Light", size: 16)!
+        static let m: UIFont = UIFont(name: "PingFangSC-Light", size: 14)!
         static let s: UIFont = UIFont(name: "PingFangSC-Thin", size: 12)!
     }
     

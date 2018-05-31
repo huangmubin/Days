@@ -16,9 +16,8 @@ class CardMessageView: CardStandardView {
     var message: String = ""
     /** When message is empty, show the placeholder */
     var placeholder: String = ""
-    
     /** text edge to the container */
-    var text_edge: UIEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+    var text_edge: UIEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
     
     /** Override: Call when update message */
     func update(message: String) { }
@@ -41,7 +40,7 @@ class CardMessageView: CardStandardView {
             )
         ).height
         let height = max(
-            160,
+            default_height,
             title.frame.maxY + space + text_edge.top + text_height + text_edge.bottom + edge.bottom
         )
         if frame.height != height {
@@ -56,14 +55,13 @@ class CardMessageView: CardStandardView {
     
     override func view_deploy() {
         super.view_deploy()
+        default_height = 160
         container.addSubview(text)
         container.addSubview(input_button)
         input_button.addTarget(self, action: #selector(input_action(_:)), for: .touchUpInside)
     }
     
     // MARK: - Frame
-    
-    override var default_height: CGFloat { return 160 }
     
     override func view_bounds() {
         super.view_bounds()

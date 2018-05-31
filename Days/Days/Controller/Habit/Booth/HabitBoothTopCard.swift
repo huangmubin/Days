@@ -12,6 +12,7 @@ class HabitBoothTopCard: CardTopView {
     
     override func reload() {
         super.reload()
+        space_edge.bottom = 0
         right.isHidden = true
         title.text = habit.obj.name
     }

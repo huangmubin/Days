@@ -10,10 +10,6 @@ import UIKit
 
 class HabitEditMenuCard: CardStandardView {
     
-    override var default_height: CGFloat {
-        return edge.top + 40 + space + 60 + edge.bottom
-    }
-    
     // MARK: - Deploy
     
     override func reload() {

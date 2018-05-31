@@ -10,13 +10,6 @@ import UIKit
 
 class HabitEditGoalCard: CardStandardView {
     
-    // MARK: - Value
-    
-    /** default height */
-    override var default_height: CGFloat {
-        return 10 + 40 + 20 + 60 + 20 + 60 + 10
-    }
-    
     // MARK: - Init
     
     override func view_deploy() {
@@ -72,7 +65,7 @@ class HabitEditGoalCard: CardStandardView {
         timer.frame = CGRect(
             x: 0, y: 0,
             width: container.bounds.width / 2 - 10,
-            height: 60
+            height: (container.bounds.height - 20) / 2
         )
         count.frame = CGRect(
             x: timer.frame.maxX + 20, y: timer.frame.minY,
@@ -80,9 +73,9 @@ class HabitEditGoalCard: CardStandardView {
             height: timer.frame.height
         )
         goal_button.frame = CGRect(
-            x: 0, y: container.bounds.height - 60,
+            x: 0, y: timer.frame.maxY + 20,
             width: container.bounds.width,
-            height: 60
+            height: (container.bounds.height - 20) / 2
         )
         
         update_goal()
@@ -105,7 +98,7 @@ class HabitEditGoalCard: CardStandardView {
         let button = Button(type: .custom)
         button.normal_color = Color.gray.light
         button.corner = 10
-        button.titleLabel?.font = Font.title.m
+        button.titleLabel?.font = Font.text.b
         button.setTitle("计时", for: .normal)
         button.setTitleColor(Color.dark, for: .normal)
         return button
@@ -115,7 +108,7 @@ class HabitEditGoalCard: CardStandardView {
         let button = Button()
         button.corner = 10
         button.normal_color = Color.gray.light
-        button.titleLabel?.font = Font.title.m
+        button.titleLabel?.font = Font.text.b
         button.setTitle("计次", for: .normal)
         return button
     }()
@@ -124,7 +117,7 @@ class HabitEditGoalCard: CardStandardView {
         let button = Button()
         button.corner = 10
         button.normal_color = Color.gray.light
-        button.titleLabel?.font = Font.title.m
+        button.titleLabel?.font = Font.title.s
         return button
     }()
     
@@ -179,7 +172,7 @@ class HabitEditGoalCard: CardStandardView {
     
     let goal: UILabel = {
         let label = UILabel()
-        label.font = Font.title.m
+        label.font = Font.text.b
         label.textColor = Color.dark
         return label
     }()
@@ -187,7 +180,7 @@ class HabitEditGoalCard: CardStandardView {
     let unit: UILabel = {
         let label = UILabel()
         label.text = "小时"
-        label.font = Font.text.m
+        label.font = Font.text.s
         label.textColor = Color.gray.halftone
         return label
     }()

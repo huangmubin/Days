@@ -70,8 +70,13 @@ class CardTopView: CardBaseView {
         return button
     }()
     
-    @objc func left_action(_ sender: UIButton) { }
-    @objc func right_action(_ sender: UIButton) { }
+    @objc func left_action(_ sender: UIButton) {
+        print("Left")
+        table.controller?.dismiss(animated: true, completion: nil)
+    }
+    @objc func right_action(_ sender: UIButton) {
+        print("Right")
+    }
     
     // MARK: - Labels
     

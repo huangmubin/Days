@@ -112,7 +112,7 @@ class HabitEditFrequencyCard: CardStandardView {
     let number: UILabel = {
         let label = UILabel()
         label.text = "10"
-        label.font = Font.title.m
+        label.font = Font.text.b
         label.textColor = Color.dark
         return label
     }()
@@ -120,7 +120,7 @@ class HabitEditFrequencyCard: CardStandardView {
     let unit: UILabel = {
         let label = UILabel()
         label.text = "分钟"
-        label.font = Font.text.m
+        label.font = Font.text.s
         label.textColor = Color.gray.halftone
         return label
     }()

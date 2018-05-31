@@ -28,6 +28,10 @@ class HabitBoothChartCard: CardBaseView, UICollectionViewDataSource, UICollectio
             count.text = "\(habit.units(date: habit.date.date).count(value: { $0.obj.length }))次"
         }
         day.text = Format.day(habit.date)
+        date_button.setTitle(
+            Format.yyyy年MM月.string(from: habit.date),
+            for: .normal
+        )
         collection.reloadData()
     }
     
@@ -304,6 +308,7 @@ extension HabitBoothChartCard {
         
         override func view_load() {
             super.view_load()
+            clipsToBounds = false
             addSubview(day)
             addSubview(column)
             addSubview(select)

@@ -30,7 +30,7 @@ class HabitEditController: ViewController, HabitObjectController {
         table.controller = self
         
         table.cards.append(HabitEditTopCard(id: "Top", height: 80))
-        table.cards.append(HabitEditNameCard(id: "Name", height: 160))
+        table.cards.append(HabitEditNameCard(id: "Name", height: 140))
         table.cards.append(HabitEditGoalCard(id: "Goal", height: 220))
         table.cards.append(HabitEditFrequencyCard(id: "Frequency", height: 140))
         table.cards.append(HabitEditSpaceCard(id: "Space", height: 140))

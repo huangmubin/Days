@@ -11,19 +11,30 @@ import UIKit
 protocol HabitObjectController {
     var habit: Habit! { get set }
 }
+protocol HabitUnitObjectController {
+    var unit: HabitUnit! { get set }
+}
 
 class CardBaseView: CardView, KeyboardDelegate, ConfirmDelegate {
 
     var habit: Habit {
         return (table.controller as! HabitObjectController).habit
     }
-
+    var unit_obj: HabitUnit {
+        return (table.controller as! HabitUnitObjectController).unit
+    }
+    
     func keyboard(_ board: Keyboard) -> String? {
         return nil
     }
     
     func confirm(_ view: Confirm) {
         
+    }
+    
+    override func view_deploy() {
+        super.view_deploy()
+        space_edge.bottom = 20
     }
     
 }

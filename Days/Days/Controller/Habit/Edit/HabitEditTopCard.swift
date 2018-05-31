@@ -10,6 +10,11 @@ import UIKit
 
 class HabitEditTopCard: CardTopView {
     
+    override func view_deploy() {
+        super.view_deploy()
+        space_edge.bottom = 0
+    }
+    
     override func reload() {
         super.reload()
         right.isHidden = true

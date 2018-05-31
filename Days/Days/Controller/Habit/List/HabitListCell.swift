@@ -331,14 +331,14 @@ extension HabitListCell {
         
         let count: UILabel = {
             let label = UILabel()
-            label.font = Font.text.s
+            label.font = Font.hint.m
             label.text = "10分钟"
             return label
         }()
         
         let progress: UILabel = {
             let label = UILabel()
-            label.font = Font.text.s
+            label.font = Font.hint.m
             label.text = "0%"
             return label
         }()

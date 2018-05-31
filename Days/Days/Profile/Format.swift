@@ -25,6 +25,9 @@ class Format {
     /** yyyy年MM月dd日 */
     static let yyyy年MM月dd日: DateFormatter = DateFormatter("yyyy年MM月dd日")
     
+    /** yyyy年MM月 */
+    static let yyyy年MM月: DateFormatter = DateFormatter("yyyy年MM月")
+    
     /** ee hh:mm */
     static let ee_hh_mm: DateFormatter = DateFormatter("ee hh:mm")
     
@@ -78,5 +81,16 @@ class Format {
         return "\(text[0])\(text[1])"
     }
     
+    // MARK: - Clock
+    
+    /**  */
+    class func clock(second: Int) -> String {
+        return time_00(second / 3600) + ":" + time_00(second % 3600 / 60)
+    }
+    
+    /** */
+    class func time_00(_ value: Int) -> String {
+        return value > 9 ? "\(value)" : "0\(value)"
+    }
     
 }

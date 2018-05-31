@@ -11,6 +11,7 @@ import UIKit
 class HabitBoothController: ViewController, HabitObjectController {
     
     var habit: Habit!
+    var is_loaded: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +20,17 @@ class HabitBoothController: ViewController, HabitObjectController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        if let unit = messages.removeValue(forKey: Key.Habit.Unit.append) as? HabitUnit {
+            unit.obj.id = SQLite.HabitUnit.new_id
+            unit.obj.insert()
+            habit.units(insert: habit.date.date, unit: unit)
+        }
         
+        if is_loaded {
+            table.reload()
+        } else {            
+            is_loaded = true
+        }
     }
     
     // MARK: - Card Table
@@ -40,7 +51,12 @@ class HabitBoothController: ViewController, HabitObjectController {
     // MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if let unit = segue.controller as? HabitUnitEditController {
+            unit.unit = sender as! HabitUnit
+        }
+        if let list = segue.controller as? HabitUnitListController {
+            list.habit = habit
+        }
     }
     
 }

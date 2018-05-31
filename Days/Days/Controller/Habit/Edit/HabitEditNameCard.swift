@@ -12,9 +12,10 @@ class HabitEditNameCard: CardMessageView {
     
     override func view_deploy() {
         super.view_deploy()
+        default_height = 140
         title.text = "习惯名称"
-        placeholder = "新建习惯"
-        text.font = Font.title.m
+        placeholder = "新习惯"
+        text.font = Font.text.b
     }
     
     override func reload() {

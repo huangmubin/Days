@@ -12,6 +12,7 @@ class HabitEditMessageCard: CardMessageView {
     
     override func view_deploy() {
         super.view_deploy()
+        default_height = 160
         title.text = "给自己的口号"
         placeholder = "人生塑造于生活。"
     }
