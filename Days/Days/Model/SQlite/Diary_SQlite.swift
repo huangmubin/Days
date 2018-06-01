@@ -36,6 +36,10 @@ extension SQLite {
         /**  */
         var note: String = ""
         
+        // MARK: - Sort
+        
+        /** Sort */
+        var card_sort: Int = 0
     }
     
 }

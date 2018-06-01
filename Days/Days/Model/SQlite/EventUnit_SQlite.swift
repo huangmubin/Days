@@ -39,7 +39,7 @@ extension SQLite {
         // MARK: Time
         
         /** 到期日期，如果无则是创建日期 */
-        var date: Int = Date().time1970
+        var date: Int = Date().date
         
         // MARK: - Sort
         

@@ -52,6 +52,13 @@ class HabitBoothController: ViewController, HabitObjectController {
             table.cards.append(card)
         }
         
+        for event in habit.events {
+            let card = HabitBoothEventCard(id: "Event", height: 180)
+            card.event = event
+            card.event.units_update()
+            table.cards.append(card)
+        }
+        
         table.reload()
     }
     

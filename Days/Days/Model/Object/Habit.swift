@@ -21,7 +21,9 @@ class Habit {
     init(_ obj: SQLite.Habit) {
         self.obj = obj
         //self.chart_create()
+        //self.event_create()
         self.charts = SQLite.Chart.find(where: "belong = \(obj.id)").map({ Chart(self, $0) })
+        self.events = SQLite.Event.find(where: "belong = \(obj.id)").map({ Event(self, $0) })
         if let chart = self.charts.find(condition: { $0.obj.is_habit }) {
             chart.obj.goal = obj.frequency
         }
@@ -119,6 +121,20 @@ class Habit {
         chart.obj.note = "日常记录分析"
         chart.obj.insert()
         charts.insert(chart, at: 0)
+    }
+    
+    // MARK: - Event
+    
+    /** Event */
+    var events: [Event] = []
+    
+    /**  */
+    func event_create() {
+        let event = Event(self)
+        event.obj.belong = obj.id
+        event.obj.name   = "里程碑"
+        event.obj.insert()
+        events.insert(event, at: 0)
     }
     
 }

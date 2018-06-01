@@ -59,6 +59,11 @@ extension SQLite {
             set { _from = newValue ? 0 : 1 }
         }
         
+        
+        // MARK: - Sort
+        
+        /** Sort */
+        var card_sort: Int = 0
     }
     
 }
