@@ -20,8 +20,9 @@ class Habit {
     
     init(_ obj: SQLite.Habit) {
         self.obj = obj
-        //self.chart_create()
-        //self.event_create()
+        if let obj = SQLite.Diary.find(where: "belong = \(obj.id)").map({ Diary(self, $0) }).first {
+            diary = obj
+        }
         self.charts = SQLite.Chart.find(where: "belong = \(obj.id)").map({ Chart(self, $0) })
         self.events = SQLite.Event.find(where: "belong = \(obj.id)").map({ Event(self, $0) })
         if let chart = self.charts.find(condition: { $0.obj.is_habit }) {
@@ -60,10 +61,11 @@ class Habit {
     func dates_reload() {
         dates.removeAll(keepingCapacity: true)
         SQLite.default.find(
-            sql: "select distinct date from \(SQLite.HabitUnit.table) where belong = \(obj.id);",
+            sql: "select distinct _date from \(SQLite.HabitUnit.table) where belong = \(obj.id);",
             default: 0,
             datas: { dates.append($0) }
         )
+        dates.sort()
     }
     
     /** Get [HabitUnit] in date */
@@ -102,6 +104,24 @@ class Habit {
     func units(insert date: Int, unit: HabitUnit) {
         let objs = units(date: date)
         _units[date] = objs + [unit]
+        chart.units(update: date)
+    }
+    
+    /** Remove unit at index. if the date is empty, return true, else false */
+    func units(remove index: IndexPath) -> Bool {
+        let date = dates[index.section]
+        var objs = units(date: date)
+        let obj = objs.remove(at: index.row)
+        obj.obj.delete()
+        chart.units(update: date)
+        _units[date] = objs
+        
+        if objs.count == 0 {
+            dates.remove(at: index.section)
+            return true
+        } else {
+            return false
+        }
     }
     
     // MARK: - Chart
@@ -115,10 +135,12 @@ class Habit {
     /**  */
     func chart_create() {
         let chart = Chart(self)
+        chart.obj.id = SQLite.Chart.new_id
         chart.obj.belong = obj.id
         chart.obj.goal = obj.frequency
         chart.obj.name = "图表"
         chart.obj.note = "日常记录分析"
+        chart.obj.card_sort = CardBaseView.new_id
         chart.obj.insert()
         charts.insert(chart, at: 0)
     }
@@ -131,10 +153,28 @@ class Habit {
     /**  */
     func event_create() {
         let event = Event(self)
+        event.obj.id = SQLite.Event.new_id
         event.obj.belong = obj.id
         event.obj.name   = "里程碑"
+        event.obj.card_sort = CardBaseView.new_id
         event.obj.insert()
         events.insert(event, at: 0)
+    }
+    
+    // MARK: - Diary
+    
+    /** Diary */
+    var diary: Diary?
+    
+    /***/
+    func diary_create() {
+        let diary = Diary(self)
+        diary.obj.id = SQLite.Diary.new_id
+        diary.obj.belong = self.obj.id
+        diary.obj.name = "日记"
+        diary.obj.card_sort = CardBaseView.new_id
+        diary.obj.insert()
+        self.diary = diary
     }
     
 }

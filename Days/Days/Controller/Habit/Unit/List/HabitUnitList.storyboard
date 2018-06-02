@@ -27,7 +27,10 @@
                                             <constraint firstAttribute="width" constant="60" id="cvf-rw-6cL"/>
                                             <constraint firstAttribute="height" constant="60" id="sL8-mi-SJH"/>
                                         </constraints>
-                                        <state key="normal" image="but_edit"/>
+                                        <state key="normal" image="but_back"/>
+                                        <connections>
+                                            <action selector="left_action:" destination="i88-WF-hiw" eventType="touchUpInside" id="Ryd-Ai-Bsy"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="twx-N4-EFJ">
                                         <rect key="frame" x="305" y="10" width="60" height="60"/>
@@ -36,14 +39,23 @@
                                             <constraint firstAttribute="height" constant="60" id="foa-nC-3he"/>
                                         </constraints>
                                         <state key="normal" image="but_add"/>
+                                        <connections>
+                                            <action selector="top_right_action:" destination="rC4-C0-Tdh" eventType="touchUpInside" id="OZe-my-ZDh"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Chb-lK-q5p">
-                                        <rect key="frame" x="127" y="13" width="120" height="54"/>
+                                        <rect key="frame" x="127" y="3" width="120" height="54"/>
                                         <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="30"/>
                                         <state key="normal" title="习惯列表">
                                             <color key="titleColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="副标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Fv-nG-2Q2">
+                                        <rect key="frame" x="165.5" y="52" width="43" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -52,28 +64,25 @@
                                     <constraint firstItem="84t-kS-jXu" firstAttribute="leading" secondItem="i88-WF-hiw" secondAttribute="leading" constant="10" id="DiD-f6-x3x"/>
                                     <constraint firstAttribute="trailing" secondItem="twx-N4-EFJ" secondAttribute="trailing" constant="10" id="K5E-ie-Aoj"/>
                                     <constraint firstItem="Chb-lK-q5p" firstAttribute="centerX" secondItem="i88-WF-hiw" secondAttribute="centerX" id="Uki-wb-Zoi"/>
-                                    <constraint firstItem="Chb-lK-q5p" firstAttribute="centerY" secondItem="i88-WF-hiw" secondAttribute="centerY" id="em0-Lp-0Ke"/>
+                                    <constraint firstItem="6Fv-nG-2Q2" firstAttribute="top" secondItem="Chb-lK-q5p" secondAttribute="bottom" constant="-5" id="ZQ8-2u-h6n"/>
+                                    <constraint firstItem="Chb-lK-q5p" firstAttribute="centerY" secondItem="i88-WF-hiw" secondAttribute="centerY" constant="-10" id="em0-Lp-0Ke"/>
                                     <constraint firstItem="twx-N4-EFJ" firstAttribute="centerY" secondItem="i88-WF-hiw" secondAttribute="centerY" id="h6j-I8-ilV"/>
+                                    <constraint firstItem="6Fv-nG-2Q2" firstAttribute="centerX" secondItem="Chb-lK-q5p" secondAttribute="centerX" id="rTO-tc-WRe"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="left_button" destination="84t-kS-jXu" id="lfm-pi-rJJ"/>
                                     <outlet property="right_button" destination="twx-N4-EFJ" id="L9s-pd-DYc"/>
+                                    <outlet property="subtitle" destination="6Fv-nG-2Q2" id="HSu-IK-pWT"/>
                                     <outlet property="title" destination="Chb-lK-q5p" id="rHM-JU-xQz"/>
                                 </connections>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kp9-rc-Yi5">
                                 <rect key="frame" x="0.0" y="100" width="375" height="567"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="162" id="5lN-5r-i19" customClass="HabitUnitListCell" customModule="Days" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="162"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5lN-5r-i19" id="Edf-6D-Fic">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="161.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="rC4-C0-Tdh" id="JB6-cU-bLi"/>
+                                    <outlet property="delegate" destination="rC4-C0-Tdh" id="4v0-z4-0Yv"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -88,14 +97,27 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WNs-rV-JlA"/>
                     </view>
+                    <connections>
+                        <outlet property="table" destination="Kp9-rc-Yi5" id="3tq-JE-Y97"/>
+                        <outlet property="top" destination="i88-WF-hiw" id="UY5-8Y-Xvf"/>
+                        <segue destination="3Ga-RK-Fv5" kind="show" identifier="UnitEdit" id="Cr0-44-9W5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xJg-VI-jAv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="120.8" y="276.61169415292358"/>
         </scene>
+        <!--HabitUnitEdit-->
+        <scene sceneID="21E-0A-tys">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HabitUnitEdit" id="3Ga-RK-Fv5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4yG-gi-d4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="801" y="276"/>
+        </scene>
     </scenes>
     <resources>
         <image name="but_add" width="60" height="60"/>
-        <image name="but_edit" width="60" height="60"/>
+        <image name="but_back" width="60" height="60"/>
     </resources>
 </document>

@@ -31,5 +31,14 @@ class TopView: View {
             title.setTitleColor(Color.dark, for: .normal)
         }
     }
+    
+    // MARK: - Subtitle
+    
+    @IBOutlet weak var subtitle: UILabel! {
+        didSet {
+            subtitle.font = Font.text.m
+            subtitle.textColor = Color.gray.halftone
+        }
+    }
 
 }

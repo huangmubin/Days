@@ -28,8 +28,8 @@ class Format {
     /** yyyy年MM月 */
     static let yyyy年MM月: DateFormatter = DateFormatter("yyyy年MM月")
     
-    /** ee hh:mm */
-    static let ee_hh_mm: DateFormatter = DateFormatter("ee hh:mm")
+    /** 上午下午 a hh:mm */
+    static let a_hh_mm: DateFormatter = DateFormatter("a hh:mm")
     
     // MARK: - Date
     

@@ -17,6 +17,13 @@ protocol HabitUnitObjectController {
 
 class CardBaseView: CardView, KeyboardDelegate, ConfirmDelegate {
 
+    /** The new_id */
+    static var new_id: Int {
+        let id = UserDefaults.standard.integer(forKey: "CardBaseView_Sort")
+        UserDefaults.standard.set(id + 2, forKey: "CardBaseView_Sort")
+        return id + 2
+    }
+    
     var habit: Habit {
         if let obj = table.controller as? HabitUnitObjectController {
             return obj.unit.habit

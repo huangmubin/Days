@@ -59,6 +59,12 @@ class HabitBoothController: ViewController, HabitObjectController {
             table.cards.append(card)
         }
         
+        if let diary = habit.diary {
+            let diary_card = HabitBoothDiaryCard(id: "Diary", height: 180)
+            diary_card.diary = diary
+            table.cards.append(diary_card)
+        }
+        
         table.reload()
     }
     
@@ -70,6 +76,7 @@ class HabitBoothController: ViewController, HabitObjectController {
         }
         if let list = segue.controller as? HabitUnitListController {
             list.habit = habit
+            habit.dates_reload()
         }
     }
     

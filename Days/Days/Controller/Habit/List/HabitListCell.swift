@@ -48,7 +48,7 @@ class HabitListCell: TableViewCell {
         // text
         for view in [show, progress] {
             view.name.text = obj.obj.name
-            if obj.obj.is_runing {
+            if obj.obj.is_time {
                 view.count.text = Format.time_text(second: length)
             } else {
                 view.count.text = "\(length)次"

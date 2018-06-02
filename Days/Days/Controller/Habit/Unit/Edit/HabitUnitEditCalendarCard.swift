@@ -13,6 +13,13 @@ class HabitUnitEditCalendarCard: CardCalendarView {
     override func reload() {
         super.reload()
         update(date: unit_obj.obj.start)
+        if unit_obj.obj.id == 0 {
+            date_button.isEnabled = true
+            switch_button.isHidden = false
+        } else {
+            date_button.isEnabled = false
+            switch_button.isHidden = true
+        }
     }
     
     override func view_deploy() {

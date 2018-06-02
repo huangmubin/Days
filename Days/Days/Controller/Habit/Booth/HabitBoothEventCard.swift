@@ -86,7 +86,7 @@ class HabitBoothEventCard: CardStandardView, UITableViewDataSource, UITableViewD
     var heights: [CGFloat] = []
     func update_heights() {
         heights.removeAll(keepingCapacity: true)
-        let w = bounds.width - edge.left - edge.bottom
+        let w = bounds.width - edge.left - edge.right
         for unit in event.units {
             heights.append(
                 HabitBoothEventCard.Cell.height(
@@ -121,7 +121,7 @@ class HabitBoothEventCard: CardStandardView, UITableViewDataSource, UITableViewD
         let unit = EventUnit(event)
         unit.obj.id = SQLite.EventUnit.new_id
         unit.obj.name = board.value as! String
-        unit.obj.note = "测试的详细内容。测试的详细内容。测试的详细内容。测试的详细内容。测试的详细内容。测试的详细内容。测试的详细内容。测试的详细内容。测试的详细内容。测试的详细内容。"
+        //unit.obj.note = "测试的详细内容。测试的详细内容。测试的详细内容。测试的详细内容。测试的详细内容。测试的详细内容。测试的详细内容。测试的详细内容。测试的详细内容。测试的详细内容。"
         unit.obj.insert()
         event.units.append(unit)
         reload()

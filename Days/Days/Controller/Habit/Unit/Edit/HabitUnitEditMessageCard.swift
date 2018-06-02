@@ -18,11 +18,11 @@ class HabitUnitEditMessageCard: CardMessageView {
     
     override func reload() {
         super.reload()
-        update(text: unit_obj.habit.obj.note)
+        update(text: unit_obj.obj.note)
     }
     
     override func update(message: String) {
-        unit_obj.habit.obj.note = message
+        unit_obj.obj.note = message
     }
     
 }

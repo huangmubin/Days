@@ -33,6 +33,7 @@ class HabitListController: ViewController {
             obj.obj.insert()
             obj.chart_create()
             obj.event_create()
+            obj.diary_create()
             objs.append(obj)
             DispatchQueue.main.async {            
                 self.table.insertRows(at: [IndexPath(self.objs)], with: UITableViewRowAnimation.bottom)

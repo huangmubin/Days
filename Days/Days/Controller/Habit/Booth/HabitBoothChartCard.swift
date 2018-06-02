@@ -333,6 +333,7 @@ extension HabitBoothChartCard {
                 y: bounds.height - 10
             )
             
+            
             let h = (bounds.height - 20) / 1.2 * min(value, 1.2)
             column.frame = CGRect(
                 x: bounds.width * 0.1,
@@ -341,6 +342,7 @@ extension HabitBoothChartCard {
                 height: h
             )
             column.layer.cornerRadius = bounds.width * 0.4
+            
             
             select.frame = CGRect(
                 x: bounds.width * 0.2,
