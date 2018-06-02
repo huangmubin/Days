@@ -65,6 +65,8 @@ class HabitBoothController: ViewController, HabitObjectController {
             table.cards.append(diary_card)
         }
         
+        table.cards.append(HabitBoothMenuCard(id: "Menu", height: 80))
+        
         table.reload()
     }
     

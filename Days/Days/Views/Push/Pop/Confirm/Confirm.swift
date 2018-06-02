@@ -100,7 +100,7 @@ class Confirm: PushView {
     /** 标题文本 */
     let title: UILabel = {
         let label = UILabel()
-        label.font = Font.title.m
+        label.font = Font.text.m
         label.text = "标题"
         label.textColor = Color.dark
         label.textAlignment = .center
@@ -116,7 +116,7 @@ class Confirm: PushView {
         button.setTitle("确认", for: .normal)
         button.setTitleColor(Color.dark, for: .normal)
         button.corner = 10
-        button.titleLabel?.font = Font.title.m
+        button.titleLabel?.font = Font.text.m
         button.normal_color = Color.white
         return button
     }()
@@ -127,7 +127,7 @@ class Confirm: PushView {
         button.setTitle("取消", for: .normal)
         button.setTitleColor(Color.dark, for: .normal)
         button.corner = 10
-        button.titleLabel?.font = Font.title.m
+        button.titleLabel?.font = Font.text.m
         button.normal_color = Color.white
         return button
     }()
