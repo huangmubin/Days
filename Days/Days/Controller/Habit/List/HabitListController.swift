@@ -39,6 +39,15 @@ class HabitListController: ViewController {
                 self.table.insertRows(at: [IndexPath(self.objs)], with: UITableViewRowAnimation.bottom)
             }
         }
+        if let obj = messages.removeValue(forKey: Key.Habit.delete) as? Habit {
+            if let index = objs.index(where: { $0 === obj }) {
+                objs.remove(at: index)
+                DispatchQueue.main.async {
+                    self.table.reloadData()
+                }
+            }
+            obj.delete()
+        }
     }
     
     // MARK: - Top

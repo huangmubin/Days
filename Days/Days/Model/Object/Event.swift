@@ -38,4 +38,11 @@ class Event {
         units = SQLite.EventUnit.find(where: "belong = \(obj.id)").map({ EventUnit(self, $0) }).compactMap({ $0.obj.is_done ? $0 : nil })
     }
     
+    // MARK: - Delete
+    
+    func delete() {
+        let sql = "delete from \(SQLite.EventUnit.table) where belong = \(obj.id);"
+        let _ = SQLite.default.execut(sql: sql)
+        obj.delete()
+    }
 }

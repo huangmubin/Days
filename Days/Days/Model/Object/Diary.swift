@@ -54,4 +54,12 @@ class Diary {
         }
     }
     
+    // MARK: - Delete
+    
+    func delete() {
+        let sql = "delete from \(SQLite.DiaryUnit.table) where belong = \(obj.id);"
+        let _ = SQLite.default.execut(sql: sql)
+        obj.delete()
+    }
+    
 }

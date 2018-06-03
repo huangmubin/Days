@@ -76,5 +76,12 @@ class Chart {
         }
     }
     
+    // MARK: - Delete
+    
+    func delete() {
+        let sql = "delete from \(SQLite.ChartUnit.table) where belong = \(obj.id);"
+        let _ = SQLite.default.execut(sql: sql)
+        obj.delete()
+    }
     
 }
