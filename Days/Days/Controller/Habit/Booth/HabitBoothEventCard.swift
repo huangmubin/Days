@@ -101,6 +101,17 @@ class HabitBoothEventCard: CardStandardView, UITableViewDataSource, UITableViewD
         return heights[indexPath.row]
     }
     
+    // MARK: - Delete
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let unit = event.units.remove(at: indexPath.row)
+            unit.obj.delete()
+            heights.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
     // MARK: - Add
     
     let append: UIButton = {
