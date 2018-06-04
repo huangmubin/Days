@@ -14,6 +14,8 @@ class HabitListController: ViewController {
     
     // MARK: - View Life
     
+    var is_load: Bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         objs = SQLite.Habit.find().sorted(by: {
@@ -47,6 +49,11 @@ class HabitListController: ViewController {
                 }
             }
             obj.delete()
+        }
+        if is_load {
+            is_load = false
+        } else {
+            table.reloadData()
         }
     }
     

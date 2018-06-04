@@ -35,7 +35,7 @@ class Event {
     
     /**  */
     func units_update() {
-        units = SQLite.EventUnit.find(where: "belong = \(obj.id)").map({ EventUnit(self, $0) }).compactMap({ $0.obj.is_done ? $0 : nil })
+        units = SQLite.EventUnit.find(where: "belong = \(obj.id)").map({ EventUnit(self, $0) }).compactMap({ $0.obj.is_done ? nil : $0 })
     }
     
     // MARK: - Delete

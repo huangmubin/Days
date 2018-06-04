@@ -33,6 +33,8 @@ class HabitBoothChartCard: CardBaseView, UICollectionViewDataSource, UICollectio
             } else {
                 count.text = chart.units(date: chart.date.date).obj.length.description + "次"
             }
+        } else {
+            count.text = chart.units(date: chart.date.date).obj.length.description
         }
         day.text = Format.day(chart.date)
         date_button.setTitle(
