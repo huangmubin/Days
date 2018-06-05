@@ -57,7 +57,13 @@ class HabitListController: ViewController {
     
     // MARK: - Top
     
-    @IBOutlet weak var top: HabitListTop!
+    @IBOutlet weak var top: HabitListTop! {
+        didSet {
+            // TODO: - AppStore Delete true
+            //top.left_button.isHidden = false
+            top.left_button.isHidden = true
+        }
+    }
     
     @IBAction func top_entry_switch_action(_ sender: UIButton) {
         let height: CGFloat = (entry_height.constant == 0 ? 90 : 0)
@@ -65,6 +71,10 @@ class HabitListController: ViewController {
             self.entry_height.constant = height
             self.view.layoutIfNeeded()
         })
+        /*
+        // TODO: - AppStore Delete
+        SQLite.default.log?.print_sql_text()
+         */
     }
     
     // MARK: - Entry

@@ -47,6 +47,7 @@
 		9C9045A020BF95A100263762 /* HabitUnitEditTypeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C90459F20BF95A100263762 /* HabitUnitEditTypeCard.swift */; };
 		9C9045A220BF95BD00263762 /* HabitUnitListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9045A120BF95BD00263762 /* HabitUnitListCell.swift */; };
 		9C9045A420BFEF4600263762 /* HabitUnitEditCountCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9045A320BFEF4600263762 /* HabitUnitEditCountCard.swift */; };
+		9CB5B8EB20C639D6009FFE5D /* SQLiteLogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB5B8EA20C639D5009FFE5D /* SQLiteLogs.swift */; };
 		9CBC806A20B7A0A500321675 /* CardMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC806920B7A0A500321675 /* CardMessageView.swift */; };
 		9CBC806C20B7BCEA00321675 /* CardStandardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC806B20B7BCEA00321675 /* CardStandardView.swift */; };
 		9CBC806E20B7FB6400321675 /* HabitEditNameCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC806D20B7FB6400321675 /* HabitEditNameCard.swift */; };
@@ -178,6 +179,7 @@
 		9C90459F20BF95A100263762 /* HabitUnitEditTypeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitUnitEditTypeCard.swift; sourceTree = "<group>"; };
 		9C9045A120BF95BD00263762 /* HabitUnitListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitUnitListCell.swift; sourceTree = "<group>"; };
 		9C9045A320BFEF4600263762 /* HabitUnitEditCountCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitUnitEditCountCard.swift; sourceTree = "<group>"; };
+		9CB5B8EA20C639D5009FFE5D /* SQLiteLogs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteLogs.swift; sourceTree = "<group>"; };
 		9CBC806920B7A0A500321675 /* CardMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMessageView.swift; sourceTree = "<group>"; };
 		9CBC806B20B7BCEA00321675 /* CardStandardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStandardView.swift; sourceTree = "<group>"; };
 		9CBC806D20B7FB6400321675 /* HabitEditNameCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditNameCard.swift; sourceTree = "<group>"; };
@@ -570,6 +572,7 @@
 			isa = PBXGroup;
 			children = (
 				9CFA479720B54975004AFD67 /* SQLite.swift */,
+				9CB5B8EA20C639D5009FFE5D /* SQLiteLogs.swift */,
 				9CFA479820B54975004AFD67 /* SQLiteProtocol.swift */,
 			);
 			path = Database;
@@ -839,6 +842,7 @@
 			files = (
 				9C25077420B6BBFB00EB2D13 /* HabitEditController.swift in Sources */,
 				9C25076420B6B0D200EB2D13 /* HabitListController.swift in Sources */,
+				9CB5B8EB20C639D6009FFE5D /* SQLiteLogs.swift in Sources */,
 				9CFA47D320B54975004AFD67 /* Ex_Array.swift in Sources */,
 				9CBC806E20B7FB6400321675 /* HabitEditNameCard.swift in Sources */,
 				9CFA47CF20B54975004AFD67 /* View.swift in Sources */,
