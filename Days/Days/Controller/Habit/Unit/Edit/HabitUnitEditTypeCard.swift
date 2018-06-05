@@ -55,23 +55,27 @@ class HabitUnitEditTypeCard: CardStandardView {
     
     // MARK: - Buttons
     
-    let normal: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("正常", for: .normal)
-        button.titleLabel?.font = Font.text.b
-        button.backgroundColor = Color.gray.light
-        button.layer.cornerRadius = 10
-        return button
-    }()
+    let normal: UIButton = Views.Button.normal(title: "正常")
+    let sick: UIButton = Views.Button.normal(title: "请假")
     
-    let sick: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("请假", for: .normal)
-        button.titleLabel?.font = Font.text.b
-        button.backgroundColor = Color.gray.light
-        button.layer.cornerRadius = 10
-        return button
-    }()
+    // changed:
+//    let normal: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.setTitle("正常", for: .normal)
+//        button.titleLabel?.font = Font.text.b
+//        button.backgroundColor = Color.gray.light
+//        button.layer.cornerRadius = 10
+//        return button
+//    }()
+//
+//    let sick: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.setTitle("请假", for: .normal)
+//        button.titleLabel?.font = Font.text.b
+//        button.backgroundColor = Color.gray.light
+//        button.layer.cornerRadius = 10
+//        return button
+//    }()
     
     @objc func normal_action() {
         unit_obj.obj.is_sick = false

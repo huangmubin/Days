@@ -110,13 +110,16 @@ class CardCalendarView: CardBaseView, UICollectionViewDataSource, UICollectionVi
     
     // MARK: - Date
     
-    let date_button: UIButton = {
-        let button = UIButton(type: .system)
-        button.titleLabel?.font = Font.title.b
-        button.setTitleColor(Color.dark, for: .normal)
-        button.titleLabel?.textAlignment = .left
-        return button
-    }()
+    let date_button: UIButton = Views.Button.title()
+    
+    // changed:
+//    let date_button: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.titleLabel?.font = Font.title.b
+//        button.setTitleColor(Color.dark, for: .normal)
+//        button.titleLabel?.textAlignment = .left
+//        return button
+//    }()
     
     @objc func date_action(_ sender: UIButton) {
         let key = KeyboardDate()
@@ -137,12 +140,14 @@ class CardCalendarView: CardBaseView, UICollectionViewDataSource, UICollectionVi
     
     // MARK: - Switch
     
-    let switch_button: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "but_open"), for: .normal)
-        button.tintColor = Color.gray.halftone
-        return button
-    }()
+    let switch_button: UIButton = Views.Button.system(image: #imageLiteral(resourceName: "but_open"))
+    // changed:
+//    let switch_button: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.setImage(#imageLiteral(resourceName: "but_open"), for: .normal)
+//        button.tintColor = Color.gray.halftone
+//        return button
+//    }()
     
     @objc func switch_action(_ sender: UIButton) {
         let height: CGFloat = (self.frame.height == 80 ? (UIScreen.main.bounds.width - 40) + 80 : 80)

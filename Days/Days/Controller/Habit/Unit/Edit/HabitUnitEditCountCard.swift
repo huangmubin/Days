@@ -104,24 +104,28 @@ class HabitUnitEditCountCard: CardStandardView {
     
     // MARK: - Step
     
-    let increase: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("+", for: .normal)
-        button.titleLabel?.font = Font.text.b
-        button.tintColor = Color.dark
-        button.backgroundColor = Color.gray.light
-        button.layer.cornerRadius = 10
-        return button
-    }()
-    let decrease: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("-", for: .normal)
-        button.titleLabel?.font = Font.text.b
-        button.tintColor = Color.dark
-        button.backgroundColor = Color.gray.light
-        button.layer.cornerRadius = 10
-        return button
-    }()
+    let increase: UIButton = Views.Button.normal(title: "+")
+    let decrease: UIButton = Views.Button.normal(title: "-")
+    
+    // changed:
+//    let increase: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.setTitle("+", for: .normal)
+//        button.titleLabel?.font = Font.text.b
+//        button.tintColor = Color.dark
+//        button.backgroundColor = Color.gray.light
+//        button.layer.cornerRadius = 10
+//        return button
+//    }()
+//    let decrease: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.setTitle("-", for: .normal)
+//        button.titleLabel?.font = Font.text.b
+//        button.tintColor = Color.dark
+//        button.backgroundColor = Color.gray.light
+//        button.layer.cornerRadius = 10
+//        return button
+//    }()
     
     @objc func increase_action() {
         unit_obj.obj.length = unit_obj.obj.length + 1

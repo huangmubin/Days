@@ -114,12 +114,15 @@ class HabitBoothEventCard: CardStandardView, UITableViewDataSource, UITableViewD
     
     // MARK: - Add
     
-    let append: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "but_add"), for: .normal)
-        button.tintColor = Color.dark
-        return button
-    }()
+    let append: UIButton = Views.Button.system(image: #imageLiteral(resourceName: "but_add"), tint: Color.dark)
+    
+    // changed: 
+//    let append: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.setImage(#imageLiteral(resourceName: "but_add"), for: .normal)
+//        button.tintColor = Color.dark
+//        return button
+//    }()
     
     @objc func append_action() {
         let view = Keyboard()

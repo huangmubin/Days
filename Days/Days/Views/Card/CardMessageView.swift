@@ -86,10 +86,7 @@ class CardMessageView: CardStandardView {
     
     // MARK: - Button
     
-    let input_button: UIButton = {
-        let button = UIButton(type: .system)
-        return button
-    }()
+    let input_button: UIButton = UIButton(type: .system)
     
     @objc func input_action(_ sender: UIButton) {
         let view = Keyboard()

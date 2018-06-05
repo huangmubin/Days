@@ -135,20 +135,27 @@ class Keyboard: PushView, UITextViewDelegate {
     // MARK: - Button
     
     /** Cancel */
-    let cancel: UIButton = {
-        let button = UIButton(type: UIButtonType.system)
-        button.tintColor = Color.gray.dark
-        button.setImage(#imageLiteral(resourceName: "but_cancel"), for: .normal)
-        return button
-    }()
+    let cancel: UIButton = Views.Button.system(image: #imageLiteral(resourceName: "but_cancel"), tint: Color.gray.dark)
     
     /** Sure */
-    let sure: UIButton = {
-        let button = UIButton(type: UIButtonType.system)
-        button.tintColor = Color.gray.dark
-        button.setImage(#imageLiteral(resourceName: "but_sure"), for: .normal)
-        return button
-    }()
+    let sure: UIButton = Views.Button.system(image: #imageLiteral(resourceName: "but_sure"), tint: Color.gray.dark)
+    
+    // changed:
+//    /** Cancel */
+//    let cancel: UIButton = {
+//        let button = UIButton(type: UIButtonType.system)
+//        button.tintColor = Color.gray.dark
+//        button.setImage(#imageLiteral(resourceName: "but_cancel"), for: .normal)
+//        return button
+//    }()
+//
+//    /** Sure */
+//    let sure: UIButton = {
+//        let button = UIButton(type: UIButtonType.system)
+//        button.tintColor = Color.gray.dark
+//        button.setImage(#imageLiteral(resourceName: "but_sure"), for: .normal)
+//        return button
+//    }()
     
     @objc func cancel_action() {
         text.resignFirstResponder()

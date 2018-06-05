@@ -57,19 +57,23 @@ class CardTopView: CardBaseView {
 
     // MARK: - Buttons
     
-    let left: UIButton = {
-        let button = UIButton(type: UIButtonType.system)
-        button.tintColor = Color.gray.halftone
-        button.setImage(#imageLiteral(resourceName: "but_back"), for: .normal)
-        return button
-    }()
+    let left: UIButton = Views.Button.system(image: #imageLiteral(resourceName: "but_back"))
+    let right: UIButton = Views.Button.system(image: #imageLiteral(resourceName: "but_sure"))
     
-    let right: UIButton = {
-        let button = UIButton(type: UIButtonType.system)
-        button.tintColor = Color.gray.halftone
-        button.setImage(#imageLiteral(resourceName: "but_sure"), for: .normal)
-        return button
-    }()
+    // changed:
+//    let left: UIButton = {
+//        let button = UIButton(type: UIButtonType.system)
+//        button.tintColor = Color.gray.halftone
+//        button.setImage(#imageLiteral(resourceName: "but_back"), for: .normal)
+//        return button
+//    }()
+//
+//    let right: UIButton = {
+//        let button = UIButton(type: UIButtonType.system)
+//        button.tintColor = Color.gray.halftone
+//        button.setImage(#imageLiteral(resourceName: "but_sure"), for: .normal)
+//        return button
+//    }()
     
     @objc func left_action(_ sender: UIButton) {
         print("Left")
