@@ -37,16 +37,14 @@ class HabitListController: ViewController {
             obj.event_create()
             obj.diary_create()
             objs.append(obj)
-            DispatchQueue.main.async {            
-                self.table.insertRows(at: [IndexPath(self.objs)], with: UITableViewRowAnimation.bottom)
-            }
+            let index = IndexPath(self.objs)
+            table.insertRows(at: [index], with: .bottom)
         }
         if let obj = messages.removeValue(forKey: Key.Habit.delete) as? Habit {
-            if let index = objs.index(where: { $0 === obj }) {
-                objs.remove(at: index)
-                DispatchQueue.main.async {
-                    self.table.reloadData()
-                }
+            if let row = objs.index(where: { $0 === obj }) {
+                objs.remove(at: row)
+                let index = IndexPath(row: row, section: 0)
+                table.deleteRows(at: [index], with: .left)
             }
             obj.delete()
         }
