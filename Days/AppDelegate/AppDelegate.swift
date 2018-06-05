@@ -8,6 +8,18 @@
 
 import UIKit
 
+/**
+ 上传
+    名字：生活记录本
+    ID：App.Myron.Days
+ 测试使用
+    名字：生活记录本
+    ID：App.Myron.Days.Test
+ 临时开发
+    名字：生活记录本 Test
+    ID：App.Myron.Days.Debug
+ */
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
