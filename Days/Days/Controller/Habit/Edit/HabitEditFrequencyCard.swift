@@ -10,14 +10,12 @@ import UIKit
 
 class HabitEditFrequencyCard: CardStandardView {
     
-    // MARK: - Value
-    
-    override var title_text: String { return "每日计划" }
-    
     // MARK: - Init
     
     override func view_deploy() {
         super.view_deploy()
+        title.text = "每日计划"
+        
         container.addSubview(frequency)
         container.addSubview(number)
         container.addSubview(unit)

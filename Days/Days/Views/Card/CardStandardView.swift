@@ -12,38 +12,31 @@ class CardStandardView: CardBaseView {
     
     // MARK: - Value
     
-    /** Edge */
-    var edge: UIEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
-    
     /** Space title to container */
     var space: CGFloat = 20
-    
-    /** Title text */
-    var title_text: String { return "" }
     
     // MARK: - Init
     
     override func view_deploy() {
         super.view_deploy()
-        title.text = title_text
-        
         addSubview(title)
-        addSubview(container)
     }
     
     // MARK: - Frame
     
     override func view_bounds() {
         super.view_bounds()
-        let w = bounds.width - edge.left - edge.right
-        
         title.frame = CGRect(
-            x: edge.left, y: edge.top,
-            width: w, height: 40
+            x: edge.left,
+            y: edge.top,
+            width: bounds.width - edge.left - edge.right,
+            height: 40
         )
         
         container.frame = CGRect(
-            x: edge.left, y: title.frame.maxY + space, width: w,
+            x: edge.left,
+            y: title.frame.maxY + space,
+            width: title.frame.width,
             height: bounds.height - title.frame.maxY - space - edge.bottom
         )
     }
@@ -57,15 +50,6 @@ class CardStandardView: CardBaseView {
         label.textColor = Color.dark
         label.textAlignment = .left
         return label
-    }()
-    
-    // MARK: - Back
-    
-    let container: View = {
-        let view = View()
-        view.corner = 10
-        view.backgroundColor = Color.gray.light
-        return view
     }()
     
 }

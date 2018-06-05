@@ -38,7 +38,7 @@ class HabitEditController: ViewController, HabitObjectController {
         table.cards.append(HabitEditUICard(id: "UI", height: 140))
         table.cards.append(HabitEditMessageCard(id: "Message", height: 160))
         if habit.obj.id != 0 {
-            table.cards.append(HabitEditMenuCard(id: "Menu", height: 160))
+            table.cards.append(HabitEditMenuCard(id: "Menu", height: 80))
         }
         
         table.reload()

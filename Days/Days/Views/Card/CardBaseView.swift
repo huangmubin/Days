@@ -17,12 +17,40 @@ protocol HabitUnitObjectController {
 
 class CardBaseView: CardView, KeyboardDelegate, ConfirmDelegate {
 
-    /** The new_id */
-    static var new_id: Int {
-        let id = UserDefaults.standard.integer(forKey: "CardBaseView_Sort")
-        UserDefaults.standard.set(id + 2, forKey: "CardBaseView_Sort")
-        return id + 2
+    // MARK: - Value
+    
+    /** Edge */
+    var edge: UIEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+    
+    // MARK: - View Deploy
+    
+    override func view_deploy() {
+        super.view_deploy()
+        addSubview(container)
+        space_edge.bottom = 20
     }
+    
+    // MARK: - Frame
+    
+    override func view_bounds() {
+        super.view_bounds()
+        container.frame = CGRect(
+            x: edge.left, y: edge.top,
+            width: bounds.width - edge.left - edge.right,
+            height: bounds.height - edge.top - edge.bottom
+        )
+    }
+    
+    // MARK: - Container
+    
+    let container: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 10
+        view.backgroundColor = Color.gray.light
+        return view
+    }()
+    
+    // MARK: - Protocol Object
     
     var habit: Habit {
         if let obj = table.controller as? HabitUnitObjectController {
@@ -34,17 +62,20 @@ class CardBaseView: CardView, KeyboardDelegate, ConfirmDelegate {
         return (table.controller as! HabitUnitObjectController).unit
     }
     
-    func keyboard(_ board: Keyboard) -> String? {
-        return nil
+    // MARK: - Sort
+    
+    /** The new_id */
+    static var new_id: Int {
+        let id = UserDefaults.standard.integer(forKey: "CardBaseView_Sort")
+        UserDefaults.standard.set(id + 2, forKey: "CardBaseView_Sort")
+        return id + 2
     }
     
-    func confirm(_ view: Confirm) {
-        
-    }
+    // MARK: - Push View Override
     
-    override func view_deploy() {
-        super.view_deploy()
-        space_edge.bottom = 20
-    }
+    /** Override: KeyboardDelegate  */
+    func keyboard(_ board: Keyboard) -> String? { return nil }
+    /** Override: ConfirmDelegate  */
+    func confirm(_ view: Confirm) { }
     
 }

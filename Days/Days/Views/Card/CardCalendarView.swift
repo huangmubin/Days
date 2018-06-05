@@ -48,6 +48,8 @@ class CardCalendarView: CardBaseView, UICollectionViewDataSource, UICollectionVi
     
     override func view_deploy() {
         super.view_deploy()
+        container.backgroundColor = Color.white
+        
         clipsToBounds = true
         date = Date()
         

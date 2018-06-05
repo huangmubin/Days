@@ -80,6 +80,9 @@ class HabitBoothController: ViewController, HabitObjectController {
             list.habit = habit
             habit.dates_reload()
         }
+        if let edit = segue.controller as? HabitEditController {
+            edit.habit = habit
+        }
     }
     
 }

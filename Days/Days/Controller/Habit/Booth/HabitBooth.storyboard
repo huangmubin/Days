@@ -35,6 +35,7 @@
                         <outlet property="table" destination="TXK-8d-0lF" id="6aK-LQ-KxZ"/>
                         <segue destination="eQW-dT-rZx" kind="show" identifier="UnitEdit" id="WAe-WK-liu"/>
                         <segue destination="GCV-vF-BPa" kind="show" identifier="UnitList" id="gm7-c6-vpY"/>
+                        <segue destination="fNs-Hh-0m9" kind="show" identifier="HabitEdit" id="eyy-v9-eRl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sw6-oL-zcF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -56,6 +57,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rIV-Z6-av6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="889" y="177"/>
+        </scene>
+        <!--HabitEdit-->
+        <scene sceneID="na0-sD-d6k">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HabitEdit" id="fNs-Hh-0m9" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kJY-AU-ztf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="870" y="286"/>
         </scene>
     </scenes>
 </document>

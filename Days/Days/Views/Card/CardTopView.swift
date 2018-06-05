@@ -14,7 +14,8 @@ class CardTopView: CardBaseView {
     
     override func view_deploy() {
         super.view_deploy()
-        //print("CardTopView view deploy")
+        container.backgroundColor = Color.white
+        
         addSubview(left)
         addSubview(right)
         addSubview(title)

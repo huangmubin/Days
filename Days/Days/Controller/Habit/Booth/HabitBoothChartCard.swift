@@ -15,9 +15,6 @@ class HabitBoothChartCard: CardBaseView, UICollectionViewDataSource, UICollectio
     /** Date */
     var chart: Chart!
     
-    /** Edge */
-    var edge: UIEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
-    
     /** Space title to container */
     var space: CGFloat = 10
     
@@ -46,7 +43,6 @@ class HabitBoothChartCard: CardBaseView, UICollectionViewDataSource, UICollectio
     
     override func view_deploy() {
         super.view_deploy()
-        addSubview(container)
         container.addSubview(name)
         container.addSubview(detail)
         container.addSubview(count)
@@ -133,15 +129,6 @@ class HabitBoothChartCard: CardBaseView, UICollectionViewDataSource, UICollectio
             height: date_button.frame.height
         )
     }
-    
-    // MARK: - Container
-    
-    let container: View = {
-        let view = View()
-        view.corner = 10
-        view.backgroundColor = Color.gray.light
-        return view
-    }()
     
     // MARK: - note
     

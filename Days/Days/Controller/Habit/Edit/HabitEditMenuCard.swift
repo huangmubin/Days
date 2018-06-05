@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HabitEditMenuCard: CardStandardView {
+class HabitEditMenuCard: CardBaseView {
     
     // MARK: - Deploy
     
