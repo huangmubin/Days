@@ -63,14 +63,7 @@ class HabitEditFrequencyCard: CardStandardView {
     
     // MARK: - Buttons
     
-    let frequency: Button = {
-        let button = Button(type: .custom)
-        button.normal_color = Color.gray.light
-        button.corner = 10
-        button.titleLabel?.font = Font.title.m
-        button.setTitleColor(Color.dark, for: .normal)
-        return button
-    }()
+    let frequency: UIButton = Views.Button.normal(title: "")
     
     @objc func frequency_action() {
         let key = Keyboard()
@@ -107,20 +100,7 @@ class HabitEditFrequencyCard: CardStandardView {
     
     // MARK: - Labels
     
-    let number: UILabel = {
-        let label = UILabel()
-        label.text = "10"
-        label.font = Font.text.b
-        label.textColor = Color.dark
-        return label
-    }()
-    
-    let unit: UILabel = {
-        let label = UILabel()
-        label.text = "分钟"
-        label.font = Font.text.s
-        label.textColor = Color.gray.halftone
-        return label
-    }()
+    let number: UILabel = Views.Label.normal("10")
+    let unit: UILabel = Views.Label.hint("分钟")
     
 }

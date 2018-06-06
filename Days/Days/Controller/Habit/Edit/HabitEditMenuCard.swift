@@ -15,11 +15,11 @@ class HabitEditMenuCard: CardBaseView {
     override func reload() {
         super.reload()
         if habit.obj.is_runing {
-            idle.normal_color = Color.gray.light
+            idle.backgroundColor = Color.gray.light
             idle.setTitleColor(Color.dark, for: .normal)
             idle.setTitle("闲置", for: .normal)
         } else {
-            idle.normal_color = Color.dark
+            idle.backgroundColor = Color.dark
             idle.setTitleColor(Color.white, for: .normal)
             idle.setTitle("重启", for: .normal)
         }
@@ -52,14 +52,8 @@ class HabitEditMenuCard: CardBaseView {
     
     // MARK: - Buttons
     
-    let idle: Button = {
-        let button = Button(type: .system)
-        button.normal_color = Color.gray.light
-        button.corner = 10
-        button.titleLabel?.font = Font.title.b
-        button.setTitleColor(Color.dark, for: .normal)
-        return button
-    }()
+    let idle: UIButton = Views.Button.normal(title: "")
+    let delete: UIButton = Views.Button.normal(title: "删除")
     
     @objc func idle_action() {
         let view = Confirm()
@@ -72,16 +66,6 @@ class HabitEditMenuCard: CardBaseView {
         }
         view.push()
     }
-    
-    let delete: Button = {
-        let button = Button(type: .system)
-        button.normal_color = Color.gray.light
-        button.corner = 10
-        button.setTitle("删除", for: .normal)
-        button.titleLabel?.font = Font.title.b
-        button.setTitleColor(Color.dark, for: .normal)
-        return button
-    }()
     
     @objc func delete_action() {
         let view = Confirm()

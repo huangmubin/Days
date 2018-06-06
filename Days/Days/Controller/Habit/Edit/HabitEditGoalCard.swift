@@ -33,9 +33,9 @@ class HabitEditGoalCard: CardStandardView {
         super.reload()
         if habit.obj.is_time {
             timer.setTitleColor(Color.white, for: .normal)
-            timer.normal_color = habit.color
+            timer.backgroundColor = habit.color
             count.setTitleColor(Color.dark, for: .normal)
-            count.normal_color = Color.gray.light
+            count.backgroundColor = Color.gray.light
             
             if habit.obj.goal % 3600 == 0 {
                 goal.text = "\(habit.obj.goal / 3600)"
@@ -45,9 +45,9 @@ class HabitEditGoalCard: CardStandardView {
             unit.text = "小时"
         } else {
             timer.setTitleColor(Color.dark, for: .normal)
-            timer.normal_color = Color.gray.light
+            timer.backgroundColor = Color.gray.light
             count.setTitleColor(Color.white, for: .normal)
-            count.normal_color = habit.color
+            count.backgroundColor = habit.color
             
             goal.text = habit.obj.goal.description
             unit.text = "次"
@@ -94,32 +94,9 @@ class HabitEditGoalCard: CardStandardView {
     
     // MARK: - Buttons
     
-    let timer: Button = {
-        let button = Button(type: .custom)
-        button.normal_color = Color.gray.light
-        button.corner = 10
-        button.titleLabel?.font = Font.text.b
-        button.setTitle("计时", for: .normal)
-        button.setTitleColor(Color.dark, for: .normal)
-        return button
-    }()
-    
-    let count: Button = {
-        let button = Button()
-        button.corner = 10
-        button.normal_color = Color.gray.light
-        button.titleLabel?.font = Font.text.b
-        button.setTitle("计次", for: .normal)
-        return button
-    }()
-    
-    let goal_button: Button = {
-        let button = Button()
-        button.corner = 10
-        button.normal_color = Color.gray.light
-        button.titleLabel?.font = Font.title.s
-        return button
-    }()
+    let timer: UIButton = Views.Button.normal(title: "计时")
+    let count: UIButton = Views.Button.normal(title: "计次")
+    let goal_button: UIButton = Views.Button.normal(title: "")
     
     @objc func timer_action() {
         if !habit.obj.is_time {
@@ -170,19 +147,7 @@ class HabitEditGoalCard: CardStandardView {
     
     // MARK: - Labels
     
-    let goal: UILabel = {
-        let label = UILabel()
-        label.font = Font.text.b
-        label.textColor = Color.dark
-        return label
-    }()
-    
-    let unit: UILabel = {
-        let label = UILabel()
-        label.text = "小时"
-        label.font = Font.text.s
-        label.textColor = Color.gray.halftone
-        return label
-    }()
+    let goal: UILabel = Views.Label.normal("")
+    let unit: UILabel = Views.Label.hint("小时")
     
 }

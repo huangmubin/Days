@@ -75,14 +75,7 @@ class CardMessageView: CardStandardView {
     
     // MARK: - Text
     
-    let text: UILabel = {
-        let label = UILabel()
-        label.font = Font.text.m
-        label.textColor = Color.dark
-        label.textAlignment = .left
-        label.numberOfLines = 0
-        return label
-    }()
+    let text: UILabel = Views.Label.normal("", line: 0, alignment: .left)
     
     // MARK: - Button
     

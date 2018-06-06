@@ -151,17 +151,6 @@ class HabitUnitEditTimerCard: CardStandardView {
     
     let start: UIButton = Views.Button.normal(title: "00:00")
     
-    // changed:
-//    let start: UIButton = {
-//        let button = UIButton(type: .system)
-//        button.titleLabel?.font = Font.text.b
-//        button.setTitle("00:00", for: .normal)
-//        button.setTitleColor(Color.dark, for: .normal)
-//        button.backgroundColor = Color.gray.light
-//        button.layer.cornerRadius = 10
-//        return button
-//    }()
-    
     let gap_label: UILabel = {
         let label = UILabel()
         label.text = "至"
@@ -172,17 +161,6 @@ class HabitUnitEditTimerCard: CardStandardView {
     }()
     
     let end: UIButton = Views.Button.normal(title: "00:00")
-    
-    // changed:
-//    let end: UIButton = {
-//        let button = UIButton(type: .system)
-//        button.titleLabel?.font = Font.text.b
-//        button.setTitle("00:00", for: .normal)
-//        button.setTitleColor(Color.dark, for: .normal)
-//        button.backgroundColor = Color.gray.light
-//        button.layer.cornerRadius = 10
-//        return button
-//    }()
     
     @objc func start_action() {
         let view = KeyboardTime()
@@ -235,35 +213,6 @@ class HabitUnitEditTimerCard: CardStandardView {
     let small: UIButton = Views.Button.small(title: "10分钟")
     let medium: UIButton = Views.Button.small(title: "30分钟")
     let big: UIButton = Views.Button.small(title: "1小时")
-    
-    // changed:
-//    let small: UIButton = {
-//        let button = UIButton(type: .system)
-//        button.titleLabel?.font = Font.text.s
-//        button.setTitle("10分钟", for: .normal)
-//        button.setTitleColor(Color.dark, for: .normal)
-//        button.backgroundColor = Color.gray.light
-//        button.layer.cornerRadius = 10
-//        return button
-//    }()
-//    let medium: UIButton = {
-//        let button = UIButton(type: .system)
-//        button.titleLabel?.font = Font.text.s
-//        button.setTitle("30分钟", for: .normal)
-//        button.setTitleColor(Color.dark, for: .normal)
-//        button.backgroundColor = Color.gray.light
-//        button.layer.cornerRadius = 10
-//        return button
-//    }()
-//    let big: UIButton = {
-//        let button = UIButton(type: .system)
-//        button.titleLabel?.font = Font.text.s
-//        button.setTitle("1小时", for: .normal)
-//        button.setTitleColor(Color.dark, for: .normal)
-//        button.backgroundColor = Color.gray.light
-//        button.layer.cornerRadius = 10
-//        return button
-//    }()
     
     @objc func small_action() {
         value.end = value.start.addingTimeInterval(600)

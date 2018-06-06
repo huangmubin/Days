@@ -316,35 +316,13 @@ extension HabitListCell {
         
         // MARK: - Image
         
-        let image: UIImageView = {
-            let view = UIImageView()
-            view.image = #imageLiteral(resourceName: "alarm-clock")
-            return view
-        }()
+        let image: UIImageView = UIImageView(image: #imageLiteral(resourceName: "alarm-clock"))
         
-        let name: UILabel = {
-            let label = UILabel()
-            label.font = Font.text.b
-            label.text = "习惯名称"
-            return label
-        }()
-        
-        let count: UILabel = {
-            let label = UILabel()
-            label.font = Font.hint.m
-            label.text = "10分钟"
-            return label
-        }()
-        
-        let progress: UILabel = {
-            let label = UILabel()
-            label.font = Font.hint.m
-            label.text = "0%"
-            return label
-        }()
+        let name: UILabel = Views.Label.normal("习惯名称")
+        let count: UILabel = Views.Label.hint("10分钟")
+        let progress: UILabel = Views.Label.hint("0%")
         
     }
-    
 }
 
 // MARK: - Actions
@@ -395,35 +373,8 @@ extension HabitListCell {
         // MARK: - Buttons
         
         let decrease: UIButton = Views.Button.system(image: #imageLiteral(resourceName: "but_cut_w"), tint: Color.white)
-        
         let increase: UIButton = Views.Button.system(image: #imageLiteral(resourceName: "but_add_w"), tint: Color.white)
-        
         let complete: UIButton = Views.Button.system(image: #imageLiteral(resourceName: "but_sure_w"), tint: Color.white)
-        
-        // changed:
-//        let decrease: UIButton = {
-//            let button = Button(type: .custom)
-//            button.setImage(#imageLiteral(resourceName: "but_cut_w"), for: .normal)
-//            button.tintColor = Color.white
-//            button.corner = 10
-//            return button
-//        }()
-//
-//        let increase: UIButton = {
-//            let button = Button(type: .custom)
-//            button.setImage(#imageLiteral(resourceName: "but_add_w"), for: .normal)
-//            button.tintColor = Color.white
-//            button.corner = 10
-//            return button
-//        }()
-//
-//        let complete: UIButton = {
-//            let button = Button(type: .custom)
-//            button.setImage(#imageLiteral(resourceName: "but_sure_w"), for: .normal)
-//            button.tintColor = Color.white
-//            button.corner = 10
-//            return button
-//        }()
         
         // MARK: - Animation
         

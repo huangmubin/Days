@@ -69,14 +69,7 @@ class HabitUnitEditCountCard: CardStandardView {
     
     // MARK: - Push
     
-    let push: Button = {
-        let button = Button(type: .custom)
-        button.normal_color = Color.gray.light
-        button.corner = 10
-        button.titleLabel?.font = Font.title.m
-        button.setTitleColor(Color.dark, for: .normal)
-        return button
-    }()
+    let push: UIButton = Views.Button.normal(title: "")
     
     @objc func push_action() {
         let key = Keyboard()
@@ -106,26 +99,6 @@ class HabitUnitEditCountCard: CardStandardView {
     
     let increase: UIButton = Views.Button.normal(title: "+")
     let decrease: UIButton = Views.Button.normal(title: "-")
-    
-    // changed:
-//    let increase: UIButton = {
-//        let button = UIButton(type: .system)
-//        button.setTitle("+", for: .normal)
-//        button.titleLabel?.font = Font.text.b
-//        button.tintColor = Color.dark
-//        button.backgroundColor = Color.gray.light
-//        button.layer.cornerRadius = 10
-//        return button
-//    }()
-//    let decrease: UIButton = {
-//        let button = UIButton(type: .system)
-//        button.setTitle("-", for: .normal)
-//        button.titleLabel?.font = Font.text.b
-//        button.tintColor = Color.dark
-//        button.backgroundColor = Color.gray.light
-//        button.layer.cornerRadius = 10
-//        return button
-//    }()
     
     @objc func increase_action() {
         unit_obj.obj.length = unit_obj.obj.length + 1

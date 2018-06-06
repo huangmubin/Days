@@ -55,35 +55,9 @@ class HabitBoothUnitCard: CardStandardView {
     
     // MARK: - Buttons
     
-    let done: Button = {
-        let button = Button(type: .system)
-        button.normal_color = Color.gray.light
-        button.corner = 10
-        button.setTitle("打卡", for: .normal)
-        button.titleLabel?.font = Font.text.b
-        button.setTitleColor(Color.dark, for: .normal)
-        return button
-    }()
-    
-    let sock: Button = {
-        let button = Button(type: .system)
-        button.normal_color = Color.gray.light
-        button.corner = 10
-        button.setTitle("请假", for: .normal)
-        button.titleLabel?.font = Font.text.b
-        button.setTitleColor(Color.dark, for: .normal)
-        return button
-    }()
-    
-    let list: Button = {
-        let button = Button(type: .system)
-        button.normal_color = Color.gray.light
-        button.corner = 10
-        button.setTitle("详细记录", for: .normal)
-        button.titleLabel?.font = Font.text.b
-        button.setTitleColor(Color.dark, for: .normal)
-        return button
-    }()
+    let done: UIButton = Views.Button.normal(title: "打卡")
+    let sock: UIButton = Views.Button.normal(title: "请假")
+    let list: UIButton = Views.Button.normal(title: "详细记录")
     
     @objc func done_action() {
         let unit = HabitUnit(habit)

@@ -112,15 +112,6 @@ class CardCalendarView: CardBaseView, UICollectionViewDataSource, UICollectionVi
     
     let date_button: UIButton = Views.Button.title()
     
-    // changed:
-//    let date_button: UIButton = {
-//        let button = UIButton(type: .system)
-//        button.titleLabel?.font = Font.title.b
-//        button.setTitleColor(Color.dark, for: .normal)
-//        button.titleLabel?.textAlignment = .left
-//        return button
-//    }()
-    
     @objc func date_action(_ sender: UIButton) {
         let key = KeyboardDate()
         key.delegate = self
@@ -141,13 +132,6 @@ class CardCalendarView: CardBaseView, UICollectionViewDataSource, UICollectionVi
     // MARK: - Switch
     
     let switch_button: UIButton = Views.Button.system(image: #imageLiteral(resourceName: "but_open"))
-    // changed:
-//    let switch_button: UIButton = {
-//        let button = UIButton(type: .system)
-//        button.setImage(#imageLiteral(resourceName: "but_open"), for: .normal)
-//        button.tintColor = Color.gray.halftone
-//        return button
-//    }()
     
     @objc func switch_action(_ sender: UIButton) {
         let height: CGFloat = (self.frame.height == 80 ? (UIScreen.main.bounds.width - 40) + 80 : 80)
@@ -306,24 +290,10 @@ extension CardCalendarView {
         
         // MARK: - Views
         
-        let back: View = {
-            let view = View()
-            view.corner = 2
-            return view
-        }()
+        let back: View = View(corner: 2)
+        let select: View = View(corner: 1)
         
-        let select: View = {
-            let view = View()
-            view.corner = 1
-            return view
-        }()
-        
-        let day: UILabel = {
-            let label = UILabel()
-            label.font = Font.text.m
-            label.textAlignment = .center
-            return label
-        }()
+        let day: UILabel = Views.Label.normal("")
     }
     
 }

@@ -248,39 +248,8 @@ class HabitBoothChartCard: CardBaseView, UICollectionViewDataSource, UICollectio
     // MARK: - Buttons
     
     let last_button: UIButton = Views.Button.system(image: #imageLiteral(resourceName: "but_last"))
-    
     let next_button: UIButton = Views.Button.system(image: #imageLiteral(resourceName: "but_next"))
-    
     let date_button: UIButton = Views.Button.hint("2018年10月")
-//    {
-//        let button = UIButton(type: .system)
-//        button.setTitle("2018年10月", for: .normal)
-//        button.titleLabel?.font = Font.hint.m
-//        button.tintColor = Color.dark
-//        return button
-//    }()
-    // changed:
-//    let last_button: UIButton = {
-//        let button = UIButton(type: .system)
-//        button.setImage(#imageLiteral(resourceName: "but_last"), for: .normal)
-//        button.tintColor = Color.gray.halftone
-//        return button
-//    }()
-//
-//    let next_button: UIButton = {
-//        let button = UIButton(type: .system)
-//        button.setImage(#imageLiteral(resourceName: "but_next"), for: .normal)
-//        button.tintColor = Color.gray.halftone
-//        return button
-//    }()
-//
-//    let date_button: UIButton = {
-//        let button = UIButton(type: .system)
-//        button.setTitle("2018年10月", for: .normal)
-//        button.titleLabel?.font = Font.hint.m
-//        button.tintColor = Color.dark
-//        return button
-//    }()
     
     @objc func last_action() {
         chart.date = chart.date.advance(.month, -1)
