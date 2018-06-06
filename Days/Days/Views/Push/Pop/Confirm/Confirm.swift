@@ -98,15 +98,7 @@ class Confirm: PushView {
     // MARK: - Labels
     
     /** 标题文本 */
-    let title: UILabel = {
-        let label = UILabel()
-        label.font = Font.text.m
-        label.text = "标题"
-        label.textColor = Color.dark
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        return label
-    }()
+    let title: UILabel = Views.Label.normal("标题", line: 0)
     
     // MARK: - Buttons
     
@@ -123,29 +115,6 @@ class Confirm: PushView {
         button.backgroundColor = Color.white
         return button
     }()
-    
-    // changed:
-//    /** 确认 */
-//    let sure: UIButton = {
-//        let button = Button(type: .system)
-//        button.setTitle("确认", for: .normal)
-//        button.setTitleColor(Color.dark, for: .normal)
-//        button.corner = 10
-//        button.titleLabel?.font = Font.text.m
-//        button.normal_color = Color.white
-//        return button
-//    }()
-//
-//    /** Cancel */
-//    let cancel: UIButton = {
-//        let button = Button(type: .system)
-//        button.setTitle("取消", for: .normal)
-//        button.setTitleColor(Color.dark, for: .normal)
-//        button.corner = 10
-//        button.titleLabel?.font = Font.text.m
-//        button.normal_color = Color.white
-//        return button
-//    }()
     
     @objc func sure_action() {
         animation({ self.delegate?.confirm(self) })

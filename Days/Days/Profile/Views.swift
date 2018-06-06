@@ -9,10 +9,11 @@
 import UIKit
 
 /** View Components */
-class Views {
-    
-    // MARK: - Button
-    
+class Views { }
+
+// MARK: - Button
+
+extension Views {
     /** Standard Button */
     class Button {
         
@@ -94,13 +95,76 @@ class Views {
         }
         
         /** System Button, Use the image, default tint color is Color.gray.halftone */
-        static func system(image: UIImage, tint: UIColor = Color.gray.halftone) -> UIButton {
+        static func system(image: UIImage?, tint: UIColor = Color.gray.halftone) -> UIButton {
             let button = UIButton(type: UIButtonType.system)
             button.tintColor = tint
             button.setImage(image, for: .normal)
             return button
         }
-        
     }
-    
+}
+
+// MARK: - Label
+
+extension Views {
+    class Label {
+        /** A normal text, in most place. Font.text.m, Color.dark. */
+        class func normal(_ value: String, line: Int = 1, alignment: NSTextAlignment = .center) -> UILabel {
+            let label = UILabel()
+            label.text = value
+            label.textColor = Color.dark
+            label.font = Font.text.m
+            label.textAlignment = alignment
+            label.numberOfLines = line
+            label.sizeToFit()
+            return label
+        }
+        
+        /** A normal text, in most place. Font.text.m, Color.dark. */
+        class func small(_ value: String, line: Int = 1, alignment: NSTextAlignment = .center) -> UILabel {
+            let label = UILabel()
+            label.text = value
+            label.textColor = Color.dark
+            label.font = Font.text.s
+            label.textAlignment = alignment
+            label.numberOfLines = line
+            label.sizeToFit()
+            return label
+        }
+        
+        /** A title text, in the title place. Font.title.m, Color.dark. */
+        class func title(_ value: String, line: Int = 1, alignment: NSTextAlignment = .center) -> UILabel {
+            let label = UILabel()
+            label.text = value
+            label.textColor = Color.dark
+            label.font = Font.title.b
+            label.textAlignment = alignment
+            label.numberOfLines = line
+            label.sizeToFit()
+            return label
+        }
+        
+        /** */
+        class func hint(_ value: String, line: Int = 1, alignment: NSTextAlignment = .center) -> UILabel {
+            let label = UILabel()
+            label.text = value
+            label.textColor = Color.gray.halftone
+            label.font = Font.hint.m
+            label.textAlignment = alignment
+            label.numberOfLines = line
+            label.sizeToFit()
+            return label
+        }
+        
+        /** A title text, in error hint.  */
+        class func warning(hint: String, line: Int = 1, alignment: NSTextAlignment = .center) -> UILabel {
+            let label = UILabel()
+            label.font = Font.hint.m
+            label.textColor = Color.red.light
+            label.textAlignment = alignment
+            label.numberOfLines = line
+            label.alpha = 0
+            return label
+        }
+    }
 }

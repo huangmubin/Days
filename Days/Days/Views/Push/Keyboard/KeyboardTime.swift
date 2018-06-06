@@ -95,14 +95,7 @@ class KeyboardTime: Keyboard {
     // MARK: - Label
     
     /**  */
-    let split_label: UILabel = {
-        let label = UILabel()
-        label.font = Font.text.m
-        label.text = ":"
-        label.textColor = Color.dark
-        label.sizeToFit()
-        return label
-    }()
+    let split_label: UILabel = Views.Label.normal(":")
     
     // MARK: - Action
     

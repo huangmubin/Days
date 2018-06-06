@@ -118,24 +118,10 @@ class KeyboardDate: Keyboard {
     // MARK: - Label
     
     /**  */
-    let year_label: UILabel = {
-        let label = UILabel()
-        label.font = Font.text.m
-        label.text = "年"
-        label.textColor = Color.dark
-        label.sizeToFit()
-        return label
-    }()
+    let year_label: UILabel = Views.Label.normal("年")
     
     /**  */
-    let month_label: UILabel = {
-        let label = UILabel()
-        label.font = Font.text.m
-        label.text = "月"
-        label.textColor = Color.dark
-        label.sizeToFit()
-        return label
-    }()
+    let month_label: UILabel = Views.Label.normal("月")
     
     // MARK: - Action
     

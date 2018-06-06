@@ -60,48 +60,20 @@ class CardTopView: CardBaseView {
     let left: UIButton = Views.Button.system(image: #imageLiteral(resourceName: "but_back"))
     let right: UIButton = Views.Button.system(image: #imageLiteral(resourceName: "but_sure"))
     
-    // changed:
-//    let left: UIButton = {
-//        let button = UIButton(type: UIButtonType.system)
-//        button.tintColor = Color.gray.halftone
-//        button.setImage(#imageLiteral(resourceName: "but_back"), for: .normal)
-//        return button
-//    }()
-//
-//    let right: UIButton = {
-//        let button = UIButton(type: UIButtonType.system)
-//        button.tintColor = Color.gray.halftone
-//        button.setImage(#imageLiteral(resourceName: "but_sure"), for: .normal)
-//        return button
-//    }()
-    
     @objc func left_action(_ sender: UIButton) {
-        print("Left")
+        //print("Left")
         table.controller?.dismiss(animated: true, completion: nil)
     }
     @objc func right_action(_ sender: UIButton) {
-        print("Right")
+        //print("Right")
     }
     
     // MARK: - Labels
     
-    let title: UILabel = {
-        let label           = UILabel()
-        label.text          = "标题"
-        label.font          = Font.title.b
-        label.textColor     = Color.dark
-        label.textAlignment = .center
-        label.sizeToFit()
-        return label
-    }()
-    
+    let title: UILabel = Views.Label.title("标题")
     let subtitle: UILabel = {
-        let label           = UILabel()
-        label.text          = ""
-        label.font          = Font.text.b
-        label.textColor     = Color.gray.halftone
-        label.textAlignment = .center
-        label.sizeToFit()
+        let label = Views.Label.normal("")
+        label.textColor = Color.gray.halftone
         return label
     }()
 }

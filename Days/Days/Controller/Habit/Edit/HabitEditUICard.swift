@@ -26,7 +26,7 @@ class HabitEditUICard: CardStandardView {
         super.reload()
         image.setImage(habit.image(), for: .normal)
         image.tintColor = habit.color
-        color.normal_color = habit.color
+        color.backgroundColor = habit.color
     }
     
     override func view_bounds() {
@@ -47,19 +47,8 @@ class HabitEditUICard: CardStandardView {
     
     // MARK: - Buttons
     
-    let image: Button = {
-        let button = Button(type: .system)
-        button.normal_color = Color.gray.light
-        button.corner = 10
-        return button
-    }()
-    
-    let color: Button = {
-        let button = Button(type: .system)
-        button.normal_color = Color.gray.light
-        button.corner = 10
-        return button
-    }()
+    let image: UIButton = Views.Button.system(image: nil)
+    let color: UIButton = Views.Button.normal(title: "")
     
     @objc func image_action() {
         table.controller?.performSegue(withIdentifier: "UI", sender: true)
