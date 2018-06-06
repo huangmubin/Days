@@ -19,7 +19,6 @@ class HabitBoothMenuCard: CardBaseView {
         addSubview(delete)
         delete.addTarget(self, action: #selector(delete_action), for: .touchUpInside)
         
-        // update: V1.1 添加 Edit
         addSubview(edit)
         edit.addTarget(self, action: #selector(edit_action), for: .touchUpInside)
     }
@@ -28,15 +27,6 @@ class HabitBoothMenuCard: CardBaseView {
     
     override func view_bounds() {
         super.view_bounds()
-        /*
-        delete.frame = CGRect(
-            x: 20, y: 10,
-            width: bounds.width - 40,
-            height: bounds.height - 20
-        )
-        */
-        
-        // update: v1.1 添加 Edit
         edit.frame = CGRect(
             x: 20, y: 10,
             width: (bounds.width - 60) / 2,

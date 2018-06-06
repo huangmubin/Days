@@ -17,7 +17,7 @@ class HabitEditTopCard: CardTopView {
     
     override func reload() {
         super.reload()
-        right.isHidden = true
+        right.isHidden = (habit.obj.id == 0)
         title.text = (habit.obj.id == 0 ? "新增习惯" : habit.obj.name)
     }
     

@@ -16,30 +16,36 @@ class HabitEditUIController: ViewController, UICollectionViewDataSource, UIColle
     var is_image: Bool = true
     
     var images: [String] = [
-        "alarm-clock",
-        "bicycle",
-        "book",
-        "computer",
-        "cooking",
-        "improvement",
-        "karaoke",
-        "wallet",
-//        "alarm-clock",
-//        "bicycle",
-//        "book",
-//        "computer",
-//        "cooking",
-//        "improvement",
-//        "karaoke",
-//        "wallet",
-//        "alarm-clock",
-//        "bicycle",
-//        "book",
-//        "computer",
-//        "cooking",
-//        "improvement",
-//        "karaoke",
-//        "wallet",
+        "habits_bed",
+        "habits_map",
+        "habits_book_01",
+        "habits_martini",
+        "habits_book_02",
+        "habits_micro",
+        "habits_bookmarks",
+        "habits_pet_01",
+        "habits_bookshelf",
+        "habits_roadsign",
+        "habits_bulb",
+        "habits_search",
+        "habits_calculator",
+        "habits_spoon",
+        "habits_camera",
+        "habits_sport_01",
+        "habits_clover_01",
+        "habits_sport_02",
+//        "habits_cocktail",
+        "habits_sport_03",
+        "habits_coffee",
+        "habits_sport_04",
+        "habits_comment",
+        "habits_sport_05",
+        "habits_computer_01",
+        "habits_star",
+        "habits_iphone_01",
+        "habits_stopwatch",
+        "habits_keypad",
+
 //        "alarm-clock",
 //        "bicycle",
 //        "book",
@@ -51,23 +57,37 @@ class HabitEditUIController: ViewController, UICollectionViewDataSource, UIColle
     ]
     
     var colors: [Int] = [
-        0x3DAFFD,
-        0xFF0035,
-        0x50E3C2,
-        0x45538C,
-//        0x3DAFFD,
-//        0xFF0035,
-//        0x50E3C2,
-//        0x45538C,
-//        0x3DAFFD,
-//        0xFF0035,
-//        0x50E3C2,
-//        0x45538C,
-//        0x3DAFFD,
-//        0xFF0035,
-//        0x50E3C2,
-//        0x45538C
-    ]
+        
+            // 红色
+            0xF16D7A,
+            0xF55066,
+            0xFF4848,
+            0xFF0035,
+            
+            // 橙色
+            0xFF7A26,
+            0xD75400,
+            
+            // 黄色
+            0xFFFF00,
+            0xFFED00,
+            
+            // 绿色
+            0x61B500,
+            0x356400,
+            
+            // 青色
+            0x50E3C2,
+            0x00AB85,
+            
+            // 蓝色
+            0x1D86FF,
+            0x004698,
+            
+            // 紫色
+            0x9D2DFF,
+            0x4E0093,
+        ]
     
     // MARK: - Life
     
@@ -122,10 +142,17 @@ class HabitEditUIController: ViewController, UICollectionViewDataSource, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(
-            width: (collectionView.bounds.width - 30) / 4,
-            height: (collectionView.bounds.width - 30) / 4
-        )
+        if is_image {
+            return CGSize(
+                width: (collectionView.bounds.width - 30) / 4,
+                height: (collectionView.bounds.width - 30) / 4
+            )
+        } else {
+            return CGSize(
+                width: (collectionView.bounds.width - 10) / 2,
+                height: (collectionView.bounds.width - 30) / 4
+            )
+        }
     }
     
 }

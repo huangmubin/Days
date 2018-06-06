@@ -33,7 +33,7 @@ class Resource {
             return image
         } else {
             let image = UIImage(named: name)!
-            let image_c = image.change(color: UIColor(color))!
+            let image_c = image.change(color: UIColor(color), model: .destinationIn)!
             let data = UIImagePNGRepresentation(image_c)!
             try! data.write(to: URL(fileURLWithPath: path))
             return image_c

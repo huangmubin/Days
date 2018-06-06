@@ -254,7 +254,7 @@ extension HabitListCell {
         /** is show or done */
         func update(type: Bool) {
             if type {
-                backgroundColor = Color.gray.light
+                backgroundColor = Color.gray.thin
                 name.textColor = Color.dark
                 count.textColor = Color.dark
                 progress.textColor = Color.gray.halftone
@@ -318,7 +318,7 @@ extension HabitListCell {
         
         let image: UIImageView = UIImageView(image: #imageLiteral(resourceName: "alarm-clock"))
         
-        let name: UILabel = Views.Label.normal("习惯名称")
+        let name: UILabel = Views.Label.normal("习惯名称", alignment: .left)
         let count: UILabel = Views.Label.hint("10分钟")
         let progress: UILabel = Views.Label.hint("0%")
         

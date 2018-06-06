@@ -25,6 +25,9 @@ class Format {
     /** yyyy年MM月dd日 */
     static let yyyy年MM月dd日: DateFormatter = DateFormatter("yyyy年MM月dd日")
     
+    /** yyyy年MM月dd日 */
+    static let MM月dd日: DateFormatter = DateFormatter("MM月dd日")
+    
     /** yyyy年MM月 */
     static let yyyy年MM月: DateFormatter = DateFormatter("yyyy年MM月")
     

@@ -8,10 +8,10 @@
 
 import UIKit
 
-protocol HabitObjectController {
+protocol HabitObjectController: class {
     var habit: Habit! { get set }
 }
-protocol HabitUnitObjectController {
+protocol HabitUnitObjectController: class {
     var unit: HabitUnit! { get set }
 }
 

@@ -71,10 +71,10 @@ extension SQLite {
         // MARK: - UI
         
         /** 图标名称 */
-        var image: String = "alarm-clock"
+        var image: String = "habits_book_01"
         
         /** 颜色 */
-        var color: Int = Color.red.light.number()
+        var color: Int = 0xF16D7A
         //var color: Int = 0
         
     }

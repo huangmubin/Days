@@ -132,40 +132,10 @@ class HabitBoothChartCard: CardBaseView, UICollectionViewDataSource, UICollectio
     
     // MARK: - note
     
-    let name: UILabel = {
-        let label = UILabel()
-        label.textColor = Color.dark
-        label.font = Font.text.m
-        label.text = "图表名字"
-        return label
-    }()
-    
-    let detail: UILabel = {
-        let label = UILabel()
-        label.textColor = Color.gray.dark
-        label.font = Font.hint.s
-        label.numberOfLines = 0
-        //label.text = "测试内容，详细内容，说上几句。"
-        return label
-    }()
-    
-    let count: UILabel = {
-        let label = UILabel()
-        label.textColor = Color.gray.dark
-        label.font = Font.hint.s
-        label.textAlignment = .center
-        label.text = "10分钟"
-        return label
-    }()
-    
-    let day: UILabel = {
-        let label = UILabel()
-        label.textColor = Color.gray.dark
-        label.font = Font.hint.s
-        label.textAlignment = .center
-        label.text = "今天"
-        return label
-    }()
+    let name: UILabel = Views.Label.normal("图表名字", alignment: .right)
+    let detail: UILabel = Views.Label.hint(small: "", line: 0)
+    let count: UILabel = Views.Label.hint(small: "10分钟")
+    let day: UILabel = Views.Label.hint(small: "今天")
     
     // MARK: - Line
     
@@ -326,13 +296,7 @@ extension HabitBoothChartCard {
         
         // MARK: - Views
         
-        let day: UILabel = {
-            let label = UILabel()
-            label.textAlignment = .center
-            label.font = Font.hint.s
-            label.textColor = Color.dark
-            return label
-        }()
+        let day: UILabel = Views.Label.hint(small: "10")
         
         let column: UIView = {
             let view = UIView()

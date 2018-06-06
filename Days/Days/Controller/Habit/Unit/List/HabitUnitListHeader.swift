@@ -36,11 +36,6 @@ class HabitUnitListHeader: TableViewHeaderFooter {
         return view
     }()
     
-    let title: UILabel = {
-        let label = UILabel()
-        label.font = Font.text.m
-        label.textColor = Color.dark
-        return label
-    }()
+    let title: UILabel = Views.Label.small("")
     
 }

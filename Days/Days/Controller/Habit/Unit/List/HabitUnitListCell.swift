@@ -91,19 +91,7 @@ class HabitUnitListCell: TableViewCell {
         return view
     }()
 
-    let title: UILabel = {
-        let label = UILabel()
-        label.font = Font.text.b
-        label.textColor = Color.dark
-        label.textAlignment = .left
-        return label
-    }()
+    let title: UILabel = Views.Label.normal("")
+    let subtitle: UILabel = Views.Label.small("")
     
-    let subtitle: UILabel = {
-        let label = UILabel()
-        label.font = Font.text.s
-        label.textColor = Color.gray.halftone
-        label.textAlignment = .right
-        return label
-    }()
 }

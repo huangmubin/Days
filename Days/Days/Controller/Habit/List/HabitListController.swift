@@ -37,9 +37,12 @@ class HabitListController: ViewController {
             obj.event_create()
             obj.diary_create()
             objs.append(obj)
-            let index = IndexPath(self.objs)
-            table.insertRows(at: [index], with: .bottom)
         }
+        
+        if let obj = messages.removeValue(forKey: Key.Habit.update) as? Habit {
+            obj.obj.update()
+        }
+        
         if let obj = messages.removeValue(forKey: Key.Habit.delete) as? Habit {
             if let row = objs.index(where: { $0 === obj }) {
                 objs.remove(at: row)
@@ -48,6 +51,7 @@ class HabitListController: ViewController {
             }
             obj.delete()
         }
+        
         if is_load {
             is_load = false
         } else {
@@ -61,6 +65,7 @@ class HabitListController: ViewController {
         didSet {
             // TODO: - AppStore Delete true
             //top.left_button.isHidden = false
+            top.vc = self
             top.left_button.isHidden = true
         }
     }
@@ -94,11 +99,12 @@ class HabitListController: ViewController {
     // MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let edit = segue.controller as? HabitEditController {
-            edit.habit = Habit()
-        }
-        if let booth = segue.controller as? HabitBoothController {
-            booth.habit = sender as! Habit
+        if let obj = segue.controller as? HabitObjectController {
+            if let habit = sender as? Habit {
+                obj.habit = habit
+            } else {
+                obj.habit = Habit()
+            }
         }
     }
     

@@ -111,21 +111,8 @@ class HabitUnitEditCountCard: CardStandardView {
     
     // MARK: - Labels
     
-    let number: UILabel = {
-        let label = UILabel()
-        label.text = "10"
-        label.font = Font.text.b
-        label.textColor = Color.dark
-        return label
-    }()
-    
-    let unit: UILabel = {
-        let label = UILabel()
-        label.text = "次"
-        label.font = Font.text.s
-        label.textColor = Color.gray.halftone
-        return label
-    }()
+    let number: UILabel = Views.Label.normal("10")
+    let unit: UILabel = Views.Label.small("次")
     
 
 }

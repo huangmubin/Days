@@ -56,38 +56,10 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cY6-pM-edj" userLabel="Top" customClass="TopView" customModule="Days" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="80"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ro6-0U-IUf">
-                                        <rect key="frame" x="10" y="10" width="60" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="HDs-f1-Y6v"/>
-                                            <constraint firstAttribute="width" constant="60" id="VSa-jH-3OA"/>
-                                        </constraints>
-                                        <state key="normal" image="but_back"/>
-                                        <connections>
-                                            <action selector="left_action:" destination="cY6-pM-edj" eventType="touchUpInside" id="eOz-eK-Lej"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DCA-M7-Ako">
-                                        <rect key="frame" x="157" y="13" width="60" height="54"/>
-                                        <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="30"/>
-                                        <state key="normal" title="图标">
-                                            <color key="titleColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="DCA-M7-Ako" firstAttribute="centerX" secondItem="cY6-pM-edj" secondAttribute="centerX" id="1au-23-8b8"/>
-                                    <constraint firstItem="Ro6-0U-IUf" firstAttribute="centerY" secondItem="cY6-pM-edj" secondAttribute="centerY" id="LIg-b1-DfI"/>
-                                    <constraint firstItem="DCA-M7-Ako" firstAttribute="centerY" secondItem="cY6-pM-edj" secondAttribute="centerY" id="aUy-Cg-kkp"/>
                                     <constraint firstAttribute="height" constant="80" id="eLP-KB-nVS"/>
-                                    <constraint firstItem="Ro6-0U-IUf" firstAttribute="leading" secondItem="cY6-pM-edj" secondAttribute="leading" constant="10" id="rZY-IV-V56"/>
                                 </constraints>
-                                <connections>
-                                    <outlet property="left_button" destination="Ro6-0U-IUf" id="Pfb-vA-ljw"/>
-                                    <outlet property="title" destination="DCA-M7-Ako" id="I4m-rt-6rY"/>
-                                </connections>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TX3-EL-TbG">
                                 <rect key="frame" x="10" y="100" width="355" height="567"/>
@@ -150,7 +122,4 @@
             <point key="canvasLocation" x="872.79999999999995" y="142.57871064467767"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="but_back" width="60" height="60"/>
-    </resources>
 </document>

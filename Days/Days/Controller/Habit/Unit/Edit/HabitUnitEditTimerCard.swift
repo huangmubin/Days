@@ -138,28 +138,12 @@ class HabitUnitEditTimerCard: CardStandardView {
     
     // MARK: - Duration
     
-    let duration: UILabel = {
-        let label = UILabel()
-        label.font = Font.hint.m
-        label.textColor = Color.gray.halftone
-        label.text = "10分钟"
-        label.textAlignment = .right
-        return label
-    }()
+    let duration: UILabel = Views.Label.hint("10分钟", alignment: .right)
     
     // MARK: - Timer
     
     let start: UIButton = Views.Button.normal(title: "00:00")
-    
-    let gap_label: UILabel = {
-        let label = UILabel()
-        label.text = "至"
-        label.textColor = Color.dark
-        label.font = Font.text.s
-        label.textAlignment = .center
-        return label
-    }()
-    
+    let gap_label: UILabel = Views.Label.normal("至")
     let end: UIButton = Views.Button.normal(title: "00:00")
     
     @objc func start_action() {

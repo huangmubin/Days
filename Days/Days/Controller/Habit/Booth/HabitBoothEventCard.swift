@@ -199,21 +199,8 @@ extension HabitBoothEventCard {
             return button
         }()
         
-        let title: UILabel = {
-            let label = UILabel()
-            label.font = Font.text.m
-            label.textColor = Color.dark
-            label.numberOfLines = 0
-            return label
-        }()
-        
-        let detail: UILabel = {
-            let label = UILabel()
-            label.font = Font.hint.s
-            label.textColor = Color.gray.halftone
-            label.numberOfLines = 0
-            return label
-        }()
+        let title: UILabel = Views.Label.normal("", line: 0)
+        let detail: UILabel = Views.Label.hint(small: "", line: 0)
         
         // MARK: - Height
         

@@ -156,6 +156,18 @@ extension Views {
             return label
         }
         
+        /** */
+        class func hint(small: String, line: Int = 1, alignment: NSTextAlignment = .center) -> UILabel {
+            let label = UILabel()
+            label.text = small
+            label.textColor = Color.gray.halftone
+            label.font = Font.hint.s
+            label.textAlignment = alignment
+            label.numberOfLines = line
+            label.sizeToFit()
+            return label
+        }
+        
         /** A title text, in error hint.  */
         class func warning(hint: String, line: Int = 1, alignment: NSTextAlignment = .center) -> UILabel {
             let label = UILabel()
