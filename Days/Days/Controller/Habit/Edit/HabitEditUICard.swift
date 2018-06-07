@@ -14,10 +14,14 @@ class HabitEditUICard: CardStandardView {
     
     override func view_deploy() {
         super.view_deploy()
-        title.text = "图标与颜色"
+        title.isHidden = true
+        image.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        
         container.backgroundColor = Color.white
         container.addSubview(image)
         container.addSubview(color)
+        container.addSubview(image_label)
+        container.addSubview(color_label)
         image.addTarget(self, action: #selector(image_action), for: .touchUpInside)
         color.addTarget(self, action: #selector(color_action), for: .touchUpInside)
     }
@@ -32,22 +36,33 @@ class HabitEditUICard: CardStandardView {
     override func view_bounds() {
         super.view_bounds()
         image.frame = CGRect(
-            x: container.bounds.width * 0.25 - container.bounds.height * 0.5,
+            x: 0,
             y: 0,
             width: container.bounds.height,
             height: container.bounds.height
         )
         color.frame = CGRect(
-            x: container.bounds.width * 0.75 - container.bounds.height * 0.5,
+            x: image.frame.maxX + 40,
             y: 0,
             width: container.bounds.height,
             height: container.bounds.height
         )
+        image_label.center = CGPoint(
+            x: image.center.x, y: image.frame.minY - 20 - space
+        )
+        color_label.center = CGPoint(
+            x: color.center.x, y: image_label.center.y
+        )
     }
+    
+    // MARK: - Labels
+    
+    let image_label: UILabel = Views.Label.title(small: "图标")
+    let color_label: UILabel = Views.Label.title(small: "颜色")
     
     // MARK: - Buttons
     
-    let image: UIButton = Views.Button.system(image: nil)
+    let image: UIButton = Views.Button.normal(title: "")
     let color: UIButton = Views.Button.normal(title: "")
     
     @objc func image_action() {

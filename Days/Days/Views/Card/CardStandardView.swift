@@ -43,6 +43,6 @@ class CardStandardView: CardBaseView {
     
     // MARK: - Title
     
-    let title: UILabel = Views.Label.title("标题", alignment: .left)
+    let title: UILabel = Views.Label.title(small: "标题", alignment: .left)
     
 }

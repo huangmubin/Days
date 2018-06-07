@@ -86,11 +86,13 @@ extension Views {
          background color = Clear;
          layer.cornerRadius = 10;
          */
-        static func hint(_ title: String, alignment: NSTextAlignment = NSTextAlignment.center) -> UIButton {
+        static func hint(_ title: String, alignment: UIControlContentHorizontalAlignment = UIControlContentHorizontalAlignment.center) -> UIButton {
             let button = UIButton(type: .system)
             button.titleLabel?.font = Font.hint.m
+            button.setTitle(title, for: .normal)
             button.setTitleColor(Color.dark, for: .normal)
-            button.titleLabel?.textAlignment = alignment
+            //button.titleLabel?.textAlignment = alignment
+            button.contentHorizontalAlignment = alignment
             return button
         }
         
@@ -143,7 +145,17 @@ extension Views {
             label.sizeToFit()
             return label
         }
-        
+        /** A title text, in the title place. Font.title.m, Color.dark. */
+        class func title(small value: String, line: Int = 1, alignment: NSTextAlignment = .center) -> UILabel {
+            let label = UILabel()
+            label.text = value
+            label.textColor = Color.dark
+            label.font = Font.title.s
+            label.textAlignment = alignment
+            label.numberOfLines = line
+            label.sizeToFit()
+            return label
+        }
         /** */
         class func hint(_ value: String, line: Int = 1, alignment: NSTextAlignment = .center) -> UILabel {
             let label = UILabel()

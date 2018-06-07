@@ -254,7 +254,7 @@ extension HabitListCell {
         /** is show or done */
         func update(type: Bool) {
             if type {
-                backgroundColor = Color.gray.thin
+                backgroundColor = Color.gray.light
                 name.textColor = Color.dark
                 count.textColor = Color.dark
                 progress.textColor = Color.gray.halftone
@@ -262,7 +262,7 @@ extension HabitListCell {
                 backgroundColor = color
                 name.textColor = Color.white
                 count.textColor = Color.white
-                progress.textColor = Color.gray.thin
+                progress.textColor = Color.gray.light
             }
         }
         

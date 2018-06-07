@@ -57,6 +57,31 @@ extension SQLite {
             set { _type = (newValue ?  0 : 1) }
             get { return _type == 0 }
         }
+        /** 获取统计类型的单位，时间为 nil */
+        var type: String? {
+            set {
+                if let value = newValue {
+                    var types = (UserDefaults.standard.array(forKey: "habit_sqlite_type_list") as? [String]) ?? ["时","次","米","里"]
+                    if !types.contains(value) {
+                        types.append(value)
+                        UserDefaults.standard.set(types, forKey: "habit_sqlite_type_list")
+                    }
+                    _type = types.index(of: value)!
+                } else {
+                    _type = 0
+                }
+            }
+            get {
+                if _type == 0 {
+                    return nil
+                } else if let types = UserDefaults.standard.array(forKey: "habit_sqlite_type_list") as? [String] {
+                    return types[_type]
+                } else {
+                    _type = 1
+                    return "次"
+                }
+            }
+        }
         
         // MARK: - State
         

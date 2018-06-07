@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C1CA13020C937F400F08F57 /* CardStandardEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1CA12F20C937F400F08F57 /* CardStandardEditView.swift */; };
 		9C210B1120B6630300C17D35 /* KeyboardTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C210B1020B6630300C17D35 /* KeyboardTime.swift */; };
 		9C25076220B6AFBD00EB2D13 /* HabitList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C25076120B6AFBD00EB2D13 /* HabitList.storyboard */; };
 		9C25076420B6B0D200EB2D13 /* HabitListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25076320B6B0D200EB2D13 /* HabitListController.swift */; };
@@ -140,6 +141,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C1CA12F20C937F400F08F57 /* CardStandardEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStandardEditView.swift; sourceTree = "<group>"; };
 		9C210B1020B6630300C17D35 /* KeyboardTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardTime.swift; sourceTree = "<group>"; };
 		9C25076120B6AFBD00EB2D13 /* HabitList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HabitList.storyboard; sourceTree = "<group>"; };
 		9C25076320B6B0D200EB2D13 /* HabitListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListController.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 			children = (
 				9C25077620B6BD1400EB2D13 /* CardBaseView.swift */,
 				9CBC806B20B7BCEA00321675 /* CardStandardView.swift */,
+				9C1CA12F20C937F400F08F57 /* CardStandardEditView.swift */,
 				9C25077820B6BD3400EB2D13 /* CardTopView.swift */,
 				9C25077E20B6C7CD00EB2D13 /* CardCalendarView.swift */,
 				9CBC806920B7A0A500321675 /* CardMessageView.swift */,
@@ -948,6 +951,7 @@
 				9CFA47D620B54975004AFD67 /* Ex_DateFormatter.swift in Sources */,
 				9CFA47C820B54975004AFD67 /* CardSeparator.swift in Sources */,
 				9C86CD5920BE43DC00062853 /* Impact.swift in Sources */,
+				9C1CA13020C937F400F08F57 /* CardStandardEditView.swift in Sources */,
 				9C25077920B6BD3400EB2D13 /* CardTopView.swift in Sources */,
 				9C25076620B6B0ED00EB2D13 /* HabitListCell.swift in Sources */,
 				9CFA47DF20B54975004AFD67 /* Ex_UIStoryboardSegue.swift in Sources */,

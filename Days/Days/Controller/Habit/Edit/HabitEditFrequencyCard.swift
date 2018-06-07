@@ -8,75 +8,47 @@
 
 import UIKit
 
-class HabitEditFrequencyCard: CardStandardView {
+class HabitEditFrequencyCard: CardStandardEditView {
     
-    // MARK: - Init
-    
-    override func view_deploy() {
-        super.view_deploy()
-        title.text = "每日计划"
-        
-        container.addSubview(frequency)
-        container.addSubview(number)
-        container.addSubview(unit)
-        
-        frequency.addTarget(self, action: #selector(frequency_action), for: .touchUpInside)
-        
-        container.backgroundColor = Color.white
-    }
+    // MARK: - Reload
     
     override func reload() {
         super.reload()
         if habit.obj.is_time {
-            let text = Format.time_unit(second: habit.obj.frequency)
-            number.text = text.time
-            unit.text = text.unit
+            info.text = "\(habit.obj.frequency / 60)"
+            info_sub.text = "分钟"
+            info_edit.text = "默认打卡 \(Format.time_text(second: habit.obj.space))"
         } else {
-            number.text = "\(habit.obj.frequency)"
-            unit.text = "次"
+            info.text = "\(habit.obj.frequency)"
+            info_sub.text = habit.obj.type
+            info_edit.text = "默认打卡 \(habit.obj.space)\(info_sub.text!)"
         }
         
-        number.sizeToFit()
-        unit.sizeToFit()
-        update_frequency()
+        info_sub.text = "\(info_sub.text!)/天"
+        view_bounds()
     }
     
-    // MARK: - Frame
+    // MARK: - Keyboard
     
-    override func view_bounds() {
-        super.view_bounds()
-        frequency.frame = container.bounds
-        
-        update_frequency()
-    }
-    
-    func update_frequency() {
-        number.center = CGPoint(
-            x: frequency.center.x - unit.bounds.width / 2 - 4,
-            y: frequency.center.y
-        )
-        unit.center = CGPoint(
-            x: frequency.center.x + number.bounds.width / 2 + 4,
-            y: number.center.y
-        )
-    }
-    
-    // MARK: - Buttons
-    
-    let frequency: UIButton = Views.Button.normal(title: "")
-    
-    @objc func frequency_action() {
-        let key = Keyboard()
-        key.text.keyboardType = .numberPad
-        key.delegate = self
+    override func normal_keyboard(_ board: Keyboard) {
+        board.text.keyboardType = .numberPad
         if habit.obj.is_time {
-            key.update(title: "每天多少分钟")
-            key.update(text: "\(habit.obj.frequency / 60)")
+            board.update(title: "分钟/天")
+            board.update(text: "\(habit.obj.frequency / 60)")
         } else {
-            key.update(title: "每天多少次")
-            key.update(text: "\(habit.obj.frequency)")
+            board.update(title: "\(habit.obj.type!)/天")
+            board.update(text: "\(habit.obj.frequency)")
         }
-        key.push()
+    }
+    
+    override func edit_keyboard(_ board: Keyboard) {
+        board.text.keyboardType = .numberPad
+        board.update(title: "默认打卡步长")
+        if habit.obj.is_time {
+            board.update(text: "\(habit.obj.space / 60)")
+        } else {
+            board.update(text: "\(habit.obj.space)")
+        }
     }
     
     override func keyboard(_ board: Keyboard) -> String? {
@@ -86,21 +58,23 @@ class HabitEditFrequencyCard: CardStandardView {
         guard let int = Int(text) else {
             return "输入不合法"
         }
-        if habit.obj.is_time {
-            if int >= 1440 {
-                return "你不能整天这样"
+        if board.id == "normal" {
+            if habit.obj.is_time {
+                guard int < 1440 else { return "超过最大限制" }
+                habit.obj.frequency = int * 60
+            } else {
+                habit.obj.frequency = int
             }
-            habit.obj.frequency = int * 60
+            habit.obj.space = habit.obj.frequency / 10
         } else {
-            habit.obj.frequency = int
+            if habit.obj.is_time {
+                habit.obj.space = int * 60
+            } else {
+                habit.obj.space = int
+            }
         }
         reload()
         return nil
     }
-    
-    // MARK: - Labels
-    
-    let number: UILabel = Views.Label.normal("10")
-    let unit: UILabel = Views.Label.hint("分钟")
     
 }

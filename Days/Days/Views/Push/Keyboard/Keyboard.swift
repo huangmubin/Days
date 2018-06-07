@@ -77,7 +77,7 @@ class Keyboard: PushView, UITextViewDelegate {
     // MARK: - Title
     
     /** 标题文本 */
-    let title: UILabel = Views.Label.title("标题")
+    let title: UILabel = Views.Label.normal("标题")
     
     // MARK: - Error
     
@@ -146,14 +146,14 @@ class Keyboard: PushView, UITextViewDelegate {
         let y_cen: CGFloat = 76
         
         title.sizeToFit()
-        title.frame.origin = CGPoint(x: space, y: space)
+        title.frame.origin = CGPoint(x: space, y: (y_cen - title.frame.height) / 2)
         title.frame.size.width = min(x_cen, title.frame.width)
         
         error.frame = CGRect(
             x: title.frame.maxX + 8,
-            y: title.frame.minY,
+            y: 0,
             width: max(x_cen - title.frame.maxX - 8, 0),
-            height: error.sizeThatFits(CGSize(width: max(x_cen - title.frame.maxX - 8, 0), height: 1000)).height
+            height: y_cen
         )
         
         container.frame = CGRect(
