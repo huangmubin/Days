@@ -32,40 +32,37 @@
                                     <constraint firstAttribute="height" id="Wai-hE-FZp"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sh0-BZ-uX0" customClass="HabitListTable" customModule="Days" customModuleProvider="target">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="59F-qe-dvV" customClass="HabitListCollect" customModule="Days" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="100" width="375" height="567"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="96" id="Dl9-kh-V82" customClass="HabitListCell" customModule="Days" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="96"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dl9-kh-V82" id="ByS-N1-iG6">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="MIz-as-vgB">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Sh0-BZ-uX0" firstAttribute="leading" secondItem="2mM-L6-lU2" secondAttribute="leading" id="3NB-4D-uDh"/>
                             <constraint firstItem="Axy-Rc-Guo" firstAttribute="leading" secondItem="2mM-L6-lU2" secondAttribute="leading" id="4Nc-55-2TO"/>
-                            <constraint firstItem="2mM-L6-lU2" firstAttribute="bottom" secondItem="Sh0-BZ-uX0" secondAttribute="bottom" id="4ta-3L-rIB"/>
                             <constraint firstItem="Axy-Rc-Guo" firstAttribute="top" secondItem="aeN-ec-bKc" secondAttribute="bottom" id="JIu-Jt-0Ug"/>
                             <constraint firstItem="2mM-L6-lU2" firstAttribute="trailing" secondItem="Axy-Rc-Guo" secondAttribute="trailing" id="PoD-Mu-laN"/>
+                            <constraint firstItem="2mM-L6-lU2" firstAttribute="trailing" secondItem="59F-qe-dvV" secondAttribute="trailing" id="TBh-X4-5UN"/>
                             <constraint firstItem="aeN-ec-bKc" firstAttribute="trailing" secondItem="2mM-L6-lU2" secondAttribute="trailing" id="Ykj-n7-mFc"/>
-                            <constraint firstItem="Sh0-BZ-uX0" firstAttribute="top" secondItem="Axy-Rc-Guo" secondAttribute="bottom" id="fsI-vr-u4M"/>
+                            <constraint firstItem="59F-qe-dvV" firstAttribute="top" secondItem="Axy-Rc-Guo" secondAttribute="bottom" id="gPS-cx-E56"/>
                             <constraint firstItem="aeN-ec-bKc" firstAttribute="top" secondItem="2mM-L6-lU2" secondAttribute="top" id="giZ-0A-Iu2"/>
-                            <constraint firstItem="2mM-L6-lU2" firstAttribute="trailing" secondItem="Sh0-BZ-uX0" secondAttribute="trailing" id="hkD-Ow-xex"/>
+                            <constraint firstItem="59F-qe-dvV" firstAttribute="leading" secondItem="2mM-L6-lU2" secondAttribute="leading" id="llm-Lv-Nnv"/>
                             <constraint firstItem="aeN-ec-bKc" firstAttribute="leading" secondItem="2mM-L6-lU2" secondAttribute="leading" id="t8d-KE-NU4"/>
+                            <constraint firstItem="2mM-L6-lU2" firstAttribute="bottom" secondItem="59F-qe-dvV" secondAttribute="bottom" id="uEq-rY-Myg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2mM-L6-lU2"/>
                     </view>
                     <connections>
+                        <outlet property="collect" destination="59F-qe-dvV" id="ny6-Xk-F3l"/>
                         <outlet property="entry" destination="Axy-Rc-Guo" id="199-6d-aGK"/>
                         <outlet property="entry_height" destination="Wai-hE-FZp" id="aGi-De-nke"/>
-                        <outlet property="table" destination="Sh0-BZ-uX0" id="IYN-8C-hHC"/>
                         <outlet property="top" destination="aeN-ec-bKc" id="xk9-Ac-gTZ"/>
                         <segue destination="KgQ-qE-VUr" kind="show" identifier="OpenBooth" id="gdf-Ya-O2G"/>
                         <segue destination="KaX-eT-zMq" kind="show" identifier="EditHabit" id="fhA-oA-xLj"/>

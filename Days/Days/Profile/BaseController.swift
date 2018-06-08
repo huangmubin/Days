@@ -12,6 +12,7 @@ class BaseController: ViewController {
     
     private var _orientations: UIInterfaceOrientationMask?
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .all
         if let orient = _orientations {
             return orient
         } else {

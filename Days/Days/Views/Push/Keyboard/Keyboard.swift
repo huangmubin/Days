@@ -127,6 +127,7 @@ class Keyboard: PushView, UITextViewDelegate {
     let sure: UIButton = Views.Button.system(image: #imageLiteral(resourceName: "but_sure"), tint: Color.gray.dark)
     
     @objc func cancel_action() {
+        _need_remove = true
         text.resignFirstResponder()
     }
     
@@ -134,6 +135,7 @@ class Keyboard: PushView, UITextViewDelegate {
         if let error = delegate?.keyboard(self) {
             update(error: error)
         } else {
+            _need_remove = true
             text.resignFirstResponder()
         }
     }
@@ -196,23 +198,39 @@ class Keyboard: PushView, UITextViewDelegate {
     
     // MARK: - Keyboard Observer
     
-    override func keyboard_open(rect: CGRect) {
-        let y = max(keyboard_minY - frame.height, 0)
-        let h = min(frame.height, keyboard_minY)
-        text.isScrollEnabled = (y == 0)
+    override func orientation_changed(rect: CGRect) {
+        let new = CGRect(
+            x: frame.origin.x, y: frame.origin.y,
+            width: rect.width, height: frame.height
+        )
         UIView.animate(withDuration: 0.25, animations: {
-            self.frame.origin.y = y
-            self.frame.size.height = h
+            self.frame = new
         })
     }
     
+    private var _need_remove: Bool = false
+    
+    override func keyboard_change(rect: CGRect) {
+        if !_need_remove {
+            let y = max(keyboard_minY - frame.height, 0)
+            let h = min(frame.height, keyboard_minY)
+            text.isScrollEnabled = (y == 0)
+            UIView.animate(withDuration: 0.25, animations: {
+                self.frame.origin.y = y
+                self.frame.size.height = h
+            })
+        }
+    }
+    
     override func keyboard_close(rect: CGRect) {
-        UIView.animate(withDuration: 0.25, animations: {
-            self.frame.origin.y = rect.minY
-            self.key_window.alpha = 0
-        }, completion: { _ in
-            self.removeFromSuperview()
-            self.key_window.isHidden = true
-        })
+        if _need_remove {
+            UIView.animate(withDuration: 0.25, animations: {
+                self.frame.origin.y = rect.minY
+                self.key_window.alpha = 0
+            }, completion: { _ in
+                self.removeFromSuperview()
+                self.key_window.isHidden = true
+            })
+        }
     }
 }

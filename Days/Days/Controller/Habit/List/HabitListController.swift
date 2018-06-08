@@ -21,10 +21,12 @@ class HabitListController: BaseController {
         objs = SQLite.Habit.find().sorted(by: {
             $0.sort < $1.sort
         }).map({ Habit($0) })
-        table.controller = self
-        table.dataSource = table
-        table.delegate = table
-        table.reloadData()
+        
+        collect.controller = self
+        collect.register(HabitListCollect.Cell.self, forCellWithReuseIdentifier: "Cell")
+        collect.dataSource = collect
+        collect.delegate = collect
+        collect.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -46,8 +48,6 @@ class HabitListController: BaseController {
         if let obj = messages.removeValue(forKey: Key.Habit.delete) as? Habit {
             if let row = objs.index(where: { $0 === obj }) {
                 objs.remove(at: row)
-                let index = IndexPath(row: row, section: 0)
-                table.deleteRows(at: [index], with: .left)
             }
             obj.delete()
         }
@@ -55,7 +55,7 @@ class HabitListController: BaseController {
         if is_load {
             is_load = false
         } else {
-            table.reloadData()
+            collect.reloadData()
         }
     }
     
@@ -70,18 +70,6 @@ class HabitListController: BaseController {
         }
     }
     
-    @IBAction func top_entry_switch_action(_ sender: UIButton) {
-        let height: CGFloat = (entry_height.constant == 0 ? 90 : 0)
-        UIView.animate(withDuration: 0.25, animations: {
-            self.entry_height.constant = height
-            self.view.layoutIfNeeded()
-        })
-        /*
-        // TODO: - AppStore Delete
-        SQLite.default.log?.print_sql_text()
-         */
-    }
-    
     // MARK: - Entry
     
     @IBOutlet weak var entry: HabitListEntry!
@@ -89,12 +77,7 @@ class HabitListController: BaseController {
     
     // MARK: - Table
     
-    @IBOutlet weak var table: HabitListTable! {
-        didSet {
-            table.dataSource = table
-            table.delegate = table
-        }
-    }
+    @IBOutlet weak var collect: HabitListCollect!
     
     // MARK: - Segue
     
@@ -106,6 +89,12 @@ class HabitListController: BaseController {
                 obj.habit = Habit()
             }
         }
+    }
+    
+    // MARK: - Orientation
+    
+    override func orientation_changed_action() {
+        collect.reloadData()
     }
     
 }

@@ -22,4 +22,17 @@ class HabitListTop: TopView {
         self.vc?.performSegue(withIdentifier: "AppendHabit", sender: nil)
     }
     
+    override func left_action(_ sender: UIButton) {
+        let control = self.vc as! HabitListController
+        let height: CGFloat = (control.entry_height.constant == 0 ? 90 : 0)
+        UIView.animate(withDuration: 0.25, animations: {
+            control.entry_height.constant = height
+            control.view.layoutIfNeeded()
+        })
+        /*
+         // TODO: - AppStore Delete
+         SQLite.default.log?.print_sql_text()
+         */
+    }
+    
 }
