@@ -10,6 +10,13 @@ import UIKit
 
 class CardTopView: CardBaseView {
 
+    /** default init */
+    convenience init(id: String, height: CGFloat?, suspend: Bool) {
+        self.init(id: id, height: height ?? 80)
+        self.is_suspend = suspend
+        self.backgroundColor = Color.white
+    }
+    
     // MARK: - Init
     
     override func view_deploy() {
@@ -76,4 +83,24 @@ class CardTopView: CardBaseView {
         label.textColor = Color.gray.halftone
         return label
     }()
+    
+    // MARK: - Suspend
+    
+    /** 是否要进行悬浮 */
+    var is_suspend: Bool = false
+    
+    override func reload() {
+        super.reload()
+        if is_suspend {
+            table.bringSubview(toFront: self)
+        }
+    }
+    
+    override func scroll_action() {
+        super.scroll_action()
+        if is_suspend {
+            frame.origin.y = table.contentOffset.y
+        }
+    }
+    
 }

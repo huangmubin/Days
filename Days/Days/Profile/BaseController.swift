@@ -10,6 +10,19 @@ import UIKit
 
 class BaseController: ViewController {
     
+    // MARK: - lim
+    
+    /** iPad 边缘控制器大小 */
+    static var side_size: CGFloat = {
+        return max(UIScreen.main.bounds.width, UIScreen.main.bounds.height) * 0.4
+    }()
+    /** iPad 边缘控制器外部空间 */
+    static var side_space: CGFloat = {
+        return max(UIScreen.main.bounds.width, UIScreen.main.bounds.height) * 0.6
+    }()
+    
+    // MARK: - Orientation
+    
     private var _orientations: UIInterfaceOrientationMask?
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .all
