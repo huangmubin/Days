@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainController: ViewController, KeyboardDelegate {
+class MainController: BaseController, KeyboardDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()

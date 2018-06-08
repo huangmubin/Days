@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HabitListController: ViewController {
+class HabitListController: BaseController {
 
     var objs: [Habit] = []
     

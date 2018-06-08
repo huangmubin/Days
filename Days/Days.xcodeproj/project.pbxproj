@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9C1CA13020C937F400F08F57 /* CardStandardEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1CA12F20C937F400F08F57 /* CardStandardEditView.swift */; };
+		9C1CA13220CA250400F08F57 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1CA13120CA250400F08F57 /* BaseController.swift */; };
 		9C210B1120B6630300C17D35 /* KeyboardTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C210B1020B6630300C17D35 /* KeyboardTime.swift */; };
 		9C25076220B6AFBD00EB2D13 /* HabitList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C25076120B6AFBD00EB2D13 /* HabitList.storyboard */; };
 		9C25076420B6B0D200EB2D13 /* HabitListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25076320B6B0D200EB2D13 /* HabitListController.swift */; };
@@ -142,6 +143,7 @@
 
 /* Begin PBXFileReference section */
 		9C1CA12F20C937F400F08F57 /* CardStandardEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStandardEditView.swift; sourceTree = "<group>"; };
+		9C1CA13120CA250400F08F57 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		9C210B1020B6630300C17D35 /* KeyboardTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardTime.swift; sourceTree = "<group>"; };
 		9C25076120B6AFBD00EB2D13 /* HabitList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HabitList.storyboard; sourceTree = "<group>"; };
 		9C25076320B6B0D200EB2D13 /* HabitListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListController.swift; sourceTree = "<group>"; };
@@ -513,6 +515,7 @@
 				9C25077C20B6C61B00EB2D13 /* Key.swift */,
 				9C86CD5820BE43DC00062853 /* Impact.swift */,
 				9CB5B8ED20C69063009FFE5D /* Views.swift */,
+				9C1CA13120CA250400F08F57 /* BaseController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -901,6 +904,7 @@
 				9CFA480820B55C9C004AFD67 /* Chart_SQlite.swift in Sources */,
 				9CFA47EC20B54975004AFD67 /* ProgressView.swift in Sources */,
 				9CFA480C20B55CDB004AFD67 /* Diary_SQlite.swift in Sources */,
+				9C1CA13220CA250400F08F57 /* BaseController.swift in Sources */,
 				9C25077720B6BD1400EB2D13 /* CardBaseView.swift in Sources */,
 				9CFA480220B55C8A004AFD67 /* HabitUnit_SQlite.swift in Sources */,
 				9CFA47D920B54975004AFD67 /* Ex_String.swift in Sources */,

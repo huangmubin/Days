@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HabitBoothController: ViewController, HabitObjectController {
+class HabitBoothController: BaseController, HabitObjectController {
     
     var habit: Habit!
     var is_loaded: Bool = false

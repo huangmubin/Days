@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HabitUnitListController: ViewController, HabitObjectController, UITableViewDataSource, UITableViewDelegate {
+class HabitUnitListController: BaseController, HabitObjectController, UITableViewDataSource, UITableViewDelegate {
 
     var habit: Habit!
     

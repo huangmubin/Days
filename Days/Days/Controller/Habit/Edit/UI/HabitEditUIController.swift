@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HabitEditUIController: ViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class HabitEditUIController: BaseController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     // MARK: - Date
     
