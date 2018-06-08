@@ -16,6 +16,12 @@ class HabitEditUIController: BaseController, UICollectionViewDataSource, UIColle
     var is_image: Bool = true
     
     var images: [String] = [
+        // 运动系列
+        "habits_runner",
+        "habits_cyclist",
+        "habits_swimmer",
+        "habits_yogi",
+        
         "habits_bed",
         "habits_map",
         "habits_book_01",
