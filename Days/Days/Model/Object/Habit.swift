@@ -104,7 +104,7 @@ class Habit {
     func units(insert date: Int, unit: HabitUnit) {
         let objs = units(date: date)
         _units[date] = objs + [unit]
-        chart.units(update: date)
+        //chart.units(update: date)
     }
     
     /** Remove unit at index. if the date is empty, return true, else false */
@@ -134,15 +134,15 @@ class Habit {
     
     /**  */
     func chart_create() {
-        let chart = Chart(self)
-        chart.obj.id = SQLite.Chart.new_id
-        chart.obj.belong = obj.id
-        chart.obj.goal = obj.frequency
-        chart.obj.name = "图表"
-        chart.obj.note = "日常记录分析"
-        chart.obj.card_sort = CardBaseView.new_id
-        chart.obj.insert()
-        charts.insert(chart, at: 0)
+//        let chart = Chart(self)
+//        chart.obj.id = SQLite.Chart.new_id
+//        chart.obj.belong = obj.id
+//        chart.obj.goal = obj.frequency
+//        chart.obj.name = "图表"
+//        chart.obj.note = "日常记录分析"
+//        chart.obj.card_sort = CardBaseView.new_id
+//        chart.obj.insert()
+//        charts.insert(chart, at: 0)
     }
     
     // MARK: - Event
@@ -152,13 +152,13 @@ class Habit {
     
     /**  */
     func event_create() {
-        let event = Event(self)
-        event.obj.id = SQLite.Event.new_id
-        event.obj.belong = obj.id
-        event.obj.name   = "里程碑"
-        event.obj.card_sort = CardBaseView.new_id
-        event.obj.insert()
-        events.insert(event, at: 0)
+//        let event = Event(self)
+//        event.obj.id = SQLite.Event.new_id
+//        event.obj.belong = obj.id
+//        event.obj.name   = "里程碑"
+//        event.obj.card_sort = CardBaseView.new_id
+//        event.obj.insert()
+//        events.insert(event, at: 0)
     }
     
     // MARK: - Diary
@@ -168,13 +168,13 @@ class Habit {
     
     /***/
     func diary_create() {
-        let diary = Diary(self)
-        diary.obj.id = SQLite.Diary.new_id
-        diary.obj.belong = self.obj.id
-        diary.obj.name = "日记"
-        diary.obj.card_sort = CardBaseView.new_id
-        diary.obj.insert()
-        self.diary = diary
+//        let diary = Diary(self)
+//        diary.obj.id = SQLite.Diary.new_id
+//        diary.obj.belong = self.obj.id
+//        diary.obj.name = "日记"
+//        diary.obj.card_sort = CardBaseView.new_id
+//        diary.obj.insert()
+//        self.diary = diary
     }
     
     // MARK: - Delete

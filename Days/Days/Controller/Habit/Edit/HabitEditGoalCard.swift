@@ -61,19 +61,26 @@ class HabitEditGoalCard: CardStandardEditView {
             case "时间", "小时", "分钟", "秒", "分", "时", "时辰", "时长":
                 if !habit.obj.is_time {
                     habit.obj.goal *= 3600
+                    habit.obj.frequency *= 60
+                    habit.obj.space *= 60
                     habit.obj.is_time = true
                 }
             case "次数", "次":
                 if habit.obj.is_time {
                     habit.obj.goal /= 3600
+                    habit.obj.frequency /= 60
+                    habit.obj.space /= 60
                     habit.obj.is_time = false
                 }
             default:
                 if habit.obj.is_time {
                     habit.obj.goal /= 3600
+                    habit.obj.frequency /= 60
+                    habit.obj.space /= 60
                 }
                 habit.obj.type = board.text.text
             }
+            table.card(id: "Frequency")?.reload()
         }
         reload()
         return nil

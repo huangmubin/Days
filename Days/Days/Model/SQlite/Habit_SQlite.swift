@@ -74,11 +74,9 @@ extension SQLite {
             get {
                 if _type == 0 {
                     return nil
-                } else if let types = UserDefaults.standard.array(forKey: "habit_sqlite_type_list") as? [String] {
-                    return types[_type]
                 } else {
-                    _type = 1
-                    return "次"
+                    let types = (UserDefaults.standard.array(forKey: "habit_sqlite_type_list") as? [String]) ?? ["时","次","米","里"]
+                    return types[_type]
                 }
             }
         }

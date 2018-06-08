@@ -32,19 +32,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let control = SQLiteLogsControl()
         SQLite.default.log = control
         
-        if !UserDefaults.standard.bool(forKey: "SQLite.create.Databases") {
-            SQLite.SQLiteLogs.create()
-            
-            SQLite.Habit.create()
-            SQLite.HabitUnit.create()
-            SQLite.Event.create()
-            SQLite.EventUnit.create()
-            SQLite.Chart.create()
-            SQLite.ChartUnit.create()
-            SQLite.Diary.create()
-            SQLite.DiaryUnit.create()
-            UserDefaults.standard.set(true, forKey: "SQLite.create.Databases")
-        }
+        SQLite.SQLiteLogs.create()
+        SQLite.Habit.create()
+        SQLite.HabitUnit.create()
+//        SQLite.Event.create()
+//        SQLite.EventUnit.create()
+//        SQLite.Chart.create()
+//        SQLite.ChartUnit.create()
+//        SQLite.Diary.create()
+//        SQLite.DiaryUnit.create()
         return true
     }
 

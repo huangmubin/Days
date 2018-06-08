@@ -77,7 +77,7 @@ class Keyboard: PushView, UITextViewDelegate {
     // MARK: - Title
     
     /** 标题文本 */
-    let title: UILabel = Views.Label.normal("标题")
+    let title: UILabel = Views.Label.title(small: "标题")
     
     // MARK: - Error
     

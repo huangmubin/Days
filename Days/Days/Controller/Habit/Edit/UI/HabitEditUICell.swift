@@ -12,6 +12,7 @@ class HabitEditUICell: UICollectionViewCell {
     
     @IBOutlet weak var value: UIButton! {
         didSet {
+            value.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
             value.layer.cornerRadius = 10
             value.isUserInteractionEnabled = false
         }
