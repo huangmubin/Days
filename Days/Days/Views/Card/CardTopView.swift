@@ -14,13 +14,15 @@ class CardTopView: CardBaseView {
     convenience init(id: String, height: CGFloat?, suspend: Bool) {
         self.init(id: id, height: height ?? 80)
         self.is_suspend = suspend
-        self.backgroundColor = Color.white
+        //self.backgroundColor = Color.white
     }
     
     // MARK: - Init
     
     override func view_deploy() {
         super.view_deploy()
+        insertSubview(mask_background, at: 0)
+        
         container.backgroundColor = Color.white
         
         addSubview(left)
@@ -36,6 +38,12 @@ class CardTopView: CardBaseView {
     
     override func view_bounds() {
         super.view_bounds()
+        mask_background.frame = CGRect(
+            x: edge.left, y: 0,
+            width: bounds.width - edge.left - edge.right,
+            height: bounds.height
+        )
+        
         //print("update the top view bount = \(frame)")
         left.frame = CGRect(
             x: 10, y: (bounds.height - 60) / 2,
@@ -102,5 +110,14 @@ class CardTopView: CardBaseView {
             frame.origin.y = table.contentOffset.y
         }
     }
+    
+    // MARK: - Mask Back ground
+    
+    /**  */
+    var mask_background: UIView = {
+        let view = UIView(frame: CGRect.zero)
+        view.backgroundColor = Color.white
+        return view
+    }()
     
 }

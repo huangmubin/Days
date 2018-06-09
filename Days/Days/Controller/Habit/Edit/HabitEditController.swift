@@ -15,13 +15,7 @@ class HabitEditController: BaseController, HabitObjectController {
     override func viewDidLoad() {
         super.viewDidLoad()
         load_cards()
-        if UIScreen.main.is_landscape {
-            (table.card(id: "Top") as? CardTopView)?.is_suspend = true
-            table_trailing.constant = BaseController.side_space
-        } else {
-            (table.card(id: "Top") as? CardTopView)?.is_suspend = false
-            table_trailing.constant = 0
-        }
+        view_bounds(rect: UIScreen.main.bounds, animate: false)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,9 +44,19 @@ class HabitEditController: BaseController, HabitObjectController {
         table.reload()
     }
     
+    func table_shadow(_ open: Bool) {
+        shadow_view.layer.shadowOpacity = open ? 1 : 0
+        shadow_view.layer.cornerRadius = open ? 20 : 0
+        shadow_view.layer.shadowOffset.height = 3
+    }
+    
     // MARK: - Container View
     
     @IBOutlet weak var container: UIView!
+    
+    // MARK: - Shadow View
+    
+    @IBOutlet weak var shadow_view: UIView!
     
     // MARK: - Type Update
     
@@ -72,27 +76,44 @@ class HabitEditController: BaseController, HabitObjectController {
     
     // MARK: - Layout
     
+    @IBOutlet weak var table_leading: NSLayoutConstraint!
     @IBOutlet weak var table_trailing: NSLayoutConstraint!
+    @IBOutlet weak var table_bottom: NSLayoutConstraint!
     
     // MARK: - Orientation
     
     override func orientation_will_change_action(_ rect: CGRect) {
-        //let new: CGFloat = rect.width > rect.height ? BaseController.side_space : 0
-        
-        var new: CGFloat, y: CGFloat
+        view_bounds(rect: rect, animate: true)
+    }
+    
+    func view_bounds(rect: CGRect, animate: Bool) {
+        var new: CGFloat, y: CGFloat, open: Bool, bottom: CGFloat
         let top = table.card(id: "Top") as? CardTopView
         if rect.width > rect.height {
             top?.is_suspend = true
-            new = BaseController.side_space
+            new = BaseController.side_center
             y = table.contentOffset.y
+            bottom = 10
+            open = true
         } else {
             top?.is_suspend = false
             new = 0
             y = 0
+            open = false
+            bottom = 0
         }
-        UIView.animate(withDuration: 0.25, animations: {
+        
+        UIView.animate(withDuration: animate ? 0.25 : 0, animations: {
             top?.frame.origin.y = y
+            //self.table_trailing.constant = new
+            self.table_leading.constant = new
             self.table_trailing.constant = new
+            self.table_bottom.constant = bottom
+            
+            self.shadow_view.layer.shadowOpacity = open ? 0.4 : 0
+            self.shadow_view.layer.cornerRadius = open ? 20 : 0
+            self.shadow_view.layer.shadowOffset.height = 3
+            
             self.view.layoutIfNeeded()
         })
     }

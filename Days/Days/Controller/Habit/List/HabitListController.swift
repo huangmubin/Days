@@ -11,6 +11,7 @@ import UIKit
 class HabitListController: BaseController {
 
     var objs: [Habit] = []
+    var date: Date = Date()
     
     // MARK: - View Life
     
@@ -96,5 +97,34 @@ class HabitListController: BaseController {
     override func orientation_changed_action() {
         collect.reloadData()
     }
+    
+    // MARK: - Date
+    
+    @IBOutlet weak var date_button: UIButton! {
+        didSet {
+            date_button.titleLabel?.font = Font.text.s
+        }
+    }
+    
+    @IBAction func date_action(_ sender: UIButton) {
+    }
+    
+    @IBAction func pan_gesture_action(_ sender: UIPanGestureRecognizer) {
+        switch sender.state {
+        case .ended:
+            let move = sender.translation(in: self.view).x
+            if move > 50 {
+                date = date.advance(.day, 1)
+                objs.forEach({ $0.date = date })
+                collect.reloadData()
+            } else if move < -50 {
+                date = date.advance(.day, -1)
+                objs.forEach({ $0.date = date })
+                collect.reloadData()
+            }
+        default: break
+        }
+    }
+    
     
 }

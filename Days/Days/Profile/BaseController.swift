@@ -20,6 +20,10 @@ class BaseController: ViewController {
     static var side_space: CGFloat = {
         return max(UIScreen.main.bounds.width, UIScreen.main.bounds.height) * 0.6
     }()
+    /** iPad 中心控制器外部空间 */
+    static var side_center: CGFloat = {
+        return max(UIScreen.main.bounds.width, UIScreen.main.bounds.height) * 0.3
+    }()
     
     // MARK: - Orientation
     

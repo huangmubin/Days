@@ -57,6 +57,7 @@
 		9CBC806C20B7BCEA00321675 /* CardStandardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC806B20B7BCEA00321675 /* CardStandardView.swift */; };
 		9CBC806E20B7FB6400321675 /* HabitEditNameCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC806D20B7FB6400321675 /* HabitEditNameCard.swift */; };
 		9CBC807020B801D300321675 /* HabitEditGoalCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC806F20B801D300321675 /* HabitEditGoalCard.swift */; };
+		9CC3586E20CB82F5006ECEF9 /* HabitEditDefaultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC3586D20CB82F5006ECEF9 /* HabitEditDefaultController.swift */; };
 		9CC89F3020B423130095625C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC89F2F20B423130095625C /* AppDelegate.swift */; };
 		9CC89F3520B423130095625C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC89F3320B423130095625C /* Main.storyboard */; };
 		9CC89F3720B423140095625C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CC89F3620B423140095625C /* Assets.xcassets */; };
@@ -194,6 +195,7 @@
 		9CBC806B20B7BCEA00321675 /* CardStandardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStandardView.swift; sourceTree = "<group>"; };
 		9CBC806D20B7FB6400321675 /* HabitEditNameCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditNameCard.swift; sourceTree = "<group>"; };
 		9CBC806F20B801D300321675 /* HabitEditGoalCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditGoalCard.swift; sourceTree = "<group>"; };
+		9CC3586D20CB82F5006ECEF9 /* HabitEditDefaultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditDefaultController.swift; sourceTree = "<group>"; };
 		9CC89F2C20B423130095625C /* Days.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Days.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC89F2F20B423130095625C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CC89F3420B423130095625C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				9CCE2D2020B94B3F0038457D /* HabitEditMessageCard.swift */,
 				9CF51F6820BCFA5300D48293 /* HabitEditUICard.swift */,
 				9CCE2D2220BA366A0038457D /* HabitEditMenuCard.swift */,
+				9CC3586C20CB82D4006ECEF9 /* Default */,
 				9CF51F6A20BD33A400D48293 /* UI */,
 			);
 			path = Edit;
@@ -425,6 +428,14 @@
 				9C90459F20BF95A100263762 /* HabitUnitEditTypeCard.swift */,
 			);
 			path = Edit;
+			sourceTree = "<group>";
+		};
+		9CC3586C20CB82D4006ECEF9 /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				9CC3586D20CB82F5006ECEF9 /* HabitEditDefaultController.swift */,
+			);
+			path = Default;
 			sourceTree = "<group>";
 		};
 		9CC89F2320B423130095625C = {
@@ -955,6 +966,7 @@
 				9CFA481620B55D00004AFD67 /* EventUnit.swift in Sources */,
 				9C90459C20BF958100263762 /* HabitUnitEditTimerCard.swift in Sources */,
 				9CFA47CE20B54975004AFD67 /* TableViewController.swift in Sources */,
+				9CC3586E20CB82F5006ECEF9 /* HabitEditDefaultController.swift in Sources */,
 				9CF51F6C20BD33CD00D48293 /* HabitEditUIController.swift in Sources */,
 				9C86CD5C20BE486400062853 /* HabitBoothController.swift in Sources */,
 				9CFA480E20B55CE3004AFD67 /* DiaryUnit_SQlite.swift in Sources */,

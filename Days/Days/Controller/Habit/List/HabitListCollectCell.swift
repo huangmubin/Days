@@ -77,14 +77,23 @@ extension HabitListCollect {
             menu.complete.addTarget(self, action: #selector(complete_action), for: .touchUpInside)
             
             progress.mask?.layer.cornerRadius = 0
+            menu.mask = UIView()
+            menu.mask?.backgroundColor = Color.white
+            menu.mask?.layer.cornerRadius = show.layer.cornerRadius
+            menu.auto_compelete(open: false)
             
             pan = UIPanGestureRecognizer(target: self, action: #selector(pan_action(_:)))
             pan.delegate = self
             addGestureRecognizer(pan)
+            
+            insertSubview(shadow_view, at: 0)
+            shadow_view.layer.cornerRadius = 10
+            shadow_view.layer.shadowOffset.height = 3
         }
         
         // MARK: - View Bounds
         
+        private var _menu_frame_width: CGFloat = 0
         override func view_bounds() {
             super.view_bounds()
             show.frame = CGRect(
@@ -99,12 +108,26 @@ extension HabitListCollect {
                 height: show.bounds.height
             )
             
+            _menu_frame_width = show.bounds.width - show.size - 30
             menu.frame = CGRect(
                 x: progress.frame.maxX + 10,
                 y: show.frame.minY,
-                width: show.bounds.width - show.size - 30,
+                width: _menu_frame_width,
                 height: show.bounds.height
             )
+            menu.mask?.frame = CGRect(
+                x: 0,
+                y: 0,
+                width: menu.bounds.width - menu.frame.minX,
+                height: menu.frame.height
+            )
+            
+            shadow_view.frame = show.frame
+            if UIScreen.main.is_landscape {
+                shadow_view.layer.shadowOpacity = 0.4
+            } else {
+                shadow_view.layer.shadowOpacity = 0
+            }
         }
         
         // MARK: - Views
@@ -168,22 +191,36 @@ extension HabitListCollect {
         
         var pan: UIPanGestureRecognizer!
         var pan_start: CGFloat = 0
+        var pan_status: Bool = true
         @objc func pan_action(_ sender: UIPanGestureRecognizer) {
             switch sender.state {
             case .began:
                 pan_start = 10 + show.mask!.bounds.width
+                pan_status = progress.bounds.width < (bounds.width / 2)
             case .ended:
-                if sender.translation(in: self).x + pan_start < self.frame.midX {
+                var complete: Bool = false
+                if menu.is_auto_complete || sender.velocity(in: self).x < -4000 {
+                    complete = true
+                    complete_action()
+                }
+                
+                let location = (sender.translation(in: self).x + pan_start) < (self.bounds.width / 2)
+                switch (complete, pan_status, location, sender.velocity(in: self).x) {
+                case (false, true, true, -2000 ..< 2000), (false, false, true, _), (false, false, false, -100000 ..< -2000):
                     UIView.animate(withDuration: 0.25, animations: {
                         self.show.value = (self.show.size + 20) / self.show.frame.width
                         self.progress.frame.size.width = self.show.mask!.bounds.width
                         self.menu.frame.origin.x = self.progress.frame.maxX + 10
+                        self.menu.mask?.frame = CGRect(x: 0, y: 0, width: self.show.frame.maxX - self.menu.frame.minX, height: self.menu.frame.height)
+                        self.shadow_view.frame = self.progress.frame
                     })
-                } else {
+                default:
                     UIView.animate(withDuration: 0.25, animations: {
                         self.show.value = 1
                         self.progress.frame.size.width = self.show.mask!.bounds.width
                         self.menu.frame.origin.x = self.bounds.width
+                        self.menu.mask?.frame = CGRect(x: 0, y: 0, width: -10, height: self.menu.frame.height)
+                        self.shadow_view.frame = self.progress.frame
                     })
                 }
             default:
@@ -191,6 +228,13 @@ extension HabitListCollect {
                 show.value = x / show.frame.width
                 progress.frame.size.width = show.mask!.bounds.width
                 menu.frame.origin.x = progress.frame.maxX + 10
+                
+                menu.mask?.frame = CGRect(x: 0, y: 0, width: show.frame.maxX - menu.frame.minX, height: menu.frame.height)
+                
+                shadow_view.frame = progress.frame
+                
+                menu.auto_compelete(open: x <= show.image.frame.maxX)
+                menu.frame.size.width = max(_menu_frame_width, bounds.width - 10 - menu.frame.origin.x)
             }
         }
         
@@ -222,6 +266,14 @@ extension HabitListCollect {
                 })
             }
         }
+        
+        // MARK: - Shadow View
+        
+        let shadow_view: UIView = {
+            let view = UIView()
+            view.backgroundColor = Color.white
+            return view
+        }()
         
     }
 }
@@ -368,10 +420,17 @@ extension HabitListCollect.Cell {
                 x: decrease.frame.maxX + 10, y: 0,
                 width: w, height: bounds.height
             )
-            complete.frame = CGRect(
-                x: increase.frame.maxX + 10, y: 0,
-                width: w, height: bounds.height
-            )
+            if is_auto_complete {
+                complete.frame = CGRect(
+                    x: 0, y: 0,
+                    width: bounds.width, height: bounds.height
+                )
+            } else {
+                complete.frame = CGRect(
+                    x: increase.frame.maxX + 10, y: 0,
+                    width: w, height: bounds.height
+                )
+            }
         }
         
         // MARK: - Buttons
@@ -395,6 +454,18 @@ extension HabitListCollect.Cell {
                     button.frame = old
                 })
             })
+        }
+        
+        
+        var is_auto_complete: Bool = false
+        func auto_compelete(open: Bool) {
+            if is_auto_complete != open {
+                is_auto_complete = open
+                let rect = open ? CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height) : CGRect(x: increase.frame.maxX + 10, y: 0, width: increase.frame.width, height: bounds.height)
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.complete.frame = rect
+                })
+            }
         }
         
     }

@@ -33,7 +33,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="59F-qe-dvV" customClass="HabitListCollect" customModule="Days" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="100" width="375" height="567"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="537"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="MIz-as-vgB">
                                     <size key="itemSize" width="50" height="50"/>
@@ -43,24 +43,50 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zsu-1d-BOB">
+                                <rect key="frame" x="0.0" y="637" width="375" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dwj-79-bM3">
+                                        <rect key="frame" x="172" y="0.0" width="31" height="30"/>
+                                        <state key="normal" title="今天"/>
+                                        <connections>
+                                            <action selector="date_action:" destination="wu9-p3-JBb" eventType="touchUpInside" id="dXr-JI-iTi"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="dwj-79-bM3" firstAttribute="centerY" secondItem="zsu-1d-BOB" secondAttribute="centerY" id="0Hg-6E-p9R"/>
+                                    <constraint firstItem="dwj-79-bM3" firstAttribute="centerX" secondItem="zsu-1d-BOB" secondAttribute="centerX" id="Xjh-fT-FjX"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="tsk-Ga-7Mc" appends="YES" id="62B-U1-c23"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Axy-Rc-Guo" firstAttribute="leading" secondItem="2mM-L6-lU2" secondAttribute="leading" id="4Nc-55-2TO"/>
+                            <constraint firstItem="2mM-L6-lU2" firstAttribute="trailing" secondItem="zsu-1d-BOB" secondAttribute="trailing" id="6wU-BW-mK9"/>
+                            <constraint firstItem="zsu-1d-BOB" firstAttribute="top" secondItem="59F-qe-dvV" secondAttribute="bottom" id="B0W-8A-aic"/>
                             <constraint firstItem="Axy-Rc-Guo" firstAttribute="top" secondItem="aeN-ec-bKc" secondAttribute="bottom" id="JIu-Jt-0Ug"/>
                             <constraint firstItem="2mM-L6-lU2" firstAttribute="trailing" secondItem="Axy-Rc-Guo" secondAttribute="trailing" id="PoD-Mu-laN"/>
                             <constraint firstItem="2mM-L6-lU2" firstAttribute="trailing" secondItem="59F-qe-dvV" secondAttribute="trailing" id="TBh-X4-5UN"/>
                             <constraint firstItem="aeN-ec-bKc" firstAttribute="trailing" secondItem="2mM-L6-lU2" secondAttribute="trailing" id="Ykj-n7-mFc"/>
                             <constraint firstItem="59F-qe-dvV" firstAttribute="top" secondItem="Axy-Rc-Guo" secondAttribute="bottom" id="gPS-cx-E56"/>
                             <constraint firstItem="aeN-ec-bKc" firstAttribute="top" secondItem="2mM-L6-lU2" secondAttribute="top" id="giZ-0A-Iu2"/>
+                            <constraint firstItem="zsu-1d-BOB" firstAttribute="leading" secondItem="2mM-L6-lU2" secondAttribute="leading" id="j9T-OC-11I"/>
                             <constraint firstItem="59F-qe-dvV" firstAttribute="leading" secondItem="2mM-L6-lU2" secondAttribute="leading" id="llm-Lv-Nnv"/>
+                            <constraint firstItem="zsu-1d-BOB" firstAttribute="bottom" secondItem="2mM-L6-lU2" secondAttribute="bottom" id="n7S-IH-K8N"/>
                             <constraint firstItem="aeN-ec-bKc" firstAttribute="leading" secondItem="2mM-L6-lU2" secondAttribute="leading" id="t8d-KE-NU4"/>
-                            <constraint firstItem="2mM-L6-lU2" firstAttribute="bottom" secondItem="59F-qe-dvV" secondAttribute="bottom" id="uEq-rY-Myg"/>
+                            <constraint firstItem="2mM-L6-lU2" firstAttribute="bottom" secondItem="59F-qe-dvV" secondAttribute="bottom" constant="30" id="uEq-rY-Myg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2mM-L6-lU2"/>
                     </view>
                     <connections>
                         <outlet property="collect" destination="59F-qe-dvV" id="ny6-Xk-F3l"/>
+                        <outlet property="date_button" destination="dwj-79-bM3" id="bvo-aY-Gle"/>
                         <outlet property="entry" destination="Axy-Rc-Guo" id="199-6d-aGK"/>
                         <outlet property="entry_height" destination="Wai-hE-FZp" id="aGi-De-nke"/>
                         <outlet property="top" destination="aeN-ec-bKc" id="xk9-Ac-gTZ"/>
@@ -70,6 +96,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8CA-Yb-V0K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="tsk-Ga-7Mc">
+                    <connections>
+                        <action selector="pan_gesture_action:" destination="wu9-p3-JBb" id="DX2-1S-hwB"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-103.2" y="59.820089955022496"/>
         </scene>
