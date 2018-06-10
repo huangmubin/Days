@@ -11,7 +11,13 @@ import UIKit
 class HabitListController: BaseController {
 
     var objs: [Habit] = []
-    var date: Date = Date()
+    var date: Date = Date() {
+        didSet {
+            objs.forEach({ $0.date = date })
+            collect?.reloadData()
+            date_button?.setTitle(Format.day_month_week(date), for: .normal)
+        }
+    }
     
     // MARK: - View Life
     
@@ -32,6 +38,8 @@ class HabitListController: BaseController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        objs.forEach({ $0.date = date })
+        
         if let obj = messages.removeValue(forKey: Key.Habit.append) as? Habit {
             obj.obj.id = SQLite.Habit.new_id
             obj.obj.sort = obj.obj.id
@@ -102,23 +110,31 @@ class HabitListController: BaseController {
     
     @IBOutlet weak var date_button: UIButton! {
         didSet {
+            date_button.setTitleColor(Color.gray.halftone, for: .normal)
             date_button.titleLabel?.font = Font.text.s
         }
     }
     
     @IBAction func date_action(_ sender: UIButton) {
+        let key = KeyboardDate()
+        key.delegate = self
+        key.update(date: date)
+        key.update(title: "输入日期")
+        key.push()
     }
+    
+    // MARK: - Date Gesture
     
     @IBAction func pan_gesture_action(_ sender: UIPanGestureRecognizer) {
         switch sender.state {
         case .ended:
             let move = sender.translation(in: self.view).x
             if move > 50 {
-                date = date.advance(.day, 1)
+                date = date.advance(.day, -1)
                 objs.forEach({ $0.date = date })
                 collect.reloadData()
             } else if move < -50 {
-                date = date.advance(.day, -1)
+                date = date.advance(.day, 1)
                 objs.forEach({ $0.date = date })
                 collect.reloadData()
             }
@@ -126,5 +142,14 @@ class HabitListController: BaseController {
         }
     }
     
+    // MARK: - KeyboardDelegate
     
+    override func keyboard(_ board: Keyboard) -> String? {
+        if let date = board.value as? Date {
+            self.date = date
+            return nil
+        } else {
+            return "日期不合法"
+        }
+    }
 }

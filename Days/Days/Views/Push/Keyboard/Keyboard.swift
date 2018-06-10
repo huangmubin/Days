@@ -82,18 +82,62 @@ class Keyboard: PushView, UITextViewDelegate {
     // MARK: - Error
     
     /** 错误提示文本 */
-    let error: UILabel = Views.Label.warning(hint: "错误提示", line: 0)
+    let error: UILabel = Views.Label.warning(hint: "错误提示", line: 0, alignment: .left)
     
+    private var _error_timer: Timer? = nil
     /** 更新错误标签，然后显示出来，5秒后消失 */
     func update(error: String) {
         self.error.text = error
+        
+        if _error_timer == nil {
+            _error_timer = Timer()
+            _error_timer?.delegate = self
+            _error_timer?.run(second: 4)
+        } else {
+            _error_timer?.time = 4
+        }
+        
+        let height = self.title.frame.height + self.error.frame.height
+        
+        let new_title_rect = CGRect(
+            x: self.title.frame.origin.x,
+            y: max(8, (self.container.frame.minY - height) / 2),
+            width: self.title.frame.width,
+            height: self.title.frame.height
+        )
+        let new_error_rect = CGRect(
+            x: self.error.frame.origin.x,
+            y: new_title_rect.maxY,
+            width: self.error.frame.width,
+            height: self.error.frame.height
+        )
+        
         UIView.animate(withDuration: 0.25, animations: {
             self.error.alpha = 1
-        }, completion: { _ in
-            UIView.animate(withDuration: 0.25, delay: 5, options: .curveLinear, animations: {
-                self.error.alpha = 0
-            }, completion: nil)
+            self.title.frame = new_title_rect
+            self.error.frame = new_error_rect
         })
+    }
+    
+    override func timer_finish(total: Int, time: Int, interval: DispatchTimeInterval) {
+        let title_rect = CGRect(
+            x: space,
+            y: (container.frame.minY - title.frame.height) / 2,
+            width: title.frame.width,
+            height: title.frame.height
+        )
+        let error_rect = CGRect(
+            x: title_rect.origin.x,
+            y: title_rect.maxY,
+            width: error.frame.width,
+            height: error.frame.height
+        )
+        UIView.animate(withDuration: 0.25, delay: 0, options: .curveLinear, animations: {
+            self.error.alpha = 0
+            self.title.frame = title_rect
+            self.error.frame = error_rect
+        }, completion: nil)
+        _error_timer = nil
     }
     
     // MARK: - Input Container
@@ -142,20 +186,31 @@ class Keyboard: PushView, UITextViewDelegate {
     
     // MARK: - Frame
     
+    let space: CGFloat = 20
     override func view_bounds() {
-        let space: CGFloat = 20
         let x_cen: CGFloat = bounds.width - 76
         let y_cen: CGFloat = 76
-        
+
         title.sizeToFit()
         title.frame.origin = CGPoint(x: space, y: (y_cen - title.frame.height) / 2)
         title.frame.size.width = min(x_cen, title.frame.width)
+
+//        error.frame = CGRect(
+//            x: title.frame.maxX + 8,
+//            y: 0,
+//            width: max(x_cen - title.frame.maxX - 8, 0),
+//            height: y_cen
+//        )
+//
+//        title.sizeToFit()
+//        title.frame.origin = CGPoint(x: space, y: 10)
+//        title.frame.size.width = min(x_cen, title.frame.width)
         
         error.frame = CGRect(
-            x: title.frame.maxX + 8,
-            y: 0,
-            width: max(x_cen - title.frame.maxX - 8, 0),
-            height: y_cen
+            x: title.frame.minX,
+            y: title.frame.maxY,
+            width: x_cen - title.frame.minX,
+            height: y_cen - title.frame.maxY
         )
         
         container.frame = CGRect(

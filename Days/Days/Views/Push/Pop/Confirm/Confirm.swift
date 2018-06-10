@@ -133,6 +133,7 @@ class Confirm: PushView {
         )
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 10, options: .curveLinear, animations: {
             self.frame = rect
+            self.key_window.alpha = 0
         }, completion: { _ in
             complete()
             self.removeFromSuperview()

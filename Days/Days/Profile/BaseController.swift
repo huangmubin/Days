@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseController: ViewController {
+class BaseController: ViewController, KeyboardDelegate, TimerDelegate {
     
     // MARK: - lim
     
@@ -29,7 +29,8 @@ class BaseController: ViewController {
     
     private var _orientations: UIInterfaceOrientationMask?
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .all
+//        print("supportedInterfaceOrientations")
+//        return .all
         if let orient = _orientations {
             return orient
         } else {
@@ -51,4 +52,14 @@ class BaseController: ViewController {
         }
     }
     
+    // MARK: - KeyboardDelegate
+    
+    func keyboard(_ board: Keyboard) -> String? {
+        return nil
+    }
+    
+    // MARK: - TimerDelegate
+    
+    func timer_update(total: Int, time: Int, interval: DispatchTimeInterval) { }
+    func timer_finish(total: Int, time: Int, interval: DispatchTimeInterval) { }
 }

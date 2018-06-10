@@ -13,7 +13,7 @@ class HabitListTop: TopView {
     override func view_deploy() {
         super.view_deploy()
         title.setTitle(
-            Format.MM月dd日.string(from: Date()),
+            "习惯列表",
             for: .normal
         )
     }

@@ -14,6 +14,7 @@ class HabitEditMenuCard: CardBaseView {
     
     override func reload() {
         super.reload()
+        idle.isHidden = true
         if habit.obj.is_runing {
             idle.backgroundColor = Color.gray.light
             idle.setTitleColor(Color.dark, for: .normal)
@@ -38,15 +39,20 @@ class HabitEditMenuCard: CardBaseView {
     
     override func view_bounds() {
         super.view_bounds()
-        idle.frame = CGRect(
-            x: 0, y: 0,
-            width: container.bounds.width / 2 - 10,
-            height: container.bounds.height
-        )
+//        idle.frame = CGRect(
+//            x: 0, y: 0,
+//            width: container.bounds.width / 2 - 10,
+//            height: container.bounds.height
+//        )
+//        delete.frame = CGRect(
+//            x: idle.frame.maxX + 20, y: 0,
+//            width: idle.frame.width,
+//            height: idle.frame.height
+//        )
         delete.frame = CGRect(
-            x: idle.frame.maxX + 20, y: 0,
-            width: idle.frame.width,
-            height: idle.frame.height
+            x: 0, y: 0,
+            width: container.bounds.width,
+            height: container.bounds.height
         )
     }
     
@@ -71,12 +77,16 @@ class HabitEditMenuCard: CardBaseView {
         let view = Confirm()
         view.id = "Delete"
         view.delegate = self
-        view.update(title: "删除 \(habit.obj.name)")
+        view.update(title: "删除 \(habit.obj.name) 习惯以及其所有数据？")
         view.push()
     }
     
     override func confirm(_ view: Confirm) {
         print(view.id)
+        if view.id == "Delete" {
+            table.vc?.toSuperController(object: [Key.Habit.delete: habit])
+            table.controller?.dismiss(animated: true, completion: nil)
+        }
     }
     
 }

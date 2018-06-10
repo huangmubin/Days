@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainController: BaseController, KeyboardDelegate {
+class MainController: BaseController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class MainController: BaseController, KeyboardDelegate {
         key.push()
     }
     
-    func keyboard(_ board: Keyboard) -> String? {
+    override func keyboard(_ board: Keyboard) -> String? {
         print(board.value)
         return nil
     }

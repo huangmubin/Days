@@ -12,14 +12,14 @@ extension HabitListCollect {
     
     class Cell: CollectionViewCell, UIGestureRecognizerDelegate {
         
-        var habit: Habit { return (controller as? HabitListController)!.objs[index.row] }
+        var habit: Habit!
         var is_menu: Bool { return show.frame.width > progress.frame.width }
         
         // MARK: - Reload
         
         override func view_reload() {
             super.view_reload()
-            let obj = habit
+            let obj = habit ?? Habit()
             let length = obj.units(date: obj.date.date).count(value: { $0.obj.length })
             let unit_progress = length * 100 / obj.obj.frequency
             
@@ -101,12 +101,14 @@ extension HabitListCollect {
                 width: bounds.width - 20,
                 height: bounds.height - 20
             )
+            show.width = bounds.width - 20
             
             progress.frame = CGRect(
                 x: show.frame.minX, y: show.frame.minY,
                 width: show.mask!.bounds.width,
                 height: show.bounds.height
             )
+            progress.width = bounds.width - 20
             
             _menu_frame_width = show.bounds.width - show.size - 30
             menu.frame = CGRect(
@@ -118,7 +120,7 @@ extension HabitListCollect {
             menu.mask?.frame = CGRect(
                 x: 0,
                 y: 0,
-                width: menu.bounds.width - menu.frame.minX,
+                width: max(_menu_frame_width, bounds.width - 10 - menu.frame.origin.x),
                 height: menu.frame.height
             )
             
@@ -164,6 +166,7 @@ extension HabitListCollect {
             menu.animation(menu.increase)
             let unit = HabitUnit(habit)
             unit.obj.id = SQLite.HabitUnit.new_id
+            unit.obj.start = habit.date.first(.day).advance(Double(habit.date.time))
             unit.obj.insert()
             habit.units(insert: habit.date.date, unit: unit)
             UIView.animate(withDuration: 0.25, animations: {
@@ -178,6 +181,7 @@ extension HabitListCollect {
             if length < habit.obj.frequency {
                 let unit = HabitUnit(habit)
                 unit.obj.id = SQLite.HabitUnit.new_id
+                unit.obj.start = habit.date.first(.day).advance(Double(habit.date.time))
                 unit.obj.length = habit.obj.frequency - length
                 unit.obj.insert()
                 habit.units(insert: habit.date.date, unit: unit)
@@ -226,7 +230,7 @@ extension HabitListCollect {
             default:
                 let x = sender.translation(in: self).x + pan_start - show.frame.minX
                 show.value = x / show.frame.width
-                progress.frame.size.width = show.mask!.bounds.width
+                progress.frame.size.width = min(show.mask!.bounds.width, show.frame.width)
                 menu.frame.origin.x = progress.frame.maxX + 10
                 
                 menu.mask?.frame = CGRect(x: 0, y: 0, width: show.frame.maxX - menu.frame.minX, height: menu.frame.height)
@@ -358,6 +362,7 @@ extension HabitListCollect.Cell {
                 x: width - count.bounds.width / 2 - 10,
                 y: bounds.height / 2 - 10
             )
+            
             progress.center = CGPoint(
                 x: count.center.x,
                 y: bounds.height / 2 + 10
@@ -447,11 +452,18 @@ extension HabitListCollect.Cell {
                 x: old.minX - 4, y: old.minY - 4,
                 width: old.width + 8, height: old.height + 8
             )
+            let old_mask = mask!.frame
+            let new_mask = CGRect(
+                x: old_mask.minX - 4, y: old_mask.minY - 4,
+                width: old_mask.width + 8, height: old_mask.height + 8
+            )
             UIView.animate(withDuration: 0.125, animations: {
                 button.frame = new
+                self.mask?.frame = new_mask
             }, completion: { _ in
                 UIView.animate(withDuration: 0.125, animations: {
                     button.frame = old
+                    self.mask?.frame = old_mask
                 })
             })
         }

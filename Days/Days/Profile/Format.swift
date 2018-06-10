@@ -50,6 +50,36 @@ class Format {
         }
     }
     
+    /** Date */
+    class func day_month(_ date: Date, _ point: Date = Date()) -> String {
+        let today = point.first(.day)
+        let new = date.first(.day)
+        switch (today.time1970 - new.time1970) / 86400 {
+        case 0: return "今天"
+        case -1: return "明天"
+        case -2: return "后天"
+        case 1: return "昨天"
+        case 2: return "前天"
+        default: return "\(new.month)月\(new.day)日"
+        }
+    }
+    
+    /** Date */
+    class func day_month_week(_ date: Date, _ point: Date = Date()) -> String {
+        let today = point.first(.day)
+        let new = date.first(.day)
+        switch (today.time1970 - new.time1970) / 86400 {
+        case 0: return "今天"
+        case -1: return "明天"
+        case -2: return "后天"
+        case 1: return "昨天"
+        case 2: return "前天"
+        default:
+            let format = DateFormatter("M月d日 EEEE")
+            return format.string(from: new)
+        }
+    }
+    
     // MARK: - Timer
     
     /** Timer */

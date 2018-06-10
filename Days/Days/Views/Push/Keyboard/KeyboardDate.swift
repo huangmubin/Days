@@ -137,6 +137,7 @@ class KeyboardDate: Keyboard {
     }
     
     override func cancel_action() {
+        super.cancel_action()
         year.resignFirstResponder()
         month.resignFirstResponder()
         day.resignFirstResponder()

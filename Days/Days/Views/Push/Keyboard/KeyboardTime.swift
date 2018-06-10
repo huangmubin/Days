@@ -110,6 +110,7 @@ class KeyboardTime: Keyboard {
     }
     
     override func cancel_action() {
+        super.cancel_action()
         hour.resignFirstResponder()
         minute.resignFirstResponder()
     }

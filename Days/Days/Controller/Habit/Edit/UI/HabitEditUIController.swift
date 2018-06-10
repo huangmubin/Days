@@ -108,7 +108,11 @@ class HabitEditUIController: BaseController, UICollectionViewDataSource, UIColle
     
     // MARK: - Top
     
-    @IBOutlet weak var top: TopView!
+    @IBOutlet weak var top: TopView! {
+        didSet {
+            top.right_button.isHidden = true
+        }
+    }
     
     // MARK: - Collection
     

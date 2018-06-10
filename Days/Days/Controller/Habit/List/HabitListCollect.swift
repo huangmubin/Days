@@ -11,16 +11,16 @@ import UIKit
 class HabitListCollect: CollectionView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     weak var controller: HabitListController!
-    var objs: [Habit] { return controller?.objs ?? [] }
     
     // MARK: - UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return objs.count
+        return controller?.objs.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! HabitListCollect.Cell
+        cell.habit = controller.objs[indexPath.row]
         cell.show.value = 1
         cell.view_update(index: indexPath, controller: controller)
         return cell
@@ -43,7 +43,6 @@ class HabitListCollect: CollectionView, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if UIScreen.main.bounds.width > UIScreen.main.bounds.height {
             if let size = _landscape_size {
-                print("collection size = \(size)")
                 return size
             } else {
                 let size = CGSize(
@@ -51,12 +50,10 @@ class HabitListCollect: CollectionView, UICollectionViewDataSource, UICollection
                     height: 80
                 )
                 _landscape_size = size
-                print("collection size = \(size)")
                 return size
             }
         } else {
             if let size = _portrait_size {
-                print("collection size = \(size)")
                 return size
             } else {
                 let size = CGSize(
@@ -64,10 +61,37 @@ class HabitListCollect: CollectionView, UICollectionViewDataSource, UICollection
                     height: 80
                 )
                 _portrait_size = size
-                print("collection size = \(size)")
                 return size
             }
         }
     }
     
+    // MARK: - Animation
+    
+    private var _display_animate: Bool = true
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if _display_animate {
+            cell.alpha = 0
+            cell.layer.transform = CATransform3DMakeTranslation(0, bounds.height, 0)
+            UIView.animate(withDuration: 0.5, delay: TimeInterval(indexPath.row) * 0.1, options: UIViewAnimationOptions.curveLinear, animations: {
+                cell.layer.transform = CATransform3DIdentity
+                cell.alpha = 1
+            }, completion: nil)
+        }
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        _display_animate = false
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            scrollViewDidEndDecelerating(scrollView)
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        _display_animate = true
+    }
 }

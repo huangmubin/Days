@@ -14,11 +14,9 @@
 		9C210B1120B6630300C17D35 /* KeyboardTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C210B1020B6630300C17D35 /* KeyboardTime.swift */; };
 		9C25076220B6AFBD00EB2D13 /* HabitList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C25076120B6AFBD00EB2D13 /* HabitList.storyboard */; };
 		9C25076420B6B0D200EB2D13 /* HabitListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25076320B6B0D200EB2D13 /* HabitListController.swift */; };
-		9C25076620B6B0ED00EB2D13 /* HabitListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25076520B6B0ED00EB2D13 /* HabitListCell.swift */; };
 		9C25076820B6B48E00EB2D13 /* HabitListTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25076720B6B48E00EB2D13 /* HabitListTop.swift */; };
 		9C25076B20B6B4D600EB2D13 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25076A20B6B4D600EB2D13 /* TopView.swift */; };
 		9C25076D20B6B87E00EB2D13 /* HabitListEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25076C20B6B87E00EB2D13 /* HabitListEntry.swift */; };
-		9C25076F20B6B89B00EB2D13 /* HabitListTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25076E20B6B89B00EB2D13 /* HabitListTable.swift */; };
 		9C25077220B6BBEB00EB2D13 /* HabitEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C25077120B6BBEB00EB2D13 /* HabitEdit.storyboard */; };
 		9C25077420B6BBFB00EB2D13 /* HabitEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25077320B6BBFB00EB2D13 /* HabitEditController.swift */; };
 		9C25077720B6BD1400EB2D13 /* CardBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25077620B6BD1400EB2D13 /* CardBaseView.swift */; };
@@ -28,6 +26,7 @@
 		9C25077F20B6C7CD00EB2D13 /* CardCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25077E20B6C7CD00EB2D13 /* CardCalendarView.swift */; };
 		9C25078220B6C95C00EB2D13 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25078120B6C95C00EB2D13 /* CollectionViewCell.swift */; };
 		9C4B5CD920C28E5700A2CE31 /* HabitUnitListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B5CD820C28E5700A2CE31 /* HabitUnitListHeader.swift */; };
+		9C6FA21820CD0BCB00FF2DA9 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6FA21720CD0BCB00FF2DA9 /* Timer.swift */; };
 		9C77E1C820B5A752002CAA25 /* KeyboardDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C77E1C720B5A752002CAA25 /* KeyboardDate.swift */; };
 		9C77E1CA20B70589002CAA25 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C77E1C920B70589002CAA25 /* CollectionView.swift */; };
 		9C86CD5920BE43DC00062853 /* Impact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86CD5820BE43DC00062853 /* Impact.swift */; };
@@ -152,11 +151,9 @@
 		9C210B1020B6630300C17D35 /* KeyboardTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardTime.swift; sourceTree = "<group>"; };
 		9C25076120B6AFBD00EB2D13 /* HabitList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HabitList.storyboard; sourceTree = "<group>"; };
 		9C25076320B6B0D200EB2D13 /* HabitListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListController.swift; sourceTree = "<group>"; };
-		9C25076520B6B0ED00EB2D13 /* HabitListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListCell.swift; sourceTree = "<group>"; };
 		9C25076720B6B48E00EB2D13 /* HabitListTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListTop.swift; sourceTree = "<group>"; };
 		9C25076A20B6B4D600EB2D13 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		9C25076C20B6B87E00EB2D13 /* HabitListEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListEntry.swift; sourceTree = "<group>"; };
-		9C25076E20B6B89B00EB2D13 /* HabitListTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListTable.swift; sourceTree = "<group>"; };
 		9C25077120B6BBEB00EB2D13 /* HabitEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HabitEdit.storyboard; sourceTree = "<group>"; };
 		9C25077320B6BBFB00EB2D13 /* HabitEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditController.swift; sourceTree = "<group>"; };
 		9C25077620B6BD1400EB2D13 /* CardBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBaseView.swift; sourceTree = "<group>"; };
@@ -166,6 +163,7 @@
 		9C25077E20B6C7CD00EB2D13 /* CardCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCalendarView.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		9C25078120B6C95C00EB2D13 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		9C4B5CD820C28E5700A2CE31 /* HabitUnitListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitUnitListHeader.swift; sourceTree = "<group>"; };
+		9C6FA21720CD0BCB00FF2DA9 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		9C77E1C720B5A752002CAA25 /* KeyboardDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDate.swift; sourceTree = "<group>"; };
 		9C77E1C920B70589002CAA25 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		9C86CD5820BE43DC00062853 /* Impact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Impact.swift; sourceTree = "<group>"; };
@@ -324,8 +322,6 @@
 				9C25076C20B6B87E00EB2D13 /* HabitListEntry.swift */,
 				9C1CA13320CA2F2500F08F57 /* HabitListCollect.swift */,
 				9C1CA13520CA2F6B00F08F57 /* HabitListCollectCell.swift */,
-				9C25076E20B6B89B00EB2D13 /* HabitListTable.swift */,
-				9C25076520B6B0ED00EB2D13 /* HabitListCell.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -555,6 +551,7 @@
 			isa = PBXGroup;
 			children = (
 				9CFA478620B54975004AFD67 /* Animation.swift */,
+				9C6FA21720CD0BCB00FF2DA9 /* Timer.swift */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -886,13 +883,13 @@
 				9CFA47D820B54975004AFD67 /* Ex_Int.swift in Sources */,
 				9C90459E20BF959000263762 /* HabitUnitEditMessageCard.swift in Sources */,
 				9CFA47F420B54975004AFD67 /* Operator.swift in Sources */,
+				9C6FA21820CD0BCB00FF2DA9 /* Timer.swift in Sources */,
 				9CFA480020B55C84004AFD67 /* Habit_SQlite.swift in Sources */,
 				9C25077B20B6C1C300EB2D13 /* HabitEditTopCard.swift in Sources */,
 				9CFA47D420B54975004AFD67 /* Ex_Calendar.swift in Sources */,
 				9C77E1C820B5A752002CAA25 /* KeyboardDate.swift in Sources */,
 				9CFA47DA20B54975004AFD67 /* Ex_UIColor.swift in Sources */,
 				9C90459620BF93B800263762 /* HabitUnitListController.swift in Sources */,
-				9C25076F20B6B89B00EB2D13 /* HabitListTable.swift in Sources */,
 				9C25077F20B6C7CD00EB2D13 /* CardCalendarView.swift in Sources */,
 				9CFA47E620B54975004AFD67 /* InputTextView.swift in Sources */,
 				9C4B5CD920C28E5700A2CE31 /* HabitUnitListHeader.swift in Sources */,
@@ -977,7 +974,6 @@
 				9C86CD5920BE43DC00062853 /* Impact.swift in Sources */,
 				9C1CA13020C937F400F08F57 /* CardStandardEditView.swift in Sources */,
 				9C25077920B6BD3400EB2D13 /* CardTopView.swift in Sources */,
-				9C25076620B6B0ED00EB2D13 /* HabitListCell.swift in Sources */,
 				9CFA47DF20B54975004AFD67 /* Ex_UIStoryboardSegue.swift in Sources */,
 				9CFA478320B5495C004AFD67 /* Color.swift in Sources */,
 				9CFA47CA20B54975004AFD67 /* CardView.swift in Sources */,
@@ -1137,7 +1133,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = App.Myron.Days.Test;
+				PRODUCT_BUNDLE_IDENTIFIER = App.Myron.Days;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1156,7 +1152,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = App.Myron.Days.Test;
+				PRODUCT_BUNDLE_IDENTIFIER = App.Myron.Days;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

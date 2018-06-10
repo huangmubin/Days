@@ -9,7 +9,7 @@
 import UIKit
 
 /** 初始化后，必须调用 push() */
-class PushView: View {
+class PushView: View, TimerDelegate {
     
     // MARK: - View Deploy
     
@@ -117,4 +117,8 @@ class PushView: View {
         }
     }
     
+    // MARK: - TimerDelegate
+    
+    func timer_update(total: Int, time: Int, interval: DispatchTimeInterval) { }
+    func timer_finish(total: Int, time: Int, interval: DispatchTimeInterval) { }
 }
