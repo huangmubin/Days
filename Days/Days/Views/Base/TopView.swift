@@ -23,6 +23,8 @@ class TopView: View {
         left_button.addTarget(self, action: #selector(left_action(_:)), for: .touchUpInside)
         right_button.addTarget(self, action: #selector(right_action(_:)), for: .touchUpInside)
         title.addTarget(self, action: #selector(title_action(_:)), for: .touchUpInside)
+        
+        view_bounds()
     }
     
     override func view_bounds() {
