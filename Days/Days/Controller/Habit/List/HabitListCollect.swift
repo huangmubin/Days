@@ -68,30 +68,17 @@ class HabitListCollect: CollectionView, UICollectionViewDataSource, UICollection
     
     // MARK: - Animation
     
-    private var _display_animate: Bool = true
-    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if _display_animate {
-            cell.alpha = 0
-            cell.layer.transform = CATransform3DMakeTranslation(0, bounds.height, 0)
-            UIView.animate(withDuration: 0.5, delay: TimeInterval(indexPath.row) * 0.1, options: UIViewAnimationOptions.curveLinear, animations: {
-                cell.layer.transform = CATransform3DIdentity
-                cell.alpha = 1
-            }, completion: nil)
+        if let cell = cell as? HabitListCollect.Cell {
+            if cell.habit.is_animation {
+                cell.alpha = 0
+                cell.layer.transform = CATransform3DMakeTranslation(0, bounds.height, 0)
+                UIView.animate(withDuration: 0.5, delay: TimeInterval(indexPath.row) * 0.1, options: UIViewAnimationOptions.curveLinear, animations: {
+                    cell.layer.transform = CATransform3DIdentity
+                    cell.alpha = 1
+                }, completion: nil)
+            }
         }
     }
     
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        _display_animate = false
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if !decelerate {
-            scrollViewDidEndDecelerating(scrollView)
-        }
-    }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        _display_animate = true
-    }
 }

@@ -52,6 +52,11 @@ class Habit {
         return UIColor(obj.color)
     }
     
+    // MARK: - Animation Flag
+    
+    /** open animation */
+    var is_animation: Bool = false
+    
     // MARK: - Units
     
     private var _units: [Int: [HabitUnit]] = [:]

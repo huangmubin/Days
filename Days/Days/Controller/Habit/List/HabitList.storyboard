@@ -53,12 +53,30 @@
                                             <action selector="date_action:" destination="wu9-p3-JBb" eventType="touchUpInside" id="dXr-JI-iTi"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAa-Zj-gQC">
+                                        <rect key="frame" x="315" y="-5" width="60" height="40"/>
+                                        <state key="normal" image="but_next"/>
+                                        <connections>
+                                            <action selector="date_next_action" destination="wu9-p3-JBb" eventType="touchUpInside" id="1Y7-w8-TuJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nj4-x5-0FO">
+                                        <rect key="frame" x="0.0" y="-5" width="60" height="40"/>
+                                        <state key="normal" image="but_last"/>
+                                        <connections>
+                                            <action selector="date_last_action" destination="wu9-p3-JBb" eventType="touchUpInside" id="iTl-gc-Dps"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="dwj-79-bM3" firstAttribute="centerY" secondItem="zsu-1d-BOB" secondAttribute="centerY" id="0Hg-6E-p9R"/>
+                                    <constraint firstAttribute="trailing" secondItem="dAa-Zj-gQC" secondAttribute="trailing" id="RRS-YP-JkL"/>
+                                    <constraint firstItem="Nj4-x5-0FO" firstAttribute="centerY" secondItem="zsu-1d-BOB" secondAttribute="centerY" id="RcU-D4-2sh"/>
                                     <constraint firstItem="dwj-79-bM3" firstAttribute="centerX" secondItem="zsu-1d-BOB" secondAttribute="centerX" id="Xjh-fT-FjX"/>
+                                    <constraint firstItem="dAa-Zj-gQC" firstAttribute="centerY" secondItem="zsu-1d-BOB" secondAttribute="centerY" id="Zq7-ku-njb"/>
+                                    <constraint firstItem="Nj4-x5-0FO" firstAttribute="leading" secondItem="zsu-1d-BOB" secondAttribute="leading" id="dmn-MU-m8T"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="tsk-Ga-7Mc" appends="YES" id="62B-U1-c23"/>
@@ -129,4 +147,8 @@
             <point key="canvasLocation" x="495" y="234"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="but_last" width="60" height="40"/>
+        <image name="but_next" width="60" height="40"/>
+    </resources>
 </document>

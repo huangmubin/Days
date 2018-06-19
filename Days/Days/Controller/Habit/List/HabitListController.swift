@@ -13,9 +13,17 @@ class HabitListController: BaseController {
     var objs: [Habit] = []
     var date: Date = Date() {
         didSet {
-            objs.forEach({ $0.date = date })
+            objs.forEach({
+                $0.date = date
+                $0.is_animation = true
+            })
             collect?.reloadData()
             date_button?.setTitle(Format.day_month_week(date), for: .normal)
+            DispatchQueue.main.delay(time: 1, execute: {
+                self.objs.forEach({
+                    $0.is_animation = false
+                })
+            })
         }
     }
     
@@ -27,7 +35,11 @@ class HabitListController: BaseController {
         super.viewDidLoad()
         objs = SQLite.Habit.find().sorted(by: {
             $0.sort < $1.sort
-        }).map({ Habit($0) })
+        }).map({
+            let obj = Habit($0)
+            obj.is_animation = true
+            return obj
+        })
         
         collect.controller = self
         collect.register(HabitListCollect.Cell.self, forCellWithReuseIdentifier: "Cell")
@@ -63,6 +75,9 @@ class HabitListController: BaseController {
         
         if is_load {
             is_load = false
+            DispatchQueue.main.delay(time: 1, execute: {
+                self.objs.forEach({ $0.is_animation = false })
+            })
         } else {
             collect.reloadData()
         }
@@ -123,6 +138,14 @@ class HabitListController: BaseController {
         key.push()
     }
     
+    @IBAction func date_next_action() {
+        date = date.advance(.day, 1)
+    }
+    
+    @IBAction func date_last_action() {
+        date = date.advance(.day, -1)
+    }
+    
     // MARK: - Date Gesture
     
     @IBAction func pan_gesture_action(_ sender: UIPanGestureRecognizer) {
@@ -130,13 +153,9 @@ class HabitListController: BaseController {
         case .ended:
             let move = sender.translation(in: self.view).x
             if move > 50 {
-                date = date.advance(.day, -1)
-                objs.forEach({ $0.date = date })
-                collect.reloadData()
+                date_last_action()
             } else if move < -50 {
-                date = date.advance(.day, 1)
-                objs.forEach({ $0.date = date })
-                collect.reloadData()
+                date_next_action()
             }
         default: break
         }
