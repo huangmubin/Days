@@ -84,13 +84,9 @@ class CardTopView: CardBaseView {
     }
     
     // MARK: - Labels
-    
+    //Views.Button.title()
     let title: UILabel = Views.Label.title("标题")
-    let subtitle: UILabel = {
-        let label = Views.Label.normal("")
-        label.textColor = Color.gray.halftone
-        return label
-    }()
+    let subtitle: UILabel = Views.Label.hint("")
     
     // MARK: - Suspend
     

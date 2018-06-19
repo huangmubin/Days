@@ -119,7 +119,7 @@ class Habit {
         let obj = objs.remove(at: index.row)
         obj.obj.delete()
         _units[date] = objs
-        chart.units(update: date)
+//        chart.units(update: date)
         
         if objs.count == 0 {
             dates.remove(at: index.section)

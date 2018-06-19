@@ -26,21 +26,10 @@ extension HabitListCollect {
             // color
             progress.color = obj.color
             progress.update(type: false)
-            menu.color = obj.color
             
-            // Length
-            if length == 0 {
-                menu.decrease.isUserInteractionEnabled = false
-                menu.decrease.backgroundColor = obj.color.withAlphaComponent(0.5)
-            } else {
-                menu.decrease.isUserInteractionEnabled = true
-            }
-            if length >= obj.obj.frequency {
-                menu.complete.isUserInteractionEnabled = false
-                menu.complete.backgroundColor = obj.color.withAlphaComponent(0.5)
-            } else {
-                menu.complete.isUserInteractionEnabled = true
-            }
+            menu.can_decrease = (length != 0)
+            menu.can_complete = (length < obj.obj.frequency)
+            menu.color = obj.color
             
             // Image
             show.image.image = obj.image()
@@ -85,6 +74,10 @@ extension HabitListCollect {
             pan = UIPanGestureRecognizer(target: self, action: #selector(pan_action(_:)))
             pan.delegate = self
             addGestureRecognizer(pan)
+            
+            long = UILongPressGestureRecognizer(target: self, action: #selector(long_action(_:)))
+            long.delegate = self
+            addGestureRecognizer(long)
             
             insertSubview(shadow_view, at: 0)
             shadow_view.layer.cornerRadius = 10
@@ -154,19 +147,21 @@ extension HabitListCollect {
         // MARK: - Actions
         
         @objc func decrease_action() {
-            Impact.light()
-            menu.animation(menu.decrease)
-            habit.units(remove: habit.date.date)
-            UIView.animate(withDuration: 0.25, animations: {
-                self.view_reload()
-            })
+            if menu.can_decrease {
+                Impact.light()
+                menu.animation(menu.decrease)
+                habit.units(remove: habit.date.date)
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.view_reload()
+                })
+            }
         }
         @objc func increase_action() {
             Impact.heavy()
             menu.animation(menu.increase)
             let unit = HabitUnit(habit)
             unit.obj.id = SQLite.HabitUnit.new_id
-            unit.obj.start = habit.date.first(.day).advance(Double(habit.date.time))
+            unit.obj.start = habit.date.first(.day).advance(Double(Date().time))
             unit.obj.insert()
             habit.units(insert: habit.date.date, unit: unit)
             UIView.animate(withDuration: 0.25, animations: {
@@ -174,36 +169,38 @@ extension HabitListCollect {
             })
         }
         @objc func complete_action() {
-            Impact.heavy()
-            menu.animation(menu.complete)
-            let units = habit.units(date: habit.date.date)
-            let length = units.count(value: { $0.obj.length })
-            if length < habit.obj.frequency {
-                let unit = HabitUnit(habit)
-                unit.obj.id = SQLite.HabitUnit.new_id
-                unit.obj.start = habit.date.first(.day).advance(Double(habit.date.time))
-                unit.obj.length = habit.obj.frequency - length
-                unit.obj.insert()
-                habit.units(insert: habit.date.date, unit: unit)
+            if menu.can_complete {
+                Impact.heavy()
+                menu.animation(menu.complete)
+                let units = habit.units(date: habit.date.date)
+                let length = units.count(value: { $0.obj.length })
+                if length < habit.obj.frequency {
+                    let unit = HabitUnit(habit)
+                    unit.obj.id = SQLite.HabitUnit.new_id
+                    unit.obj.start = habit.date.first(.day).advance(Double(habit.date.time))
+                    unit.obj.length = habit.obj.frequency - length
+                    unit.obj.insert()
+                    habit.units(insert: habit.date.date, unit: unit)
+                }
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.view_reload()
+                })
             }
-            UIView.animate(withDuration: 0.25, animations: {
-                self.view_reload()
-            })
         }
         
-        // MARK: - Gesture
+        // MARK: - Pan Gesture
         
         var pan: UIPanGestureRecognizer!
         var pan_start: CGFloat = 0
         var pan_status: Bool = true
         @objc func pan_action(_ sender: UIPanGestureRecognizer) {
             switch sender.state {
-            case .began:
+            case .began: // pan began
                 pan_start = 10 + show.mask!.bounds.width
                 pan_status = progress.bounds.width < (bounds.width / 2)
-            case .ended:
+            case .ended: // pan ended
                 var complete: Bool = false
-                if menu.is_auto_complete || sender.velocity(in: self).x < -4000 {
+                if menu.is_auto_complete || (sender.velocity(in: self).x < -4000 && progress.value < 1) {
                     complete = true
                     complete_action()
                 }
@@ -211,23 +208,32 @@ extension HabitListCollect {
                 let location = (sender.translation(in: self).x + pan_start) < (self.bounds.width / 2)
                 switch (complete, pan_status, location, sender.velocity(in: self).x) {
                 case (false, true, true, -2000 ..< 2000), (false, false, true, _), (false, false, false, -100000 ..< -2000):
+                    // open menu
                     UIView.animate(withDuration: 0.25, animations: {
                         self.show.value = (self.show.size + 20) / self.show.frame.width
                         self.progress.frame.size.width = self.show.mask!.bounds.width
                         self.menu.frame.origin.x = self.progress.frame.maxX + 10
+                        self.menu.frame.size.width = self._menu_frame_width
                         self.menu.mask?.frame = CGRect(x: 0, y: 0, width: self.show.frame.maxX - self.menu.frame.minX, height: self.menu.frame.height)
                         self.shadow_view.frame = self.progress.frame
                     })
                 default:
+                    // close menu
+                    let menu_mask_frame = CGRect(
+                        x: -menu.mask!.frame.width - 10,
+                        y: 0,
+                        width: menu.mask!.frame.width,
+                        height: menu.mask!.frame.height
+                    )
                     UIView.animate(withDuration: 0.25, animations: {
                         self.show.value = 1
                         self.progress.frame.size.width = self.show.mask!.bounds.width
                         self.menu.frame.origin.x = self.bounds.width
-                        self.menu.mask?.frame = CGRect(x: 0, y: 0, width: -10, height: self.menu.frame.height)
+                        self.menu.mask?.frame = menu_mask_frame
                         self.shadow_view.frame = self.progress.frame
                     })
                 }
-            default:
+            default: // pan move
                 let x = sender.translation(in: self).x + pan_start - show.frame.minX
                 show.value = x / show.frame.width
                 progress.frame.size.width = min(show.mask!.bounds.width, show.frame.width)
@@ -237,12 +243,31 @@ extension HabitListCollect {
                 
                 shadow_view.frame = progress.frame
                 
-                menu.auto_compelete(open: x <= show.image.frame.maxX)
+                if progress.value < 1 {
+                    menu.auto_compelete(open: x <= show.image.frame.maxX)
+                }
                 menu.frame.size.width = max(_menu_frame_width, bounds.width - 10 - menu.frame.origin.x)
             }
         }
         
+        // MARK: - Long Touch
+        
+        var long: UILongPressGestureRecognizer!
+        @objc func long_action(_ sender: UILongPressGestureRecognizer) {
+            if sender.state == .began {
+                controller?.performSegue(
+                    withIdentifier: "EditHabit",
+                    sender: habit
+                )
+            }
+        }
+        
+        // MARK: - Touch
+        
         override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+            if gestureRecognizer === long {
+                return true
+            }
             if gestureRecognizer === pan {
                 let offset = pan.velocity(in: self)
                 return abs(offset.x) > abs(offset.y)
@@ -395,11 +420,15 @@ extension HabitListCollect.Cell {
         /** color */
         var color: UIColor = Color.blue.light {
             didSet {
-                for button in [decrease, increase, complete] {
-                    button.backgroundColor = color
-                }
+                decrease.backgroundColor = can_decrease ? color : color.withAlphaComponent(0.5)
+                increase.backgroundColor = color
+                complete.backgroundColor = can_complete ? color : color.withAlphaComponent(0.5)
             }
         }
+        
+        /***/
+        var can_complete: Bool = true
+        var can_decrease: Bool = true
         
         // MARK: - Deploy
         

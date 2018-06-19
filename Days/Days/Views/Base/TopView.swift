@@ -42,16 +42,21 @@ class TopView: View {
         )
         
         if subtitle.text?.isEmpty == false {
+            title.titleLabel?.sizeToFit()
             subtitle.sizeToFit()
+            let y = (bounds.height - title.frame.height - subtitle.frame.height) / 2
+            let e = (title.frame.height - title.titleLabel!.frame.height) / 2
             title.frame = CGRect(
                 x: left_button.frame.maxX,
-                y: left_button.frame.minY - 10,
+                y: y,
                 width: bounds.width - 20 - left_button.frame.width - right_button.frame.width,
-                height: left_button.frame.height
+                height: title.frame.height
             )
-            subtitle.center = CGPoint(
-                x: title.center.x,
-                y: title.center.y + 20
+            subtitle.frame = CGRect(
+                x: title.frame.minX,
+                y: title.frame.maxY - e,
+                width: title.frame.width,
+                height: subtitle.frame.height
             )
         } else {
             title.frame = CGRect(

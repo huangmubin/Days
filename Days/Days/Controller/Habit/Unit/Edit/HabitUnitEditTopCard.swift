@@ -18,6 +18,11 @@ class HabitUnitEditTopCard: CardTopView {
     }
     
     override func right_action(_ sender: UIButton) {
+        if let timer = table.card(id: "Timer") as? HabitUnitEditTimerCard {
+            unit_obj.obj.start = timer.value.start
+            unit_obj.obj.length = timer.value.end.time1970 - timer.value.start.time1970
+        }
+        
         if unit_obj.obj.is_sick {
             unit_obj.obj.length = 0
         }

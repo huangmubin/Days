@@ -29,8 +29,8 @@ class HabitListCollect: CollectionView, UICollectionViewDataSource, UICollection
     // MARK: - UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        controller.performSegue(
-            withIdentifier: "EditHabit",
+        controller?.performSegue(
+            withIdentifier: "HabitUnitList",
             sender: controller.objs[indexPath.row]
         )
     }
@@ -73,7 +73,7 @@ class HabitListCollect: CollectionView, UICollectionViewDataSource, UICollection
             if cell.habit.is_animation {
                 cell.alpha = 0
                 cell.layer.transform = CATransform3DMakeTranslation(0, bounds.height, 0)
-                UIView.animate(withDuration: 0.5, delay: TimeInterval(indexPath.row) * 0.1, options: UIViewAnimationOptions.curveLinear, animations: {
+                UIView.animate(withDuration: 0.25, delay: TimeInterval(indexPath.row) * 0.05, options: UIViewAnimationOptions.curveLinear, animations: {
                     cell.layer.transform = CATransform3DIdentity
                     cell.alpha = 1
                 }, completion: nil)

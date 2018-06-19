@@ -14,8 +14,11 @@ class HabitUnitListController: BaseController, HabitObjectController, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        top.title.setTitle("打卡记录", for: .normal)
+        habit.dates_reload()
+        
+        top.vc = self
         top.subtitle.text = habit.obj.name
+        top.view_bounds()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -32,26 +35,21 @@ class HabitUnitListController: BaseController, HabitObjectController, UITableVie
             unit.obj.id = SQLite.HabitUnit.new_id
             unit.obj.insert()
             habit.units(insert: habit.date.date, unit: unit)
-            habit.chart.units(update: habit.date.date)
+            //habit.chart.units(update: habit.date.date)
             habit.dates_reload()
             table.reloadData()
         }
         
         if let unit = messages.removeValue(forKey: Key.Habit.Unit.update) as? HabitUnit {
             unit.obj.update()
-            habit.chart.units(update: habit.date.date)
+            //habit.chart.units(update: habit.date.date)
             table.reloadData()
         }
     }
     
     // MARK: - Top
     
-    @IBOutlet weak var top: HabitListTop!
-    
-    @IBAction func top_right_action(_ sender: UIButton) {
-        let unit = HabitUnit(habit)
-        performSegue(withIdentifier: "UnitEdit", sender: unit)
-    }
+    @IBOutlet weak var top: HabitUnitListTop!
     
     // MARK: - Table View
     
@@ -124,6 +122,10 @@ class HabitUnitListController: BaseController, HabitObjectController, UITableVie
     
     // MARK: - Edit
     
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "删除"
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             if habit.units(remove: indexPath) {
@@ -139,7 +141,7 @@ class HabitUnitListController: BaseController, HabitObjectController, UITableVie
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let edit = segue.controller as? HabitUnitEditController {
-            edit.unit = sender as! HabitUnit
+            edit.unit = (sender as? HabitUnit) ?? (HabitUnit(habit))
         }
     }
     

@@ -91,7 +91,7 @@ class HabitUnitListCell: TableViewCell {
         return view
     }()
 
-    let title: UILabel = Views.Label.normal("")
-    let subtitle: UILabel = Views.Label.small("")
+    let title: UILabel = Views.Label.normal("", alignment: .left)
+    let subtitle: UILabel = Views.Label.small("", alignment: .right)
     
 }

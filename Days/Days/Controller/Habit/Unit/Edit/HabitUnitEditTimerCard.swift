@@ -16,11 +16,6 @@ class HabitUnitEditTimerCard: CardStandardView {
     
     override func reload() {
         super.reload()
-//        if unit_obj.obj.id == 0 {
-//            unit_obj.habit.date = Date().first(.day).addingTimeInterval(Double(Date().time))
-//        } else {
-//            unit_obj.habit.date = unit_obj.obj.start
-//        }
         value.start = unit_obj.obj.start
         value.end   = unit_obj.obj.end
         update_buttons()

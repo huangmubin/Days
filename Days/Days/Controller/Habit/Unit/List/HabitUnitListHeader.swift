@@ -36,6 +36,6 @@ class HabitUnitListHeader: TableViewHeaderFooter {
         return view
     }()
     
-    let title: UILabel = Views.Label.small("")
+    let title: UILabel = Views.Label.small("", alignment: .left)
     
 }

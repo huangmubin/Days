@@ -111,6 +111,7 @@
                         <segue destination="KgQ-qE-VUr" kind="show" identifier="OpenBooth" id="gdf-Ya-O2G"/>
                         <segue destination="KaX-eT-zMq" kind="show" identifier="EditHabit" id="fhA-oA-xLj"/>
                         <segue destination="nmd-dk-QLu" kind="show" identifier="AppendHabit" id="RkY-Zu-E5J"/>
+                        <segue destination="kMJ-cC-gjD" kind="show" identifier="HabitUnitList" id="5ox-LP-2Tn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8CA-Yb-V0K" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -145,6 +146,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qo1-e6-Z6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="495" y="234"/>
+        </scene>
+        <!--HabitUnitList-->
+        <scene sceneID="3gw-0A-mHw">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HabitUnitList" id="kMJ-cC-gjD" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ow0-5N-0Hx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="516" y="329"/>
         </scene>
     </scenes>
     <resources>

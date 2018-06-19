@@ -113,6 +113,9 @@ class HabitListController: BaseController {
                 obj.habit = Habit()
             }
         }
+        if let obj = segue.controller as? HabitUnitListController {
+            obj.habit = sender as! Habit
+        }
     }
     
     // MARK: - Orientation
