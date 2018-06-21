@@ -15,6 +15,49 @@ extension HabitListCollect {
         var habit: Habit!
         var is_menu: Bool { return show.frame.width > progress.frame.width }
         
+        // MARK: - View Load
+        
+        override func view_load() {
+            super.view_load()
+            
+            clipsToBounds = true
+            addSubview(show)
+            addSubview(progress)
+            addSubview(menu)
+            
+            // load the progress
+            
+            progress.mask?.layer.cornerRadius = 0
+            
+            // load the menu
+            
+            menu.decrease.addTarget(self, action: #selector(decrease_action), for: .touchUpInside)
+            menu.increase.addTarget(self, action: #selector(increase_action), for: .touchUpInside)
+            menu.complete.addTarget(self, action: #selector(complete_action), for: .touchUpInside)
+            
+            menu.mask = UIView()
+            menu.mask?.backgroundColor = Color.white
+            menu.mask?.layer.cornerRadius = show.layer.cornerRadius
+            menu.is_auto_complete = false
+            menu.auto_compelete(open: false)
+            
+            // load the shadow view
+            
+            insertSubview(shadow_view, at: 0)
+            shadow_view.layer.cornerRadius = 10
+            shadow_view.layer.shadowOffset.height = 3
+            
+            // load the gestures
+            
+            pan = UIPanGestureRecognizer(target: self, action: #selector(pan_action(_:)))
+            pan.delegate = self
+            addGestureRecognizer(pan)
+            
+            long = UILongPressGestureRecognizer(target: self, action: #selector(long_action(_:)))
+            long.delegate = self
+            addGestureRecognizer(long)
+        }
+        
         // MARK: - Reload
         
         override func view_reload() {
@@ -23,7 +66,8 @@ extension HabitListCollect {
             let length = obj.units(date: obj.date.date).count(value: { $0.obj.length })
             let unit_progress = length * 100 / obj.obj.frequency
             
-            // color
+            // update the color
+            
             progress.color = obj.color
             progress.update(type: false)
             
@@ -31,12 +75,14 @@ extension HabitListCollect {
             menu.can_complete = (length < obj.obj.frequency)
             menu.color = obj.color
             
-            // Image
+            // update the image
+            
             show.image.image = obj.image()
             progress.image.image = obj.image(color: Color.white)
             progress.value = CGFloat(unit_progress) / 100
             
-            // text
+            // update the text
+            
             for view in [show, progress] {
                 view.name.text = obj.obj.name
                 if obj.obj.is_time {
@@ -47,41 +93,9 @@ extension HabitListCollect {
                 view.progress.text = "\(unit_progress)%"
             }
             
-            // update
+            // update the bounds
+            
             view_bounds()
-        }
-        
-        // MARK: - View Deploy
-        
-        override func view_load() {
-            super.view_load()
-            clipsToBounds = true
-            
-            addSubview(show)
-            addSubview(progress)
-            addSubview(menu)
-            
-            menu.decrease.addTarget(self, action: #selector(decrease_action), for: .touchUpInside)
-            menu.increase.addTarget(self, action: #selector(increase_action), for: .touchUpInside)
-            menu.complete.addTarget(self, action: #selector(complete_action), for: .touchUpInside)
-            
-            progress.mask?.layer.cornerRadius = 0
-            menu.mask = UIView()
-            menu.mask?.backgroundColor = Color.white
-            menu.mask?.layer.cornerRadius = show.layer.cornerRadius
-            menu.auto_compelete(open: false)
-            
-            pan = UIPanGestureRecognizer(target: self, action: #selector(pan_action(_:)))
-            pan.delegate = self
-            addGestureRecognizer(pan)
-            
-            long = UILongPressGestureRecognizer(target: self, action: #selector(long_action(_:)))
-            long.delegate = self
-            addGestureRecognizer(long)
-            
-            insertSubview(shadow_view, at: 0)
-            shadow_view.layer.cornerRadius = 10
-            shadow_view.layer.shadowOffset.height = 3
         }
         
         // MARK: - View Bounds
@@ -89,6 +103,9 @@ extension HabitListCollect {
         private var _menu_frame_width: CGFloat = 0
         override func view_bounds() {
             super.view_bounds()
+            
+            // show
+            
             show.frame = CGRect(
                 x: 10, y: 10,
                 width: bounds.width - 20,
@@ -96,12 +113,16 @@ extension HabitListCollect {
             )
             show.width = bounds.width - 20
             
+            // progress
+            
             progress.frame = CGRect(
                 x: show.frame.minX, y: show.frame.minY,
                 width: show.mask!.bounds.width,
                 height: show.bounds.height
             )
             progress.width = bounds.width - 20
+            
+            // menu
             
             _menu_frame_width = show.bounds.width - show.size - 30
             menu.frame = CGRect(
@@ -117,6 +138,8 @@ extension HabitListCollect {
                 height: menu.frame.height
             )
             
+            // shadow
+            
             shadow_view.frame = show.frame
             if UIScreen.main.is_landscape {
                 shadow_view.layer.shadowOpacity = 0.4
@@ -127,25 +150,36 @@ extension HabitListCollect {
         
         // MARK: - Views
         
+        /** 底部视图，底色为灰色，显示基本信息。 */
         let show: Container = {
             let view = Container()
             view.update(type: true)
             return view
         }()
         
+        /** 与底部视图同步更新，但是只显示进度部分。 */
         let progress: Container = {
             let view = Container()
             view.update(type: false)
             return view
         }()
         
+        /** 菜单按钮视图 */
         let menu: Actions = {
             let view = Actions()
             return view
         }()
         
+        /** 阴影视图 */
+        let shadow_view: UIView = {
+            let view = UIView()
+            view.backgroundColor = Color.white
+            return view
+        }()
+        
         // MARK: - Actions
         
+        /** 取消打卡事件 */
         @objc func decrease_action() {
             if menu.can_decrease {
                 Impact.light()
@@ -156,6 +190,8 @@ extension HabitListCollect {
                 })
             }
         }
+        
+        /** 增加打卡事件 */
         @objc func increase_action() {
             Impact.heavy()
             menu.animation(menu.increase)
@@ -168,6 +204,8 @@ extension HabitListCollect {
                 self.view_reload()
             })
         }
+        
+        /** 完成打卡事件 */
         @objc func complete_action() {
             if menu.can_complete {
                 Impact.heavy()
@@ -298,15 +336,6 @@ extension HabitListCollect {
                 })
             }
         }
-        
-        // MARK: - Shadow View
-        
-        let shadow_view: UIView = {
-            let view = UIView()
-            view.backgroundColor = Color.white
-            return view
-        }()
-        
     }
 }
 
