@@ -203,6 +203,7 @@ extension HabitListCollect {
                 if menu.is_auto_complete || (sender.velocity(in: self).x < -4000 && progress.value < 1) {
                     complete = true
                     complete_action()
+                    menu.is_auto_complete = false
                 }
                 
                 let location = (sender.translation(in: self).x + pan_start) < (self.bounds.width / 2)
@@ -231,6 +232,8 @@ extension HabitListCollect {
                         self.menu.frame.origin.x = self.bounds.width
                         self.menu.mask?.frame = menu_mask_frame
                         self.shadow_view.frame = self.progress.frame
+                    }, completion: { _ in
+                        self.menu.view_bounds()
                     })
                 }
             default: // pan move
