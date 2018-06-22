@@ -52,6 +52,7 @@ extension SQLite {
         }
         /** 结束时间 */
         var end: Date { return start.advance(Double(length)) }
+        var date: Int { return _date }
         
         // MARK: Type
         

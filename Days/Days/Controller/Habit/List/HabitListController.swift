@@ -11,20 +11,21 @@ import UIKit
 class HabitListController: BaseController {
 
     var objs: [Habit] = []
-    var date: Date = Date() {
-        didSet {
-            objs.forEach({
-                $0.date = date
-                $0.is_animation = true
+    var date: Date = Date()
+    
+    /** Update the date */
+    func reload_date() {
+        objs.forEach({
+            $0.date = date
+            $0.is_animation = true
+        })
+        collect?.reloadData()
+        top.title.setTitle(Format.day_month_week(date), for: .normal)
+        DispatchQueue.main.delay(time: 1, execute: {
+            self.objs.forEach({
+                $0.is_animation = false
             })
-            collect?.reloadData()
-            date_button?.setTitle(Format.day_month_week(date), for: .normal)
-            DispatchQueue.main.delay(time: 1, execute: {
-                self.objs.forEach({
-                    $0.is_animation = false
-                })
-            })
-        }
+        })
     }
     
     // MARK: - View Life
@@ -87,18 +88,19 @@ class HabitListController: BaseController {
     
     @IBOutlet weak var top: HabitListTop! {
         didSet {
-            // TODO: - AppStore Delete true
-            //top.left_button.isHidden = false
-            top.vc = self
-            top.left_button.isHidden = true
+            top.controller = self
         }
     }
     
-    // MARK: - Entry
     
-    @IBOutlet weak var entry: HabitListEntry!
-    @IBOutlet weak var entry_height: NSLayoutConstraint!
+    // MARK: - Calendar
     
+    @IBOutlet weak var calendar: HabitListCalendar! {
+        didSet {
+            calendar.controller = self
+        }
+    }
+
     // MARK: - Table
     
     @IBOutlet weak var collect: HabitListCollect!
@@ -124,51 +126,12 @@ class HabitListController: BaseController {
         collect.reloadData()
     }
     
-    // MARK: - Date
-    
-    @IBOutlet weak var date_button: UIButton! {
-        didSet {
-            date_button.setTitleColor(Color.gray.halftone, for: .normal)
-            date_button.titleLabel?.font = Font.text.s
-        }
-    }
-    
-    @IBAction func date_action(_ sender: UIButton) {
-        let key = KeyboardDate()
-        key.delegate = self
-        key.update(date: date)
-        key.update(title: "输入日期")
-        key.push()
-    }
-    
-    @IBAction func date_next_action() {
-        date = date.advance(.day, 1)
-    }
-    
-    @IBAction func date_last_action() {
-        date = date.advance(.day, -1)
-    }
-    
-    // MARK: - Date Gesture
-    
-    @IBAction func pan_gesture_action(_ sender: UIPanGestureRecognizer) {
-        switch sender.state {
-        case .ended:
-            let move = sender.translation(in: self.view).x
-            if move > 50 {
-                date_last_action()
-            } else if move < -50 {
-                date_next_action()
-            }
-        default: break
-        }
-    }
-    
     // MARK: - KeyboardDelegate
     
     override func keyboard(_ board: Keyboard) -> String? {
         if let date = board.value as? Date {
             self.date = date
+            self.reload_date()
             return nil
         } else {
             return "日期不合法"

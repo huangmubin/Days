@@ -60,7 +60,12 @@ class Format {
         case -2: return "后天"
         case 1: return "昨天"
         case 2: return "前天"
-        default: return "\(new.month)月\(new.day)日"
+        default:
+            if today.year != new.year {
+                return "\(new.year)年\(new.month)月\(new.day)日"
+            } else {
+                return "\(new.month)月\(new.day)日"
+            }
         }
     }
     

@@ -25,6 +25,11 @@
 		9C25077D20B6C61B00EB2D13 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25077C20B6C61B00EB2D13 /* Key.swift */; };
 		9C25077F20B6C7CD00EB2D13 /* CardCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25077E20B6C7CD00EB2D13 /* CardCalendarView.swift */; };
 		9C25078220B6C95C00EB2D13 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25078120B6C95C00EB2D13 /* CollectionViewCell.swift */; };
+		9C397F4120DC87F5005F054C /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C397F4020DC87F5005F054C /* CalendarView.swift */; };
+		9C397F4320DC891F005F054C /* CalendarUnitViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C397F4220DC891F005F054C /* CalendarUnitViews.swift */; };
+		9C397F4520DC8E01005F054C /* CalendarCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C397F4420DC8E01005F054C /* CalendarCollection.swift */; };
+		9C397F4820DCDA5B005F054C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C397F4720DCDA5B005F054C /* Model.swift */; };
+		9C397F4A20DCDA81005F054C /* M_HabitListCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C397F4920DCDA81005F054C /* M_HabitListCalendar.swift */; };
 		9C4B5CD920C28E5700A2CE31 /* HabitUnitListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B5CD820C28E5700A2CE31 /* HabitUnitListHeader.swift */; };
 		9C6FA21820CD0BCB00FF2DA9 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6FA21720CD0BCB00FF2DA9 /* Timer.swift */; };
 		9C77E1C820B5A752002CAA25 /* KeyboardDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C77E1C720B5A752002CAA25 /* KeyboardDate.swift */; };
@@ -103,10 +108,6 @@
 		9CFA47DF20B54975004AFD67 /* Ex_UIStoryboardSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA47A820B54975004AFD67 /* Ex_UIStoryboardSegue.swift */; };
 		9CFA47E020B54975004AFD67 /* Ex_UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA47A920B54975004AFD67 /* Ex_UITextField.swift */; };
 		9CFA47E120B54975004AFD67 /* Ex_UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA47AA20B54975004AFD67 /* Ex_UITextView.swift */; };
-		9CFA47E220B54975004AFD67 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA47AD20B54975004AFD67 /* CalendarCell.swift */; };
-		9CFA47E320B54975004AFD67 /* CalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CFA47AE20B54975004AFD67 /* CalendarCell.xib */; };
-		9CFA47E420B54975004AFD67 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA47AF20B54975004AFD67 /* CalendarView.swift */; };
-		9CFA47E520B54975004AFD67 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CFA47B020B54975004AFD67 /* CalendarView.xib */; };
 		9CFA47E620B54975004AFD67 /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA47B320B54975004AFD67 /* InputTextView.swift */; };
 		9CFA47E720B54975004AFD67 /* InputTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CFA47B420B54975004AFD67 /* InputTextView.xib */; };
 		9CFA47E820B54975004AFD67 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA47B520B54975004AFD67 /* InputView.swift */; };
@@ -143,6 +144,8 @@
 		9CFA481E20B55D16004AFD67 /* DiaryUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA481D20B55D16004AFD67 /* DiaryUnit.swift */; };
 		9CFA482020B57477004AFD67 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA481F20B57477004AFD67 /* Resource.swift */; };
 		9CFA482520B579A6004AFD67 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA482420B579A6004AFD67 /* Keyboard.swift */; };
+		9CFF8AE620DB94520080156A /* HabitListCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF8AE520DB94520080156A /* HabitListCalendar.swift */; };
+		9CFF8AEA20DB9BB50080156A /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF8AE920DB9BB50080156A /* ScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,6 +167,11 @@
 		9C25077C20B6C61B00EB2D13 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		9C25077E20B6C7CD00EB2D13 /* CardCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCalendarView.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		9C25078120B6C95C00EB2D13 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		9C397F4020DC87F5005F054C /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		9C397F4220DC891F005F054C /* CalendarUnitViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarUnitViews.swift; sourceTree = "<group>"; };
+		9C397F4420DC8E01005F054C /* CalendarCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollection.swift; sourceTree = "<group>"; };
+		9C397F4720DCDA5B005F054C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		9C397F4920DCDA81005F054C /* M_HabitListCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M_HabitListCalendar.swift; sourceTree = "<group>"; };
 		9C4B5CD820C28E5700A2CE31 /* HabitUnitListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitUnitListHeader.swift; sourceTree = "<group>"; };
 		9C6FA21720CD0BCB00FF2DA9 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		9C77E1C720B5A752002CAA25 /* KeyboardDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDate.swift; sourceTree = "<group>"; };
@@ -244,10 +252,6 @@
 		9CFA47A820B54975004AFD67 /* Ex_UIStoryboardSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ex_UIStoryboardSegue.swift; sourceTree = "<group>"; };
 		9CFA47A920B54975004AFD67 /* Ex_UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ex_UITextField.swift; sourceTree = "<group>"; };
 		9CFA47AA20B54975004AFD67 /* Ex_UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ex_UITextView.swift; sourceTree = "<group>"; };
-		9CFA47AD20B54975004AFD67 /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
-		9CFA47AE20B54975004AFD67 /* CalendarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarCell.xib; sourceTree = "<group>"; };
-		9CFA47AF20B54975004AFD67 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		9CFA47B020B54975004AFD67 /* CalendarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarView.xib; sourceTree = "<group>"; };
 		9CFA47B320B54975004AFD67 /* InputTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
 		9CFA47B420B54975004AFD67 /* InputTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputTextView.xib; sourceTree = "<group>"; };
 		9CFA47B520B54975004AFD67 /* InputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
@@ -284,6 +288,8 @@
 		9CFA481D20B55D16004AFD67 /* DiaryUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryUnit.swift; sourceTree = "<group>"; };
 		9CFA481F20B57477004AFD67 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		9CFA482420B579A6004AFD67 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		9CFF8AE520DB94520080156A /* HabitListCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListCalendar.swift; sourceTree = "<group>"; };
+		9CFF8AE920DB9BB50080156A /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +332,7 @@
 				9C25076C20B6B87E00EB2D13 /* HabitListEntry.swift */,
 				9C1CA13320CA2F2500F08F57 /* HabitListCollect.swift */,
 				9C1CA13520CA2F6B00F08F57 /* HabitListCollectCell.swift */,
+				9CFF8AE520DB94520080156A /* HabitListCalendar.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -377,6 +384,15 @@
 				9C77E1C920B70589002CAA25 /* CollectionView.swift */,
 			);
 			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		9C397F4620DCDA52005F054C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9C397F4720DCDA5B005F054C /* Model.swift */,
+				9C397F4920DCDA81005F054C /* M_HabitListCalendar.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		9C86CD5A20BE484F00062853 /* Booth */ = {
@@ -579,9 +595,9 @@
 		9CFA478A20B54975004AFD67 /* ScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				9CFA478B20B54975004AFD67 /* CardSeparator.swift */,
-				9CFA478C20B54975004AFD67 /* CardTable.swift */,
-				9CFA478D20B54975004AFD67 /* CardView.swift */,
+				9CFF8AE920DB9BB50080156A /* ScrollView.swift */,
+				9CFF8AE820DB95460080156A /* Scroll */,
+				9CFF8AE720DB953B0080156A /* Card */,
 			);
 			path = ScrollView;
 			sourceTree = "<group>";
@@ -660,10 +676,9 @@
 		9CFA47AC20B54975004AFD67 /* Calender */ = {
 			isa = PBXGroup;
 			children = (
-				9CFA47AD20B54975004AFD67 /* CalendarCell.swift */,
-				9CFA47AE20B54975004AFD67 /* CalendarCell.xib */,
-				9CFA47AF20B54975004AFD67 /* CalendarView.swift */,
-				9CFA47B020B54975004AFD67 /* CalendarView.xib */,
+				9C397F4020DC87F5005F054C /* CalendarView.swift */,
+				9C397F4220DC891F005F054C /* CalendarUnitViews.swift */,
+				9C397F4420DC8E01005F054C /* CalendarCollection.swift */,
 			);
 			path = Calender;
 			sourceTree = "<group>";
@@ -721,6 +736,7 @@
 		9CFA47FB20B55BCC004AFD67 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9C397F4620DCDA52005F054C /* Model */,
 				9CFA47FE20B55C62004AFD67 /* Object */,
 				9CFA47FC20B55BDB004AFD67 /* SQlite */,
 			);
@@ -785,6 +801,23 @@
 				9C210B1020B6630300C17D35 /* KeyboardTime.swift */,
 			);
 			path = Keyboard;
+			sourceTree = "<group>";
+		};
+		9CFF8AE720DB953B0080156A /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				9CFA478B20B54975004AFD67 /* CardSeparator.swift */,
+				9CFA478C20B54975004AFD67 /* CardTable.swift */,
+				9CFA478D20B54975004AFD67 /* CardView.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		9CFF8AE820DB95460080156A /* Scroll */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scroll;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -852,12 +885,10 @@
 				9CFA47EB20B54975004AFD67 /* VarlenaInput.xib in Resources */,
 				9C86CD5E20BE486C00062853 /* HabitBooth.storyboard in Resources */,
 				9C90459020BF937900263762 /* HabitUnitList.storyboard in Resources */,
-				9CFA47E520B54975004AFD67 /* CalendarView.xib in Resources */,
 				9CC89F3520B423130095625C /* Main.storyboard in Resources */,
 				9C90459220BF938000263762 /* HabitUnitEdit.storyboard in Resources */,
 				9CFA47E720B54975004AFD67 /* InputTextView.xib in Resources */,
 				9C25076220B6AFBD00EB2D13 /* HabitList.storyboard in Resources */,
-				9CFA47E320B54975004AFD67 /* CalendarCell.xib in Resources */,
 				9CFA47E920B54975004AFD67 /* InputView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -874,10 +905,12 @@
 				9CB5B8EB20C639D6009FFE5D /* SQLiteLogs.swift in Sources */,
 				9CFA47D320B54975004AFD67 /* Ex_Array.swift in Sources */,
 				9CBC806E20B7FB6400321675 /* HabitEditNameCard.swift in Sources */,
+				9C397F4520DC8E01005F054C /* CalendarCollection.swift in Sources */,
 				9CFA47CF20B54975004AFD67 /* View.swift in Sources */,
 				9C25076B20B6B4D600EB2D13 /* TopView.swift in Sources */,
 				9CFA47EA20B54975004AFD67 /* VarlenaInput.swift in Sources */,
 				9C25076820B6B48E00EB2D13 /* HabitListTop.swift in Sources */,
+				9C397F4820DCDA5B005F054C /* Model.swift in Sources */,
 				9CBC806C20B7BCEA00321675 /* CardStandardView.swift in Sources */,
 				9CFA480A20B55CD5004AFD67 /* ChartUnit_SQlite.swift in Sources */,
 				9CFA47DE20B54975004AFD67 /* Ex_UIScreen.swift in Sources */,
@@ -896,6 +929,7 @@
 				9C77E1C820B5A752002CAA25 /* KeyboardDate.swift in Sources */,
 				9CFA47DA20B54975004AFD67 /* Ex_UIColor.swift in Sources */,
 				9C90459620BF93B800263762 /* HabitUnitListController.swift in Sources */,
+				9C397F4320DC891F005F054C /* CalendarUnitViews.swift in Sources */,
 				9C25077F20B6C7CD00EB2D13 /* CardCalendarView.swift in Sources */,
 				9CFA47E620B54975004AFD67 /* InputTextView.swift in Sources */,
 				9C4B5CD920C28E5700A2CE31 /* HabitUnitListHeader.swift in Sources */,
@@ -903,7 +937,6 @@
 				9C9045A020BF95A100263762 /* HabitUnitEditTypeCard.swift in Sources */,
 				9CFA47D120B54975004AFD67 /* SQLite.swift in Sources */,
 				9CCE2D2120B94B3F0038457D /* HabitEditMessageCard.swift in Sources */,
-				9CFA47E220B54975004AFD67 /* CalendarCell.swift in Sources */,
 				9CFA47E120B54975004AFD67 /* Ex_UITextView.swift in Sources */,
 				9CFA47DB20B54975004AFD67 /* Ex_UIDevice.swift in Sources */,
 				9CFA47D720B54975004AFD67 /* Ex_IndexPath.swift in Sources */,
@@ -925,6 +958,7 @@
 				9CFA480820B55C9C004AFD67 /* Chart_SQlite.swift in Sources */,
 				9CFA47EC20B54975004AFD67 /* ProgressView.swift in Sources */,
 				9CFA480C20B55CDB004AFD67 /* Diary_SQlite.swift in Sources */,
+				9C397F4A20DCDA81005F054C /* M_HabitListCalendar.swift in Sources */,
 				9C1CA13220CA250400F08F57 /* BaseController.swift in Sources */,
 				9C25077720B6BD1400EB2D13 /* CardBaseView.swift in Sources */,
 				9CFA480220B55C8A004AFD67 /* HabitUnit_SQlite.swift in Sources */,
@@ -933,7 +967,6 @@
 				9CFA481A20B55D0A004AFD67 /* ChartUnit.swift in Sources */,
 				9CFA47F820B55093004AFD67 /* MainController.swift in Sources */,
 				9CFA481E20B55D16004AFD67 /* DiaryUnit.swift in Sources */,
-				9CFA47E420B54975004AFD67 /* CalendarView.swift in Sources */,
 				9CFA480620B55C97004AFD67 /* EventUnit_SQlite.swift in Sources */,
 				9C86CD6C20BE536A00062853 /* HabitBoothUnitCard.swift in Sources */,
 				9C77E1CA20B70589002CAA25 /* CollectionView.swift in Sources */,
@@ -946,6 +979,7 @@
 				9C1CA13620CA2F6B00F08F57 /* HabitListCollectCell.swift in Sources */,
 				9CFA47ED20B54975004AFD67 /* RoundProgress.swift in Sources */,
 				9C86CD6820BE4B9700062853 /* HabitBoothDiaryCard.swift in Sources */,
+				9CFF8AEA20DB9BB50080156A /* ScrollView.swift in Sources */,
 				9CFA47C520B54975004AFD67 /* Animation.swift in Sources */,
 				9CFA481020B55CED004AFD67 /* Habit.swift in Sources */,
 				9CFA47CD20B54975004AFD67 /* TableViewHeaderFooter.swift in Sources */,
@@ -983,12 +1017,14 @@
 				9C1CA13020C937F400F08F57 /* CardStandardEditView.swift in Sources */,
 				9C25077920B6BD3400EB2D13 /* CardTopView.swift in Sources */,
 				9CFA47DF20B54975004AFD67 /* Ex_UIStoryboardSegue.swift in Sources */,
+				9CFF8AE620DB94520080156A /* HabitListCalendar.swift in Sources */,
 				9CFA478320B5495C004AFD67 /* Color.swift in Sources */,
 				9CFA47CA20B54975004AFD67 /* CardView.swift in Sources */,
 				9C25076D20B6B87E00EB2D13 /* HabitListEntry.swift in Sources */,
 				9CFA47EE20B54975004AFD67 /* iDateSelector.swift in Sources */,
 				9CFA47C620B54975004AFD67 /* Button.swift in Sources */,
 				9C86CD6420BE4B8700062853 /* HabitBoothChartCard.swift in Sources */,
+				9C397F4120DC87F5005F054C /* CalendarView.swift in Sources */,
 				9CCE2D1F20B940DE0038457D /* HabitEditFrequencyCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1141,7 +1177,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = App.Myron.Days;
+				PRODUCT_BUNDLE_IDENTIFIER = App.Myron.Days.Debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1160,7 +1196,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = App.Myron.Days;
+				PRODUCT_BUNDLE_IDENTIFIER = App.Myron.Days.Debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
