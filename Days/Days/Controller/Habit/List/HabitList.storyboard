@@ -36,7 +36,7 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="isx-ZF-cch" customClass="HabitListCalendar" customModule="Days" customModuleProvider="target">
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="isx-ZF-cch" customClass="HabitListDays" customModule="Days" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="80" width="375" height="587"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -58,8 +58,8 @@
                         <viewLayoutGuide key="safeArea" id="2mM-L6-lU2"/>
                     </view>
                     <connections>
-                        <outlet property="calendar" destination="isx-ZF-cch" id="grU-Tj-kSy"/>
                         <outlet property="collect" destination="59F-qe-dvV" id="ny6-Xk-F3l"/>
+                        <outlet property="days" destination="isx-ZF-cch" id="IbX-cM-Zyg"/>
                         <outlet property="top" destination="aeN-ec-bKc" id="xk9-Ac-gTZ"/>
                         <segue destination="KgQ-qE-VUr" kind="show" identifier="OpenBooth" id="gdf-Ya-O2G"/>
                         <segue destination="KaX-eT-zMq" kind="show" identifier="EditHabit" id="fhA-oA-xLj"/>

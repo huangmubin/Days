@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HabitListController: BaseController {
+class HabitListController: BaseController, HabitListDays_Delegate {
 
     var objs: [Habit] = []
     var date: Date = Date()
@@ -20,7 +20,7 @@ class HabitListController: BaseController {
             $0.is_animation = true
         })
         collect?.reloadData()
-        top.title.setTitle(Format.day_month_week(date), for: .normal)
+        top.update(date: date)
         DispatchQueue.main.delay(time: 1, execute: {
             self.objs.forEach({
                 $0.is_animation = false
@@ -92,15 +92,19 @@ class HabitListController: BaseController {
         }
     }
     
+    // MARK: - Days and HabitListDays_Delegate
     
-    // MARK: - Calendar
-    
-    @IBOutlet weak var calendar: HabitListCalendar! {
+    @IBOutlet weak var days: HabitListDays! {
         didSet {
-            calendar.controller = self
+            days.delegate = self
         }
     }
-
+    
+    func habitListDays(update date: Date) {
+        self.date = date
+        self.top.update(date: date)
+    }
+    
     // MARK: - Table
     
     @IBOutlet weak var collect: HabitListCollect!
