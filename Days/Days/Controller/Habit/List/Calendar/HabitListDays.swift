@@ -43,6 +43,11 @@ class HabitListDays: View, HabitListDays_Scroll_Delegate {
         calendar.view.collect.reloadData()
         table.units = model.unit(time: date.date)
         table.reload()
+        empty.update(date: date)
+        
+        is_empty_showing = table.units.count(value: { $0.count }) == 0
+        empty.mask?.frame.origin.y = is_empty_showing ? 0 : -bounds.height
+        empty.alpha = is_empty_showing ? 1 : 0
     }
     
     func clear() {
@@ -57,6 +62,9 @@ class HabitListDays: View, HabitListDays_Scroll_Delegate {
     
     /**  */
     let table: HabitListDays.Table = Table()
+    
+    /**  */
+    let empty: HabitListDays.Empty = Empty()
     
     // MARK: - Deploy
     
@@ -81,6 +89,9 @@ class HabitListDays: View, HabitListDays_Scroll_Delegate {
         addSubview(table)
         table.units = model.unit(time: date.date)
         table.reload()
+        
+        // Empty
+        addSubview(empty)
     }
     
     // MARK: - Bounds
@@ -113,6 +124,10 @@ class HabitListDays: View, HabitListDays_Scroll_Delegate {
             width: calendar.frame.width,
             height: bounds.height - calendar.frame.maxY
         )
+        
+        // Empty
+        
+        empty.frame = table.frame
     }
     
     // MARK: - Show Animation
@@ -148,12 +163,85 @@ class HabitListDays: View, HabitListDays_Scroll_Delegate {
     
     func dayScroll(update date: Date) {
         delegate?.habitListDays(update: date)
-        table.units = model.unit(time: date.date)
-        table.reload()
+        //table.units = model.unit(time: date.date)
+        //table.reload()
+        update(views: date)
     }
     
     func dayScroll(light date: Date) -> Bool {
         return model.unit(date.date).count > 0
+    }
+    
+    // MARK: - Animation
+    
+    private var is_empty_showing: Bool = true
+    func update(views date: Date) {
+        let units = model.unit(time: date.date)
+        let count = units.count(value: { $0.count }) == 0
+        let h = bounds.height
+        
+        switch (is_empty_showing, count) {
+        case (true, true):
+            self.table.alpha = 0
+            UIView.animate(withDuration: 0.25, animations: {
+                self.empty.mask?.frame.origin.y = -h
+            }, completion: { _ in
+                self.table.units = units
+                self.table.reload()
+                self.empty.update(date: date)
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.empty.mask?.frame.origin.y = 0
+                }, completion: nil)
+            })
+        case (true, false):
+            self.table.alpha = 0
+            UIView.animate(withDuration: 0.25, animations: {
+                self.empty.mask?.frame.origin.y = -h
+            }, completion: { _ in
+                self.table.units = units
+                self.table.reload()
+                self.empty.update(date: date)
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.empty.mask?.frame.origin.y = 0
+                }, completion: { _ in
+                    UIView.animate(withDuration: 0.5, animations: {
+                        self.table.alpha = 1
+                        self.empty.alpha = 0
+                    }, completion: { _ in
+                        self.is_empty_showing = false
+                    })
+                })
+            })
+        case (false, true):
+            self.empty.update(date: date)
+            self.empty.mask?.frame.origin.y = -h
+            self.empty.alpha = 1
+            self.table.alpha = 0
+            UIView.animate(withDuration: 0.5, animations: {
+                self.empty.mask?.frame.origin.y = 0
+            }, completion: { _ in
+                self.table.units = units
+                self.table.reload()
+                self.is_empty_showing = true
+            })
+        case (false, false):
+            self.empty.update(date: date)
+            self.empty.mask?.frame.origin.y = -h
+            self.empty.alpha = 1
+            self.table.alpha = 0
+            UIView.animate(withDuration: 0.5, animations: {
+                self.empty.mask?.frame.origin.y = 0
+            }, completion: { _ in
+                self.table.units = units
+                self.table.reload()
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.table.alpha = 1
+                    self.empty.alpha = 0
+                }, completion: { _ in
+                    self.is_empty_showing = false
+                })
+            })
+        }
     }
     
 }
