@@ -82,7 +82,7 @@ extension HabitListDays {
             sub.sizeToFit()
             sub.center = CGPoint(
                 x: day.center.x,
-                y: bounds.height - 20
+                y: bounds.height - 30
             )
             
             // Mask
@@ -100,6 +100,8 @@ extension HabitListDays {
         func update(date: Date) {
             day.text = date.day.description
             date_en.text = format.string(from: date)
+            date_ch.text = "\(date.year_cn)年\n\(date.month_cn)" // \(date.month_cn)\(date.day_cn)\n
+            sub.text = "| \(date.day_cn) |"
         }
 
     }
