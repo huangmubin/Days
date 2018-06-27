@@ -71,9 +71,8 @@ extension HabitListCollect {
             progress.color = obj.color
             progress.update(type: false)
             
-            menu.can_decrease = (length != 0)
-            menu.can_complete = (length < obj.obj.frequency)
             menu.color = obj.color
+            menu.decrease_cen.text = "\(obj.obj.is_time ? obj.obj.space / 60 : obj.obj.space)"
             
             // update the image
             
@@ -181,49 +180,49 @@ extension HabitListCollect {
         
         /** 取消打卡事件 */
         @objc func decrease_action() {
-            if menu.can_decrease {
-                Impact.light()
-                menu.animation(menu.decrease)
-                habit.units(remove: habit.date.date)
-                UIView.animate(withDuration: 0.25, animations: {
-                    self.view_reload()
-                })
-            }
+//            if menu.can_decrease {
+//                Impact.light()
+//                menu.animation(menu.decrease)
+//                habit.units(remove: habit.date.date)
+//                UIView.animate(withDuration: 0.25, animations: {
+//                    self.view_reload()
+//                })
+//            }
         }
         
         /** 增加打卡事件 */
         @objc func increase_action() {
-            Impact.heavy()
-            menu.animation(menu.increase)
-            let unit = HabitUnit(habit)
-            unit.obj.id = SQLite.HabitUnit.new_id
-            unit.obj.start = habit.date.first(.day).advance(Double(Date().time))
-            unit.obj.insert()
-            habit.units(insert: habit.date.date, unit: unit)
-            UIView.animate(withDuration: 0.25, animations: {
-                self.view_reload()
-            })
+//            Impact.heavy()
+//            menu.animation(menu.increase)
+//            let unit = HabitUnit(habit)
+//            unit.obj.id = SQLite.HabitUnit.new_id
+//            unit.obj.start = habit.date.first(.day).advance(Double(Date().time))
+//            unit.obj.insert()
+//            habit.units(insert: habit.date.date, unit: unit)
+//            UIView.animate(withDuration: 0.25, animations: {
+//                self.view_reload()
+//            })
         }
         
         /** 完成打卡事件 */
         @objc func complete_action() {
-            if menu.can_complete {
-                Impact.heavy()
-                menu.animation(menu.complete)
-                let units = habit.units(date: habit.date.date)
-                let length = units.count(value: { $0.obj.length })
-                if length < habit.obj.frequency {
-                    let unit = HabitUnit(habit)
-                    unit.obj.id = SQLite.HabitUnit.new_id
-                    unit.obj.start = habit.date.first(.day).advance(Double(habit.date.time))
-                    unit.obj.length = habit.obj.frequency - length
-                    unit.obj.insert()
-                    habit.units(insert: habit.date.date, unit: unit)
-                }
-                UIView.animate(withDuration: 0.25, animations: {
-                    self.view_reload()
-                })
-            }
+//            if menu.can_complete {
+//                Impact.heavy()
+//                menu.animation(menu.complete)
+//                let units = habit.units(date: habit.date.date)
+//                let length = units.count(value: { $0.obj.length })
+//                if length < habit.obj.frequency {
+//                    let unit = HabitUnit(habit)
+//                    unit.obj.id = SQLite.HabitUnit.new_id
+//                    unit.obj.start = habit.date.first(.day).advance(Double(habit.date.time))
+//                    unit.obj.length = habit.obj.frequency - length
+//                    unit.obj.insert()
+//                    habit.units(insert: habit.date.date, unit: unit)
+//                }
+//                UIView.animate(withDuration: 0.25, animations: {
+//                    self.view_reload()
+//                })
+//            }
         }
         
         // MARK: - Pan Gesture
@@ -272,6 +271,7 @@ extension HabitListCollect {
                         self.shadow_view.frame = self.progress.frame
                     }, completion: { _ in
                         self.menu.view_bounds()
+                        self.menu.update(complete: false)
                     })
                 }
             default: // pan move
@@ -452,15 +452,17 @@ extension HabitListCollect.Cell {
         /** color */
         var color: UIColor = Color.blue.light {
             didSet {
-                decrease.backgroundColor = can_decrease ? color : color.withAlphaComponent(0.5)
+                decrease.backgroundColor = color
                 increase.backgroundColor = color
-                complete.backgroundColor = can_complete ? color : color.withAlphaComponent(0.5)
+                complete.backgroundColor = color
+                decrease_cen.textColor = color
             }
         }
         
-        /***/
+        /**
         var can_complete: Bool = true
         var can_decrease: Bool = true
+        */
         
         // MARK: - Deploy
         
@@ -469,8 +471,13 @@ extension HabitListCollect.Cell {
             for button in [decrease, increase, complete] {
                 button.backgroundColor = color
                 button.layer.cornerRadius = 10
+                button.imageEdgeInsets = UIEdgeInsets(
+                    top: 10, left: 0, bottom: 10, right: 0
+                )
+                button.imageView?.contentMode = .scaleAspectFit
                 addSubview(button)
             }
+            addSubview(decrease_cen)
         }
         
         // MARK: - Bounds
@@ -482,6 +489,8 @@ extension HabitListCollect.Cell {
                 x: 0, y: 0,
                 width: w, height: bounds.height
             )
+            decrease_cen.frame = decrease.frame
+            
             increase.frame = CGRect(
                 x: decrease.frame.maxX + 10, y: 0,
                 width: w, height: bounds.height
@@ -501,9 +510,26 @@ extension HabitListCollect.Cell {
         
         // MARK: - Buttons
         
-        let decrease: UIButton = Views.Button.system(image: #imageLiteral(resourceName: "but_cut_w"), tint: Color.white)
-        let increase: UIButton = Views.Button.system(image: #imageLiteral(resourceName: "but_add_w"), tint: Color.white)
-        let complete: UIButton = Views.Button.system(image: #imageLiteral(resourceName: "but_sure_w"), tint: Color.white)
+        let decrease: UIButton = Views.Button.system(image: #imageLiteral(resourceName: "ui_cell_check"), tint: Color.white)
+        let increase: UIButton = Views.Button.system(image: #imageLiteral(resourceName: "ui_cell_timer"), tint: Color.white)
+        let complete: UIButton = Views.Button.system(image: #imageLiteral(resourceName: "ui_cell_menu"), tint: Color.white)
+        
+        let decrease_cen: UILabel = {
+            let label = UILabel()
+            label.text = "10"
+            label.font = UIFont(name: "PingFangSC-Regular", size: 16)!
+            //label.backgroundColor = UIColor.black
+            label.textAlignment = .center
+            return label
+        }()
+        
+        /** Complete button image */
+        func update(complete open: Bool) {
+            self.complete.setImage(
+                open ? #imageLiteral(resourceName: "ui_cell_complete") : #imageLiteral(resourceName: "ui_cell_menu"),
+                for: .normal
+            )
+        }
         
         // MARK: - Animation
         
@@ -535,8 +561,11 @@ extension HabitListCollect.Cell {
             if is_auto_complete != open {
                 is_auto_complete = open
                 let rect = open ? CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height) : CGRect(x: increase.frame.maxX + 10, y: 0, width: increase.frame.width, height: bounds.height)
+                self.update(complete: is_auto_complete)
                 UIView.animate(withDuration: 0.25, animations: {
                     self.complete.frame = rect
+                }, completion: { _ in
+                    self.update(complete: open)
                 })
             }
         }
