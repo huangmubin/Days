@@ -43,6 +43,13 @@
 		9C86CD6820BE4B9700062853 /* HabitBoothDiaryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86CD6720BE4B9700062853 /* HabitBoothDiaryCard.swift */; };
 		9C86CD6A20BE4B9D00062853 /* HabitBoothMenuCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86CD6920BE4B9D00062853 /* HabitBoothMenuCard.swift */; };
 		9C86CD6C20BE536A00062853 /* HabitBoothUnitCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86CD6B20BE536A00062853 /* HabitBoothUnitCard.swift */; };
+		9C8C1CE020E47AFC00C84591 /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C1CDF20E47AFC00C84591 /* TimerController.swift */; };
+		9C8C1CE220E47B2700C84591 /* Timer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C8C1CE120E47B2700C84591 /* Timer.storyboard */; };
+		9C8C1CE420E4C87C00C84591 /* TimerTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C1CE320E4C87C00C84591 /* TimerTop.swift */; };
+		9C8C1CE620E4C94E00C84591 /* TimerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C1CE520E4C94E00C84591 /* TimerMenu.swift */; };
+		9C8C1CE820E4CCF700C84591 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C1CE720E4CCF700C84591 /* TimerView.swift */; };
+		9C8C1CEB20E4CD3900C84591 /* TimerStopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C1CEA20E4CD3900C84591 /* TimerStopwatch.swift */; };
+		9C8C1CED20E4CD6E00C84591 /* TimerCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C1CEC20E4CD6E00C84591 /* TimerCounter.swift */; };
 		9C90459020BF937900263762 /* HabitUnitList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C90458F20BF937900263762 /* HabitUnitList.storyboard */; };
 		9C90459220BF938000263762 /* HabitUnitEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C90459120BF938000263762 /* HabitUnitEdit.storyboard */; };
 		9C90459420BF93AB00263762 /* HabitUnitEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C90459320BF93AB00263762 /* HabitUnitEditController.swift */; };
@@ -187,6 +194,13 @@
 		9C86CD6720BE4B9700062853 /* HabitBoothDiaryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitBoothDiaryCard.swift; sourceTree = "<group>"; };
 		9C86CD6920BE4B9D00062853 /* HabitBoothMenuCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitBoothMenuCard.swift; sourceTree = "<group>"; };
 		9C86CD6B20BE536A00062853 /* HabitBoothUnitCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitBoothUnitCard.swift; sourceTree = "<group>"; };
+		9C8C1CDF20E47AFC00C84591 /* TimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerController.swift; sourceTree = "<group>"; };
+		9C8C1CE120E47B2700C84591 /* Timer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timer.storyboard; sourceTree = "<group>"; };
+		9C8C1CE320E4C87C00C84591 /* TimerTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTop.swift; sourceTree = "<group>"; };
+		9C8C1CE520E4C94E00C84591 /* TimerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerMenu.swift; sourceTree = "<group>"; };
+		9C8C1CE720E4CCF700C84591 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		9C8C1CEA20E4CD3900C84591 /* TimerStopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerStopwatch.swift; sourceTree = "<group>"; };
+		9C8C1CEC20E4CD6E00C84591 /* TimerCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCounter.swift; sourceTree = "<group>"; };
 		9C90458F20BF937900263762 /* HabitUnitList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HabitUnitList.storyboard; sourceTree = "<group>"; };
 		9C90459120BF938000263762 /* HabitUnitEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HabitUnitEdit.storyboard; sourceTree = "<group>"; };
 		9C90459320BF93AB00263762 /* HabitUnitEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitUnitEditController.swift; sourceTree = "<group>"; };
@@ -331,6 +345,7 @@
 		9C25075E20B6AF6B00EB2D13 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9C8C1CDD20E47ACC00C84591 /* Tools */,
 				9C25075F20B6AF7A00EB2D13 /* Habit */,
 			);
 			path = Controller;
@@ -431,6 +446,36 @@
 				9C86CD6920BE4B9D00062853 /* HabitBoothMenuCard.swift */,
 			);
 			path = Booth;
+			sourceTree = "<group>";
+		};
+		9C8C1CDD20E47ACC00C84591 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				9C8C1CDE20E47AD300C84591 /* Timer */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		9C8C1CDE20E47AD300C84591 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				9C8C1CE120E47B2700C84591 /* Timer.storyboard */,
+				9C8C1CDF20E47AFC00C84591 /* TimerController.swift */,
+				9C8C1CE320E4C87C00C84591 /* TimerTop.swift */,
+				9C8C1CE520E4C94E00C84591 /* TimerMenu.swift */,
+				9C8C1CE920E4CCF800C84591 /* View */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		9C8C1CE920E4CCF800C84591 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9C8C1CE720E4CCF700C84591 /* TimerView.swift */,
+				9C8C1CEA20E4CD3900C84591 /* TimerStopwatch.swift */,
+				9C8C1CEC20E4CD6E00C84591 /* TimerCounter.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		9C90458C20BF933400263762 /* Unit */ = {
@@ -910,6 +955,7 @@
 				9CC89F3520B423130095625C /* Main.storyboard in Resources */,
 				9C90459220BF938000263762 /* HabitUnitEdit.storyboard in Resources */,
 				9CFA47E720B54975004AFD67 /* InputTextView.xib in Resources */,
+				9C8C1CE220E47B2700C84591 /* Timer.storyboard in Resources */,
 				9C25076220B6AFBD00EB2D13 /* HabitList.storyboard in Resources */,
 				9CFA47E920B54975004AFD67 /* InputView.xib in Resources */,
 			);
@@ -925,8 +971,10 @@
 				9C25077420B6BBFB00EB2D13 /* HabitEditController.swift in Sources */,
 				9C25076420B6B0D200EB2D13 /* HabitListController.swift in Sources */,
 				9CB5B8EB20C639D6009FFE5D /* SQLiteLogs.swift in Sources */,
+				9C8C1CE420E4C87C00C84591 /* TimerTop.swift in Sources */,
 				9CFA47D320B54975004AFD67 /* Ex_Array.swift in Sources */,
 				9CBC806E20B7FB6400321675 /* HabitEditNameCard.swift in Sources */,
+				9C8C1CE820E4CCF700C84591 /* TimerView.swift in Sources */,
 				9C397F4520DC8E01005F054C /* CalendarCollection.swift in Sources */,
 				9CFA47CF20B54975004AFD67 /* View.swift in Sources */,
 				9C25076B20B6B4D600EB2D13 /* TopView.swift in Sources */,
@@ -954,6 +1002,7 @@
 				9C397F4320DC891F005F054C /* CalendarUnitViews.swift in Sources */,
 				9C25077F20B6C7CD00EB2D13 /* CardCalendarView.swift in Sources */,
 				9CFA47E620B54975004AFD67 /* InputTextView.swift in Sources */,
+				9C8C1CEB20E4CD3900C84591 /* TimerStopwatch.swift in Sources */,
 				9C4B5CD920C28E5700A2CE31 /* HabitUnitListHeader.swift in Sources */,
 				9CAF330920D8B2740091DD1A /* Ex_DispatchQueue.swift in Sources */,
 				9C9045A020BF95A100263762 /* HabitUnitEditTypeCard.swift in Sources */,
@@ -983,6 +1032,7 @@
 				9CFA47EC20B54975004AFD67 /* ProgressView.swift in Sources */,
 				9CFA480C20B55CDB004AFD67 /* Diary_SQlite.swift in Sources */,
 				9C397F4A20DCDA81005F054C /* M_HabitListCalendar.swift in Sources */,
+				9C8C1CE620E4C94E00C84591 /* TimerMenu.swift in Sources */,
 				9C1CA13220CA250400F08F57 /* BaseController.swift in Sources */,
 				9C25077720B6BD1400EB2D13 /* CardBaseView.swift in Sources */,
 				9CFA480220B55C8A004AFD67 /* HabitUnit_SQlite.swift in Sources */,
@@ -1034,6 +1084,7 @@
 				9C86CD5C20BE486400062853 /* HabitBoothController.swift in Sources */,
 				9CFA480E20B55CE3004AFD67 /* DiaryUnit_SQlite.swift in Sources */,
 				9CFA482520B579A6004AFD67 /* Keyboard.swift in Sources */,
+				9C8C1CED20E4CD6E00C84591 /* TimerCounter.swift in Sources */,
 				9CF51F6E20BD33F200D48293 /* HabitEditUICell.swift in Sources */,
 				9CFA47D620B54975004AFD67 /* Ex_DateFormatter.swift in Sources */,
 				9CFA47C820B54975004AFD67 /* CardSeparator.swift in Sources */,
@@ -1050,6 +1101,7 @@
 				9C86CD6420BE4B8700062853 /* HabitBoothChartCard.swift in Sources */,
 				9C397F4120DC87F5005F054C /* CalendarView.swift in Sources */,
 				9CCE2D1F20B940DE0038457D /* HabitEditFrequencyCard.swift in Sources */,
+				9C8C1CE020E47AFC00C84591 /* TimerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

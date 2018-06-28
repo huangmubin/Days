@@ -65,6 +65,8 @@
                         <segue destination="KaX-eT-zMq" kind="show" identifier="EditHabit" id="fhA-oA-xLj"/>
                         <segue destination="nmd-dk-QLu" kind="show" identifier="AppendHabit" id="RkY-Zu-E5J"/>
                         <segue destination="kMJ-cC-gjD" kind="show" identifier="HabitUnitList" id="5ox-LP-2Tn"/>
+                        <segue destination="ORc-bB-dnu" kind="show" identifier="HabitUnitEdit" id="Bln-sl-gn2"/>
+                        <segue destination="mCy-w4-RHr" kind="show" identifier="Timer" id="JxL-Mo-Y4N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8CA-Yb-V0K" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -82,7 +84,7 @@
                 <viewControllerPlaceholder storyboardName="HabitEdit" id="nmd-dk-QLu" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jyc-a2-jgB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="497" y="59"/>
+            <point key="canvasLocation" x="657" y="-31"/>
         </scene>
         <!--HabitBooth-->
         <scene sceneID="EJJ-Vj-qy1">
@@ -90,7 +92,7 @@
                 <viewControllerPlaceholder storyboardName="HabitBooth" id="KgQ-qE-VUr" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ujt-j9-jZu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="506" y="146"/>
+            <point key="canvasLocation" x="666" y="113"/>
         </scene>
         <!--HabitEdit-->
         <scene sceneID="h8p-7g-h0p">
@@ -98,7 +100,7 @@
                 <viewControllerPlaceholder storyboardName="HabitEdit" id="KaX-eT-zMq" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qo1-e6-Z6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="495" y="234"/>
+            <point key="canvasLocation" x="657" y="2"/>
         </scene>
         <!--HabitUnitList-->
         <scene sceneID="3gw-0A-mHw">
@@ -106,7 +108,23 @@
                 <viewControllerPlaceholder storyboardName="HabitUnitList" id="kMJ-cC-gjD" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ow0-5N-0Hx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="516" y="329"/>
+            <point key="canvasLocation" x="676" y="41"/>
+        </scene>
+        <!--HabitUnitEdit-->
+        <scene sceneID="eJw-we-qIJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HabitUnitEdit" id="ORc-bB-dnu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d2y-vs-AXi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="677" y="73"/>
+        </scene>
+        <!--Timer-->
+        <scene sceneID="319-qD-jc9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Timer" id="mCy-w4-RHr" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vrQ-yr-5WE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="639" y="151"/>
         </scene>
     </scenes>
 </document>

@@ -30,9 +30,15 @@ class HabitListCollect: CollectionView, UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         controller?.performSegue(
+            withIdentifier: "HabitUnitEdit",
+            sender: controller.objs[indexPath.row]
+        )
+        /*
+        controller?.performSegue(
             withIdentifier: "HabitUnitList",
             sender: controller.objs[indexPath.row]
         )
+        */
     }
     
     // MARK: - UICollectionViewDelegateFlowLayout

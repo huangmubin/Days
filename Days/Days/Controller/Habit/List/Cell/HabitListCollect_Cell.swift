@@ -79,6 +79,10 @@ extension HabitListCollect {
             show.image.image = obj.image()
             progress.image.image = obj.image(color: Color.white)
             progress.value = CGFloat(unit_progress) / 100
+            menu.increase.setImage(
+                obj.obj.is_time ? #imageLiteral(resourceName: "ui_cell_timer") : #imageLiteral(resourceName: "ui_cell_count"),
+                for: .normal
+            )
             
             // update the text
             
@@ -178,51 +182,86 @@ extension HabitListCollect {
         
         // MARK: - Actions
         
-        /** 取消打卡事件 */
+        /**
+         v1 取消打卡事件;
+         v2 快速打卡；
+         */
         @objc func decrease_action() {
-//            if menu.can_decrease {
-//                Impact.light()
-//                menu.animation(menu.decrease)
-//                habit.units(remove: habit.date.date)
-//                UIView.animate(withDuration: 0.25, animations: {
-//                    self.view_reload()
-//                })
-//            }
+            Impact.heavy()
+            menu.animation(menu.increase)
+            let unit = HabitUnit(habit)
+            unit.obj.id = SQLite.HabitUnit.new_id
+            unit.obj.start = habit.date.first(.day).advance(Double(Date().time - unit.obj.length))
+            unit.obj.insert()
+            habit.units(insert: habit.date.date, unit: unit)
+            UIView.animate(withDuration: 0.25, animations: {
+                self.view_reload()
+            })
+            
+            /*
+            if menu.can_decrease {
+                Impact.light()
+                menu.animation(menu.decrease)
+                habit.units(remove: habit.date.date)
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.view_reload()
+                })
+            }*/
         }
         
-        /** 增加打卡事件 */
+        /**
+         v1 增加打卡事件；
+         v2 打开计时，或计次界面；
+         */
         @objc func increase_action() {
-//            Impact.heavy()
-//            menu.animation(menu.increase)
-//            let unit = HabitUnit(habit)
-//            unit.obj.id = SQLite.HabitUnit.new_id
-//            unit.obj.start = habit.date.first(.day).advance(Double(Date().time))
-//            unit.obj.insert()
-//            habit.units(insert: habit.date.date, unit: unit)
-//            UIView.animate(withDuration: 0.25, animations: {
-//                self.view_reload()
-//            })
+            controller?.performSegue(
+                withIdentifier: "Timer",
+                sender: habit
+            )
+            
+            /*
+            Impact.heavy()
+            menu.animation(menu.increase)
+            let unit = HabitUnit(habit)
+            unit.obj.id = SQLite.HabitUnit.new_id
+            unit.obj.start = habit.date.first(.day).advance(Double(Date().time))
+            unit.obj.insert()
+            habit.units(insert: habit.date.date, unit: unit)
+            UIView.animate(withDuration: 0.25, animations: {
+                self.view_reload()
+            })
+            */
         }
         
-        /** 完成打卡事件 */
+        /**
+         v1 完成打卡事件；
+         v2 打开打卡明细界面；
+         */
         @objc func complete_action() {
-//            if menu.can_complete {
-//                Impact.heavy()
-//                menu.animation(menu.complete)
-//                let units = habit.units(date: habit.date.date)
-//                let length = units.count(value: { $0.obj.length })
-//                if length < habit.obj.frequency {
-//                    let unit = HabitUnit(habit)
-//                    unit.obj.id = SQLite.HabitUnit.new_id
-//                    unit.obj.start = habit.date.first(.day).advance(Double(habit.date.time))
-//                    unit.obj.length = habit.obj.frequency - length
-//                    unit.obj.insert()
-//                    habit.units(insert: habit.date.date, unit: unit)
-//                }
-//                UIView.animate(withDuration: 0.25, animations: {
-//                    self.view_reload()
-//                })
-//            }
+            controller?.performSegue(
+                withIdentifier: "HabitUnitList",
+                sender: habit
+            )
+
+            /*
+            if menu.can_complete {
+                Impact.heavy()
+                menu.animation(menu.complete)
+                let units = habit.units(date: habit.date.date)
+                let length = units.count(value: { $0.obj.length })
+                if length < habit.obj.frequency {
+                    let unit = HabitUnit(habit)
+                    unit.obj.id = SQLite.HabitUnit.new_id
+                    unit.obj.start = habit.date.first(.day).advance(Double(habit.date.time))
+                    unit.obj.length = habit.obj.frequency - length
+                    unit.obj.insert()
+                    habit.units(insert: habit.date.date, unit: unit)
+                }
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.view_reload()
+                })
+            }
+            */
         }
         
         // MARK: - Pan Gesture

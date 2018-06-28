@@ -61,10 +61,13 @@ class HabitListController: BaseController, HabitListDays_Delegate {
             obj.event_create()
             obj.diary_create()
             objs.append(obj)
+            
+            collect.insertItems(at: [IndexPath(objs)])
         }
         
         if let obj = messages.removeValue(forKey: Key.Habit.update) as? Habit {
             obj.obj.update()
+            reload(habit: obj)
         }
         
         if let obj = messages.removeValue(forKey: Key.Habit.delete) as? Habit {
@@ -72,6 +75,15 @@ class HabitListController: BaseController, HabitListDays_Delegate {
                 objs.remove(at: row)
             }
             obj.delete()
+            
+            let index = IndexPath(row: objs.count, section: 0)
+            collect.deleteItems(at: [index])
+        }
+        
+        if let obj = messages.removeValue(forKey: Key.Habit.Unit.append) as? HabitUnit {
+            obj.habit.units(insert: obj.obj.date, unit: obj)
+            obj.obj.insert()
+            reload(habit: obj.habit)
         }
         
         if is_load {
@@ -79,8 +91,19 @@ class HabitListController: BaseController, HabitListDays_Delegate {
             DispatchQueue.main.delay(time: 1, execute: {
                 self.objs.forEach({ $0.is_animation = false })
             })
-        } else {
-            collect.reloadData()
+        }
+    }
+    
+    // MARK: - Reload View
+    
+    /** 动画方式重载 Cell */
+    func reload(habit: Habit) {
+        if let row = objs.index(where: { $0 === habit }) {
+            if let cell = collect.cellForItem(at: IndexPath(row: row, section: 0)) as? CollectionViewCell {
+                UIView.animate(withDuration: 0.25, animations: {
+                    cell.view_reload()
+                })
+            }
         }
     }
     
@@ -120,6 +143,12 @@ class HabitListController: BaseController, HabitListDays_Delegate {
             }
         }
         if let obj = segue.controller as? HabitUnitListController {
+            obj.habit = sender as! Habit
+        }
+        if let obj = segue.controller as? HabitUnitEditController {
+            obj.unit = HabitUnit(sender as! Habit)
+        }
+        if let obj = segue.controller as? TimerController {
             obj.habit = sender as! Habit
         }
     }

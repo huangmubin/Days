@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yNQ-Ot-4ib">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Timer Controller-->
+        <scene sceneID="nfc-mI-4sr">
+            <objects>
+                <viewController id="yNQ-Ot-4ib" customClass="TimerController" customModule="Days" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SoN-jb-k2v">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MbM-Gv-Hyw" customClass="TimerCounter" customModule="Days" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EEI-Ul-vLZ" customClass="TimerStopwatch" customModule="Days" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wXs-4Q-dHz" customClass="TimerTop" customModule="Days" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="PLl-To-DLq"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Qk-Hm-ZAB" customClass="TimerMenu" customModule="Days" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="587" width="375" height="80"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Aqd-Sq-J9I"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MbM-Gv-Hyw" firstAttribute="top" secondItem="MBg-nx-5Nt" secondAttribute="top" id="19o-S4-QD0"/>
+                            <constraint firstItem="MBg-nx-5Nt" firstAttribute="trailing" secondItem="0Qk-Hm-ZAB" secondAttribute="trailing" id="6hj-hV-cZZ"/>
+                            <constraint firstItem="EEI-Ul-vLZ" firstAttribute="leading" secondItem="MBg-nx-5Nt" secondAttribute="leading" id="CP4-yI-flp"/>
+                            <constraint firstItem="MBg-nx-5Nt" firstAttribute="trailing" secondItem="MbM-Gv-Hyw" secondAttribute="trailing" id="EiT-qO-1Jx"/>
+                            <constraint firstItem="0Qk-Hm-ZAB" firstAttribute="leading" secondItem="MBg-nx-5Nt" secondAttribute="leading" id="FBi-Dh-55e"/>
+                            <constraint firstItem="0Qk-Hm-ZAB" firstAttribute="bottom" secondItem="MBg-nx-5Nt" secondAttribute="bottom" id="FD0-M7-iLA"/>
+                            <constraint firstItem="MbM-Gv-Hyw" firstAttribute="leading" secondItem="MBg-nx-5Nt" secondAttribute="leading" id="HWE-1W-rMg"/>
+                            <constraint firstItem="wXs-4Q-dHz" firstAttribute="leading" secondItem="MBg-nx-5Nt" secondAttribute="leading" id="L11-Hj-nVQ"/>
+                            <constraint firstItem="MBg-nx-5Nt" firstAttribute="bottom" secondItem="MbM-Gv-Hyw" secondAttribute="bottom" id="e9F-oH-zyG"/>
+                            <constraint firstItem="MBg-nx-5Nt" firstAttribute="bottom" secondItem="EEI-Ul-vLZ" secondAttribute="bottom" id="eTo-VD-ceJ"/>
+                            <constraint firstItem="MBg-nx-5Nt" firstAttribute="trailing" secondItem="EEI-Ul-vLZ" secondAttribute="trailing" id="f56-wj-Th1"/>
+                            <constraint firstItem="wXs-4Q-dHz" firstAttribute="top" secondItem="MBg-nx-5Nt" secondAttribute="top" id="vKf-ti-30A"/>
+                            <constraint firstItem="EEI-Ul-vLZ" firstAttribute="top" secondItem="MBg-nx-5Nt" secondAttribute="top" id="wAd-SW-lki"/>
+                            <constraint firstItem="MBg-nx-5Nt" firstAttribute="trailing" secondItem="wXs-4Q-dHz" secondAttribute="trailing" id="wdE-Da-k6C"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MBg-nx-5Nt"/>
+                    </view>
+                    <connections>
+                        <outlet property="counter" destination="MbM-Gv-Hyw" id="GsC-8F-ydH"/>
+                        <outlet property="menu" destination="0Qk-Hm-ZAB" id="vcC-EG-5Tc"/>
+                        <outlet property="stopwatch" destination="EEI-Ul-vLZ" id="hje-6u-SgP"/>
+                        <outlet property="top" destination="wXs-4Q-dHz" id="0fG-2B-hmy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3A3-EG-EWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="629.60000000000002" y="-165.06746626686657"/>
+        </scene>
+    </scenes>
+</document>

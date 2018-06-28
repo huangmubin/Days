@@ -8,6 +8,7 @@
 
 import UIKit
 
+/** 手机震动 */
 class Impact {
     
     // MARK: - Value
