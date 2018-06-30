@@ -55,6 +55,12 @@ class TimerController: BaseController {
     }
     
     func save_action() {
-        
+        timer.timer?.cancel()
+        timer.timer = nil
+        let unit = HabitUnit(habit)
+        unit.obj.start = timer.start
+        unit.obj.length = timer.length
+        toSuperController(object: [Key.Habit.Unit.append: unit])
+        dismiss(animated: true, completion: nil)
     }
 }

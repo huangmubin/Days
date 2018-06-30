@@ -12,6 +12,14 @@ class TimerStopwatch: TimerView {
     
     // MARK: - Value
     
+    override var start: Date {
+        return labels.start
+    }
+    
+    override var length: Int {
+        return Date().time1970 - start.time1970
+    }
+    
     // MARK: - Subviews
     
     let labels: Label = Label()

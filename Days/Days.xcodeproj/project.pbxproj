@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C12589120E789E9001601F8 /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C12589020E789E9001601F8 /* LocalNotification.swift */; };
 		9C1CA13020C937F400F08F57 /* CardStandardEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1CA12F20C937F400F08F57 /* CardStandardEditView.swift */; };
 		9C1CA13220CA250400F08F57 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1CA13120CA250400F08F57 /* BaseController.swift */; };
 		9C1CA13420CA2F2500F08F57 /* HabitListCollect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1CA13320CA2F2500F08F57 /* HabitListCollect.swift */; };
@@ -158,6 +159,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C12589020E789E9001601F8 /* LocalNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
 		9C1CA12F20C937F400F08F57 /* CardStandardEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStandardEditView.swift; sourceTree = "<group>"; };
 		9C1CA13120CA250400F08F57 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		9C1CA13320CA2F2500F08F57 /* HabitListCollect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListCollect.swift; sourceTree = "<group>"; };
@@ -615,6 +617,7 @@
 				9CFA481F20B57477004AFD67 /* Resource.swift */,
 				9C25077C20B6C61B00EB2D13 /* Key.swift */,
 				9C86CD5820BE43DC00062853 /* Impact.swift */,
+				9C12589020E789E9001601F8 /* LocalNotification.swift */,
 				9CB5B8ED20C69063009FFE5D /* Views.swift */,
 				9C1CA13120CA250400F08F57 /* BaseController.swift */,
 			);
@@ -991,6 +994,7 @@
 				9CCE2D2720BA40960038457D /* Confirm.swift in Sources */,
 				9CFA47D820B54975004AFD67 /* Ex_Int.swift in Sources */,
 				9C90459E20BF959000263762 /* HabitUnitEditMessageCard.swift in Sources */,
+				9C12589120E789E9001601F8 /* LocalNotification.swift in Sources */,
 				9CFA47F420B54975004AFD67 /* Operator.swift in Sources */,
 				9C6FA21820CD0BCB00FF2DA9 /* Timer.swift in Sources */,
 				9CFA480020B55C84004AFD67 /* Habit_SQlite.swift in Sources */,
@@ -1248,7 +1252,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8BBKEKP879;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1267,7 +1271,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8BBKEKP879;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

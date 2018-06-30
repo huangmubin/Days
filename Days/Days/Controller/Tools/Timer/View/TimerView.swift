@@ -10,10 +10,14 @@ import UIKit
 
 class TimerView: View {
     
+    // MARK: - Value
+    
+    var start: Date { return Date() }
+    var length: Int { return 0 }
+    
     // MARK: - Link
     
     weak var controller: TimerController?
-    
     
     // MARK: - Action
     
