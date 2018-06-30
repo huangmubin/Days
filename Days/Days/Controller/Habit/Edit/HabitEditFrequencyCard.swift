@@ -65,7 +65,7 @@ class HabitEditFrequencyCard: CardStandardEditView {
             } else {
                 habit.obj.frequency = int
             }
-            habit.obj.space = habit.obj.frequency / 10
+            habit.obj.space = habit.obj.frequency / 2
         } else {
             if habit.obj.is_time {
                 habit.obj.space = int * 60

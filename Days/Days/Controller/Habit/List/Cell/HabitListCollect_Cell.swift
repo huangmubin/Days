@@ -264,6 +264,25 @@ extension HabitListCollect {
             */
         }
         
+        /** 完成今天的所有打卡 */
+        func complete_today_action() {
+            Impact.heavy()
+            menu.animation(menu.complete)
+            let units = habit.units(date: habit.date.date)
+            let length = units.count(value: { $0.obj.length })
+            if length < habit.obj.frequency {
+                let unit = HabitUnit(habit)
+                unit.obj.id = SQLite.HabitUnit.new_id
+                unit.obj.length = habit.obj.frequency - length
+                unit.obj.start = habit.date.first(.day).advance(Double(habit.date.time - unit.obj.length))
+                unit.obj.insert()
+                habit.units(insert: habit.date.date, unit: unit)
+            }
+            UIView.animate(withDuration: 0.25, animations: {
+                self.view_reload()
+            })
+        }
+        
         // MARK: - Pan Gesture
         
         var pan: UIPanGestureRecognizer!
@@ -278,7 +297,8 @@ extension HabitListCollect {
                 var complete: Bool = false
                 if menu.is_auto_complete || (sender.velocity(in: self).x < -4000 && progress.value < 1) {
                     complete = true
-                    complete_action()
+                    //complete_action()
+                    complete_today_action()
                     menu.is_auto_complete = false
                 }
                 

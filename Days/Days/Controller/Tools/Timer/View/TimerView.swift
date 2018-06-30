@@ -14,6 +14,7 @@ class TimerView: View {
     
     weak var controller: TimerController?
     
+    
     // MARK: - Action
     
     /** Override: Start running */
@@ -45,4 +46,32 @@ class TimerView: View {
             height: bounds.width
         )
     }
+    
+    // MARK: - TimerDelegate
+    
+    var timer: DispatchSourceTimer?
+    var flag: Int = 0
+    var milliseconds: Int = 1
+    
+    /** Time: milliseconds */
+    func run_timer(milliseconds: Int) {
+        self.milliseconds = milliseconds
+        timer = DispatchSource.makeTimerSource(
+            flags: DispatchSource.TimerFlags(rawValue: 1),
+            queue: DispatchQueue.main
+        )
+        timer?.schedule(
+            wallDeadline: DispatchWallTime.now(),
+            repeating: DispatchTimeInterval.milliseconds(milliseconds)
+        )
+        timer?.setEventHandler(handler: { [weak self] in
+            if let w_self = self {
+                w_self.flag += 1
+                w_self.animate()
+            }
+        })
+        timer?.resume()
+    }
+    
+    func animate() { }
 }

@@ -23,11 +23,11 @@ class TimerMenu: View {
     // MARK: - Actions
     
     @objc func save_action() {
-        
+        controller?.save_action()
     }
     
     @objc func start_action() {
-        
+        controller?.start_action()
     }
     
     // MARK: - Deploy

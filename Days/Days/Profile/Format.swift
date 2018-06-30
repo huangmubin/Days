@@ -121,7 +121,18 @@ class Format {
     
     // MARK: - Clock
     
-    /**  */
+    /** hour:minute:second / minute:second */
+    class func clock(_ second: Int) -> String {
+        switch second {
+        case 0 ..< 3600:
+            return "\(time_00(second / 60)):\(time_00(second % 60))"
+        case 3600 ..< 360000:
+            return "\(time_00(second / 3600)):\(time_00((second % 3600) / 60)):\(time_00(second % 60))"
+        default: return "00:00"
+        }
+    }
+    
+    /** 00:00 hour:minute */
     class func clock(second: Int) -> String {
         return time_00(second / 3600) + ":" + time_00(second % 3600 / 60)
     }

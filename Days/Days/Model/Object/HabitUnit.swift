@@ -21,7 +21,7 @@ class HabitUnit {
         self.obj   = SQLite.HabitUnit()
         
         self.obj.belong = habit.obj.id
-        self.obj.start  = Date()
+        self.obj.start  = Date().advance(Double(-habit.obj.frequency))
         self.obj.length = habit.obj.space
     }
     

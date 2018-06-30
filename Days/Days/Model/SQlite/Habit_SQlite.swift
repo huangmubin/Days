@@ -41,7 +41,7 @@ extension SQLite {
         /** 每日频率。时间：秒。次数：次。默认 10 分钟 */
         var frequency: Int = 600
         /** 每次打卡默认的时长 */
-        var space: Int = 60
+        var space: Int = 300
         
         // MARK: Sort
         

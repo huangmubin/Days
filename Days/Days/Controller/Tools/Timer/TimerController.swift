@@ -46,4 +46,15 @@ class TimerController: BaseController {
     @IBOutlet weak var stopwatch: TimerStopwatch!
     @IBOutlet weak var menu: TimerMenu!
     
+    // MARK: - Actions
+    
+    func start_action() {
+        timer.run()
+        menu.start.alpha = 0
+        menu.save.alpha = 1
+    }
+    
+    func save_action() {
+        
+    }
 }
