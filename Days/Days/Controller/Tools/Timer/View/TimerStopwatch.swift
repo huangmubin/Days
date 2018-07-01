@@ -13,11 +13,17 @@ class TimerStopwatch: TimerView {
     // MARK: - Value
     
     override var start: Date {
-        return labels.start
+        set { labels.start = newValue }
+        get { return labels.start }
+    }
+    
+    override var space: Int {
+        set { labels.space = newValue }
+        get { return labels.space }
     }
     
     override var length: Int {
-        return Date().time1970 - start.time1970
+        get { return Date().time1970 - labels.start.time1970 }
     }
     
     // MARK: - Subviews
@@ -48,7 +54,8 @@ class TimerStopwatch: TimerView {
     // MARK: - Action
     
     override func run() {
-        labels.space = (timers.selector.index + 2) * 300
+//        labels.space = (timers.selector.index + 2) * 300
+        labels.space = 10
         labels.start = Date()
         labels.top.text = Format.clock(labels.space)
         run_timer(milliseconds: 1000)
@@ -195,7 +202,10 @@ extension TimerStopwatch {
             let now = Date()
             let run = now.time1970 - start.time1970
             cen.text = Format.clock(run)
-            if _space < run { _space += space }
+            if _space < run {
+                Impact.heavy()
+                _space += space
+            }
             bot.text = Format.clock(_space - run)
         }
         

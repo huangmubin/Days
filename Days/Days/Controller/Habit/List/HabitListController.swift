@@ -34,6 +34,12 @@ class HabitListController: BaseController, HabitListDays_Delegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        observer(
+            name: LocalNotification.Keys.Request.stopwatch.notification,
+            selector: #selector(local_user_stopwatch(_:)),
+            object: LocalNotification.local
+        )
+        
         objs = SQLite.Habit.find().sorted(by: {
             $0.sort < $1.sort
         }).map({
@@ -82,8 +88,13 @@ class HabitListController: BaseController, HabitListDays_Delegate {
         
         if let obj = messages.removeValue(forKey: Key.Habit.Unit.append) as? HabitUnit {
             obj.habit.units(insert: obj.obj.date, unit: obj)
+            obj.obj.id = SQLite.HabitUnit.new_id
             obj.obj.insert()
             reload(habit: obj.habit)
+        }
+        
+        if let obj = messages.removeValue(forKey: Key.Habit.Unit.delete) as? Habit {
+            reload(habit: obj)
         }
         
         if is_load {
@@ -92,6 +103,26 @@ class HabitListController: BaseController, HabitListDays_Delegate {
                 self.objs.forEach({ $0.is_animation = false })
             })
         }
+        
+        if let unit = timer_unit() {
+            DispatchQueue.main.async {
+                self.performSegue(
+                    withIdentifier: "Timer",
+                    sender: unit
+                )
+            }
+        }
+    }
+    
+    func timer_unit() -> HabitUnit? {
+        if let unit = TimerController.unit() {
+            if let habit = objs.find(condition: { $0.obj.id == unit.obj.belong }) {
+                unit.habit = habit
+                return unit
+            }
+        }
+        TimerController.update(timer: nil)
+        return nil
     }
     
     // MARK: - Reload View
@@ -149,7 +180,7 @@ class HabitListController: BaseController, HabitListDays_Delegate {
             obj.unit = HabitUnit(sender as! Habit)
         }
         if let obj = segue.controller as? TimerController {
-            obj.habit = sender as! Habit
+            obj.unit = sender as! HabitUnit
         }
     }
     
@@ -170,4 +201,30 @@ class HabitListController: BaseController, HabitListDays_Delegate {
             return "日期不合法"
         }
     }
+    
+    // MARK: - Notification
+    
+    @objc func local_user_stopwatch(_ notification: Notification) {
+        if let userInfo = notification.userInfo {
+            if let key = userInfo["Key"] as? String {
+                if key == LocalNotification.Keys.Action.save {
+                    if let unit = timer_unit() {
+                        let close = (SQLite.default.db == nil)
+                        if close {
+                            SQLite.default.open()
+                        }
+                        unit.habit.units(insert: unit.obj.date, unit: unit)
+                        unit.obj.id = SQLite.HabitUnit.new_id
+                        unit.obj.insert()
+                        reload(habit: unit.habit)
+                        TimerController.update(timer: nil)
+                        if close {
+                            SQLite.default.close()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
 }

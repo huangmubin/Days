@@ -12,8 +12,18 @@ class TimerView: View {
     
     // MARK: - Value
     
-    var start: Date { return Date() }
-    var length: Int { return 0 }
+    var start: Date {
+        set {}
+        get { return Date() }
+    }
+    var space: Int {
+        set {}
+        get { return 0 }
+    }
+    
+    var length: Int {
+        get { return 0 }
+    }
     
     // MARK: - Link
     

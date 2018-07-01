@@ -58,4 +58,12 @@ class Key {
         }
     }
     
+    // MARK: - Timer
+    
+    class Timer {
+        static let start = "key_timer_start"
+        static let unit  = "key_timer_unit"
+        static let space = "key_timer_space"
+    }
+    
 }

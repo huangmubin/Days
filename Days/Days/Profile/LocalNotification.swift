@@ -9,12 +9,13 @@
 import Foundation
 import UserNotifications
 
-class LocalNotification {
+class LocalNotification: NSObject, UNUserNotificationCenterDelegate {
     
     // MARK: - Values
     
     static let center = UNUserNotificationCenter.current()
     static var allow: Bool = false
+    static let local: LocalNotification = LocalNotification()
     
     // MARK: - Actions
     
@@ -26,15 +27,37 @@ class LocalNotification {
         })
         center.getNotificationSettings(completionHandler: { (settings) in
             self.allow = (settings.authorizationStatus == .authorized)
-            if self.allow {
-                LocalNotification.Category.timer()
-                LocalNotification.Category.hint()
-            }
         })
+        center.delegate = LocalNotification.local
     }
     
-    func normal() {
-        
+    /** 倒计时界面专用 */
+    class func stopwatch(unit: String? = nil, length: Int = 0, space: Int = 0) {
+        if let unit = unit {
+            LocalNotification.Category.timer()
+            
+            let content = UNMutableNotificationContent()
+            content.title = "\(unit)"
+            content.body  = "你已经坚持 \(Format.time_text(second: length)) 了，需要休息一下吗？"
+            content.categoryIdentifier = Keys.Category.timer
+            
+            let trigger = UNTimeIntervalNotificationTrigger(
+                timeInterval: Double(space),
+                repeats: false
+            )
+            
+            let request = UNNotificationRequest(
+                identifier: Keys.Request.stopwatch,
+                content: content,
+                trigger: trigger
+            )
+            
+            center.add(request, withCompletionHandler: nil)
+        } else {
+            center.removePendingNotificationRequests(
+                withIdentifiers: [Keys.Request.stopwatch]
+            )
+        }
     }
     
     // MARK: - Actions
@@ -89,7 +112,7 @@ class LocalNotification {
     class Category {
         class func timer() {
             let category = UNNotificationCategory(
-                identifier: "Return_Notification",
+                identifier: Keys.Category.timer,
                 actions: [
                     LocalNotification.Actions.save,
                     LocalNotification.Actions.still,
@@ -104,7 +127,7 @@ class LocalNotification {
         }
         class func hint() {
             let category = UNNotificationCategory(
-                identifier: "Return_Notification",
+                identifier: Keys.Category.hint,
                 actions: [
                     LocalNotification.Actions.done,
                     LocalNotification.Actions.cancel
@@ -131,5 +154,65 @@ class LocalNotification {
             static let input = "LocalNotification_Key_Action_input"
             static let done = "LocalNotification_Key_Action_done"
         }
+        class Request {
+            static let stopwatch = "LocalNotification_Key_Request_stopwatch"
+        }
     }
+    
+    // MARK: - UNUserNotificationCenterDelegate
+    
+    // 接收到通知时应用反馈时的处理
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        switch response.notification.request.identifier {
+        case Keys.Request.stopwatch: // MARK: Keys.Request.stopwatch
+            switch response.actionIdentifier {
+            case Keys.Action.save:
+                NotificationCenter.default.post(
+                    name: Keys.Request.stopwatch.notification,
+                    object: self,
+                    userInfo: ["Key": Keys.Action.save]
+                )
+            case Keys.Action.still:
+                if let obj = TimerController.Unit.obj() {
+                    obj.length += obj.space
+                    obj.save()
+                    LocalNotification.stopwatch(
+                        unit: response.notification.request.content.title,
+                        length: obj.length,
+                        space: obj.space
+                    )
+                }
+            case Keys.Action.input:
+                if let obj = TimerController.Unit.obj() {
+                    let input = response as? UNTextInputNotificationResponse
+                    obj.text = (input?.userText ?? "")
+                    obj.save()
+                }
+                NotificationCenter.default.post(
+                    name: Keys.Request.stopwatch.notification,
+                    object: self,
+                    userInfo: ["Key": Keys.Action.save]
+                )
+            case Keys.Action.cancel:
+                NotificationCenter.default.post(
+                    name: Keys.Request.stopwatch.notification,
+                    object: self,
+                    userInfo: ["Key": Keys.Action.cancel]
+                )
+            default: break
+            }
+        default: break
+        }
+        completionHandler()
+    }
+    
+    // 接收到通知时应用在前台的处理
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        switch notification.request.identifier {
+        case Keys.Request.stopwatch: break
+        default: break
+        }
+        completionHandler(UNNotificationPresentationOptions(rawValue: 0))
+    }
+    
 }

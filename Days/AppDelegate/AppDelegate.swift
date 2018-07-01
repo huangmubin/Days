@@ -41,6 +41,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        SQLite.ChartUnit.create()
 //        SQLite.Diary.create()
 //        SQLite.DiaryUnit.create()
+        
+        LocalNotification.authorization()
+        
         return true
     }
 

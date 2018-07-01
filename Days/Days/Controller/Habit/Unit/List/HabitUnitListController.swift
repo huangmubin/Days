@@ -134,6 +134,7 @@ class HabitUnitListController: BaseController, HabitObjectController, UITableVie
                 tableView.deleteRows(at: [indexPath], with: .automatic)
                 tableView.reloadSections([indexPath.section], with: .automatic)
             }
+            toSuperController(object: [Key.Habit.Unit.delete: habit])
         }
     }
     

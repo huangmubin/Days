@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseController: ViewController, KeyboardDelegate, TimerDelegate {
+class BaseController: ViewController, KeyboardDelegate, TimerDelegate, Notifiable {
     
     // MARK: - lim
     

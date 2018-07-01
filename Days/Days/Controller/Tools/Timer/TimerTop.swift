@@ -27,6 +27,7 @@ class TimerTop: TopView {
     // MARK: - Actions
     
     override func left_action(_ sender: UIButton) {
+        TimerController.update(timer: nil)
         self.controller?.dismiss(
             animated: true,
             completion: nil

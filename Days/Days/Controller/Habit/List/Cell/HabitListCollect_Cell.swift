@@ -216,7 +216,7 @@ extension HabitListCollect {
         @objc func increase_action() {
             controller?.performSegue(
                 withIdentifier: "Timer",
-                sender: habit
+                sender: HabitUnit(habit)
             )
             
             /*
