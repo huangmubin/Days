@@ -22,6 +22,7 @@ class TimerView: View {
     }
     
     var length: Int {
+        set {}
         get { return 0 }
     }
     

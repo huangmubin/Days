@@ -23,6 +23,7 @@ class TimerStopwatch: TimerView {
     }
     
     override var length: Int {
+        set {}
         get { return Date().time1970 - labels.start.time1970 }
     }
     

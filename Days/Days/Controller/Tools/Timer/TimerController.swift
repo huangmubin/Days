@@ -27,9 +27,9 @@ class TimerController: BaseController {
             menu.update(start: true)
         } else {
             timer = counter
-            timer.isHidden = true
-            timer.run()
+            stopwatch.isHidden = true
             menu.update(start: false)
+            start_action()
         }
         
         top.controller  = self
@@ -37,9 +37,14 @@ class TimerController: BaseController {
         timer.controller = self
         
         if let obj = TimerController.Unit.obj() {
-            self.unit = obj.unit()
+            let new = obj.unit()
+            new.habit = unit.habit
+            unit = new
             timer.start = unit.obj.start
             timer.space = obj.space
+            if !new.habit.obj.is_time {
+                timer.length = obj.length
+            }
             start_action()
         }
     }
@@ -63,12 +68,14 @@ class TimerController: BaseController {
         menu.start.alpha = 0
         menu.save.alpha = 1
         
-        if TimerController.unit() == nil {
-            unit.obj.start = timer.start
-            TimerController.update(
-                timer: unit,
-                space: timer.space
-            )
+        if unit.habit.obj.is_time {
+            if TimerController.unit() == nil {
+                unit.obj.start = timer.start
+                TimerController.update(
+                    timer: unit,
+                    space: timer.space
+                )
+            }
         }
     }
     
