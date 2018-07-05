@@ -47,19 +47,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        SQLite.default.open()
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         SQLite.default.close()
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        SQLite.default.open()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

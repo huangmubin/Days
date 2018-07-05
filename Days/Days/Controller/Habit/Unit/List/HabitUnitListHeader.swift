@@ -14,14 +14,17 @@ class HabitUnitListHeader: TableViewHeaderFooter {
     
     override func view_load() {
         super.view_load()
-        addSubview(back_view)
-        addSubview(title)
+        //addSubview(back_view)
+        back_view.backgroundColor = Color.white
+        title_label.font = Font.text.s
+        title_label.textColor = Color.dark
+        //addSubview(title)
     }
     
     override func view_bounds() {
         super.view_bounds()
         back_view.frame = bounds
-        title.frame = CGRect(
+        title_label.frame = CGRect(
             x: 10, y: 0,
             width: bounds.width - 20,
             height: bounds.height
@@ -30,12 +33,6 @@ class HabitUnitListHeader: TableViewHeaderFooter {
     
     // MARK: - Back
     
-    let back_view: UIView = {
-        let view = UIView()
-        view.backgroundColor = Color.white
-        return view
-    }()
-    
-    let title: UILabel = Views.Label.small("", alignment: .left)
+    // let title: UILabel = Views.Label.small("", alignment: .left)
     
 }

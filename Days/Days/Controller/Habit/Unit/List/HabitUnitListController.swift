@@ -96,10 +96,10 @@ class HabitUnitListController: BaseController, HabitObjectController, UITableVie
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "Header") as! HabitUnitListHeader
-        header.view_update(index: IndexPath(row: 0, section: section), controller: self)
+        header.view_update(section: section, controller: self)
         let units = habit.units(date: habit.dates[section])
-        header.title.text = Format.yyyy年MM月dd日.string(from: Date(habit.dates[section]))
-        header.title.text = header.title.text! + (units.count(value: { $0.obj.length }) >= habit.obj.frequency ? " - 达成" : "")
+        header.title_label.text = Format.yyyy年MM月dd日.string(from: Date(habit.dates[section]))
+        header.title_label.text = header.title_label.text! + (units.count(value: { $0.obj.length }) >= habit.obj.frequency ? " - 达成" : "")
         return header
     }
     

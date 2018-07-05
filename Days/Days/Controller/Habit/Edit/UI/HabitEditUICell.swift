@@ -19,3 +19,23 @@ class HabitEditUICell: UICollectionViewCell {
     }
     
 }
+
+class HabitEditUIHeader: CollectionViewReusable {
+    
+    override func view_load() {
+        super.view_load()
+        title_label.textColor = Color.dark
+        title_label.font = Font.title.s
+    }
+    
+    override func view_reload() {
+        super.view_reload()
+        view_bounds()
+    }
+    
+    override func view_bounds() {
+        super.view_bounds()
+        title_label.frame.origin.x = 10
+    }
+    
+}

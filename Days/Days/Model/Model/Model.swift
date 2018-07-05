@@ -8,8 +8,17 @@
 
 import Foundation
 
+/** App 数据 */
+var app: Model = Model()
 class Model {
     
+    // MARK: - Date
+    
+    var date: Date = Date()
+    
+    // MARK: - Habits
+    
+    var habits: [Habit] = []
     
     
 }

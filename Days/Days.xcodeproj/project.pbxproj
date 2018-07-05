@@ -62,6 +62,7 @@
 		9C9045A020BF95A100263762 /* HabitUnitEditTypeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C90459F20BF95A100263762 /* HabitUnitEditTypeCard.swift */; };
 		9C9045A220BF95BD00263762 /* HabitUnitListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9045A120BF95BD00263762 /* HabitUnitListCell.swift */; };
 		9C9045A420BFEF4600263762 /* HabitUnitEditCountCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9045A320BFEF4600263762 /* HabitUnitEditCountCard.swift */; };
+		9CAC78C520ECA33B006FFE65 /* CollectionViewReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAC78C420ECA33B006FFE65 /* CollectionViewReusable.swift */; };
 		9CAF330920D8B2740091DD1A /* Ex_DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAF330820D8B2740091DD1A /* Ex_DispatchQueue.swift */; };
 		9CAF330B20D8EB970091DD1A /* HabitUnitListTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAF330A20D8EB970091DD1A /* HabitUnitListTop.swift */; };
 		9CB5B8EB20C639D6009FFE5D /* SQLiteLogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB5B8EA20C639D5009FFE5D /* SQLiteLogs.swift */; };
@@ -214,6 +215,7 @@
 		9C90459F20BF95A100263762 /* HabitUnitEditTypeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitUnitEditTypeCard.swift; sourceTree = "<group>"; };
 		9C9045A120BF95BD00263762 /* HabitUnitListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitUnitListCell.swift; sourceTree = "<group>"; };
 		9C9045A320BFEF4600263762 /* HabitUnitEditCountCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitUnitEditCountCard.swift; sourceTree = "<group>"; };
+		9CAC78C420ECA33B006FFE65 /* CollectionViewReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewReusable.swift; sourceTree = "<group>"; };
 		9CAF330820D8B2740091DD1A /* Ex_DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ex_DispatchQueue.swift; sourceTree = "<group>"; };
 		9CAF330A20D8EB970091DD1A /* HabitUnitListTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitUnitListTop.swift; sourceTree = "<group>"; };
 		9CB5B8EA20C639D5009FFE5D /* SQLiteLogs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteLogs.swift; sourceTree = "<group>"; };
@@ -419,8 +421,9 @@
 		9C25078020B6C94B00EB2D13 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				9C25078120B6C95C00EB2D13 /* CollectionViewCell.swift */,
 				9C77E1C920B70589002CAA25 /* CollectionView.swift */,
+				9C25078120B6C95C00EB2D13 /* CollectionViewCell.swift */,
+				9CAC78C420ECA33B006FFE65 /* CollectionViewReusable.swift */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -988,6 +991,7 @@
 				9CFA480A20B55CD5004AFD67 /* ChartUnit_SQlite.swift in Sources */,
 				9CFA47DE20B54975004AFD67 /* Ex_UIScreen.swift in Sources */,
 				9CF51F7020BD5BFE00D48293 /* HabitEditSpaceCard.swift in Sources */,
+				9CAC78C520ECA33B006FFE65 /* CollectionViewReusable.swift in Sources */,
 				9CFA481C20B55D0F004AFD67 /* Diary.swift in Sources */,
 				9C90459A20BF956D00263762 /* HabitUnitEditCalendarCard.swift in Sources */,
 				9C25078220B6C95C00EB2D13 /* CollectionViewCell.swift in Sources */,

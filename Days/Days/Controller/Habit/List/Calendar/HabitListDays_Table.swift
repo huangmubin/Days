@@ -109,7 +109,7 @@ extension HabitListDays {
             case 1:  view.info.text = "下午"
             default: view.info.text = "晚上"
             }
-            view.view_update(index: IndexPath(row: 0, section: section), view: self)
+            view.view_update(section: section, view: self)
             return view
         }
         
@@ -137,7 +137,7 @@ extension HabitListDays.Table {
         let back: View = View()
         
         override func view_load() {
-            super.view_load()
+            //super.view_load()
             addSubview(back)
             addSubview(info)
         }
@@ -148,7 +148,7 @@ extension HabitListDays.Table {
         }
         
         override func view_bounds() {
-            super.view_bounds()
+            //super.view_bounds()
             back.frame = bounds
             info.frame = CGRect(
                 x: 20, y: 0,

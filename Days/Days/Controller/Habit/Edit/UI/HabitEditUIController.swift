@@ -15,7 +15,12 @@ class HabitEditUIController: BaseController, UICollectionViewDataSource, UIColle
     var habit: Habit!
     var is_image: Bool = true
     
-    var images: [String] = [
+    var images_title: [String] = [
+        "标题"
+    ]
+    
+    var images: [[String]] = [
+        [
         // 运动系列
         "habits_runner",
         "habits_cyclist",
@@ -60,40 +65,58 @@ class HabitEditUIController: BaseController, UICollectionViewDataSource, UIColle
 //        "improvement",
 //        "karaoke",
 //        "wallet",
+            ]
     ]
     
-    var colors: [Int] = [
-        
-            // 红色
-            0xF16D7A,
-            0xF55066,
-            0xFF4848,
-            0xFF0035,
-            
-            // 橙色
-            0xFF7A26,
-            0xD75400,
-            
-            // 黄色
-            0xFFFF00,
-            0xFFED00,
-            
-            // 绿色
-            0x61B500,
-            0x356400,
-            
-            // 青色
-            0x50E3C2,
-            0x00AB85,
-            
-            // 蓝色
-            0x1D86FF,
-            0x004698,
-            
-            // 紫色
-            0x9D2DFF,
-            0x4E0093,
+    var colors_title: [String] = [
+        "红色",
+        "橙色",
+        "黄色",
+        "绿色",
+        "青色",
+        "蓝色",
+        "紫色",
+    ]
+    
+    var colors: [[Int]] =
+        [
+            [
+                // 红色
+                0xF16D7A,
+                0xF55066,
+                0xFF4848,
+                0xFF0035,
+            ],[
+                // 橙色
+                0xFF7A26,
+                0xD75400,
+            ],[
+                
+                // 黄色
+                0xFFFF00,
+                0xFFED00,
+            ],[
+                
+                // 绿色
+                0x61B500,
+                0x356400,
+            ],[
+                
+                // 青色
+                0x50E3C2,
+                0x00AB85,
+            ],[
+                
+                // 蓝色
+                0x1D86FF,
+                0x004698,
+            ],[
+                
+                // 紫色
+                0x9D2DFF,
+                0x4E0093,
         ]
+    ]
     
     // MARK: - Life
     
@@ -116,9 +139,17 @@ class HabitEditUIController: BaseController, UICollectionViewDataSource, UIColle
     
     // MARK: - Collection
     
-    @IBOutlet weak var collection: UICollectionView!
+    @IBOutlet weak var collection: UICollectionView! {
+        didSet {
+            collection.register(
+                HabitEditUIHeader.self,
+                forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
+                withReuseIdentifier: "Header"
+            )
+        }
+    }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         if is_image {
             return images.count
         } else {
@@ -126,27 +157,50 @@ class HabitEditUIController: BaseController, UICollectionViewDataSource, UIColle
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if is_image {
+            return images[section].count
+        } else {
+            return colors[section].count
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! HabitEditUICell
         if is_image {
             cell.value.setImage(
-                Resource.image(images[indexPath.row], habit.obj.color),
+                Resource.image(images[indexPath.section][indexPath.row], habit.obj.color),
                 for: .normal
             )
             cell.tintColor = habit.color
             cell.value.backgroundColor = Color.gray.thin
         } else {
             cell.value.setImage(nil, for: .normal)
-            cell.value.backgroundColor = UIColor(colors[indexPath.row])
+            cell.value.backgroundColor = UIColor(colors[indexPath.section][indexPath.row])
         }
         return cell
     }
-
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let view = collectionView.dequeueReusableSupplementaryView(
+            ofKind: UICollectionElementKindSectionHeader,
+            withReuseIdentifier: "Header",
+            for: indexPath
+        ) as! HabitEditUIHeader
+        if is_image {
+            view.title_label.text = images_title[indexPath.row]
+        } else {
+            view.title_label.text = colors_title[indexPath.row]
+        }
+        view.view_update(section: indexPath.section, controller: self)
+        return view
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if is_image {
-            habit.obj.image = images[indexPath.row]
+            habit.obj.image = images[indexPath.section][indexPath.row]
         } else {
-            habit.obj.color = colors[indexPath.row]
+            habit.obj.color = colors[indexPath.section][indexPath.row]
         }
         dismiss(animated: true, completion: nil)
     }
@@ -164,5 +218,13 @@ class HabitEditUIController: BaseController, UICollectionViewDataSource, UIColle
             )
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(
+            width: collectionView.bounds.width,
+            height: 60
+        )
+    }
+
     
 }

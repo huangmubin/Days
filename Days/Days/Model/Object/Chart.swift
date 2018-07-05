@@ -80,7 +80,7 @@ class Chart {
     
     func delete() {
         let sql = "delete from \(SQLite.ChartUnit.table) where belong = \(obj.id);"
-        let _ = SQLite.default.execut(sql: sql)
+        let _ = SQLite.default.execute(sql: sql)
         obj.delete()
     }
     
