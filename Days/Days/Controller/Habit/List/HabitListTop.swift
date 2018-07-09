@@ -30,6 +30,8 @@ class HabitListTop: TopView {
         title.setTitle("今天", for: .normal)
         left_button.setImage(#imageLiteral(resourceName: "ui_bar_menu"), for: .normal)
         right_button.setImage(#imageLiteral(resourceName: "ui_bar_append"), for: .normal)
+        
+        left_button.isHidden = true
     }
     
     // MARK: - Actions

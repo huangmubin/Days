@@ -63,7 +63,7 @@ extension HabitListCollect {
         override func view_reload() {
             super.view_reload()
             let obj = habit ?? Habit()
-            let length = obj.units(date: obj.date.date).count(value: { $0.obj.length })
+            let length = obj.units(date: app.date.date).count(value: { $0.obj.length })
             let unit_progress = length * 100 / obj.obj.frequency
             
             // update the color
@@ -188,12 +188,12 @@ extension HabitListCollect {
          */
         @objc func decrease_action() {
             Impact.heavy()
-            menu.animation(menu.increase)
+            menu.animation(menu.decrease)
             let unit = HabitUnit(habit)
             unit.obj.id = SQLite.HabitUnit.new_id
-            unit.obj.start = habit.date.first(.day).advance(Double(Date().time - unit.obj.length))
+            unit.obj.start = app.date.first(.day).advance(Double(Date().time - unit.obj.length))
             unit.obj.insert()
-            habit.units(insert: habit.date.date, unit: unit)
+            habit.units(insert: app.date.date, unit: unit)
             UIView.animate(withDuration: 0.25, animations: {
                 self.view_reload()
             })
@@ -268,15 +268,15 @@ extension HabitListCollect {
         func complete_today_action() {
             Impact.heavy()
             menu.animation(menu.complete)
-            let units = habit.units(date: habit.date.date)
+            let units = habit.units(date: app.date.date)
             let length = units.count(value: { $0.obj.length })
             if length < habit.obj.frequency {
                 let unit = HabitUnit(habit)
                 unit.obj.id = SQLite.HabitUnit.new_id
                 unit.obj.length = habit.obj.frequency - length
-                unit.obj.start = habit.date.first(.day).advance(Double(habit.date.time - unit.obj.length))
+                unit.obj.start = app.date.first(.day).advance(Double(Date().time - unit.obj.length))
                 unit.obj.insert()
-                habit.units(insert: habit.date.date, unit: unit)
+                habit.units(insert: app.date.date, unit: unit)
             }
             UIView.animate(withDuration: 0.25, animations: {
                 self.view_reload()

@@ -23,7 +23,7 @@ class HabitUnitListController: BaseController, HabitObjectController, UITableVie
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if let index = habit.dates.index(of: habit.date.date) {
+        if let index = habit.dates.index(of: app.date.date) {
             table.scrollToRow(
                 at: IndexPath(row: 0, section: index),
                 at: UITableViewScrollPosition.top,
@@ -34,7 +34,7 @@ class HabitUnitListController: BaseController, HabitObjectController, UITableVie
         if let unit = messages.removeValue(forKey: Key.Habit.Unit.append) as? HabitUnit {
             unit.obj.id = SQLite.HabitUnit.new_id
             unit.obj.insert()
-            habit.units(insert: habit.date.date, unit: unit)
+            habit.units(insert: app.date.date, unit: unit)
             //habit.chart.units(update: habit.date.date)
             habit.dates_reload()
             table.reloadData()

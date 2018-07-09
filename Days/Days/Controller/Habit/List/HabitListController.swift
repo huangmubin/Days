@@ -10,21 +10,15 @@ import UIKit
 
 class HabitListController: BaseController, HabitListDays_Delegate {
 
-    var objs: [Habit] = []
-    var date: Date = Date()
+    //var objs: [Habit] = []
     
     /** Update the date */
     func reload_date() {
-        objs.forEach({
-            $0.date = date
-            $0.is_animation = true
-        })
+        app.habits.forEach({ $0.is_animation = true })
         collect?.reloadData()
-        top.update(date: date)
+        top.update(date: app.date)
         DispatchQueue.main.delay(time: 1, execute: {
-            self.objs.forEach({
-                $0.is_animation = false
-            })
+            app.habits.forEach({ $0.is_animation = false })
         })
     }
     
@@ -40,13 +34,7 @@ class HabitListController: BaseController, HabitListDays_Delegate {
             object: LocalNotification.local
         )
         
-        objs = SQLite.Habit.find().sorted(by: {
-            $0.sort < $1.sort
-        }).map({
-            let obj = Habit($0)
-            obj.is_animation = true
-            return obj
-        })
+        app.reload(habit: true)
         
         collect.controller = self
         collect.register(HabitListCollect.Cell.self, forCellWithReuseIdentifier: "Cell")
@@ -57,18 +45,11 @@ class HabitListController: BaseController, HabitListDays_Delegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        objs.forEach({ $0.date = date })
-        
         if let obj = messages.removeValue(forKey: Key.Habit.append) as? Habit {
-            obj.obj.id = SQLite.Habit.new_id
-            obj.obj.sort = obj.obj.id
-            obj.obj.insert()
-            obj.chart_create()
-            obj.event_create()
-            obj.diary_create()
-            objs.append(obj)
-            
-            collect.insertItems(at: [IndexPath(objs)])
+            app.append(habit: obj)
+            collect.insertItems(
+                at: [IndexPath(app.habits)]
+            )
         }
         
         if let obj = messages.removeValue(forKey: Key.Habit.update) as? Habit {
@@ -77,13 +58,10 @@ class HabitListController: BaseController, HabitListDays_Delegate {
         }
         
         if let obj = messages.removeValue(forKey: Key.Habit.delete) as? Habit {
-            if let row = objs.index(where: { $0 === obj }) {
-                objs.remove(at: row)
-            }
-            obj.delete()
-            
-            let index = IndexPath(row: objs.count, section: 0)
-            collect.deleteItems(at: [index])
+            app.delete(habit: obj)
+            collect.deleteItems(
+                at: [IndexPath(row: app.habits.count, section: 0)]
+            )
         }
         
         if let obj = messages.removeValue(forKey: Key.Habit.Unit.append) as? HabitUnit {
@@ -100,7 +78,7 @@ class HabitListController: BaseController, HabitListDays_Delegate {
         if is_load {
             is_load = false
             DispatchQueue.main.delay(time: 1, execute: {
-                self.objs.forEach({ $0.is_animation = false })
+                app.habits.forEach({ $0.is_animation = false })
             })
         }
         
@@ -116,7 +94,7 @@ class HabitListController: BaseController, HabitListDays_Delegate {
     
     func timer_unit() -> HabitUnit? {
         if let unit = TimerController.unit() {
-            if let habit = objs.find(condition: { $0.obj.id == unit.obj.belong }) {
+            if let habit = app.habits.find(condition: { $0.obj.id == unit.obj.belong }) {
                 unit.habit = habit
                 return unit
             }
@@ -129,7 +107,7 @@ class HabitListController: BaseController, HabitListDays_Delegate {
     
     /** 动画方式重载 Cell */
     func reload(habit: Habit) {
-        if let row = objs.index(where: { $0 === habit }) {
+        if let row = app.habits.index(where: { $0 === habit }) {
             if let cell = collect.cellForItem(at: IndexPath(row: row, section: 0)) as? CollectionViewCell {
                 UIView.animate(withDuration: 0.25, animations: {
                     cell.view_reload()
@@ -155,7 +133,7 @@ class HabitListController: BaseController, HabitListDays_Delegate {
     }
     
     func habitListDays(update date: Date) {
-        self.date = date
+        app.date = date
         self.top.update(date: date)
     }
     
@@ -177,7 +155,9 @@ class HabitListController: BaseController, HabitListDays_Delegate {
             obj.habit = sender as! Habit
         }
         if let obj = segue.controller as? HabitUnitEditController {
-            obj.unit = HabitUnit(sender as! Habit)
+            let habit = sender as! Habit
+            obj.unit = HabitUnit(habit)
+            obj.unit.obj.start = app.date(decrease: habit.obj.space)
         }
         if let obj = segue.controller as? TimerController {
             obj.unit = sender as! HabitUnit
@@ -194,8 +174,8 @@ class HabitListController: BaseController, HabitListDays_Delegate {
     
     override func keyboard(_ board: Keyboard) -> String? {
         if let date = board.value as? Date {
-            self.date = date
-            self.reload_date()
+            app.date = date
+            reload_date()
             return nil
         } else {
             return "日期不合法"

@@ -18,12 +18,12 @@ class HabitBoothTopCard: CardTopView {
     }
     
     override func left_action(_ sender: UIButton) {
-        habit.date = Date()
+        app.date = Date()
         table.controller?.dismiss(animated: true, completion: nil)
     }
     
     override func right_action(_ sender: UIButton) {
-        habit.date = Date()
+        app.date = Date()
         table.controller?.dismiss(animated: true, completion: nil)
     }
     

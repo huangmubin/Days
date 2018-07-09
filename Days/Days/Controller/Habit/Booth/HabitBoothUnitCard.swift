@@ -61,16 +61,16 @@ class HabitBoothUnitCard: CardStandardView {
     
     @objc func done_action() {
         let unit = HabitUnit(habit)
-        unit.obj.start = habit.date.first(.day).addingTimeInterval(TimeInterval(Date().time))
+        unit.obj.start = app.date.first(.day).addingTimeInterval(TimeInterval(Date().time))
         table.controller?.performSegue(withIdentifier: "UnitEdit", sender: unit)
     }
     @objc func sock_action() {
         let unit = HabitUnit(habit)
-        unit.obj.start = habit.date.first(.day).addingTimeInterval(TimeInterval(Date().time))
+        unit.obj.start = app.date.first(.day).addingTimeInterval(TimeInterval(Date().time))
         unit.obj.is_sick = true
         table.controller?.performSegue(withIdentifier: "UnitEdit", sender: unit)
     }
     @objc func list_action() {
-        table.controller?.performSegue(withIdentifier: "UnitList", sender: habit.date)
+        table.controller?.performSegue(withIdentifier: "UnitList", sender: app.date)
     }
 }

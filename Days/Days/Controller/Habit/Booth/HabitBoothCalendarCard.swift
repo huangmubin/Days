@@ -21,7 +21,7 @@ class HabitBoothCalendarCard: CardCalendarView {
     }
     
     override func cardCalendar(view: CardCalendarView, update date: Date) {
-        habit.date = date
+        app.date = date
     }
     
     override func cardCalendar(view: CardCalendarView, is_done date: Date) -> Bool {

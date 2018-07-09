@@ -16,56 +16,49 @@ class HabitEditUIController: BaseController, UICollectionViewDataSource, UIColle
     var is_image: Bool = true
     
     var images_title: [String] = [
-        "标题"
+        "运动",
+        "球类",
+        "学习",
+        "其他",
     ]
     
     var images: [[String]] = [
         [
-        // 运动系列
-        "habits_runner",
-        "habits_cyclist",
-        "habits_swimmer",
-        "habits_yogi",
-        
-        "habits_bed",
-        "habits_map",
-        "habits_book_01",
-        "habits_martini",
-        "habits_book_02",
-        "habits_micro",
-        "habits_bookmarks",
-        "habits_pet_01",
-        "habits_bookshelf",
-        "habits_roadsign",
-        "habits_bulb",
-        "habits_search",
-        "habits_calculator",
-        "habits_spoon",
-        "habits_camera",
-        "habits_sport_01",
-        "habits_clover_01",
-        "habits_sport_02",
-//        "habits_cocktail",
-        "habits_sport_03",
-        "habits_coffee",
-        "habits_sport_04",
-        "habits_comment",
-        "habits_sport_05",
-        "habits_computer_01",
-        "habits_star",
-        "habits_iphone_01",
-        "habits_stopwatch",
-        "habits_keypad",
-
-//        "alarm-clock",
-//        "bicycle",
-//        "book",
-//        "computer",
-//        "cooking",
-//        "improvement",
-//        "karaoke",
-//        "wallet",
-            ]
+            "v3_sport_bike",
+            "v3_sport_default_92",
+            "v3_sport_default_74",
+            "v3_sport_default_96",
+            "v3_sport_default_84",
+            "v3_sport_run",
+            "v3_sport_default_86",
+            "v3_sport_swimming",
+        ],
+        [
+            "v3_ball_default_75",
+            "v3_ball_default_87",
+            "v3_ball_default_79",
+            "v3_ball_default_91",
+            "v3_ball_default_83",
+        ],
+        [
+            "v3_study_default_165",
+            "v3_study_default_179",
+            "v3_study_default_167",
+            "v3_study_default_183",
+            "v3_study_default_171",
+            "v3_study_default_187",
+            "v3_study_default_175",
+        ],
+        [
+            "v3_other_default_120",
+            "v3_other_default_155",
+            "v3_other_default_128",
+            "v3_other_default_62",
+            "v3_other_default_147",
+            "v3_other_default_64",
+            "v3_other_default_154",
+            "v3_other_default_68",
+        ],
     ]
     
     var colors_title: [String] = [
@@ -188,9 +181,9 @@ class HabitEditUIController: BaseController, UICollectionViewDataSource, UIColle
             for: indexPath
         ) as! HabitEditUIHeader
         if is_image {
-            view.title_label.text = images_title[indexPath.row]
+            view.title_label.text = images_title[indexPath.section]
         } else {
-            view.title_label.text = colors_title[indexPath.row]
+            view.title_label.text = colors_title[indexPath.section]
         }
         view.view_update(section: indexPath.section, controller: self)
         return view

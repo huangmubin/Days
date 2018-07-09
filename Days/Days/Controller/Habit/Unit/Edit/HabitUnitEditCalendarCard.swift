@@ -28,7 +28,7 @@ class HabitUnitEditCalendarCard: CardCalendarView {
     }
     
     override func cardCalendar(view: CardCalendarView, update date: Date) {
-        unit_obj.habit.date = date
+        app.date = date
     }
     
     override func cardCalendar(view: CardCalendarView, is_done date: Date) -> Bool {

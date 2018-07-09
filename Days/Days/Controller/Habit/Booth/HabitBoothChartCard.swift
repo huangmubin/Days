@@ -232,7 +232,7 @@ class HabitBoothChartCard: CardBaseView, UICollectionViewDataSource, UICollectio
     @objc func date_action() {
         let key = KeyboardDate()
         key.delegate = self
-        key.update(date: habit.date)
+        key.update(date: app.date)
         key.update(title: "输入日期")
         key.push()
     }

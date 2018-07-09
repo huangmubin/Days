@@ -25,7 +25,7 @@ class HabitListDays: View, HabitListDays_Scroll_Delegate {
     // MARK: - Values
     
     /**  */
-    let model: Model.HabitListCalendar = Model.HabitListCalendar()
+    //let model: Model.HabitListCalendar = Model.HabitListCalendar()
     
     /**  */
     var is_showing: Bool { return alpha > 0 }
@@ -39,9 +39,8 @@ class HabitListDays: View, HabitListDays_Scroll_Delegate {
     
     /** */
     func reload() {
-        model.reload()
         calendar.view.collect.reloadData()
-        table.units = model.unit(time: date.date)
+        table.units = app.units(date: date.date)
         table.reload()
         empty.update(date: date)
         
@@ -51,7 +50,6 @@ class HabitListDays: View, HabitListDays_Scroll_Delegate {
     }
     
     func clear() {
-        model.reload()
         table.units.removeAll()
     }
     
@@ -70,10 +68,6 @@ class HabitListDays: View, HabitListDays_Scroll_Delegate {
     
     override func view_deploy() {
         super.view_deploy()
-        // Model
-        
-        model.reload()
-        
         // MASK
         
         self.mask = UIView()
@@ -87,7 +81,7 @@ class HabitListDays: View, HabitListDays_Scroll_Delegate {
         
         // Table
         addSubview(table)
-        table.units = model.unit(time: date.date)
+        table.units = app.units(date: date.date)
         table.reload()
         
         // Empty
@@ -163,20 +157,24 @@ class HabitListDays: View, HabitListDays_Scroll_Delegate {
     
     func dayScroll(update date: Date) {
         delegate?.habitListDays(update: date)
-        //table.units = model.unit(time: date.date)
-        //table.reload()
         update(views: date)
     }
     
     func dayScroll(light date: Date) -> Bool {
-        return model.unit(date.date).count > 0
+        let units = app.units(date: date.date)
+        for unit in units {
+            if unit.count > 0 {
+                return true
+            }
+        }
+        return false
     }
     
     // MARK: - Animation
     
     private var is_empty_showing: Bool = true
     func update(views date: Date) {
-        let units = model.unit(time: date.date)
+        let units = app.units(date: date.date)
         let count = units.count(value: { $0.count }) == 0
         let h = bounds.height
         

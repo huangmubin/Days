@@ -21,12 +21,12 @@ class HabitBoothDiaryCard: CardMessageView {
     
     override func reload() {
         super.reload()
-        update(text: diary.units(date: diary.habit.date.date).obj.note)
+        //update(text: diary.units(date: diary.habit.date.date).obj.note)
     }
     
     override func update(message: String) {
-        diary.units(date: diary.habit.date.date).obj.note = message
-        diary.units(date: diary.habit.date.date).obj.update()
+        //diary.units(date: diary.habit.date.date).obj.note = message
+        //diary.units(date: diary.habit.date.date).obj.update()
     }
     
 }

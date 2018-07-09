@@ -23,8 +23,8 @@ class HabitBoothController: BaseController, HabitObjectController {
         if let unit = messages.removeValue(forKey: Key.Habit.Unit.append) as? HabitUnit {
             unit.obj.id = SQLite.HabitUnit.new_id
             unit.obj.insert()
-            habit.units(insert: habit.date.date, unit: unit)
-            habit.chart.units(update: habit.date.date)
+            habit.units(insert: app.date.date, unit: unit)
+            habit.chart.units(update: app.date.date)
         }
         
         if is_loaded {
@@ -46,7 +46,7 @@ class HabitBoothController: BaseController, HabitObjectController {
         table.cards.append(HabitBoothUnitCard(id: "Unit", height: 60))
         
         for chart in habit.charts {
-            chart.date = habit.date
+            chart.date = app.date
             let card = HabitBoothChartCard(id: "Chart", height: 320)
             card.chart = chart
             table.cards.append(card)

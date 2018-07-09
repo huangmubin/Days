@@ -15,12 +15,12 @@ class HabitListCollect: CollectionView, UICollectionViewDataSource, UICollection
     // MARK: - UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return controller?.objs.count ?? 0
+        return app.habits.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! HabitListCollect.Cell
-        cell.habit = controller.objs[indexPath.row]
+        cell.habit = app.habits[indexPath.row]
         cell.show.value = 1
         cell.view_update(index: indexPath, controller: controller)
         return cell
@@ -31,14 +31,8 @@ class HabitListCollect: CollectionView, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         controller?.performSegue(
             withIdentifier: "HabitUnitEdit",
-            sender: controller.objs[indexPath.row]
+            sender: app.habits[indexPath.row]
         )
-        /*
-        controller?.performSegue(
-            withIdentifier: "HabitUnitList",
-            sender: controller.objs[indexPath.row]
-        )
-        */
     }
     
     // MARK: - UICollectionViewDelegateFlowLayout

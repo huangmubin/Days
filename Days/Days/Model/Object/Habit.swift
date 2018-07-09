@@ -30,11 +30,6 @@ class Habit {
         }
     }
     
-    // MARK: - Date
-    
-    /** Date */
-    var date: Date = Date()
-    
     // MARK: - UI
     
     /** UIImage */
