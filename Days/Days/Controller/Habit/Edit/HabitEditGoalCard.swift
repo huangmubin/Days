@@ -53,10 +53,13 @@ class HabitEditGoalCard: CardStandardEditView {
                 habit.obj.goal = int
             }
         } else {
+            guard let text = board.value as? String else {
+                return "输入不合法"
+            }
             guard board.text.text.count < 3 else {
                 return "单位不易过长"
             }
-            switch board.text.text {
+            switch text {
             case "": break
             case "时间", "小时", "分钟", "秒", "分", "时", "时辰", "时长":
                 if !habit.obj.is_time {
@@ -78,12 +81,24 @@ class HabitEditGoalCard: CardStandardEditView {
                     habit.obj.frequency /= 60
                     habit.obj.space /= 60
                 }
-                habit.obj.type = board.text.text
+                habit.obj.type = text
             }
             table.card(id: "Frequency")?.reload()
         }
         reload()
         return nil
+    }
+    
+    // MARK: - Keyboard Set
+    
+    override func edit_action() {
+        let board = KeyboardType()
+        board.delegate = self
+        board.id = "edit"
+        edit_keyboard(board)
+        board.select_color = habit.color
+        board.reload(types: ["时间", "次数", "公里"])
+        board.push()
     }
     
     override func normal_keyboard(_ board: Keyboard) {
@@ -93,7 +108,7 @@ class HabitEditGoalCard: CardStandardEditView {
     }
     
     override func edit_keyboard(_ board: Keyboard) {
-        board.update(title: "时间/次数/自定义")
+        board.update(title: "单位")
         board.update(text: habit.obj.type ?? "时间")
     }
     

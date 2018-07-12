@@ -72,8 +72,8 @@ class CardTopView: CardBaseView {
 
     // MARK: - Buttons
     
-    let left: UIButton = Views.Button.system(image: #imageLiteral(resourceName: "but_back"))
-    let right: UIButton = Views.Button.system(image: #imageLiteral(resourceName: "but_sure"))
+    let left: UIButton = Views.Button.system(image: #imageLiteral(resourceName: "ui_bar_right"))
+    let right: UIButton = Views.Button.system(image: #imageLiteral(resourceName: "ui_bar_sure"))
     
     @objc func left_action(_ sender: UIButton) {
         //print("Left")
@@ -85,7 +85,7 @@ class CardTopView: CardBaseView {
     
     // MARK: - Labels
     //Views.Button.title()
-    let title: UILabel = Views.Label.title("标题")
+    let title: UILabel = Views.Label.title(small: "标题")
     let subtitle: UILabel = Views.Label.hint("")
     
     // MARK: - Suspend

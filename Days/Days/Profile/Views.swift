@@ -80,6 +80,15 @@ extension Views {
             return button
         }
         
+        static func title(small value: String, alignment: NSTextAlignment = NSTextAlignment.left) -> UIButton {
+            let button = UIButton(type: .system)
+            button.setTitle(value, for: .normal)
+            button.titleLabel?.font = Font.title.s
+            button.setTitleColor(Color.dark, for: .normal)
+            button.titleLabel?.textAlignment = alignment
+            return button
+        }
+        
         /** A button in the hint place.
          Font = Font.hint.m;
          title color = Color.dark;

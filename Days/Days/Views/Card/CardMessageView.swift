@@ -55,7 +55,7 @@ class CardMessageView: CardStandardView {
     
     override func view_deploy() {
         super.view_deploy()
-        default_height = 160
+        //default_height = 160
         container.addSubview(text)
         container.addSubview(input_button)
         input_button.addTarget(self, action: #selector(input_action(_:)), for: .touchUpInside)

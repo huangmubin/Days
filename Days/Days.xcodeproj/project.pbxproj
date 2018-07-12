@@ -62,6 +62,7 @@
 		9C9045A020BF95A100263762 /* HabitUnitEditTypeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C90459F20BF95A100263762 /* HabitUnitEditTypeCard.swift */; };
 		9C9045A220BF95BD00263762 /* HabitUnitListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9045A120BF95BD00263762 /* HabitUnitListCell.swift */; };
 		9C9045A420BFEF4600263762 /* HabitUnitEditCountCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9045A320BFEF4600263762 /* HabitUnitEditCountCard.swift */; };
+		9CA2FDE820F753A600061D54 /* KeyboardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA2FDE720F753A600061D54 /* KeyboardType.swift */; };
 		9CAC78C520ECA33B006FFE65 /* CollectionViewReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAC78C420ECA33B006FFE65 /* CollectionViewReusable.swift */; };
 		9CAF330920D8B2740091DD1A /* Ex_DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAF330820D8B2740091DD1A /* Ex_DispatchQueue.swift */; };
 		9CAF330B20D8EB970091DD1A /* HabitUnitListTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAF330A20D8EB970091DD1A /* HabitUnitListTop.swift */; };
@@ -215,6 +216,7 @@
 		9C90459F20BF95A100263762 /* HabitUnitEditTypeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitUnitEditTypeCard.swift; sourceTree = "<group>"; };
 		9C9045A120BF95BD00263762 /* HabitUnitListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitUnitListCell.swift; sourceTree = "<group>"; };
 		9C9045A320BFEF4600263762 /* HabitUnitEditCountCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitUnitEditCountCard.swift; sourceTree = "<group>"; };
+		9CA2FDE720F753A600061D54 /* KeyboardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardType.swift; sourceTree = "<group>"; };
 		9CAC78C420ECA33B006FFE65 /* CollectionViewReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewReusable.swift; sourceTree = "<group>"; };
 		9CAF330820D8B2740091DD1A /* Ex_DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ex_DispatchQueue.swift; sourceTree = "<group>"; };
 		9CAF330A20D8EB970091DD1A /* HabitUnitListTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitUnitListTop.swift; sourceTree = "<group>"; };
@@ -872,6 +874,7 @@
 				9CFA482420B579A6004AFD67 /* Keyboard.swift */,
 				9C77E1C720B5A752002CAA25 /* KeyboardDate.swift */,
 				9C210B1020B6630300C17D35 /* KeyboardTime.swift */,
+				9CA2FDE720F753A600061D54 /* KeyboardType.swift */,
 			);
 			path = Keyboard;
 			sourceTree = "<group>";
@@ -989,6 +992,7 @@
 				9C397F4820DCDA5B005F054C /* Model.swift in Sources */,
 				9CBC806C20B7BCEA00321675 /* CardStandardView.swift in Sources */,
 				9CFA480A20B55CD5004AFD67 /* ChartUnit_SQlite.swift in Sources */,
+				9CA2FDE820F753A600061D54 /* KeyboardType.swift in Sources */,
 				9CFA47DE20B54975004AFD67 /* Ex_UIScreen.swift in Sources */,
 				9CF51F7020BD5BFE00D48293 /* HabitEditSpaceCard.swift in Sources */,
 				9CAC78C520ECA33B006FFE65 /* CollectionViewReusable.swift in Sources */,

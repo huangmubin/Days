@@ -13,7 +13,7 @@ class CardStandardView: CardBaseView {
     // MARK: - Value
     
     /** Space title to container */
-    var space: CGFloat = 20
+    var space: CGFloat = 16
     
     // MARK: - Init
     
@@ -30,7 +30,7 @@ class CardStandardView: CardBaseView {
             x: edge.left,
             y: edge.top,
             width: bounds.width - edge.left - edge.right,
-            height: 40
+            height: 30
         )
         
         container.frame = CGRect(

@@ -94,11 +94,10 @@ extension SQLite {
         // MARK: - UI
         
         /** 图标名称 */
-        var image: String = "habits_book_01"
+        var image: String = "v3_other_default_64"
         
         /** 颜色 */
-        var color: Int = 0xF16D7A
-        //var color: Int = 0
+        var color: Int = 0x1D86FF
         
     }
     

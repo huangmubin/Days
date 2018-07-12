@@ -16,6 +16,8 @@ protocol KeyboardDelegate: class {
 /** 初始化后，必须调用 push() */
 class Keyboard: PushView, UITextViewDelegate {
     
+    var default_height: CGFloat { return 160 }
+    
     // MARK: - View Deploy
     
     //deinit {
@@ -42,7 +44,7 @@ class Keyboard: PushView, UITextViewDelegate {
             x: 0,
             y: UIScreen.main.bounds.height,
             width: UIScreen.main.bounds.width,
-            height: 160
+            height: default_height
         )
     }
     
@@ -97,6 +99,10 @@ class Keyboard: PushView, UITextViewDelegate {
             _error_timer?.time = 4
         }
         
+        error_open_animate()
+    }
+    
+    func error_open_animate() {
         let height = self.title.frame.height + self.error.frame.height
         
         let new_title_rect = CGRect(
@@ -120,6 +126,11 @@ class Keyboard: PushView, UITextViewDelegate {
     }
     
     override func timer_finish(total: Int, time: Int, interval: DispatchTimeInterval) {
+        error_close_animate()
+        _error_timer = nil
+    }
+    
+    func error_close_animate() {
         let title_rect = CGRect(
             x: space,
             y: (container.frame.minY - title.frame.height) / 2,
@@ -137,7 +148,6 @@ class Keyboard: PushView, UITextViewDelegate {
             self.title.frame = title_rect
             self.error.frame = error_rect
         }, completion: nil)
-        _error_timer = nil
     }
     
     // MARK: - Input Container
@@ -195,17 +205,6 @@ class Keyboard: PushView, UITextViewDelegate {
         title.frame.origin = CGPoint(x: space, y: (y_cen - title.frame.height) / 2)
         title.frame.size.width = min(x_cen, title.frame.width)
 
-//        error.frame = CGRect(
-//            x: title.frame.maxX + 8,
-//            y: 0,
-//            width: max(x_cen - title.frame.maxX - 8, 0),
-//            height: y_cen
-//        )
-//
-//        title.sizeToFit()
-//        title.frame.origin = CGPoint(x: space, y: 10)
-//        title.frame.size.width = min(x_cen, title.frame.width)
-        
         error.frame = CGRect(
             x: title.frame.minX,
             y: title.frame.maxY,

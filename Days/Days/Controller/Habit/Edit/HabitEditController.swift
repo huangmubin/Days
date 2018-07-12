@@ -30,15 +30,15 @@ class HabitEditController: BaseController, HabitObjectController {
     func load_cards() {
         table.controller = self
         
-        table.cards.append(HabitEditTopCard(id: "Top", height: 80, suspend: true))
-        table.cards.append(HabitEditNameCard(id: "Name", height: 140))
-        table.cards.append(HabitEditFrequencyCard(id: "Frequency", height: 150))
-        table.cards.append(HabitEditUICard(id: "UI", height: 140))
-        table.cards.append(HabitEditGoalCard(id: "Goal", height: 150))
+        table.cards.append(HabitEditTopCard(id: "Top", height: 60, suspend: true))
+        table.cards.append(HabitEditNameCard(id: "Name", height: 120))
+        table.cards.append(HabitEditFrequencyCard(id: "Frequency", height: 130))
+        table.cards.append(HabitEditUICard(id: "UI", height: 120))
+        table.cards.append(HabitEditGoalCard(id: "Goal", height: 130))
         //table.cards.append(HabitEditSpaceCard(id: "Space", height: 140))
-        table.cards.append(HabitEditMessageCard(id: "Message", height: 160))
+        table.cards.append(HabitEditMessageCard(id: "Message", height: 140))
         if habit.obj.id != 0 {
-            table.cards.append(HabitEditMenuCard(id: "Menu", height: 80))
+            table.cards.append(HabitEditMenuCard(id: "Menu", height: 60))
         }
         
         table.reload()

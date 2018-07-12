@@ -82,7 +82,7 @@ class TopView: View {
     
     // MARK: - Title
     
-    var title: UIButton! = Views.Button.title()
+    var title: UIButton! = Views.Button.title(small: "")
     @objc func title_action(_ sender: UIButton) { }
     
     // MARK: - Subtitle

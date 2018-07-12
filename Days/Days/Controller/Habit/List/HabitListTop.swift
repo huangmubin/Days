@@ -26,7 +26,7 @@ class HabitListTop: TopView {
     
     override func view_deploy() {
         super.view_deploy()
-        title.titleLabel?.font = Font.title.s
+        //title.titleLabel?.font = Font.title.s
         title.setTitle("今天", for: .normal)
         left_button.setImage(#imageLiteral(resourceName: "ui_bar_menu"), for: .normal)
         right_button.setImage(#imageLiteral(resourceName: "ui_bar_append"), for: .normal)

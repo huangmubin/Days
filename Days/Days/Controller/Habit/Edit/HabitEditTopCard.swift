@@ -38,4 +38,8 @@ class HabitEditTopCard: CardTopView {
         right.isHidden = habit.obj.name.isEmpty
     }
     
+    override func view_bounds() {
+        super.view_bounds()
+    }
+    
 }
