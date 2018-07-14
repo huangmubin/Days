@@ -34,6 +34,8 @@
 		9C6FA21820CD0BCB00FF2DA9 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6FA21720CD0BCB00FF2DA9 /* Timer.swift */; };
 		9C77E1C820B5A752002CAA25 /* KeyboardDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C77E1C720B5A752002CAA25 /* KeyboardDate.swift */; };
 		9C77E1CA20B70589002CAA25 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C77E1C920B70589002CAA25 /* CollectionView.swift */; };
+		9C7ACE2820F83D1C0071DE38 /* HabitEditCallCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7ACE2720F83D1C0071DE38 /* HabitEditCallCard.swift */; };
+		9C7ACE2A20F8539D0071DE38 /* iSelectorCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7ACE2920F8539D0071DE38 /* iSelectorCombine.swift */; };
 		9C86CD5920BE43DC00062853 /* Impact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86CD5820BE43DC00062853 /* Impact.swift */; };
 		9C86CD5C20BE486400062853 /* HabitBoothController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86CD5B20BE486400062853 /* HabitBoothController.swift */; };
 		9C86CD5E20BE486C00062853 /* HabitBooth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C86CD5D20BE486C00062853 /* HabitBooth.storyboard */; };
@@ -188,6 +190,8 @@
 		9C6FA21720CD0BCB00FF2DA9 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		9C77E1C720B5A752002CAA25 /* KeyboardDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDate.swift; sourceTree = "<group>"; };
 		9C77E1C920B70589002CAA25 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		9C7ACE2720F83D1C0071DE38 /* HabitEditCallCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditCallCard.swift; sourceTree = "<group>"; };
+		9C7ACE2920F8539D0071DE38 /* iSelectorCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iSelectorCombine.swift; sourceTree = "<group>"; };
 		9C86CD5820BE43DC00062853 /* Impact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Impact.swift; sourceTree = "<group>"; };
 		9C86CD5B20BE486400062853 /* HabitBoothController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitBoothController.swift; sourceTree = "<group>"; };
 		9C86CD5D20BE486C00062853 /* HabitBooth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HabitBooth.storyboard; sourceTree = "<group>"; };
@@ -401,6 +405,7 @@
 				9CCE2D2020B94B3F0038457D /* HabitEditMessageCard.swift */,
 				9CF51F6820BCFA5300D48293 /* HabitEditUICard.swift */,
 				9CCE2D2220BA366A0038457D /* HabitEditMenuCard.swift */,
+				9C7ACE2720F83D1C0071DE38 /* HabitEditCallCard.swift */,
 				9CC3586C20CB82D4006ECEF9 /* Default */,
 				9CF51F6A20BD33A400D48293 /* UI */,
 			);
@@ -792,6 +797,7 @@
 			children = (
 				9CFA47BD20B54975004AFD67 /* iDateSelector.swift */,
 				9CFA47BE20B54975004AFD67 /* iSelector.swift */,
+				9C7ACE2920F8539D0071DE38 /* iSelectorCombine.swift */,
 				9CFA47BF20B54975004AFD67 /* iSelector.xib */,
 			);
 			path = Selector;
@@ -1055,6 +1061,7 @@
 				9CFA481E20B55D16004AFD67 /* DiaryUnit.swift in Sources */,
 				9CFA480620B55C97004AFD67 /* EventUnit_SQlite.swift in Sources */,
 				9C86CD6C20BE536A00062853 /* HabitBoothUnitCard.swift in Sources */,
+				9C7ACE2820F83D1C0071DE38 /* HabitEditCallCard.swift in Sources */,
 				9C77E1CA20B70589002CAA25 /* CollectionView.swift in Sources */,
 				9CFA47F320B54975004AFD67 /* Notifiable.swift in Sources */,
 				9CFA47FA20B557C7004AFD67 /* Format.swift in Sources */,
@@ -1093,6 +1100,7 @@
 				9CFA47CE20B54975004AFD67 /* TableViewController.swift in Sources */,
 				9CC3586E20CB82F5006ECEF9 /* HabitEditDefaultController.swift in Sources */,
 				9CF51F6C20BD33CD00D48293 /* HabitEditUIController.swift in Sources */,
+				9C7ACE2A20F8539D0071DE38 /* iSelectorCombine.swift in Sources */,
 				9C86CD5C20BE486400062853 /* HabitBoothController.swift in Sources */,
 				9CFA480E20B55CE3004AFD67 /* DiaryUnit_SQlite.swift in Sources */,
 				9CFA482520B579A6004AFD67 /* Keyboard.swift in Sources */,

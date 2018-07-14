@@ -22,6 +22,7 @@ class HabitEditController: BaseController, HabitObjectController {
         super.viewDidAppear(animated)
         table.card(id: "UI")?.reload()
         table.card(id: "Goal")?.reload()
+        table.card(id: "Call")?.reload()
     }
 
     // MARK: - Card Table
@@ -37,6 +38,7 @@ class HabitEditController: BaseController, HabitObjectController {
         table.cards.append(HabitEditGoalCard(id: "Goal", height: 130))
         //table.cards.append(HabitEditSpaceCard(id: "Space", height: 140))
         table.cards.append(HabitEditMessageCard(id: "Message", height: 140))
+        table.cards.append(HabitEditCallCard(id: "Call", height: 50))
         if habit.obj.id != 0 {
             table.cards.append(HabitEditMenuCard(id: "Menu", height: 60))
         }

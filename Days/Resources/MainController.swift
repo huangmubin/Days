@@ -17,22 +17,14 @@ class MainController: BaseController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        /*
-        let key = Keyboard()
-        key.update(title: "这是一个标题")
-        key.update(text: "这些新的内容可以更新吗？这些新的内容可以更新吗？我最关新的是长度啊。这些新的内容可以更新吗？我最关新的是长度啊。这些新的内容可以更新吗？我最关新的是长度啊。")
-        key.delegate = self
-        key.push()
-        */
-        let key = KeyboardTime()
-        
-        key.delegate = self
-        key.push()
+        time.frame = CGRect(
+            x: 50, y: 100,
+            width: 100,
+            height: 100
+        )
+        view.addSubview(time)
     }
     
-    override func keyboard(_ board: Keyboard) -> String? {
-        print(board.value)
-        return nil
-    }
+    let time = iSelectorCombine.Time()
     
 }
