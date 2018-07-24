@@ -97,8 +97,7 @@ extension HabitListCollect {
             }
             
             // update the bounds
-            
-            view_bounds()
+            self.view_bounds()
         }
         
         // MARK: - View Bounds

@@ -32,6 +32,12 @@ class HabitListTop: TopView {
         right_button.setImage(#imageLiteral(resourceName: "ui_bar_append"), for: .normal)
         
         left_button.isHidden = true
+        
+        swipe_right = UISwipeGestureRecognizer(target: self, action: #selector(swipe_action(_:)))
+        swipe_left  = UISwipeGestureRecognizer(target: self, action: #selector(swipe_action(_:)))
+        swipe_left.direction = .left
+        title.addGestureRecognizer(swipe_right)
+        title.addGestureRecognizer(swipe_left)
     }
     
     // MARK: - Actions
@@ -45,6 +51,7 @@ class HabitListTop: TopView {
                 self.right_button.alpha = 1
             }, completion: nil)
         } else {
+            controller?.days.calendar.view.date = app.date
             controller?.days.reload()
             controller?.days.animation(show: true)
             UIView.animate(withDuration: 0.5, animations: {
@@ -56,6 +63,38 @@ class HabitListTop: TopView {
     
     override func right_action(_ sender: UIButton) {
         self.controller?.performSegue(withIdentifier: "AppendHabit", sender: nil)
+    }
+    
+    // MARK: - Gesture
+    
+    var swipe_right: UISwipeGestureRecognizer!
+    var swipe_left: UISwipeGestureRecognizer!
+    
+    @objc func swipe_action(_ sender: UISwipeGestureRecognizer) {
+        switch sender.direction {
+        case .left:
+            print("left")
+        case .right:
+            print("right")
+        default: break
+        }
+        
+        switch sender.state {
+        case .ended:
+            if sender === swipe_left {
+                app.date = app.date.advance(.day, 1)
+            } else {
+                app.date = app.date.advance(.day, -1)
+            }
+            if controller!.days.is_showing {
+                controller?.days.calendar.view.date = app.date
+                controller?.days.reload()
+            } else {
+                controller?.collect.reloadData()
+                update(date: app.date)                
+            }
+        default: break
+        }
     }
     
 }

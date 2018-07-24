@@ -76,7 +76,7 @@ class HabitListCollect: CollectionView, UICollectionViewDataSource, UICollection
                 UIView.animate(withDuration: 0.25, delay: TimeInterval(indexPath.row) * 0.05, options: UIViewAnimationOptions.curveLinear, animations: {
                     cell.layer.transform = CATransform3DIdentity
                     cell.alpha = 1
-                }, completion: nil)
+                }, completion: nil) 
             }
         }
     }
