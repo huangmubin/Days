@@ -27,6 +27,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        print("")
+        
+        sqlite_open()
+        vc_open()
+        
+        return true
+    }
+    
+    private func sqlite_open() {
         SQLite.default.open()
         
         let control = SQLiteLogsControl()
@@ -35,18 +45,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SQLite.SQLiteLogs.create()
         SQLite.Habit.create()
         SQLite.HabitUnit.create()
-//        SQLite.Event.create()
-//        SQLite.EventUnit.create()
-//        SQLite.Chart.create()
-//        SQLite.ChartUnit.create()
-//        SQLite.Diary.create()
-//        SQLite.DiaryUnit.create()
+        //        SQLite.Event.create()
+        //        SQLite.EventUnit.create()
+        //        SQLite.Chart.create()
+        //        SQLite.ChartUnit.create()
+        //        SQLite.Diary.create()
+        //        SQLite.DiaryUnit.create()
         
         LocalNotification.authorization()
-        
-        return true
     }
 
+    private func vc_open() {
+        var name: String = "HabitList"
+        if let start = UserDefaults.standard.string(forKey: Key.root_storyboard) {
+            name = start
+        } else {
+            UserDefaults.standard.set(name, forKey: Key.root_storyboard)
+        }
+        
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        self.window = window
+        self.window?.rootViewController = UIStoryboard(name: name, bundle: nil).instantiateInitialViewController()
+        window.makeKeyAndVisible()
+    }
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
         SQLite.default.open()
     }

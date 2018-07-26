@@ -10,6 +10,8 @@ import Foundation
 
 class Key {
     
+    static let root_storyboard = "key_root_init_storyboard"
+    
     class Habit {
         static let append = "key_habit_append"
         static let update = "key_habit_update"

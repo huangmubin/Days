@@ -75,8 +75,8 @@
 		9CBC806E20B7FB6400321675 /* HabitEditNameCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC806D20B7FB6400321675 /* HabitEditNameCard.swift */; };
 		9CBC807020B801D300321675 /* HabitEditGoalCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC806F20B801D300321675 /* HabitEditGoalCard.swift */; };
 		9CC3586E20CB82F5006ECEF9 /* HabitEditDefaultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC3586D20CB82F5006ECEF9 /* HabitEditDefaultController.swift */; };
-		9CC8097321072F280001829E /* Sets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC8097221072F280001829E /* Sets.storyboard */; };
-		9CC8097521072F610001829E /* SetsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC8097421072F610001829E /* SetsController.swift */; };
+		9CC8097321072F280001829E /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC8097221072F280001829E /* Menu.storyboard */; };
+		9CC8097521072F610001829E /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC8097421072F610001829E /* MenuController.swift */; };
 		9CC89F3020B423130095625C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC89F2F20B423130095625C /* AppDelegate.swift */; };
 		9CC89F3520B423130095625C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC89F3320B423130095625C /* Main.storyboard */; };
 		9CC89F3720B423140095625C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CC89F3620B423140095625C /* Assets.xcassets */; };
@@ -94,6 +94,8 @@
 		9CF51F6C20BD33CD00D48293 /* HabitEditUIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF51F6B20BD33CD00D48293 /* HabitEditUIController.swift */; };
 		9CF51F6E20BD33F200D48293 /* HabitEditUICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF51F6D20BD33F200D48293 /* HabitEditUICell.swift */; };
 		9CF51F7020BD5BFE00D48293 /* HabitEditSpaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF51F6F20BD5BFE00D48293 /* HabitEditSpaceCard.swift */; };
+		9CF91CB82108732A00AF2440 /* MenuTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF91CB72108732A00AF2440 /* MenuTop.swift */; };
+		9CF91CBA21087A5900AF2440 /* MenuTypeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF91CB921087A5900AF2440 /* MenuTypeCard.swift */; };
 		9CFA478320B5495C004AFD67 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA478220B5495C004AFD67 /* Color.swift */; };
 		9CFA47C520B54975004AFD67 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA478620B54975004AFD67 /* Animation.swift */; };
 		9CFA47C620B54975004AFD67 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA478820B54975004AFD67 /* Button.swift */; };
@@ -233,8 +235,8 @@
 		9CBC806D20B7FB6400321675 /* HabitEditNameCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditNameCard.swift; sourceTree = "<group>"; };
 		9CBC806F20B801D300321675 /* HabitEditGoalCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditGoalCard.swift; sourceTree = "<group>"; };
 		9CC3586D20CB82F5006ECEF9 /* HabitEditDefaultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditDefaultController.swift; sourceTree = "<group>"; };
-		9CC8097221072F280001829E /* Sets.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sets.storyboard; sourceTree = "<group>"; };
-		9CC8097421072F610001829E /* SetsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsController.swift; sourceTree = "<group>"; };
+		9CC8097221072F280001829E /* Menu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
+		9CC8097421072F610001829E /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		9CC89F2C20B423130095625C /* Days.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Days.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC89F2F20B423130095625C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CC89F3420B423130095625C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -254,6 +256,8 @@
 		9CF51F6B20BD33CD00D48293 /* HabitEditUIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditUIController.swift; sourceTree = "<group>"; };
 		9CF51F6D20BD33F200D48293 /* HabitEditUICell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditUICell.swift; sourceTree = "<group>"; };
 		9CF51F6F20BD5BFE00D48293 /* HabitEditSpaceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditSpaceCard.swift; sourceTree = "<group>"; };
+		9CF91CB72108732A00AF2440 /* MenuTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTop.swift; sourceTree = "<group>"; };
+		9CF91CB921087A5900AF2440 /* MenuTypeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTypeCard.swift; sourceTree = "<group>"; };
 		9CFA478220B5495C004AFD67 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		9CFA478620B54975004AFD67 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		9CFA478820B54975004AFD67 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -542,8 +546,10 @@
 		9CC8097121072EFC0001829E /* Sets */ = {
 			isa = PBXGroup;
 			children = (
-				9CC8097221072F280001829E /* Sets.storyboard */,
-				9CC8097421072F610001829E /* SetsController.swift */,
+				9CC8097221072F280001829E /* Menu.storyboard */,
+				9CC8097421072F610001829E /* MenuController.swift */,
+				9CF91CB72108732A00AF2440 /* MenuTop.swift */,
+				9CF91CB921087A5900AF2440 /* MenuTypeCard.swift */,
 			);
 			path = Sets;
 			sourceTree = "<group>";
@@ -983,7 +989,7 @@
 				9C90459020BF937900263762 /* HabitUnitList.storyboard in Resources */,
 				9CC89F3520B423130095625C /* Main.storyboard in Resources */,
 				9C90459220BF938000263762 /* HabitUnitEdit.storyboard in Resources */,
-				9CC8097321072F280001829E /* Sets.storyboard in Resources */,
+				9CC8097321072F280001829E /* Menu.storyboard in Resources */,
 				9CFA47E720B54975004AFD67 /* InputTextView.xib in Resources */,
 				9C8C1CE220E47B2700C84591 /* Timer.storyboard in Resources */,
 				9C25076220B6AFBD00EB2D13 /* HabitList.storyboard in Resources */,
@@ -1000,6 +1006,7 @@
 			files = (
 				9C25077420B6BBFB00EB2D13 /* HabitEditController.swift in Sources */,
 				9C25076420B6B0D200EB2D13 /* HabitListController.swift in Sources */,
+				9CF91CBA21087A5900AF2440 /* MenuTypeCard.swift in Sources */,
 				9CB5B8EB20C639D6009FFE5D /* SQLiteLogs.swift in Sources */,
 				9C8C1CE420E4C87C00C84591 /* TimerTop.swift in Sources */,
 				9CFA47D320B54975004AFD67 /* Ex_Array.swift in Sources */,
@@ -1080,6 +1087,7 @@
 				9C77E1CA20B70589002CAA25 /* CollectionView.swift in Sources */,
 				9CFA47F320B54975004AFD67 /* Notifiable.swift in Sources */,
 				9CFA47FA20B557C7004AFD67 /* Format.swift in Sources */,
+				9CF91CB82108732A00AF2440 /* MenuTop.swift in Sources */,
 				9CFA47C720B54975004AFD67 /* ImageView.swift in Sources */,
 				9CC89F3020B423130095625C /* AppDelegate.swift in Sources */,
 				9CFA47D020B54975004AFD67 /* ViewController.swift in Sources */,
@@ -1108,7 +1116,7 @@
 				9C86CD6220BE4A2800062853 /* HabitBoothCalendarCard.swift in Sources */,
 				9CFA47CC20B54975004AFD67 /* TableViewCell.swift in Sources */,
 				9C9045A420BFEF4600263762 /* HabitUnitEditCountCard.swift in Sources */,
-				9CC8097521072F610001829E /* SetsController.swift in Sources */,
+				9CC8097521072F610001829E /* MenuController.swift in Sources */,
 				9CFA47D520B54975004AFD67 /* Ex_Date.swift in Sources */,
 				9CFA481420B55CF9004AFD67 /* Event.swift in Sources */,
 				9CFA481620B55D00004AFD67 /* EventUnit.swift in Sources */,

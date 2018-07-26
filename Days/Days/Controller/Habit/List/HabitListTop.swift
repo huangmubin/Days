@@ -31,8 +31,6 @@ class HabitListTop: TopView {
         left_button.setImage(#imageLiteral(resourceName: "ui_bar_menu"), for: .normal)
         right_button.setImage(#imageLiteral(resourceName: "ui_bar_append"), for: .normal)
         
-        left_button.isHidden = true
-        
         swipe_right = UISwipeGestureRecognizer(target: self, action: #selector(swipe_action(_:)))
         swipe_left  = UISwipeGestureRecognizer(target: self, action: #selector(swipe_action(_:)))
         swipe_left.direction = .left
@@ -59,6 +57,10 @@ class HabitListTop: TopView {
                 self.right_button.alpha = 0
             }, completion: nil)
         }
+    }
+    
+    override func left_action(_ sender: UIButton) {
+        self.controller?.performSegue(withIdentifier: "Sets", sender: nil)
     }
     
     override func right_action(_ sender: UIButton) {
