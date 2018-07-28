@@ -107,6 +107,7 @@
 		9CCBA754210B1D36007299E0 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCBA753210B1D36007299E0 /* Font.swift */; };
 		9CCBA756210B2478007299E0 /* MainContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCBA755210B2478007299E0 /* MainContent.swift */; };
 		9CCBA758210B2597007299E0 /* ClassFormatMD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCBA757210B2597007299E0 /* ClassFormatMD.swift */; };
+		9CCBA75A210BFDE7007299E0 /* MainDays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCBA759210BFDE7007299E0 /* MainDays.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -212,6 +213,7 @@
 		9CCBA753210B1D36007299E0 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		9CCBA755210B2478007299E0 /* MainContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContent.swift; sourceTree = "<group>"; };
 		9CCBA757210B2597007299E0 /* ClassFormatMD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassFormatMD.swift; sourceTree = "<group>"; };
+		9CCBA759210BFDE7007299E0 /* MainDays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDays.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -640,6 +642,7 @@
 			children = (
 				9CCBA744210B018B007299E0 /* MainController.swift */,
 				9CCBA748210B0479007299E0 /* MainTop.swift */,
+				9CCBA759210BFDE7007299E0 /* MainDays.swift */,
 				9CCBA755210B2478007299E0 /* MainContent.swift */,
 			);
 			path = Main;
@@ -762,6 +765,7 @@
 				9CCBA751210B1C9C007299E0 /* Color.swift in Sources */,
 				9CCBA6EF210AFD71007299E0 /* CardTable.swift in Sources */,
 				9CCBA709210AFD71007299E0 /* Ex_UIStoryboardSegue.swift in Sources */,
+				9CCBA75A210BFDE7007299E0 /* MainDays.swift in Sources */,
 				9CCBA731210AFD71007299E0 /* Bluetooth.swift in Sources */,
 				9CCBA707210AFD71007299E0 /* Ex_UILabel.swift in Sources */,
 				9CCBA6EA210AFD71007299E0 /* CollectionView.swift in Sources */,

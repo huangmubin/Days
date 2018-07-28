@@ -216,3 +216,157 @@ class LocalNotification: NSObject, UNUserNotificationCenterDelegate {
     }
     
 }
+
+
+
+//import UserNotifications
+//
+//class ViewController: UIViewController, UNUserNotificationCenterDelegate {
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        let center = UNUserNotificationCenter.current()
+//        center.delegate = self
+//
+//        // 1. 事件
+//        let done_action = UNNotificationAction(
+//            identifier: "Done_Action",
+//            title: "完成",
+//            options: UNNotificationActionOptions.init(rawValue: 0)
+//        )
+//        let continue_action = UNNotificationAction(
+//            identifier: "Continue_Action",
+//            title: "继续",
+//            options: UNNotificationActionOptions.init(rawValue: 0)
+//        )
+//        let text = UNTextInputNotificationAction(
+//            identifier: "Input",
+//            title: "输入",
+//            options: UNNotificationActionOptions.init(rawValue: 0)
+//        )
+//
+//        // 2. 生成属性
+//        let category = UNNotificationCategory(
+//            identifier: "Return_Notification",
+//            actions: [done_action, continue_action, text],
+//            intentIdentifiers: [],
+//            hiddenPreviewsBodyPlaceholder: "",
+//            options: .customDismissAction
+//        )
+//        // 3. 注册属性
+//        center.setNotificationCategories([category])
+//
+//        // 4. 推送通知
+//        let alert_content = UNMutableNotificationContent()
+//        alert_content.title = "测试通知标题"
+//        alert_content.body  = "测试通知的内容，可以长一点。"
+//        alert_content.userInfo = ["Date": "OK"] // 传递数据
+//        alert_content.categoryIdentifier = "Return_Notification"
+//
+//        // 多久之后进行推送，如果要重复，至少要 60 秒之后
+//        let trigger = UNTimeIntervalNotificationTrigger(
+//            timeInterval: 10,
+//            repeats: false
+//        )
+//
+//        let request = UNNotificationRequest(
+//            identifier: "通知请求",
+//            content: alert_content,
+//            trigger: trigger
+//        )
+//
+//        center.add(request, withCompletionHandler: { (error) in
+//            // 成功添加推送
+//            print("add request success \(String(describing: error))")
+//        })
+//
+//        //        let center = UNUserNotificationCenter.current()
+//        //        // 1. 获取权限
+//        //        /**
+//        //         .badge // 小红点
+//        //         .sound // 声音
+//        //         .alert // 警告
+//        //         .carPlay // 车上播放
+//        //         */
+//        //        center.requestAuthorization(
+//        //            options: [.badge, .sound, .alert],
+//        //            completionHandler: { (granted, error) in // 允许? 错误
+//        //                if granted {
+//        //                    print("允许")
+//        //                } else {
+//        //                    print("拒绝")
+//        //                }
+//        //        })
+//        //
+//        //        // 2. 检查权限
+//        //        center.getNotificationSettings(completionHandler: { (settings) in
+//        //            // 如果不允许，则不应该进行操作
+//        //            guard settings.authorizationStatus == .authorized else {return}
+//        //
+//        //            if settings.badgeSetting == .enabled { print("badgeSetting") }
+//        //            if settings.soundSetting == .enabled { print("soundSetting") }
+//        //            if settings.alertSetting == .enabled { print("alertSetting") }
+//        //        })
+//        //
+//        //        // 3. 推送通知
+//        //        let alert_content = UNMutableNotificationContent()
+//        //        alert_content.title = "测试通知标题"
+//        //        alert_content.body  = "测试通知的内容，可以长一点。"
+//        //        alert_content.sound = UNNotificationSound.default() // 声音
+//        //
+//        //        // 多久之后进行推送，如果要重复，至少要 60 秒之后
+//        //        let trigger = UNTimeIntervalNotificationTrigger(
+//        //            timeInterval: 60,
+//        //            repeats: true
+//        //        )
+//        //
+//        //        let request = UNNotificationRequest(
+//        //            identifier: "通知请求",
+//        //            content: alert_content,
+//        //            trigger: trigger
+//        //        )
+//        //
+//        //
+//        //        center.add(request, withCompletionHandler: { (error) in
+//        //            // 成功添加推送
+//        //            print("add request success \(String(describing: error))")
+//        //        })
+//        //
+//        //        // 移除通知
+//        //        center.removeAllPendingNotificationRequests()
+//        //        center.removePendingNotificationRequests(withIdentifiers: ["通知请求"])
+//    }
+//
+//
+//    // MARK: - UNUserNotificationCenterDelegate
+//
+//    // 接收到通知时应用反馈时的处理
+//    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+//        let info = response.notification.request.content.userInfo
+//        let date = info["Date"] as! String
+//        switch response.actionIdentifier {
+//        case "Continue_Action":
+//            print("Continue_Action return \(date)")
+//        case "Input":
+//            print("Input return \(date)")
+//            if let input = response as? UNTextInputNotificationResponse {
+//                print(input.userText)
+//            }
+//        case "Done_Action":
+//            print("Done_Action return \(date)")
+//        default: break
+//        }
+//        completionHandler()
+//    }
+//
+//    // 接收到通知时应用在前台的处理
+//    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+//        /** 处理通知 */
+//        print("userNotificationCenter \(notification)")
+//        /** 处理完后调用 */
+//        // UNNotificationPresentationOptions(rawValue: 0) 表示不作处理
+//        completionHandler(.alert)
+//    }
+//
+//
+//}

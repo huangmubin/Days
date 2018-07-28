@@ -22,20 +22,31 @@ class MainController: RootController {
         super.loadView()
         view.addSubview(top)
         top.controller = self
+        
+        view.addSubview(days)
+        days.controller = self
+        days.reload()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let width = UIScreen.main.bounds.width
-        //let height = UIScreen.main.bounds.height
+        let height = UIScreen.main.bounds.height
         top.frame = CGRect(
             x: 0, y: UIApplication.shared.statusBarFrame.maxY,
             width: width, height: 60
+        )
+        days.frame = CGRect(
+            x: 0, y: top.frame.maxY,
+            width: top.frame.width,
+            height: height - top.frame.maxY
         )
     }
     
     // MARK: - Views
     
-    var top: MainTop = MainTop()
+    let top: MainTop = MainTop()
+    
+    let days: MainDays = MainDays()
 
 }

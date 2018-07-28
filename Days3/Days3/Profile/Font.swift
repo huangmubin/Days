@@ -9,6 +9,12 @@
 import UIKit
 
 class Font {
+    
+    static let normal: UIFont = Font.regular(20)
+    static let small: UIFont  = Font.regular(12)
+    
+    // MARK: - Tools
+    
     class func ultralight(_ size: CGFloat) -> UIFont {
         return UIFont(name: "PingFangSC-Ultralight", size: size)!
     }

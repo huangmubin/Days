@@ -36,9 +36,9 @@ class MainTop: TopView, UICollectionViewDataSource, UICollectionViewDelegateFlow
     private func update_sub_info(date: Date) {
         var texts = [Int: String]()
         let today = Date()
-        texts[today.date] = "今天"
-        texts[today.advance(.day, -1).date] = "昨天"
-        texts[today.advance(.day, 1).date] = "明天"
+        texts[today.date] = "今天".language
+        texts[today.advance(.day, -1).date] = "昨天".language
+        texts[today.advance(.day, 1).date] = "明天".language
         
         sub_info.text = texts[date.date] ?? ""
     }
