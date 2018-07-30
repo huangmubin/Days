@@ -19,8 +19,9 @@ class RootController: ViewController {
         if UIDevice.iPhone() {
             return .portrait
         } else {
-            return .landscape
+            return .all
         }
     }
+    
 
 }

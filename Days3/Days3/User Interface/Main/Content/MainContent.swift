@@ -29,9 +29,9 @@ class MainContent: View, UITableViewDataSource, UITableViewDelegate {
     override func view_deploy() {
         super.view_deploy()
         self.backgroundColor = Color.white
-        self.layer.cornerRadius = 20
+        self.layer.cornerRadius = App.corner
         self.layer.shadowOffset = CGSize(width: 0, height: 0)
-        self.layer.shadowOpacity = 0.4
+        self.layer.shadowOpacity = App.shadow_opacity
         
         addSubview(table)
         table.register(MainContent.Cell.self, forCellReuseIdentifier: "Cell")

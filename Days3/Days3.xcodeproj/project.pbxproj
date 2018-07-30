@@ -15,6 +15,9 @@
 		9C60F230210DE69400B15A23 /* MainDays_Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60F22F210DE69400B15A23 /* MainDays_Week.swift */; };
 		9C60F232210DE6B100B15A23 /* MainDays_Year.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60F231210DE6B100B15A23 /* MainDays_Year.swift */; };
 		9C60F234210DEBFC00B15A23 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60F233210DEBFC00B15A23 /* MainMenu.swift */; };
+		9C60F237210F50AA00B15A23 /* ProjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60F236210F50AA00B15A23 /* ProjectController.swift */; };
+		9C60F239210F5C8900B15A23 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60F238210F5C8900B15A23 /* App.swift */; };
+		9C60F23B210F71B600B15A23 /* ProjectTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60F23A210F71B600B15A23 /* ProjectTop.swift */; };
 		9C74CDB9210EF845001094A4 /* LabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C74CDB8210EF845001094A4 /* LabelButton.swift */; };
 		9CCBA65F210AFD4E007299E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCBA65E210AFD4E007299E0 /* AppDelegate.swift */; };
 		9CCBA666210AFD50007299E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CCBA665210AFD50007299E0 /* Assets.xcassets */; };
@@ -128,6 +131,9 @@
 		9C60F22F210DE69400B15A23 /* MainDays_Week.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDays_Week.swift; sourceTree = "<group>"; };
 		9C60F231210DE6B100B15A23 /* MainDays_Year.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDays_Year.swift; sourceTree = "<group>"; };
 		9C60F233210DEBFC00B15A23 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		9C60F236210F50AA00B15A23 /* ProjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectController.swift; sourceTree = "<group>"; };
+		9C60F238210F5C8900B15A23 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		9C60F23A210F71B600B15A23 /* ProjectTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTop.swift; sourceTree = "<group>"; };
 		9C74CDB8210EF845001094A4 /* LabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelButton.swift; sourceTree = "<group>"; };
 		9CCBA65B210AFD4E007299E0 /* Days3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Days3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CCBA65E210AFD4E007299E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -265,6 +271,15 @@
 				9C60F22B210DE62A00B15A23 /* MainDays_DayCell.swift */,
 			);
 			path = Days;
+			sourceTree = "<group>";
+		};
+		9C60F235210F506900B15A23 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				9C60F236210F50AA00B15A23 /* ProjectController.swift */,
+				9C60F23A210F71B600B15A23 /* ProjectTop.swift */,
+			);
+			path = Project;
 			sourceTree = "<group>";
 		};
 		9C74CDB7210EF82B001094A4 /* Views */ = {
@@ -683,6 +698,7 @@
 			children = (
 				9C74CDB7210EF82B001094A4 /* Views */,
 				9CCBA747210B01AC007299E0 /* Main */,
+				9C60F235210F506900B15A23 /* Project */,
 			);
 			path = "User Interface";
 			sourceTree = "<group>";
@@ -704,6 +720,7 @@
 			children = (
 				9CCBA750210B1C9C007299E0 /* Color.swift */,
 				9CCBA753210B1D36007299E0 /* Font.swift */,
+				9C60F238210F5C8900B15A23 /* App.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -829,6 +846,7 @@
 				9CCBA716210AFD71007299E0 /* ProgressView.swift in Sources */,
 				9CCBA6F2210AFD71007299E0 /* TableView.swift in Sources */,
 				9CCBA70C210AFD71007299E0 /* CalendarCollection.swift in Sources */,
+				9C60F239210F5C8900B15A23 /* App.swift in Sources */,
 				9CCBA713210AFD71007299E0 /* VarlenaInput.swift in Sources */,
 				9C60F229210DE5D400B15A23 /* MainContent_Cell.swift in Sources */,
 				9CCBA70B210AFD71007299E0 /* Ex_UITextView.swift in Sources */,
@@ -847,6 +865,7 @@
 				9CCBA6EB210AFD71007299E0 /* CollectionViewCell.swift in Sources */,
 				9CCBA734210AFD71007299E0 /* QueueProtocol.swift in Sources */,
 				9CCBA6EE210AFD71007299E0 /* CardSeparator.swift in Sources */,
+				9C60F237210F50AA00B15A23 /* ProjectController.swift in Sources */,
 				9CCBA74F210B1B00007299E0 /* Ex_UIFont.swift in Sources */,
 				9CCBA6F1210AFD71007299E0 /* ScrollView.swift in Sources */,
 				9CCBA72C210AFD71007299E0 /* PushView.swift in Sources */,
@@ -854,6 +873,7 @@
 				9CCBA706210AFD71007299E0 /* Ex_UIImage.swift in Sources */,
 				9CCBA73A210AFD71007299E0 /* KeyValue.swift in Sources */,
 				9C60F22E210DE67300B15A23 /* MainDays_Day.swift in Sources */,
+				9C60F23B210F71B600B15A23 /* ProjectTop.swift in Sources */,
 				9C74CDB9210EF845001094A4 /* LabelButton.swift in Sources */,
 				9CCBA70D210AFD71007299E0 /* CalendarUnitViews.swift in Sources */,
 				9CCBA72B210AFD71007299E0 /* Hint.swift in Sources */,

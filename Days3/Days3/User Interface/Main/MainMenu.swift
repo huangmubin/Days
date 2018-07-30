@@ -16,6 +16,7 @@ class MainMenu: View {
     
     // MARK: - Action
     
+    @discardableResult
     func update(column col: Int) -> CGFloat {
         columns = col
         view_bounds()
@@ -23,7 +24,8 @@ class MainMenu: View {
     }
     
     @objc func user_actions(_ sender: UIButton) {
-        print("user_actions = \(sender.tag) - \(String(describing: (sender as? LabelButton)?.label.text))")
+        //print("user_actions = \(sender.tag) - \(String(describing: (sender as? LabelButton)?.label.text))")
+        controller.view_push(index: sender.tag, sender: sender)
     }
     
     // MARK: - Sub View
@@ -39,7 +41,6 @@ class MainMenu: View {
         [
             LabelButton(image: #imageLiteral(resourceName: "ui_menu_project"), text: "添加项目".language),
             LabelButton(image: #imageLiteral(resourceName: "ui_menu_habit"), text: "相加习惯".language),
-            LabelButton(image: #imageLiteral(resourceName: "ui_menu_habit"), text: "相加习惯".language),
         ],
         [
             LabelButton(image: #imageLiteral(resourceName: "ui_menu_timer"), text: "定时器".language),
@@ -49,28 +50,39 @@ class MainMenu: View {
             LabelButton(image: #imageLiteral(resourceName: "ui_menu_projects"), text: "项目列表".language),
             LabelButton(image: #imageLiteral(resourceName: "ui_menu_habits"), text: "习惯列表".language),
         ],
+        [
+            LabelButton(image: #imageLiteral(resourceName: "ui_menu_deploy"), text: "应用配置".language),
+        ],
     ]
-    var lines: [UIView] = [UIView(), UIView()]
+    var lines: [UIView] = [UIView(), UIView(), UIView()]
     
     // MARK: - View
     
     override func view_deploy() {
         super.view_deploy()
-        self.backgroundColor = UIColor.red
         addSubview(scroll)
+        
         for (s, section) in buttons.enumerated() {
             for (r, button) in section.enumerated() {
                 button.tag = s * 10 + r
+                button.label.font = Font.regular(12)
                 button.addTarget(self, action: #selector(user_actions(_:)), for: .touchUpInside)
-                button.backgroundColor = UIColor.blue
                 scroll.addSubview(button)
             }
         }
+        
         for line in lines {
             line.backgroundColor = Color.gray.light
             line.layer.cornerRadius = 0.5
             scroll.addSubview(line)
         }
+        
+        addSubview(append)
+        append.tag = 1000
+        append.addTarget(self, action: #selector(user_actions(_:)), for: .touchUpInside)
+        
+        clipsToBounds = true
+        scroll.clipsToBounds = false
     }
     
     private var columns: Int = 2
@@ -81,27 +93,28 @@ class MainMenu: View {
             width: (bounds.width - edge.left - edge.right - CGFloat(columns - 1) * 10) / CGFloat(columns),
             height: 60
         )
+        let height = size.height + 10
         var x: CGFloat = edge.left
         var y: CGFloat = edge.top
         
         for (s, section) in buttons.enumerated() {
             for (r, button) in section.enumerated() {
                 x = edge.left + CGFloat(r % columns) * size.width
-                y = y + CGFloat(r / columns) * size.height
                 button.frame = CGRect(
-                    x: x, y: y,
+                    x: x, y: y + CGFloat(r / columns) * height,
                     width: size.width, height: size.height
                 )
             }
-            y = y + size.height
+            y = y + CGFloat((section.count - 1) / columns + 1) * height - 10
             
             if s < lines.count {
                 lines[s].frame = CGRect(
-                    x: edge.left, y: y + 9,
-                    width: bounds.width - edge.left - edge.right,
+                    x: edge.left + bounds.width * 0.05,
+                    y: y + 16,
+                    width: bounds.width * 0.9 - edge.left - edge.right,
                     height: 1
                 )
-                y = y + 19
+                y = y + 33
             }
         }
         
@@ -110,6 +123,18 @@ class MainMenu: View {
             width: bounds.width,
             height: y + edge.bottom
         )
+        
+        append.frame = CGRect(
+            x: (bounds.width - 60) / 2,
+            y: bounds.height - 80,
+            width: 60, height: 60
+        )
+        if columns == 1 {
+            append.isHidden = false
+            scroll.frame.size.height -= 90
+        } else {
+            append.isHidden = true
+        }
     }
     
 }

@@ -11,6 +11,7 @@ import UIKit
 class LabelButton: UIButton {
 
     let label = UILabel()
+    var space: CGFloat = 4
     
     // MARK: - Init
     
@@ -62,10 +63,14 @@ class LabelButton: UIButton {
     
     /** 大小变化 */
     public func view_bounds() {
-        let space = (bounds.width - bounds.height + 20) / 2
-        imageEdgeInsets.left  = space
-        imageEdgeInsets.right = space
-        label.center = CGPoint(x: bounds.width / 2, y: bounds.height - 10)
+        let offset = (bounds.width - bounds.height + imageEdgeInsets.bottom) / 2
+        imageEdgeInsets.left  = offset
+        imageEdgeInsets.right = offset
+        label.frame = CGRect(
+            x: 0, y: bounds.height - imageEdgeInsets.bottom + space,
+            width: bounds.width,
+            height: 20
+        )
     }
 
 }

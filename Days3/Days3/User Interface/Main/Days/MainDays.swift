@@ -52,7 +52,7 @@ class MainDays: View {
         year.frame = CGRect(
             x: 0, y: 0,
             width: bounds.width,
-            height: 60
+            height: App.top_view_height
         )
         week.frame = CGRect(
             x: 10,
