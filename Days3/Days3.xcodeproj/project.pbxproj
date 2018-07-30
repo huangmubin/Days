@@ -15,6 +15,7 @@
 		9C60F230210DE69400B15A23 /* MainDays_Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60F22F210DE69400B15A23 /* MainDays_Week.swift */; };
 		9C60F232210DE6B100B15A23 /* MainDays_Year.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60F231210DE6B100B15A23 /* MainDays_Year.swift */; };
 		9C60F234210DEBFC00B15A23 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60F233210DEBFC00B15A23 /* MainMenu.swift */; };
+		9C74CDB9210EF845001094A4 /* LabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C74CDB8210EF845001094A4 /* LabelButton.swift */; };
 		9CCBA65F210AFD4E007299E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCBA65E210AFD4E007299E0 /* AppDelegate.swift */; };
 		9CCBA666210AFD50007299E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CCBA665210AFD50007299E0 /* Assets.xcassets */; };
 		9CCBA669210AFD50007299E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CCBA667210AFD50007299E0 /* LaunchScreen.storyboard */; };
@@ -127,6 +128,7 @@
 		9C60F22F210DE69400B15A23 /* MainDays_Week.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDays_Week.swift; sourceTree = "<group>"; };
 		9C60F231210DE6B100B15A23 /* MainDays_Year.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDays_Year.swift; sourceTree = "<group>"; };
 		9C60F233210DEBFC00B15A23 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		9C74CDB8210EF845001094A4 /* LabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelButton.swift; sourceTree = "<group>"; };
 		9CCBA65B210AFD4E007299E0 /* Days3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Days3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CCBA65E210AFD4E007299E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CCBA665210AFD50007299E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -263,6 +265,14 @@
 				9C60F22B210DE62A00B15A23 /* MainDays_DayCell.swift */,
 			);
 			path = Days;
+			sourceTree = "<group>";
+		};
+		9C74CDB7210EF82B001094A4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9C74CDB8210EF845001094A4 /* LabelButton.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		9CCBA652210AFD4E007299E0 = {
@@ -671,6 +681,7 @@
 		9CCBA746210B01A5007299E0 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
+				9C74CDB7210EF82B001094A4 /* Views */,
 				9CCBA747210B01AC007299E0 /* Main */,
 			);
 			path = "User Interface";
@@ -843,6 +854,7 @@
 				9CCBA706210AFD71007299E0 /* Ex_UIImage.swift in Sources */,
 				9CCBA73A210AFD71007299E0 /* KeyValue.swift in Sources */,
 				9C60F22E210DE67300B15A23 /* MainDays_Day.swift in Sources */,
+				9C74CDB9210EF845001094A4 /* LabelButton.swift in Sources */,
 				9CCBA70D210AFD71007299E0 /* CalendarUnitViews.swift in Sources */,
 				9CCBA72B210AFD71007299E0 /* Hint.swift in Sources */,
 				9CCBA74B210B04A2007299E0 /* TopView.swift in Sources */,
