@@ -29,6 +29,11 @@ class MainMenu: View {
     
     let scroll: UIScrollView = UIScrollView()
     
+    let buttons: [[UIButton]] = {
+        var views = [[UIButton]]()
+        return views
+    }()
+    
     // MARK: - View
     
     override func view_deploy() {
