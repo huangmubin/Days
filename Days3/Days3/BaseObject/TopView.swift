@@ -12,8 +12,8 @@ class TopView: View {
 
     var edge: UIEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
     
-    let left: UIButton = UIButton(type: UIButtonType.custom)
-    let right: UIButton = UIButton(type: UIButtonType.custom)
+    var left: UIButton = UIButton(type: UIButtonType.system)
+    var right: UIButton = UIButton(type: UIButtonType.system)
     
     @objc func left_action() { }
     @objc func right_action() { }

@@ -14,5 +14,13 @@ class RootController: ViewController {
         super.loadView()
         self.view.backgroundColor = UIColor.white
     }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        if UIDevice.iPhone() {
+            return .portrait
+        } else {
+            return .landscape
+        }
+    }
 
 }

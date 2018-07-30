@@ -23,10 +23,16 @@ class MainTop: TopView, UICollectionViewDataSource, UICollectionViewDelegateFlow
             CGPoint(x: CGFloat(center_index) * date_view.bounds.width, y: 0),
             animated: false
         )
+        update_sub_info(date: date)
+    }
+    
+    func center_action() {
+        controller.view_days(show: true)
     }
     
     override func left_action() {
-        
+        left.isSelected = !left.isSelected
+        controller.view_menu(show: controller.menu.isHidden)
     }
     
     override func right_action() {
@@ -57,7 +63,12 @@ class MainTop: TopView, UICollectionViewDataSource, UICollectionViewDelegateFlow
     
     override func view_deploy() {
         super.view_deploy()
+        edge.bottom = 10
+        
+        left.tintColor = Color.black
+        right.tintColor = Color.black
         left.setImage(#imageLiteral(resourceName: "ui_bar_list"), for: .normal)
+        left.setImage(#imageLiteral(resourceName: "ui_bar_error"), for: .selected)
         right.setImage(#imageLiteral(resourceName: "ui_bar_append"), for: .normal)
         
         addSubview(date_view)
@@ -89,7 +100,7 @@ class MainTop: TopView, UICollectionViewDataSource, UICollectionViewDelegateFlow
         )
         date_view.flow?.itemSize = date_view.frame.size
         
-        let sub_info_y = bounds.height - 20
+        let sub_info_y = bounds.height - 20 - edge.bottom
         sub_info.frame = CGRect(
             x: date_view.frame.minX,
             y: sub_info_y,
@@ -115,6 +126,10 @@ class MainTop: TopView, UICollectionViewDataSource, UICollectionViewDelegateFlow
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        center_action()
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.isDragging {
             let index = Int(scrollView.contentOffset.x / scrollView.bounds.width + 0.5)
@@ -131,7 +146,7 @@ class MainTop: TopView, UICollectionViewDataSource, UICollectionViewDelegateFlow
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let index = Int(scrollView.contentOffset.x / scrollView.bounds.width + 0.5)
         date = date.advance(.day, index - center_index)
-        controller.update(date: date)
+        controller.update(date: date, view: self)
         UIView.animate(withDuration: 0.25, animations: {
             scrollView.contentOffset = CGPoint(x: CGFloat(index) * scrollView.bounds.width, y: 0)
         }, completion: { _ in

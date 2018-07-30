@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C60F224210DB18800B15A23 /* CAAnimation_Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60F223210DB18800B15A23 /* CAAnimation_Ex.swift */; };
+		9C60F227210DE5CB00B15A23 /* MainContent_Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60F226210DE5CB00B15A23 /* MainContent_Status.swift */; };
+		9C60F229210DE5D400B15A23 /* MainContent_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60F228210DE5D400B15A23 /* MainContent_Cell.swift */; };
+		9C60F22C210DE62A00B15A23 /* MainDays_DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60F22B210DE62A00B15A23 /* MainDays_DayCell.swift */; };
+		9C60F22E210DE67300B15A23 /* MainDays_Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60F22D210DE67300B15A23 /* MainDays_Day.swift */; };
+		9C60F230210DE69400B15A23 /* MainDays_Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60F22F210DE69400B15A23 /* MainDays_Week.swift */; };
+		9C60F232210DE6B100B15A23 /* MainDays_Year.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60F231210DE6B100B15A23 /* MainDays_Year.swift */; };
+		9C60F234210DEBFC00B15A23 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60F233210DEBFC00B15A23 /* MainMenu.swift */; };
 		9CCBA65F210AFD4E007299E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCBA65E210AFD4E007299E0 /* AppDelegate.swift */; };
 		9CCBA666210AFD50007299E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CCBA665210AFD50007299E0 /* Assets.xcassets */; };
 		9CCBA669210AFD50007299E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CCBA667210AFD50007299E0 /* LaunchScreen.storyboard */; };
@@ -111,6 +119,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C60F223210DB18800B15A23 /* CAAnimation_Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAAnimation_Ex.swift; sourceTree = "<group>"; };
+		9C60F226210DE5CB00B15A23 /* MainContent_Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContent_Status.swift; sourceTree = "<group>"; };
+		9C60F228210DE5D400B15A23 /* MainContent_Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContent_Cell.swift; sourceTree = "<group>"; };
+		9C60F22B210DE62A00B15A23 /* MainDays_DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDays_DayCell.swift; sourceTree = "<group>"; };
+		9C60F22D210DE67300B15A23 /* MainDays_Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDays_Day.swift; sourceTree = "<group>"; };
+		9C60F22F210DE69400B15A23 /* MainDays_Week.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDays_Week.swift; sourceTree = "<group>"; };
+		9C60F231210DE6B100B15A23 /* MainDays_Year.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDays_Year.swift; sourceTree = "<group>"; };
+		9C60F233210DEBFC00B15A23 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		9CCBA65B210AFD4E007299E0 /* Days3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Days3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CCBA65E210AFD4E007299E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CCBA665210AFD50007299E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -227,6 +243,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C60F225210DE5AA00B15A23 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				9CCBA755210B2478007299E0 /* MainContent.swift */,
+				9C60F228210DE5D400B15A23 /* MainContent_Cell.swift */,
+				9C60F226210DE5CB00B15A23 /* MainContent_Status.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		9C60F22A210DE60600B15A23 /* Days */ = {
+			isa = PBXGroup;
+			children = (
+				9CCBA759210BFDE7007299E0 /* MainDays.swift */,
+				9C60F231210DE6B100B15A23 /* MainDays_Year.swift */,
+				9C60F22F210DE69400B15A23 /* MainDays_Week.swift */,
+				9C60F22D210DE67300B15A23 /* MainDays_Day.swift */,
+				9C60F22B210DE62A00B15A23 /* MainDays_DayCell.swift */,
+			);
+			path = Days;
+			sourceTree = "<group>";
+		};
 		9CCBA652210AFD4E007299E0 = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				9CCBA672210AFD70007299E0 /* Animation.swift */,
+				9C60F223210DB18800B15A23 /* CAAnimation_Ex.swift */,
 				9CCBA673210AFD70007299E0 /* Timer.swift */,
 			);
 			path = Animation;
@@ -642,8 +681,9 @@
 			children = (
 				9CCBA744210B018B007299E0 /* MainController.swift */,
 				9CCBA748210B0479007299E0 /* MainTop.swift */,
-				9CCBA759210BFDE7007299E0 /* MainDays.swift */,
-				9CCBA755210B2478007299E0 /* MainContent.swift */,
+				9C60F233210DEBFC00B15A23 /* MainMenu.swift */,
+				9C60F22A210DE60600B15A23 /* Days */,
+				9C60F225210DE5AA00B15A23 /* Content */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -735,6 +775,7 @@
 				9CCBA6F8210AFD71007299E0 /* SQLite.swift in Sources */,
 				9CCBA72E210AFD71007299E0 /* iSelector.swift in Sources */,
 				9CCBA72A210AFD71007299E0 /* Hint_Progress_List.swift in Sources */,
+				9C60F227210DE5CB00B15A23 /* MainContent_Status.swift in Sources */,
 				9CCBA73C210AFD71007299E0 /* Notifiable.swift in Sources */,
 				9CCBA6FC210AFD71007299E0 /* Ex_Calendar.swift in Sources */,
 				9CCBA738210AFD71007299E0 /* XML.swift in Sources */,
@@ -744,9 +785,11 @@
 				9CCBA71E210AFD71007299E0 /* Hint_Teletext.swift in Sources */,
 				9CCBA6F7210AFD71007299E0 /* ViewController.swift in Sources */,
 				9CCBA758210B2597007299E0 /* ClassFormatMD.swift in Sources */,
+				9C60F230210DE69400B15A23 /* MainDays_Week.swift in Sources */,
 				9CCBA728210AFD71007299E0 /* Hint_Hand.swift in Sources */,
 				9CCBA732210AFD71007299E0 /* Json.swift in Sources */,
 				9CCBA73D210AFD71007299E0 /* Operator.swift in Sources */,
+				9C60F234210DEBFC00B15A23 /* MainMenu.swift in Sources */,
 				9CCBA71A210AFD71007299E0 /* CustomSub.swift in Sources */,
 				9CCBA720210AFD71007299E0 /* Hint_Content_Button.swift in Sources */,
 				9CCBA736210AFD71007299E0 /* Socket.c in Sources */,
@@ -763,8 +806,10 @@
 				9CCBA715210AFD71007299E0 /* Layouter.swift in Sources */,
 				9CCBA6FE210AFD71007299E0 /* Ex_DateFormatter.swift in Sources */,
 				9CCBA751210B1C9C007299E0 /* Color.swift in Sources */,
+				9C60F232210DE6B100B15A23 /* MainDays_Year.swift in Sources */,
 				9CCBA6EF210AFD71007299E0 /* CardTable.swift in Sources */,
 				9CCBA709210AFD71007299E0 /* Ex_UIStoryboardSegue.swift in Sources */,
+				9C60F22C210DE62A00B15A23 /* MainDays_DayCell.swift in Sources */,
 				9CCBA75A210BFDE7007299E0 /* MainDays.swift in Sources */,
 				9CCBA731210AFD71007299E0 /* Bluetooth.swift in Sources */,
 				9CCBA707210AFD71007299E0 /* Ex_UILabel.swift in Sources */,
@@ -774,10 +819,12 @@
 				9CCBA6F2210AFD71007299E0 /* TableView.swift in Sources */,
 				9CCBA70C210AFD71007299E0 /* CalendarCollection.swift in Sources */,
 				9CCBA713210AFD71007299E0 /* VarlenaInput.swift in Sources */,
+				9C60F229210DE5D400B15A23 /* MainContent_Cell.swift in Sources */,
 				9CCBA70B210AFD71007299E0 /* Ex_UITextView.swift in Sources */,
 				9CCBA733210AFD71007299E0 /* Network.swift in Sources */,
 				9CCBA729210AFD71007299E0 /* Hint_Progress.swift in Sources */,
 				9CCBA6E9210AFD71007299E0 /* Button.swift in Sources */,
+				9C60F224210DB18800B15A23 /* CAAnimation_Ex.swift in Sources */,
 				9CCBA721210AFD71007299E0 /* Hint_Content_Error.swift in Sources */,
 				9CCBA71C210AFD71007299E0 /* Hint_Image.swift in Sources */,
 				9CCBA737210AFD71007299E0 /* Socket.swift in Sources */,
@@ -795,6 +842,7 @@
 				9CCBA6FB210AFD71007299E0 /* Ex_Array.swift in Sources */,
 				9CCBA706210AFD71007299E0 /* Ex_UIImage.swift in Sources */,
 				9CCBA73A210AFD71007299E0 /* KeyValue.swift in Sources */,
+				9C60F22E210DE67300B15A23 /* MainDays_Day.swift in Sources */,
 				9CCBA70D210AFD71007299E0 /* CalendarUnitViews.swift in Sources */,
 				9CCBA72B210AFD71007299E0 /* Hint.swift in Sources */,
 				9CCBA74B210B04A2007299E0 /* TopView.swift in Sources */,
