@@ -2,18 +2,19 @@
 //  MainTop.swift
 //  Days3
 //
-//  Created by 黄穆斌 on 2018/7/31.
+//  Created by Myron on 2018/7/27.
 //  Copyright © 2018年 Myron. All rights reserved.
 //
 
 import UIKit
 
 class MainTop: RootTop, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
+
     // MARK: - Values
     
+    weak var controller: MainController!
     var date: Date = Date()
-
+    
     // MARK: - Action
     
     func reload() {
@@ -26,7 +27,7 @@ class MainTop: RootTop, UICollectionViewDataSource, UICollectionViewDelegateFlow
     }
     
     func center_action() {
-        controller.view_sub(show: true)
+        controller.view_days(show: true)
     }
     
     override func left_action() {
@@ -70,9 +71,6 @@ class MainTop: RootTop, UICollectionViewDataSource, UICollectionViewDelegateFlow
         left.setImage(#imageLiteral(resourceName: "ui_bar_error"), for: .selected)
         right.setImage(#imageLiteral(resourceName: "ui_bar_append"), for: .normal)
         
-        image.isHidden = App.is_portrait
-        date_view.isHidden = !image.isHidden
-        
         addSubview(date_view)
         date_view.backgroundColor = UIColor.clear
         date_view.showsHorizontalScrollIndicator = false
@@ -89,7 +87,7 @@ class MainTop: RootTop, UICollectionViewDataSource, UICollectionViewDelegateFlow
             self.reload()
         }
     }
-    
+
     override func view_bounds() {
         super.view_bounds()
         let space: CGFloat = 10
@@ -148,7 +146,7 @@ class MainTop: RootTop, UICollectionViewDataSource, UICollectionViewDelegateFlow
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let index = Int(scrollView.contentOffset.x / scrollView.bounds.width + 0.5)
         date = date.advance(.day, index - center_index)
-        controller.update(date: date, sender: self)
+        controller.update(date: date, view: self)
         UIView.animate(withDuration: 0.25, animations: {
             scrollView.contentOffset = CGPoint(x: CGFloat(index) * scrollView.bounds.width, y: 0)
         }, completion: { _ in

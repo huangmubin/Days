@@ -67,3 +67,38 @@ import Foundation
  }
  
  */
+
+/*
+// MARK: - Load
+
+override func loadView() {
+    super.loadView()
+}
+
+override func viewDidLoad() {
+    super.viewDidLoad()
+    deploy_present()
+}
+
+func view_bounds() {
+
+}
+ 
+override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    present_view.animation(show: false)
+}
+
+// MARK: - View
+
+// MARK: - Action
+
+// MARK: - Animate
+
+let present_view = PresentAnimation()
+
+private func deploy_present() {
+    view.addSubview(present_view)
+    present_view.frame = view.bounds
+}
+    */

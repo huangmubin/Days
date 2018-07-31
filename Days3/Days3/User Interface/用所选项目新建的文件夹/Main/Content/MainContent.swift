@@ -2,17 +2,21 @@
 //  MainContent.swift
 //  Days3
 //
-//  Created by 黄穆斌 on 2018/7/31.
+//  Created by Myron on 2018/7/27.
 //  Copyright © 2018年 Myron. All rights reserved.
 //
 
 import UIKit
 
-class MainContent: RootContent, UITableViewDataSource, UITableViewDelegate {
+class MainContent: View, UITableViewDataSource, UITableViewDelegate {
+
+    // MARK: - Values
+    
+    weak var controller: MainController!
     
     // MARK: - Action
     
-    override func reload() {
+    func reload() {
         table.reloadData()
     }
     
@@ -74,5 +78,6 @@ class MainContent: RootContent, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return section == 0 ? 0 : 60
     }
-
+    
 }
+

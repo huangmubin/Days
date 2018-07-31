@@ -9,12 +9,20 @@
 import UIKit
 
 class ProjectTop: RootTop {
+
+    // MARK: - Values
     
+    weak var controller: ProjectController!
+
     // MARK: - Action
     
     override func left_action() {
-        controller.view_dismiss(sender: left)
+        controller.view_dismiss()
     }
+    
+    // MARK: - Sub View
+    
+    let image: UIImageView = UIImageView()
     
     // MARK: - View
     
@@ -25,12 +33,17 @@ class ProjectTop: RootTop {
         left.setImage(#imageLiteral(resourceName: "ui_bar_error"), for: .normal)
         right.setImage(#imageLiteral(resourceName: "ui_bar_sure"), for: .normal)
         
-        image.image = UIImage(named: "ui_main_push_0")
+        addSubview(image)
     }
     
     override func view_bounds() {
         super.view_bounds()
+        image.frame = CGRect(
+            x: (bounds.width - left.frame.height) / 2,
+            y: edge.top,
+            width: left.frame.height,
+            height: left.frame.height
+        )
     }
     
-
 }

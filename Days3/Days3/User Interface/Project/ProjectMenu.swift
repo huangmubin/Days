@@ -1,5 +1,5 @@
 //
-//  MainMenu.swift
+//  ProjectMenu.swift
 //  Days3
 //
 //  Created by 黄穆斌 on 2018/7/31.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainMenu: RootMenu {
+class ProjectMenu: RootMenu {
 
     override func load_buttons() {
         buttons = [
@@ -27,7 +27,8 @@ class MainMenu: RootMenu {
             [
                 TeletextButton(image: #imageLiteral(resourceName: "ui_menu_deploy"), text: "应用配置".language),
                 ],
-            ]
+        ]
         lines = [UIView(), UIView(), UIView()]
     }
+
 }
