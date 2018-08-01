@@ -13,7 +13,7 @@ import UIKit
 extension MainContent {
     class Cell: TableViewCell {
         
-        let edge: UIEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        let edge: UIEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
         
         let time: UILabel  = UILabel()
         let from: UILabel  = UILabel()

@@ -35,9 +35,9 @@ class MainContent: RootContent, UITableViewDataSource, UITableViewDelegate {
     override func view_bounds() {
         super.view_deploy()
         table.frame = CGRect(
-            x: 10, y: 20,
-            width: bounds.width - 20,
-            height: bounds.height - 40
+            x: edge.left, y: edge.top,
+            width: bounds.width - edge.left - edge.right,
+            height: bounds.height - edge.top - edge.bottom
         )
     }
     

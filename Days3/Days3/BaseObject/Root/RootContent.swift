@@ -14,6 +14,8 @@ class RootContent: View {
     
     weak var controller: RootController!
     
+    var edge: UIEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+    
     // MARK: - Action
     
     func reload() { }
@@ -28,10 +30,6 @@ class RootContent: View {
         self.layer.cornerRadius = App.Content.corner
         self.layer.shadowOffset = CGSize(width: 0, height: 0)
         self.layer.shadowOpacity = App.Content.shadow.opacity
-    }
-    
-    override func view_bounds() {
-        super.view_deploy()
     }
     
 }
